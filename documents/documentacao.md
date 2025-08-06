@@ -67,46 +67,44 @@ Remova este bloco ao final
 ### 4.1. Compreensão do Problema
 #### 4.1.1. Contexto da indústria 
 ## Concorrentes
-A Finnet disputa mercado com empresas como **Vindi**, focada em cobrança recorrente; **CobreBemX**, especializada em gestão de boletos e integrações bancárias; e **Celero**, que automatiza rotinas financeiras como contas a pagar e conciliação. Todas atuam com soluções para empresas de médio e grande porte.
+A Finnet disputa mercado com empresas como **Vindi**, focada em cobrança recorrente; **CobreBemX**, especializada em gestão de boletos e integrações bancárias; e **Celero**, que automatiza rotinas como contas a pagar e conciliação. Também enfrenta concorrência de plataformas como **Asaas** e **Iugu**, que oferecem soluções SaaS voltadas à gestão financeira e integração bancária. No entanto, a Finnet se diferencia por oferecer um portfólio mais amplo e técnico, voltado a empresas de médio e grande porte com alto volume de transações.
 
 ---
 
 ## Modelo de Negócio
-A Finnet é uma empresa que cria sistemas online para ajudar empresas a controlar melhor o dinheiro que entra e sai.  
-Ela vende essas ferramentas como um serviço (**modelo SaaS**), cobrando pelo uso mensal e pelo volume de transações.  
-
-Suas soluções permitem que as empresas:
-- Cobrem clientes
-- Paguem contas
-- Verifiquem se o dinheiro caiu no banco
-- Antecipem recebimentos  
+  A Finnet desenvolve soluções **SaaS** (Software as a Service) para automatizar e integrar processos financeiros empresariais, como:
+  
+- Cobrança de clientes
+- Pagamento de contas
+- Conciliação bancária
+- Antecipação de recebíveis  
 
 Tudo isso funciona integrado aos bancos por meio de tecnologia própria (**API, EDI e RPA**).
 
 ---
 
 ## Tendências do Setor
-O setor avança com **Open Finance**, **Pix** e **IA**, impulsionando a digitalização e a análise preditiva.  
-Empresas buscam soluções integradas, seguras e inteligentes para melhorar o controle financeiro e reduzir a inadimplência.
+O setor avança com o fortalecimento do **Open Finance**, uso **Pix** para transações empresariais e adoção de **IA** para análise preditiva. Além disso, o avanço da regulação do **Banco Central** impulsiona empresas com forte governança e capacidade de integração com sistemas bancários. 
+Assim, as empresas buscam soluções seguras, integradas e inteligentes para melhorar a previsibilidade financeira, reduzir inadimplência e aumentar a eficiência de seus serviços.
 
 ---
 
 ## Forças de Porter
 
 ### Ameaça de novos entrantes
-**Média** – É possível que novas fintechs entrem no mercado, mas é necessário alto conhecimento técnico, integração com bancos e investimento em segurança, o que dificulta a entrada imediata.
+**Média** – Embora o setor atraia startups, a entrada de novos concorrentes é dificultada por barreiras como exigência regulatória (autorização como ITP), integração bancária robusta e investimentos em cibersegurança.
 
 ### Poder de negociação dos fornecedores
-**Baixo** – A Finnet desenvolve suas próprias soluções e depende pouco de fornecedores externos, o que reduz o poder deles.
+**Baixo** – A Finnet desenvolve suas soluções utilizando tecnologia própria (API, EDI, RPA) e depende pouco de fornecedores externos, reduzindo o poder de barganha deles.
 
 ### Poder de negociação dos compradores
-**Alto** – Os clientes da Finnet são empresas grandes, com alto volume de transações. Isso dá a eles poder para exigir preços competitivos e soluções personalizadas.
+**Alto** – Os clientes da Finnet são empresas com grande volume de transações, o que lhes dá força para negociar preços, SLA de atendimento e personalização de serviços.
 
 ### Ameaça de produtos substitutos
-**Média** – Algumas empresas ainda usam planilhas ou ERPs genéricos. Apesar de serem menos eficientes, podem substituir parte das funções da Finnet.
+**Média** –Algumas empresas ainda utilizam planilhas ou ERPs generalistas, mas estes não oferecem o mesmo nível de automação, integração bancária ou controle de risco, o que torna a substituição limitada a casos de baixa complexidade.
 
 ### Rivalidade entre concorrentes existentes
-**Baixa** – A empresa não disputa mercado com muitas empresas, e as que disputam não são tão completas quanto a Finnet.
+**Média** – A Finnet enfrenta concorrência de empresas que oferecem soluções financeiras específicas com propostas de valor enxutas e escaláveis. Ainda assim, sua abordagem mais completa e técnica reduz a sobreposição direta com muitos concorrentes.
 
 #### 4.1.2. Análise SWOT 
 ```

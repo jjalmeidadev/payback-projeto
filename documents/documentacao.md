@@ -66,11 +66,48 @@ Remova este bloco ao final
 ## <a name="c4"></a>4. Desenvolvimento e Resultados
 ### 4.1. Compreensão do Problema
 #### 4.1.1. Contexto da indústria 
-```
-Descreva os principais players, modelos de negócio e tendências acerca dos modelos preditivos.
+## Concorrentes
+A Finnet disputa mercado com empresas como **Vindi**, focada em cobrança recorrente; **CobreBemX**, especializada em gestão de boletos e integrações bancárias; e **Celero**, que automatiza rotinas financeiras como contas a pagar e conciliação. Todas atuam com soluções para empresas de médio e grande porte.
 
-Remova este bloco ao final
-```
+---
+
+## Modelo de Negócio
+A Finnet é uma empresa que cria sistemas online para ajudar empresas a controlar melhor o dinheiro que entra e sai.  
+Ela vende essas ferramentas como um serviço (**modelo SaaS**), cobrando pelo uso mensal e pelo volume de transações.  
+
+Suas soluções permitem que as empresas:
+- Cobrem clientes
+- Paguem contas
+- Verifiquem se o dinheiro caiu no banco
+- Antecipem recebimentos  
+
+Tudo isso funciona integrado aos bancos por meio de tecnologia própria (**API, EDI e RPA**).
+
+---
+
+## Tendências do Setor
+O setor avança com **Open Finance**, **Pix** e **IA**, impulsionando a digitalização e a análise preditiva.  
+Empresas buscam soluções integradas, seguras e inteligentes para melhorar o controle financeiro e reduzir a inadimplência.
+
+---
+
+## Forças de Porter
+
+### Ameaça de novos entrantes
+**Média** – É possível que novas fintechs entrem no mercado, mas é necessário alto conhecimento técnico, integração com bancos e investimento em segurança, o que dificulta a entrada imediata.
+
+### Poder de negociação dos fornecedores
+**Baixo** – A Finnet desenvolve suas próprias soluções e depende pouco de fornecedores externos, o que reduz o poder deles.
+
+### Poder de negociação dos compradores
+**Alto** – Os clientes da Finnet são empresas grandes, com alto volume de transações. Isso dá a eles poder para exigir preços competitivos e soluções personalizadas.
+
+### Ameaça de produtos substitutos
+**Média** – Algumas empresas ainda usam planilhas ou ERPs genéricos. Apesar de serem menos eficientes, podem substituir parte das funções da Finnet.
+
+### Rivalidade entre concorrentes existentes
+**Baixa** – A empresa não disputa mercado com muitas empresas, e as que disputam não são tão completas quanto a Finnet.
+
 #### 4.1.2. Análise SWOT 
 ```
 Posicione aqui sua análise SWOT.

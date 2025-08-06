@@ -72,11 +72,8 @@ Descreva os principais players, modelos de negócio e tendências acerca dos mod
 Remova este bloco ao final
 ```
 #### 4.1.2. Análise SWOT 
-```
-Posicione aqui sua análise SWOT.
 
-Remova este bloco ao final
-```
+<img width="707" height="383" alt="Análise SWOT" src="https://github.com/user-attachments/assets/5f10062d-b64e-4e66-b27d-83cd5ecb03f3" />
 
 #### 4.1.3. Planejamento Geral da Solução
 ```

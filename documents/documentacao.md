@@ -149,11 +149,45 @@ Remova este bloco ao final
 ```
 
 #### 4.1.8 Política de Privacidade
-```
-Posicione aqui sua política de privacidade em acordo com a LGPD
 
-Remova este bloco ao final
-```
+##### Modelo de Política de Privacidade:
+Projeto [NOME DO PROJETO]
+
+##### Informações Gerais 
+
+
+Esta política de privacidade informa como o projeto **[NOME DO PROJETO]**, desenvolvido pelo grupo The Seven, trata os dados pessoais coletados durante o uso da solução. Está em conformidade com a Lei nº 13.709/2018 – LGPD.
+
+##### Dados Coletados
+
+A Finnet forneceu os seguintes dados pessoais:
+ 
+- Id do grupo. 
+- Id do beneficiário. 
+- Data de inclusão do pagamento. 
+- Status do boleto 
+- Data de vencimento da fatura
+- Valor a ser pago pelo beneficiário 
+- Data de pagamento 
+- Nome do banco emissor 
+- Id do pagador
+- CEP do pagador.
+
+Não foram fornecidos dados sensíveis sobre os titulares.
+
+##### Dados coletados automaticamente: 
+
+- Quantidade de acessos do pagador
+- Última data de acesso.
+
+##### Finalidade do Tratamento
+Os dados pessoais coletados serão tratados com as seguintes finalidades:
+
+- Garantir o funcionamento da plataforma, permitindo a análise do comportamento de pagamento e a geração de insights preditivos sobre inadimplência;
+  
+- Elaborar estatísticas e projeções, como score de risco de inadimplência, tendência de pagamento e previsão de recebimentos, para apoiar a tomada de decisões da área financeira da empresa parceira.
+
+A utilização desses dados é permitida de acordo com o artigo 7 da LGPD:
 
 ### 4.2. Compreensão dos Dados
 

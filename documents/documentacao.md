@@ -93,11 +93,39 @@ Remova este bloco ao final
 ```
 
 #### 4.1.5. Matriz de Riscos
-```
-Posicione aqui sua matriz.
 
-Remova este bloco ao final
-```
+![Matriz de riscos](../assets/Matriz_de_risco.png)
+
+##### **Ameaças**:
+
+1. **Previsão imprecisa do fluxo de recebimentos**:
+
+A projeção incorreta do fluxo de caixa pode comprometer diretamente a saúde financeira dos clientes da Finnet, afetando decisões como pagamentos de fornecedores, funcionários, dívidas e investimentos. Uma previsão mal calibrada pode levar a déficits operacionais ou má alocação de recursos.
+
+2. **Erro significativo no score de inadimplência**:
+
+O score de risco de inadimplência orienta decisões cruciais, como concessão de crédito ou prazos de pagamento. Altas taxas de erro neste indicador podem gerar perdas financeiras relevantes, sobretudo em setores onde o risco de crédito é fator-chave, como instituições financeiras, empresas de cobrança e consórcios.
+
+3. **Janela de pagamento subótima**:
+
+Indicar uma janela de pagamento que não considera o comportamento real ou a rotina financeira do devedor (como a data de recebimento de salário) pode reduzir as chances de recebimento, comprometendo a eficácia da cobrança.
+
+4. **Tendência de pagamento classificada incorretamente**:
+
+Uma categorização equivocada do pagador como “em dia”, “com atraso” ou “inadimplente” pode distorcer o perfil de risco atribuído, gerando decisões inadequadas de cobrança ou concessão de crédito.
+
+5. **Dependência excessiva de dados históricos**:
+
+Modelos preditivos baseados unicamente em dados históricos podem falhar diante de mudanças no contexto econômico, comportamental ou regulatório. Essa limitação afeta a capacidade de adaptação do sistema a novos padrões de comportamento dos pagadores.
+
+6. **Baixa aceitação ou adoção da funcionalidade**:
+
+Mesmo que os modelos estejam tecnicamente corretos, a falta de transparência, explicabilidade ou integração com os fluxos do cliente pode gerar desconfiança e baixa adoção. Isso limita o valor percebido da funcionalidade e reduz o impacto do projeto.
+
+7. **Qualidade e atualização insuficiente da base de dados**:
+
+Informações desatualizadas, incompletas ou fora da distribuição esperada comprometem a qualidade das análises geradas. A confiabilidade dos insights depende diretamente da integridade e frescor dos dados utilizados.
+
 
 #### 4.1.6. Personas
 ```

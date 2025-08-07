@@ -65,11 +65,46 @@ Remova este bloco ao final
 ## <a name="c4"></a>4. Desenvolvimento e Resultados
 ### 4.1. Compreensão do Problema
 #### 4.1.1. Contexto da indústria 
-```
-Descreva os principais players, modelos de negócio e tendências acerca dos modelos preditivos.
+## Concorrentes
+A Finnet disputa mercado com empresas como **Vindi**, focada em cobrança recorrente; **CobreBemX**, especializada em gestão de boletos e integrações bancárias; e **Celero**, que automatiza rotinas como contas a pagar e conciliação. Também enfrenta concorrência de plataformas como **Asaas** e **Iugu**, que oferecem soluções SaaS voltadas à gestão financeira e integração bancária. No entanto, a Finnet se diferencia por oferecer um portfólio mais amplo e técnico, voltado a empresas de médio e grande porte com alto volume de transações.
 
-Remova este bloco ao final
-```
+---
+
+## Modelo de Negócio
+  A Finnet desenvolve soluções **SaaS** (Software as a Service) para automatizar e integrar processos financeiros empresariais, como:
+  
+- Cobrança de clientes
+- Pagamento de contas
+- Conciliação bancária
+- Antecipação de recebíveis  
+
+Tudo isso funciona integrado aos bancos por meio de tecnologia própria (**API, EDI e RPA**).
+
+---
+
+## Tendências do Setor
+O setor avança com o fortalecimento do **Open Finance**, uso **Pix** para transações empresariais e adoção de **IA** para análise preditiva. Além disso, o avanço da regulação do **Banco Central** impulsiona empresas com forte governança e capacidade de integração com sistemas bancários. 
+Assim, as empresas buscam soluções seguras, integradas e inteligentes para melhorar a previsibilidade financeira, reduzir inadimplência e aumentar a eficiência de seus serviços.
+
+---
+
+## Forças de Porter
+
+### Ameaça de novos entrantes
+**Média** – Embora o setor atraia startups, a entrada de novos concorrentes é dificultada por barreiras como exigência regulatória (autorização como ITP), integração bancária robusta e investimentos em cibersegurança.
+
+### Poder de negociação dos fornecedores
+**Baixo** – A Finnet desenvolve suas soluções utilizando tecnologia própria (API, EDI, RPA) e depende pouco de fornecedores externos, reduzindo o poder de barganha deles.
+
+### Poder de negociação dos compradores
+**Alto** – Os clientes da Finnet são empresas com grande volume de transações, o que lhes dá força para negociar preços, SLA de atendimento e personalização de serviços.
+
+### Ameaça de produtos substitutos
+**Média** –Algumas empresas ainda utilizam planilhas ou ERPs generalistas, mas estes não oferecem o mesmo nível de automação, integração bancária ou controle de risco, o que torna a substituição limitada a casos de baixa complexidade.
+
+### Rivalidade entre concorrentes existentes
+**Média** – A Finnet enfrenta concorrência de empresas que oferecem soluções financeiras específicas com propostas de valor enxutas e escaláveis. Ainda assim, sua abordagem mais completa e técnica reduz a sobreposição direta com muitos concorrentes.
+
 #### 4.1.2. Análise SWOT 
 
 <img width="707" height="383" alt="Análise SWOT" src="https://github.com/user-attachments/assets/5f10062d-b64e-4e66-b27d-83cd5ecb03f3" />

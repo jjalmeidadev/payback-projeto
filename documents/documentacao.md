@@ -126,6 +126,38 @@ Mesmo que os modelos estejam tecnicamente corretos, a falta de transparência, e
 
 Informações desatualizadas, incompletas ou fora da distribuição esperada comprometem a qualidade das análises geradas. A confiabilidade dos insights depende diretamente da integridade e frescor dos dados utilizados.
 
+##  Oportunidades
+
+Abaixo estão as principais oportunidades identificadas para o projeto de POC de inadimplência preditiva na Finnet, classificadas por impacto e probabilidade.
+
+---
+
+
+
+1. **Melhorar a previsão de inadimplência para reduzir perdas**  
+É o objetivo central da POC. Com bons dados, a previsão de inadimplência evita perdas financeiras diretas para os clientes, agregando valor imediato à solução.
+
+2. **Aumentar a eficiência na cobrança (agindo no momento certo)**  
+Com uma boa previsão, é possível antecipar ações de cobrança no momento ideal, o que aumenta a taxa de sucesso no recebimento.
+
+3. **Facilitar a tomada de decisão dos gestores financeiros**  
+Um dashboard simples com insights preditivos já melhora significativamente a rotina e o desempenho dos gestores financeiros.
+
+
+
+4. **Melhorar a satisfação dos clientes por oferecer informações mais úteis**  
+Entregar dados preditivos relevantes aumenta o valor percebido da solução e contribui para uma melhor experiência de uso.
+
+5. **Melhoria de processos internos**  
+A própria Finnet pode aplicar os resultados da POC para otimizar seus produtos e processos. A aplicação é simples, mas o impacto é mais localizado.
+
+
+6. **Diferenciação competitiva no mercado de gestão de recebíveis**  
+Caso a solução final seja bem posicionada e entregue resultados sólidos, a Finnet pode se destacar no mercado por oferecer recursos preditivos avançados.
+
+7. **Atrair novos clientes interessados em ferramentas preditivas**  
+Com a entrega de uma solução robusta e inovadora, existe potencial para gerar novas oportunidades comerciais, especialmente com empresas que valorizam inteligência de dados.
+
 
 #### 4.1.6. Personas
 ```

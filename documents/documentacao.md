@@ -128,12 +128,6 @@ Informações desatualizadas, incompletas ou fora da distribuição esperada com
 
 ##  Oportunidades
 
-Abaixo estão as principais oportunidades identificadas para o projeto de POC de inadimplência preditiva na Finnet, classificadas por impacto e probabilidade.
-
----
-
-
-
 1. **Melhorar a previsão de inadimplência para reduzir perdas**  
 É o objetivo central da POC. Com bons dados, a previsão de inadimplência evita perdas financeiras diretas para os clientes, agregando valor imediato à solução.
 

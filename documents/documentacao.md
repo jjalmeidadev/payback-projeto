@@ -121,11 +121,85 @@ Remova este bloco ao final
 ```
 
 #### 4.1.4. Value Proposition Canvas
-```
-Posicione aqui seu canvas.
 
-Remova este bloco ao final
-```
+&nbsp;&nbsp;&nbsp;&nbsp; Com objetivo de alinhar a oferta do produto ou serviço com as necessidades e expectativas da Finnet, foi desenvolvido o Canva Proposta de Valor da solução. Ele visa assegurar que a equipe entregue valor genuíno, compreendendo profundamente o perfil do cliente e como a proposta resolve suas dores e proporciona ganhos reais para a empresa parceira.
+
+<div align="center">
+<sub>Figura 1: Canva Proposta de Valor.</sub>
+</div>
+<div align="center">
+<img src="../assets/CanvaValue.png">
+</div>
+
+<div align="center">
+<sub>Fonte: Material produzido pela equipe, 2025.</sub>
+</div>
+
+Através da análise realizada pela equipe, identificamos que a solução deve entregar como:
+
+#### Solução
+
+##### Produtos e Serviços
+
+Uma POC integrada à plataforma de cobranças Finnet que fornece, com base em dados fornecidos pelo parceiro:
+
+- Score de risco de inadimplência.
+
+- Projeção de inadimplência (% e valores) por período
+
+- Tendência de pagamento (em dia, atraso, inadimplente).
+
+- Melhor data de vencimento para cada pagador.
+
+- Projeção de recebimentos no período analisado.
+
+Essas informações devem ser geradas por meio de uma Inteligência Artificial preditiva, capaz de analisar os dados dos clientes da Finnet, identificar padrões comportamentais e entregar as estatísticas solicitadas pelo parceiro.
+
+
+##### Aliviadores de Dores
+
+- Automatização da análise de risco, comportamento de pagamento.
+- Redução do tempo e esforço necessários para análise de inadimplência e dados recebidos.
+- Melhora nas decisões e estratégias de cobrança.
+- Apoio na negociação de prazos e decisões financeiras baseadas em dados reais.
+
+##### Criadores de Ganhos
+
+- Melhora nas datas de vencimento.
+- Maior autonomia e assertividade do time financeiro na tomada de decisões.
+- Melhora na projeção de recebimentos.
+- Otimização das estratégias de cobrança.
+
+#### Empresa
+
+##### Dores
+
+- Dificuldade na tomada de decisões em relação a inadimplência, um  problema crescente no mercado nacional.
+- Falta de informações sobre tendência de pagamento causam impacto no fluxo de recebimentos das instituições parceira.
+- Decisões pouco embasadas sobre prazos e estratégias de cobrança.
+- Alto tempo gasto para analisar dados de recebíveis.
+
+##### Ganhos
+
+- Maior estabilidade e previsibilidade financeira.
+- Melhor janela para vencimento e cobrança.
+- Redução de inadimplência.
+- Proporcionar autonomia na tomada de decisões ao gestor da área financeira.
+- Adicionar valor ao produto oferecido ao mercado.
+- Aumento dos pagamentos em dia.
+
+##### Tarefas do Cliente
+
+- Melhorar a projeção de recebimentos.
+- Ajustar datas de vencimento com base em dados.
+- Prever inadimplência de clientes/pagadores.
+- Estar informado sobre a tendência de pagamento, para evitar impacto no fluxo de recebimentos.
+
+
+
+
+
+
 
 #### 4.1.5. Matriz de Riscos
 ```

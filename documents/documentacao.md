@@ -107,7 +107,8 @@ Assim, as empresas buscam soluções seguras, integradas e inteligentes para mel
 
 #### 4.1.2. Análise SWOT 
 
-<img width="707" height="383" alt="Análise SWOT" src="https://github.com/user-attachments/assets/5f10062d-b64e-4e66-b27d-83cd5ecb03f3" />
+<img width="1920" height="1080" alt="Visual Chart Page Iteration 6" src="https://github.com/user-attachments/assets/db5bcd72-7b5c-4c38-9d5c-44a3b9669f0a" />
+
 
 #### 4.1.3. Planejamento Geral da Solução
 ```

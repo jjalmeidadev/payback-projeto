@@ -111,15 +111,25 @@ Assim, as empresas buscam soluções seguras, integradas e inteligentes para mel
 
 
 #### 4.1.3. Planejamento Geral da Solução
-```
-a) quais os dados disponíveis (fonte e conteúdo - exemplo: dados da área de Compras da empresa descrevendo seus fornecedores).
-b) qual a solução proposta (pode ser um resumo do texto da Seção 2.2).
-c) como a solução proposta deverá ser utilizada.
-d) quais os benefícios trazidos pela solução proposta.
-e) qual será o critério de sucesso.
 
-Remova este bloco ao final
-```
+O modelo é alimentado por uma base de dados de pagadores com vencimentos em maio, contendo informações históricas de boletos, status de liquidação, datas de vencimento, bancos emissores, endereços dos devedores, dados dos recebedores, além do histórico de interações entre pagadores e a instituição, como número e data dos contactações.
+Com essa base de dados estabelecida o modelo propõe fornecer ao cliente utilizador do serviço, dados de predição que auxiliem na tomada de ações sobre inadimplência, como o score de risco de inadimplência, tendência de pagamento das cobranças, previsão de valores de recebimento dentro do período e a melhor janela de pagamento provável.
+A solução será oferecida inicialmente como uma **POC (Prova de Conceito)** para integração em plataformas de emissão de cobranças e gestão de recebíveis de instituições financeiras ou com alto volume de pagadores . O produto será disponibilizado por um script em python, para que gestores financeiros possam acessar os insights preditivos diretamente em seu fluxo de trabalho. Futuramente, o objetivo é incorporar a solução de forma nativa dentro do ecossistema digital da empresa, permitindo automações baseadas nas predições e visualizações em tempo real.
+
+Benefício esperados da solução:
+- **Redução do risco de inadimplência**, permitindo aos gestores anteverem possíveis atrasos ou não pagamentos.
+- **Aumento da eficiência operacional**, ao permitir uma priorização mais estratégica de cobranças e renegociações.
+- **Melhor previsibilidade de fluxo de caixa**, com projeções de recebimentos mais assertivas.
+- **Aprimoramento da comunicação com o cliente final**, com base na análise de histórico de pagamentos e interações.
+- **Valor agregado à plataforma da parceira, destacando a empresa como fornecedora de soluções financeiras com inteligência preditiva de ponta.
+
+O sucesso da solução será medido por meio dos seguintes critérios:
+- **Acurácia das predições**: Porcentagem de assertividade nas projeções de inadimplência satisfatória, conforme métricas definidas durante o desenvolvimento.
+- **Usabilidade e aderência**: validação positiva por parte dos stakeholders e usuários-chave (gerentes financeiros e coordenadores de contas a receber) durante testes e apresentações.
+- **Relevância dos insights**: feedback qualitativo dos usuários demonstrando utilidade prática para tomadas de decisão reais.
+- **Viabilidade de escalabilidade**: capacidade técnica de aplicar o modelo a diferentes clientes e setores com níveis mínimos de customização.
+- **Níveis de segurança compatíveis com a LGPD**: o tratamento de dados pessoais deverá respeitar os princípios da Lei Geral de Proteção de Dados (LGPD)
+
 
 #### 4.1.4. Value Proposition Canvas
 ```

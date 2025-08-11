@@ -103,7 +103,8 @@ Assim, as empresas buscam soluções seguras, integradas e inteligentes para mel
 **Média** –Algumas empresas ainda utilizam planilhas ou ERPs generalistas, mas estes não oferecem o mesmo nível de automação, integração bancária ou controle de risco, o que torna a substituição limitada a casos de baixa complexidade.
 
 ### Rivalidade entre concorrentes existentes
-**Média** – A Finnet enfrenta concorrência de empresas que oferecem soluções financeiras específicas com propostas de valor enxutas e escaláveis. Ainda assim, sua abordagem mais completa e técnica reduz a sobreposição direta com muitos concorrentes.
+**Alta**
+No segmento financeiro, a competição é intensa. Existem muitas fintechs oferecendo serviços similares, mas a Finnet se destaca pelo nível de automação, parcerias estratégicas e integração com o ecossistema bancário.
 
 #### 4.1.2. Análise SWOT 
 

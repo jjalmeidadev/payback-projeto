@@ -112,22 +112,25 @@ Assim, as empresas buscam soluções seguras, integradas e inteligentes para mel
 
 #### 4.1.3. Planejamento Geral da Solução
 
-O modelo é alimentado por uma base de dados de pagadores com vencimentos em maio, contendo informações históricas de boletos, status de liquidação, datas de vencimento, bancos emissores, endereços dos devedores, dados dos recebedores, além do histórico de interações entre pagadores e a instituição, como número e data dos contactações.
-Com essa base de dados estabelecida o modelo propõe fornecer ao cliente utilizador do serviço, dados de predição que auxiliem na tomada de ações sobre inadimplência, como o score de risco de inadimplência, tendência de pagamento das cobranças, previsão de valores de recebimento dentro do período e a melhor janela de pagamento provável.
-A solução será oferecida inicialmente como uma **POC (Prova de Conceito)** para integração em plataformas de emissão de cobranças e gestão de recebíveis de instituições financeiras ou com alto volume de pagadores . O produto será disponibilizado por um script em python, para que gestores financeiros possam acessar os insights preditivos diretamente em seu fluxo de trabalho. Futuramente, o objetivo é incorporar a solução de forma nativa dentro do ecossistema digital da empresa, permitindo automações baseadas nas predições e visualizações em tempo real.
+A solução é baseada em uma base de dados de pagadores, contendo histórico de boletos, status de liquidação, datas de vencimento, bancos emissores, endereços dos devedores, dados dos recebedores e registros de interações anteriores entre pagadores e a instituição, como número e data dos contatos realizados.
 
-Benefício esperados da solução:
-- **Redução do risco de inadimplência**, permitindo aos gestores anteverem possíveis atrasos ou não pagamentos.
-- **Aumento da eficiência operacional**, ao permitir uma priorização mais estratégica de cobranças e renegociações.
+A partir dessa base, será desenvolvido um modelo preditivo que fornecerá aos clientes da Finnet insights como: score de risco de inadimplência, tendência de pagamento, previsão de recebimentos no período e a melhor janela provável de pagamento. Esses dados preditivos visam apoiar decisões estratégicas em processos de cobrança e gestão financeira.
+
+Inicialmente, a solução será disponibilizada como uma **Prova de Conceito (POC)** para integração na plataforma Luna, utilizada para emissão de cobranças e gestão de recebíveis por instituições financeiras ou empresas com alto volume de transações. O produto será entregue por meio de um script em Python, possibilitando que gestores financeiros acessem os insights preditivos diretamente em seu fluxo de trabalho.
+Em fases futuras, a solução será incorporada de forma nativa na plataforma, permitindo automações com base nas predições e visualizações em tempo real.
+
+##### Benefício esperados da solução:
+- **Redução do risco de inadimplência**, garantindo uma maior previsibilidade de comportamento dos pagadores.
+- **Aumento da eficiência operacional**, ao priorizar estratégias de cobranças e renegociações.
 - **Melhor previsibilidade de fluxo de caixa**, com projeções de recebimentos mais assertivas.
-- **Aprimoramento da comunicação com o cliente final**, com base na análise de histórico de pagamentos e interações.
-- **Valor agregado à plataforma da parceira, destacando a empresa como fornecedora de soluções financeiras com inteligência preditiva de ponta.
+- **Aprimoramento da comunicação com o cliente final**, baseada em dados históricos e interações anteriores.
+- **Valor agregado à plataforma da parceira**, posicionando a empresa como fornecedora de soluções financeiras com inteligência preditiva.
 
-O sucesso da solução será medido por meio dos seguintes critérios:
+##### O sucesso da solução será medido por meio dos seguintes critérios:
 - **Acurácia das predições**: Porcentagem de assertividade nas projeções de inadimplência satisfatória, conforme métricas definidas durante o desenvolvimento.
 - **Usabilidade e aderência**: validação positiva por parte dos stakeholders e usuários-chave (gerentes financeiros e coordenadores de contas a receber) durante testes e apresentações.
-- **Relevância dos insights**: feedback qualitativo dos usuários demonstrando utilidade prática para tomadas de decisão reais.
-- **Viabilidade de escalabilidade**: capacidade técnica de aplicar o modelo a diferentes clientes e setores com níveis mínimos de customização.
+- **Relevância dos insights**: feedback qualitativo dos usuários demonstrando utilidade prática para tomadas de decisões reais.
+- **Viabilidade de escalabilidade**: capacidade técnica de aplicar o modelo a diferentes clientes e setores com necessidade mínima de customização.
 - **Níveis de segurança compatíveis com a LGPD**: o tratamento de dados pessoais deverá respeitar os princípios da Lei Geral de Proteção de Dados (LGPD)
 
 

@@ -93,8 +93,21 @@ Remova este bloco ao final
 ```
 
 #### 4.1.5. Matriz de Riscos
+**introdução**
+  A matriz de risco é uma ferramenta visual utilizada para identificar, classificar e priorizar riscos ou oportunidades com base na probabilidade de ocorrência e no impacto que podem causar no projeto ou na organização. Ela permite que as equipes tomem decisões mais assertivas, direcionando esforços para lidar primeiro com os pontos mais críticos.
+No caso do nosso projeto, a matriz foi aplicada para mapear oportunidades relacionadas à previsão de inadimplência e à melhoria da gestão de recebíveis da Finnet. Os riscos e oportunidades foram posicionados nos quadrantes de acordo com sua probabilidade (Alta, Média ou Baixa) e impacto (Alto, Médio ou Baixo).
+Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a melhoria na previsão de inadimplência para reduzir perdas, já que isso afeta diretamente a eficiência na cobrança e os resultados financeiros.
+
+
+
+
 
 ![Matriz de riscos](../assets/Matriz_de_risco.png)
+
+**finalização**
+
+ A aplicação da matriz de risco no projeto permitiu priorizar as ações de maior relevância. O uso dessa ferramenta também ajudou a alinhar a equipe sobre quais oportunidades precisam ser exploradas com mais urgência e quais riscos devem ser monitorados.
+
 
 ##### **Ameaças**:
 

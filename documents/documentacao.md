@@ -83,28 +83,30 @@ Tudo isso funciona integrado aos bancos por meio de tecnologia própria (**API, 
 ---
 
 ## Tendências do Setor
-O setor avança com o fortalecimento do **Open Finance**, uso **Pix** para transações empresariais e adoção de **IA** para análise preditiva. Além disso, o avanço da regulação do **Banco Central** impulsiona empresas com forte governança e capacidade de integração com sistemas bancários. 
-Assim, as empresas buscam soluções seguras, integradas e inteligentes para melhorar a previsibilidade financeira, reduzir inadimplência e aumentar a eficiência de seus serviços.
+O setor financeiro avança com o fortalecimento do **Open Finance**, que amplia o acesso e compartilhamento seguro de dados, e com o uso crescente do **Pix** para agilizar transações empresariais. A adoção da **inteligência artificial (IA)** para análise preditiva tem aprimorado a gestão de riscos e a tomada de decisões. Paralelamente, as novas regulamentações do Banco Central estimulam empresas a investirem em governança sólida e em sistemas integrados que se conectam de forma eficiente ao ambiente bancário.
+
+Diante desse cenário, as empresas buscam cada vez mais soluções seguras, integradas e inteligentes, visando melhorar a previsibilidade financeira, reduzir a inadimplência e otimizar a eficiência dos seus serviços, acompanhando as demandas do mercado e a evolução tecnológica.
 
 ---
 
-## Forças de Porter
+## 5 Forças de Porter
+
+As 5 forças de Porter são um framework estratégico utilizado para analisar o setor em que a empresa atua, permitindo uma compreensão aprofundada do ambiente competitivo. Essa ferramenta oferece uma visão detalhada dos fatores que influenciam a rentabilidade e a dinâmica do mercado, proporcionando uma imersão mais completa no contexto em que a empresa está inserida.
 
 ### Ameaça de novos entrantes
-**Média** – Embora o setor atraia startups, a entrada de novos concorrentes é dificultada por barreiras como exigência regulatória (autorização como ITP), integração bancária robusta e investimentos em cibersegurança.
+**Média** – Embora o setor seja atraente para startups, a entrada de novos concorrentes enfrenta barreiras significativas, como exigências regulatórias rigorosas, incluindo a necessidade de autorização como Instituição de Transação de Pagamento (ITP), a demanda por integração bancária sólida e investimentos substanciais em cibersegurança. Essas condições elevam o nível de complexidade e custo para novos entrantes, protegendo as empresas já estabelecidas.
 
 ### Poder de negociação dos fornecedores
-**Baixo** – A Finnet desenvolve suas soluções utilizando tecnologia própria (API, EDI, RPA) e depende pouco de fornecedores externos, reduzindo o poder de barganha deles.
+**Baixo** – A Finnet desenvolve suas soluções com base em tecnologia própria, incorporando recursos como APIs para integração ágil entre sistemas, EDI para a troca eletrônica estruturada de dados e RPA para a automação de processos repetitivos. Essa abordagem interna reduz significativamente a necessidade de recorrer a fornecedores externos, o que diminui seu poder de barganha e garante maior controle sobre prazos, custos e qualidade das entregas.
 
 ### Poder de negociação dos compradores
-**Alto** – Os clientes da Finnet são empresas com grande volume de transações, o que lhes dá força para negociar preços, SLA de atendimento e personalização de serviços.
+**Alto** – Os clientes da Finnet são, em sua maioria, empresas de grande porte que realizam um elevado volume de transações financeiras diariamente. Esse perfil lhes confere maior poder de negociação, permitindo discutir de forma mais favorável aspectos como políticas de preços, prazos e níveis de serviço (SLA), além de exigir um grau elevado de personalização das soluções para atender necessidades específicas de integração, automação e segurança.
 
 ### Ameaça de produtos substitutos
-**Média** –Algumas empresas ainda utilizam planilhas ou ERPs generalistas, mas estes não oferecem o mesmo nível de automação, integração bancária ou controle de risco, o que torna a substituição limitada a casos de baixa complexidade.
+**Média** – Algumas empresas ainda recorrem ao uso de planilhas ou ERPs generalistas para gerir suas operações financeiras. No entanto, essas ferramentas costumam apresentar limitações significativas, como a baixa capacidade de automação de processos, integração bancária restrita e mecanismos de controle de risco pouco robustos. Por conta dessas deficiências, sua substituição por soluções mais completas tende a ocorrer apenas em cenários de menor complexidade operacional, nos quais o volume de transações e a necessidade de conformidade regulatória são reduzidos.
 
 ### Rivalidade entre concorrentes existentes
-**Alta**
-No segmento financeiro, a competição é intensa. Existem muitas fintechs oferecendo serviços similares, mas a Finnet se destaca pelo nível de automação, parcerias estratégicas e integração com o ecossistema bancário.
+**Alta** - No segmento financeiro, a concorrência é acirrada, com inúmeras fintechs disputando espaço e oferecendo soluções semelhantes. Apesar desse cenário competitivo, a Finnet se diferencia por entregar um alto nível de automação, capaz de otimizar processos e reduzir custos operacionais para seus clientes. Além disso, mantém parcerias estratégicas que ampliam seu alcance e fortalecem seu portfólio de serviços, ao mesmo tempo em que garante uma integração sólida e eficiente com o ecossistema bancário, assegurando conformidade regulatória, agilidade nas transações e maior segurança nas operações.
 
 #### 4.1.2. Análise SWOT 
 

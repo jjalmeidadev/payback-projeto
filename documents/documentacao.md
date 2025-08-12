@@ -108,8 +108,31 @@ No segmento financeiro, a competição é intensa. Existem muitas fintechs ofere
 
 #### 4.1.2. Análise SWOT 
 
+# Introdução à Análise SWOT
+
+A realização de uma análise SWOT identificando Forças, Fraquezas, Oportunidades e Ameaças é essencial para estruturar com eficácia o 
+desenvolvimento de um modelo preditivo em parceria com a Finnet Tecnologias. Essa metodologia estratégica oferece um panorama claro do
+posicionamento da empresa, permitindo o alinhamento do projeto aos seus pontos fortes, desafios internos e ao contexto competitivo do mercado financeiro.
+
+
+
 <img width="1920" height="1080" alt="Visual Chart Page Iteration 6" src="https://github.com/user-attachments/assets/db5bcd72-7b5c-4c38-9d5c-44a3b9669f0a" />
 
+
+
+Com essa base, a análise SWOT pode orientar o projeto de modelo preditivo ao explorar:
+
+Forças: expertise consolidada em integração com ERPs, robustez das soluções multibanco/multiempresas e pioneirismo em produtos como Bolepix e Open Finance.
+
+Fraquezas: possíveis pontos de fragilidade podem incluir dependência de infraestrutura legada dos clientes, ciclos de adoção de inovações e a necessidade de customização intensa para diferentes ERPs e setores.
+
+Oportunidades: o crescente ambiente regulatório e de inovação em pagamentos digitais, expansão do ecossistema Open Finance e potencial de uso de dados para previsão de inadimplência, comportamento de pagamentos ou risco na cadeia de fornecedores.
+
+Ameaças: concorrência crescente de fintechs e grandes provedores de serviços financeiros, mudanças regulatórias rápidas e riscos relacionados à segurança da informação e conformidade com LGPD.
+
+# Conclusão da Análise SWOT
+
+Ao analisar essas dimensões, torna-se possível estruturar um modelo preditivo direcionado a maximizar os benefícios para a Finnet, como o aprimoramento na tomada de decisões financeiras, a antecipação de possíveis riscos e o incremento na personalização das soluções oferecidas. Dessa forma, garante-se que o projeto não apenas esteja alinhado às diretrizes estratégicas da Finnet, mas também promova um impacto substancial e sustentável em longo prazo.
 
 #### 4.1.3. Planejamento Geral da Solução
 

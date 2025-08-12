@@ -144,9 +144,19 @@ Remova este bloco ao final
 
 #### 4.1.5. Matriz de Riscos
 
+## introdução
+
+A matriz de risco é uma ferramenta visual utilizada para identificar, classificar e priorizar riscos ou oportunidades com base na probabilidade de ocorrência e no impacto que podem causar no projeto ou na organização. Ela permite que as equipes tomem decisões mais assertivas, direcionando esforços para lidar primeiro com os pontos mais críticos.
+No caso do nosso projeto, a matriz foi aplicada para mapear oportunidades relacionadas à previsão de inadimplência e à melhoria da gestão de recebíveis da Finnet. Os riscos e oportunidades foram posicionados nos quadrantes de acordo com sua probabilidade (Alta, Média ou Baixa) e impacto (Alto, Médio ou Baixo).
+Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a melhoria na previsão de inadimplência para reduzir perdas, já que isso afeta diretamente a eficiência na cobrança e os resultados financeiros.
+
 ![Matriz de riscos](../assets/Matriz_de_risco.png)
 
-##### **Ameaças**:
+## Conclusão
+
+A implementação da matriz de risco no projeto desempenhou um papel fundamental ao possibilitar a priorização das ações consideradas mais relevantes para o alcance dos objetivos propostos. Além disso, o uso dessa ferramenta se mostrou eficaz para promover um alinhamento claro dentro da equipe, facilitando a identificação das oportunidades que demandam ações mais urgentes, bem como dos possíveis riscos que exigem monitoramento contínuo e estratégias adequadas de mitigação.
+
+### Ameaças
 
 1. **Previsão imprecisa do fluxo de recebimentos**:
 
@@ -156,19 +166,19 @@ A projeção incorreta do fluxo de caixa pode comprometer diretamente a saúde f
 
 O score de risco de inadimplência orienta decisões cruciais, como concessão de crédito ou prazos de pagamento. Altas taxas de erro neste indicador podem gerar perdas financeiras relevantes, sobretudo em setores onde o risco de crédito é fator-chave, como instituições financeiras, empresas de cobrança e consórcios.
 
-3. **Janela de pagamento subótima**:
+3. **Janela de pagamento subótima**
 
 Indicar uma janela de pagamento que não considera o comportamento real ou a rotina financeira do devedor (como a data de recebimento de salário) pode reduzir as chances de recebimento, comprometendo a eficácia da cobrança.
 
-4. **Tendência de pagamento classificada incorretamente**:
+4. **Tendência de pagamento classificada incorretamente**
 
 Uma categorização equivocada do pagador como “em dia”, “com atraso” ou “inadimplente” pode distorcer o perfil de risco atribuído, gerando decisões inadequadas de cobrança ou concessão de crédito.
 
-5. **Dependência excessiva de dados históricos**:
+5. **Dependência excessiva de dados históricos**
 
 Modelos preditivos baseados unicamente em dados históricos podem falhar diante de mudanças no contexto econômico, comportamental ou regulatório. Essa limitação afeta a capacidade de adaptação do sistema a novos padrões de comportamento dos pagadores.
 
-6. **Baixa aceitação ou adoção da funcionalidade**:
+6. **Baixa aceitação ou adoção da funcionalidade**
 
 Mesmo que os modelos estejam tecnicamente corretos, a falta de transparência, explicabilidade ou integração com os fluxos do cliente pode gerar desconfiança e baixa adoção. Isso limita o valor percebido da funcionalidade e reduz o impacto do projeto.
 
@@ -176,32 +186,36 @@ Mesmo que os modelos estejam tecnicamente corretos, a falta de transparência, e
 
 Informações desatualizadas, incompletas ou fora da distribuição esperada comprometem a qualidade das análises geradas. A confiabilidade dos insights depende diretamente da integridade e frescor dos dados utilizados.
 
-##  Oportunidades
+###  Oportunidades
 
-1. **Melhorar a previsão de inadimplência para reduzir perdas**  
+1. **Melhorar a previsão de inadimplência para reduzir perdas**
+
 É o objetivo central da POC. Com bons dados, a previsão de inadimplência evita perdas financeiras diretas para os clientes, agregando valor imediato à solução.
 
-2. **Aumentar a eficiência na cobrança (agindo no momento certo)**  
+2. **Aumentar a eficiência na cobrança (agindo no momento certo)**
+
 Com uma boa previsão, é possível antecipar ações de cobrança no momento ideal, o que aumenta a taxa de sucesso no recebimento.
 
-3. **Facilitar a tomada de decisão dos gestores financeiros**  
+3. **Facilitar a tomada de decisão dos gestores financeiros**
+
 Um dashboard simples com insights preditivos já melhora significativamente a rotina e o desempenho dos gestores financeiros.
 
+4. **Melhorar a satisfação dos clientes por oferecer informações mais úteis**
 
-
-4. **Melhorar a satisfação dos clientes por oferecer informações mais úteis**  
 Entregar dados preditivos relevantes aumenta o valor percebido da solução e contribui para uma melhor experiência de uso.
 
-5. **Melhoria de processos internos**  
+5. **Melhoria de processos internos**
+
 A própria Finnet pode aplicar os resultados da POC para otimizar seus produtos e processos. A aplicação é simples, mas o impacto é mais localizado.
 
 
 6. **Diferenciação competitiva no mercado de gestão de recebíveis**  
+
 Caso a solução final seja bem posicionada e entregue resultados sólidos, a Finnet pode se destacar no mercado por oferecer recursos preditivos avançados.
 
-7. **Atrair novos clientes interessados em ferramentas preditivas**  
-Com a entrega de uma solução robusta e inovadora, existe potencial para gerar novas oportunidades comerciais, especialmente com empresas que valorizam inteligência de dados.
+7. **Atrair novos clientes interessados em ferramentas preditivas**
 
+Ao oferecer uma solução robusta e inovadora, há um grande potencial para criar novas oportunidades de negócios, principalmente junto a empresas que priorizam a utilização estratégica de inteligência de dados.
 
 #### 4.1.6. Personas
 ```

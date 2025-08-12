@@ -199,7 +199,7 @@ Além disso, os dados fornecidos não são identificados como sensíveis ou refe
 
 ##### Armazenamento e Retenção
 
-Local: [ex: servidores em nuvem]
+Os dados utilizados no projeto serão armazenados em um documento no Drive e repositório no Github para facilitar seu uso.
 
 ##### Prazo
 

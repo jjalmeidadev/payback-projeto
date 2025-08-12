@@ -267,13 +267,14 @@ Não foram fornecidos dados sensíveis sobre os titulares.
 
 Os dados pessoais coletados serão tratados com as seguintes finalidades:
 
-- Garantir o funcionamento da plataforma, permitindo a análise do comportamento de pagamento e a geração de insights preditivos sobre inadimplência;
+- Garantia do funcionamento da plataforma, permitindo a análise do comportamento de pagamento e a geração de insights preditivos sobre inadimplência;
   
-- Elaborar estatísticas e projeções, como score de risco de inadimplência, tendência de pagamento e previsão de recebimentos, para apoiar a tomada de decisões da área financeira da empresa parceira.
+- Elaboração de estatísticas e projeções, tais como, score de risco de inadimplência, tendência de pagamento (em dia, com
+atraso, inadimplente) e previsão de recebimentos, para apoiar a tomada de decisões da área financeira da empresa parceira.
 
 A utilização desses dados é permitida de acordo com o artigo 7 da LGPD:
 
-- I - mediante o fornecimento de consentimento pelo titular;
+- I - mediante o fornecimento de consentimento pelo titular (cliente do parceiro);
 - II - para o cumprimento de obrigação legal ou regulatória pelo controlador;
 - V - quando necessário para a execução de contrato ou de procedimentos preliminares relacionados a contrato do qual seja parte o titular, a pedido do titular dos dados;
 - IX - quando necessário para atender aos interesses legítimos do controlador ou de terceiro, exceto no caso de prevalecerem direitos e liberdades fundamentais do titular que exijam a proteção dos dados pessoais.
@@ -288,9 +289,10 @@ Os dados utilizados no projeto serão armazenados em um documento no Drive e rep
 
 O acesso aos dados fornecidos é válido por dois meses e meio, tempo referente a duração do projeto.
 
-###### Compartilhamento de Dados 
+##### Compartilhamento de Dados 
 
-Os dados podem ser compartilhados somente com a empresa parceira do projeto.
+Os dados e resultados gerados a partir da solução podem ser compartilhados somente com a empresa parceira do projeto.
+
 
 ##### Segurança dos Dados
 

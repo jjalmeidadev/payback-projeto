@@ -182,7 +182,7 @@ A solução têm como objetivo criar uma POC (Prova de conceito) que utilize de 
 - **Redução de inadimplência**: A análise preditiva e o ajuste de estratégias de cobrança permitem identificar riscos antecipadamente e manter a saúde financeira tanto da empresa, quanto de seus parceiros.
 - **Proporcionar autonomia na tomada de decisões ao gestor da área financeira**: O acesso a projeções e estatísticas confiáveis permite que o gestor tome decisões estratégicas com mais segurança, agilidade e independência, reduzindo a dependência de processos manuais.
 - **Adicionar valor ao produto oferecido ao mercado**: A incorporação de análises preditivas e inteligência financeira ao produto aumenta sua atratividade, diferenciação competitiva e percepção de qualidade, fortalecendo o posicionamento da marca e potencializando oportunidades de novas assinaturas de seu serviço.
-- **Aumento dos pagamentos em dia**: A utilização de modelos preditivos aumenta o número de pagamentos em dia através da predição de melhor data de vencimento.
+- **Aumento dos pagamentos em dia**: O uso de modelos preditivos contribui para aumentar a realização dos pagamentos, por meio da identificação da data de vencimento mais adequada para cada cliente.
 
 ##### Tarefas do Cliente
 

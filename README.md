@@ -9,17 +9,17 @@
 ## Nome do grupo
 
 ## :student: Integrantes: 
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do integrante 1</a>
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do integrante 2</a>
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do integrante 3</a> 
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do integrante 4</a> 
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do integrante 5</a>
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do integrante 6</a> 
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do integrante 7</a>
+- <a href="https://www.linkedin.com/in/christian-de-carvalho-lawrence">Christian de Carvalho Lawrence</a>
+- <a href="https://www.linkedin.com/in/isaac-souza-santos/">Isaac Souza Santos</a>
+- <a href="https://www.linkedin.com/in/jaime-andrade-de-almeida-0777ba2a5/">Jaime Andrade de Almeida</a>
+- <a href="https://www.linkedin.com/in/jo%C3%A3o-pedro-gon%C3%A7alves-corr%C3%AAa-araujo/">João Pedro Gonçalves Corrêa Araujo</a>
+- <a href="">Mike Buchsenspaner</a> 
+- <a href="https://www.linkedin.com/in/vin%C3%ADcius-rangel-marques/">Vinícius Rangel Marques</a> 
+- <a href="https://www.linkedin.com/in/yan-de-oliveira-ribeiro-0a55a3356/">Yan de Oliveira Ribeiro</a>
 
 ## :teacher: Professores:
 ### Orientador(a) 
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do orientador(a)</a>
+- <a href="https://www.linkedin.com/in/fabiana-martins-de-oliveira-8993b0b2/">Fabiana Martins de Oliveira</a>
 ### Instrutores
 - <a href="https://www.linkedin.com/in/victorbarq/">Nome do instrutor 1</a>
 - <a href="https://www.linkedin.com/in/victorbarq/">Nome do instrutor 2</a> 
@@ -56,16 +56,16 @@ Descreva aqui os requisitos e os passos necessários para execução dos noteboo
 
 ## 🗃 Histórico de lançamentos
 
-* 1.0.0 - 11/10/2024
-    * [sprint 5] Lançamento da primeira versão do modelo preditivo com documentação.
-* 0.6.0 - 27/09/2024
-    * [sprint 4] Comparação de modelos preditivos
-* 0.3.1 - 13/09/2024
-    * [sprint 3] Preparação de dados e modelo preditivo preliminar
-* 0.2.7 - 30/08/2024
-    * [sprint 2] Análise exploratória e levantamento de hipóteses
 * 0.1.3 - 16/08/2024
     * [sprint 1] Documentação de entendimento do negócio
+* 0.2.7 - 30/08/2024
+    * [sprint 2] Análise exploratória e levantamento de hipóteses
+* 0.3.1 - 13/09/2024
+    * [sprint 3] Preparação de dados e modelo preditivo preliminar
+* 0.6.0 - 27/09/2024
+    * [sprint 4] Comparação de modelos preditivos
+* 1.0.0 - 11/10/2024
+    * [sprint 5] Lançamento da primeira versão do modelo preditivo com documentação.
 
 ## 📋 Licença/License
 

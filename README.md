@@ -6,9 +6,9 @@
 
 # Nome do projeto
 
-## Nome do grupo
+## The Seven
 
-## :student: Integrantes: 
+## Integrantes: 
 - <a href="https://www.linkedin.com/in/christian-de-carvalho-lawrence">Christian de Carvalho Lawrence</a>
 - <a href="https://www.linkedin.com/in/isaac-souza-santos/">Isaac Souza Santos</a>
 - <a href="https://www.linkedin.com/in/jaime-andrade-de-almeida-0777ba2a5/">Jaime Andrade de Almeida</a>
@@ -17,7 +17,7 @@
 - <a href="https://www.linkedin.com/in/vin%C3%ADcius-rangel-marques/">Vinícius Rangel Marques</a> 
 - <a href="https://www.linkedin.com/in/yan-de-oliveira-ribeiro-0a55a3356/">Yan de Oliveira Ribeiro</a>
 
-## :teacher: Professores:
+## Professores:
 ### Orientador(a) 
 - <a href="https://www.linkedin.com/in/fabiana-martins-de-oliveira-8993b0b2/">Fabiana Martins de Oliveira</a>
 ### Instrutores

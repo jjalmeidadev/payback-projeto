@@ -247,7 +247,7 @@ Ao oferecer uma solução robusta e inovadora, há um grande potencial para cria
 #### Pessoa Jurídica 
 
 <div align="center">
-<sub align="center">Figure 4 – Persona - Pessoa Jurídica</sub>
+<sub align="center">Figure 3 – Persona - Pessoa Jurídica</sub>
 </div>
 
 <div align="center">
@@ -263,7 +263,7 @@ Carlos Almeida representa o perfil do decisor financeiro que busca soluções te
 #### Gerente Finnet
 
 <div align="center">
-<sub align="center">Figura 5 – Persona - Gerente Finnet</sub>
+<sub align="center">Figura 4 – Persona - Gerente Finnet</sub>
 </div>
 
 <div align="center">

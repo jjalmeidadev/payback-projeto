@@ -549,3 +549,4 @@ Utilize esta seção para anexar materiais como manuais de usuário, documentos 
 
 Remova este bloco ao final
 ```
+### 6.1. Análise de Normalidade e Escalonamento das Variáveis

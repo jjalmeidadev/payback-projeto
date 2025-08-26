@@ -377,11 +377,18 @@ Rogério Silveira é o perfil de cliente principal do projeto e atua como Gerent
 
 #### 4.1.7. Jornadas do Usuário
 
-```
-Posicione aqui seus mapas de jornadas do usuário que utiliza o modelo.
+A escolha pelo uso de journey maps em nosso projeto está diretamente relacionada à necessidade de compreender de forma clara e estruturada a experiência do usuário, especialmente no eixo voltado ao entendimento de UX. Essa ferramenta nos permitiu representar visualmente as etapas percorridas pelo usuário, favorecendo a identificação de pontos de contato relevantes e possíveis dificuldades no processo. Desse modo, torna-se possível projetar com maior precisão como o usuário final fará uso do modelo preditivo desenvolvido em Python, assegurando que a solução proposta seja não apenas tecnicamente eficiente, mas também alinhada às expectativas e necessidades reais de quem irá utilizá-la.
 
-Remova este bloco ao final
-```
+
+
+A persona escolhida, Carlos Almeida, representa uma pessoa jurídica e reflete os desafios complexos enfrentados por gestores financeiros de empresas, como a dificuldade em gerenciar grandes volumes de recebimentos, mitigar riscos de inadimplência e garantir previsibilidade no fluxo de caixa. Optamos por esse perfil porque ele evidencia problemas organizacionais e estratégicos que não se limitam ao indivíduo, mas impactam diretamente a sustentabilidade do negócio. Dessa forma, o journey map permite mapear desde a frustração inicial até a satisfação com soluções de análise preditiva, dashboards e estratégias personalizadas de cobrança, demonstrando o valor de ferramentas que oferecem clareza, confiabilidade e suporte à tomada de decisão no contexto corporativo.
+
+
+
+Escolhemos essa persona para a criação do journey map porque ela representa diretamente o perfil de cliente que a empresa Finnet busca atender: profissionais da área financeira que enfrentam dificuldades na previsibilidade do fluxo de caixa, no controle da inadimplência e na organização dos recebimentos. Ao adotar a persona de Rogério Silveira, conseguimos retratar de forma clara as dores de um tomador de decisão dentro da empresa, que lida com processos manuais, pouco confiáveis e demorados, gerando insegurança e riscos de perdas financeiras. Esse cenário evidencia não apenas os problemas reais enfrentados, mas também as oportunidades de solução que a Finnet pode oferecer, como automação, previsões confiáveis e redução do trabalho manual. Assim, o journey map se torna uma ferramenta estratégica para compreender a jornada do cliente empresarial, mostrando como as soluções propostas pela Finnet podem transformar frustrações em confiança e satisfação, fortalecendo o posicionamento da empresa como parceira essencial na modernização da gestão financeira.
+
+
+Em síntese, o uso de journey maps se mostrou fundamental para garantir que o desenvolvimento do modelo preditivo em Python fosse orientado não apenas pela lógica técnica, mas também pela perspectiva do usuário. Ao possibilitar a visualização detalhada da jornada, essa ferramenta contribuiu para antecipar potenciais barreiras, refinar pontos de interação e alinhar a solução às reais necessidades dos futuros usuários. Assim, asseguramos que o projeto alcance maior usabilidade, relevância prática e impacto efetivo no contexto em que será aplicado.
 
 #### 4.1.8 Política de Privacidade
 

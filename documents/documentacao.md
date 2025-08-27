@@ -480,7 +480,32 @@ Remova este bloco ao final
 ```
 Apresentar quais foram as ações realizadas de limpeza (tratamento de missing values e remoção de outliers) e transformação (normalização e codificação) das colunas. Se houverem outliers, cite quais são e qual(is) correção(ões) será(ão) aplicada(s).
 
-Remova este bloco ao final
+
+A exploração e preparação dos dados foi realizada de forma estruturada, conforme documentado no notebook do projeto:
+
+Importação de Bibliotecas: Inicialmente, foram importadas bibliotecas essenciais para análise de dados, como pandas, numpy, matplotlib, seaborn e ferramentas de pré-processamento do scikit-learn.
+
+Importação dos Dados: Os arquivos de diferentes grupos foram carregados em dataframes separados, permitindo a análise segmentada dos registros, possibilitando o carregamento direto ou em seções menores para preservação de memória.
+
+Divisão de Colunas: Como os dados originais estavam em colunas únicas separadas por tabulação, foi implementada uma função para dividir corretamente as colunas, garantindo a estrutura adequada dos dataframes.
+
+Conversão de Tipos: As colunas foram classificadas em numéricas e categóricas, sendo convertidas para os tipos apropriados. Valores ausentes e entradas inválidas foram tratados, substituindo por NaN ou categorias específicas, como datatime e textos/objetos.
+
+Tratamento de Valores Ausentes: Colunas irrelevantes foram removidas (referentes principalmente às multas por estarem majoritariamente vazias) e valores ausentes em variáveis importantes, como valor de pagamento e cidade do pagador, foram preenchidos com valores padrão ou categorias “Desconhecido”.
+
+Estatística Descritiva: Foram geradas estatísticas descritivas para cada dataframe.
+
+Tratamento de Outliers: Outliers nas variáveis numéricas foram tratados utilizando a técnica de capping, limitando os valores aos intervalos interquartis.
+
+Codificação de Variáveis Categóricas: As variáveis categóricas foram transformadas em valores binários (one-hot encoding),tornando-as adequadas para uso em modelos preditivos.
+
+Normalização: As variáveis numéricas foram normalizadas utilizando o StandardScaler, padronizando a escala dos dados para melhorar o desempenho dos algoritmos de machine learning na escala de 0-10000 algarismos.
+
+Visualização dos Resultados: Ao final, foram exibidos os dataframes resultantes após todas as etapas de pré-processamento, garantindo que os dados estivessem prontos para modelagem de gráficos e demais.
+
+Esse fluxo garante que todas as etapas fundamentais de preparação dos dados foram seguidas, promovendo qualidade e robustez para o desenvolvimento do modelo preditivo.
+
+
 ```
 
 #### 4.2.3. Hipóteses

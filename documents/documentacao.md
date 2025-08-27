@@ -379,7 +379,17 @@ Rogério Silveira é o perfil de cliente principal do projeto e atua como Gerent
 
 A escolha pelo uso de journey maps em nosso projeto está diretamente relacionada à necessidade de compreender de forma clara e estruturada a experiência do usuário, especialmente no eixo voltado ao entendimento de UX. Essa ferramenta nos permitiu representar visualmente as etapas percorridas pelo usuário, favorecendo a identificação de pontos de contato relevantes e possíveis dificuldades no processo. Desse modo, torna-se possível projetar com maior precisão como o usuário final fará uso do modelo preditivo desenvolvido em Python, assegurando que a solução proposta seja não apenas tecnicamente eficiente, mas também alinhada às expectativas e necessidades reais de quem irá utilizá-la.
 
+<div align="center">
+<sub align="center">Figura 6 – Jornada de Usuário - Pessoa Jurídica</sub>
+</div>
 
+<div align="center">
+<img src="../assets/Jornada_Pessoa_Jurídica.png" alt="Jornada da Pessoa Jurídica" border="0" width=100% height=100%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+</div>
 
 A persona escolhida, Carlos Almeida, representa uma pessoa jurídica e reflete os desafios complexos enfrentados por gestores financeiros de empresas, como a dificuldade em gerenciar grandes volumes de recebimentos, mitigar riscos de inadimplência e garantir previsibilidade no fluxo de caixa. Optamos por esse perfil porque ele evidencia problemas organizacionais e estratégicos que não se limitam ao indivíduo, mas impactam diretamente a sustentabilidade do negócio. Dessa forma, o journey map permite mapear desde a frustração inicial até a satisfação com soluções de análise preditiva, dashboards e estratégias personalizadas de cobrança, demonstrando o valor de ferramentas que oferecem clareza, confiabilidade e suporte à tomada de decisão no contexto corporativo.
 

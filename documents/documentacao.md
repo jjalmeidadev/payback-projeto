@@ -393,7 +393,17 @@ A escolha pelo uso de journey maps em nosso projeto está diretamente relacionad
 
 A persona escolhida, Carlos Almeida, representa uma pessoa jurídica e reflete os desafios complexos enfrentados por gestores financeiros de empresas, como a dificuldade em gerenciar grandes volumes de recebimentos, mitigar riscos de inadimplência e garantir previsibilidade no fluxo de caixa. Optamos por esse perfil porque ele evidencia problemas organizacionais e estratégicos que não se limitam ao indivíduo, mas impactam diretamente a sustentabilidade do negócio. Dessa forma, o journey map permite mapear desde a frustração inicial até a satisfação com soluções de análise preditiva, dashboards e estratégias personalizadas de cobrança, demonstrando o valor de ferramentas que oferecem clareza, confiabilidade e suporte à tomada de decisão no contexto corporativo.
 
+<div align="center">
+<sub align="center">Figura 6 – Jornada de Usuário - Pessoa Finnet</sub>
+</div>
 
+<div align="center">
+<img src="../assets/Jornada Finnet.png" alt="Jornada da Pessoa Jurídica" border="0" width=100% height=100%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+</div>
 
 Escolhemos essa persona para a criação do journey map porque ela representa diretamente o perfil de cliente que a empresa Finnet busca atender: profissionais da área financeira que enfrentam dificuldades na previsibilidade do fluxo de caixa, no controle da inadimplência e na organização dos recebimentos. Ao adotar a persona de Rogério Silveira, conseguimos retratar de forma clara as dores de um tomador de decisão dentro da empresa, que lida com processos manuais, pouco confiáveis e demorados, gerando insegurança e riscos de perdas financeiras. Esse cenário evidencia não apenas os problemas reais enfrentados, mas também as oportunidades de solução que a Finnet pode oferecer, como automação, previsões confiáveis e redução do trabalho manual. Assim, o journey map se torna uma ferramenta estratégica para compreender a jornada do cliente empresarial, mostrando como as soluções propostas pela Finnet podem transformar frustrações em confiança e satisfação, fortalecendo o posicionamento da empresa como parceira essencial na modernização da gestão financeira.
 

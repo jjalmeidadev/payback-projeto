@@ -359,6 +359,7 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 
 &nbsp;&nbsp;&nbsp;&nbsp; Carlos Almeida representa o perfil do decisor financeiro que busca soluções tecnológicas para otimizar a gestão de crédito e reduzir riscos de inadimplência. Como Chief Financial Officer de uma empresa de grande porte, lida diariamente com o desafio de manter a saúde financeira da organização, equilibrando previsibilidade de caixa, controle de recebimentos e mitigação de perdas. Sua atuação exige acesso rápido a informações confiáveis e ferramentas que apoiem decisões estratégicas baseadas em dados.
 
+
 #### Gerente Finnet
 
 <div align="center">
@@ -377,38 +378,52 @@ Rogério Silveira é o perfil de cliente principal do projeto e atua como Gerent
 
 #### 4.1.7. Jornadas do Usuário
 
-A escolha pelo uso de journey maps em nosso projeto está diretamente relacionada à necessidade de compreender de forma clara e estruturada a experiência do usuário, especialmente no eixo voltado ao entendimento de UX. Essa ferramenta nos permitiu representar visualmente as etapas percorridas pelo usuário, favorecendo a identificação de pontos de contato relevantes e possíveis dificuldades no processo. Desse modo, torna-se possível projetar com maior precisão como o usuário final fará uso do modelo preditivo desenvolvido em Python, assegurando que a solução proposta seja não apenas tecnicamente eficiente, mas também alinhada às expectativas e necessidades reais de quem irá utilizá-la.
+&nbsp;&nbsp;&nbsp;&nbsp; A escolha pelo uso de journey maps em nosso projeto está diretamente relacionada à necessidade de compreender de forma clara e estruturada a experiência do usuário, especialmente no eixo voltado ao entendimento de UX. Essa ferramenta nos permitiu representar visualmente as etapas percorridas pelo usuário, favorecendo a identificação de pontos de contato relevantes e possíveis dificuldades no processo. Desse modo, torna-se possível projetar com maior precisão como o usuário final fará uso do modelo preditivo desenvolvido em Python, assegurando que a solução proposta seja não apenas tecnicamente eficiente, mas também alinhada às expectativas e necessidades reais de quem irá utilizá-la.
+
+&nbsp;&nbsp;&nbsp;&nbsp; A figura a seguir apresenta os sinais identificados nas jornadas de usuário. As etapas marcadas com seta para cima indicam pontos com maior número de oportunidades, enquanto as etapas com seta para baixo evidenciam aquelas em que prevalecem os problemas.
 
 <div align="center">
-<sub align="center">Figura 6 – Jornada de Usuário - Pessoa Jurídica</sub>
+<sub align="center">Figura 6 – Descrição de Oportunidades e Problemas</sub>
 </div>
 
 <div align="center">
-<img src="../assets/Jornada_Pessoa_Jurídica.png" alt="Jornada da Pessoa Jurídica" border="0" width=100% height=100%>
-</div>
-
-<div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
-</div>
-
-A persona escolhida, Carlos Almeida, representa uma pessoa jurídica e reflete os desafios complexos enfrentados por gestores financeiros de empresas, como a dificuldade em gerenciar grandes volumes de recebimentos, mitigar riscos de inadimplência e garantir previsibilidade no fluxo de caixa. Optamos por esse perfil porque ele evidencia problemas organizacionais e estratégicos que não se limitam ao indivíduo, mas impactam diretamente a sustentabilidade do negócio. Dessa forma, o journey map permite mapear desde a frustração inicial até a satisfação com soluções de análise preditiva, dashboards e estratégias personalizadas de cobrança, demonstrando o valor de ferramentas que oferecem clareza, confiabilidade e suporte à tomada de decisão no contexto corporativo.
-
-<div align="center">
-<sub align="center">Figura 6 – Jornada de Usuário - Pessoa Finnet</sub>
-</div>
-
-<div align="center">
-<img src="../assets/Jornada Finnet.png" alt="Jornada da Pessoa Jurídica" border="0" width=100% height=100%>
+<img src="../assets/Oportunidades.png" alt="Jornada da Pessoa Jurídica" border="0" width=20% height=100%>
 </div>
 
 <div align="center">
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
 
-Escolhemos o Rogério como persona do journey map porque ele representa um ator crítico dentro da Finnet: o gerente financeiro responsável por consolidar relatórios e entregar previsões confiáveis à diretoria e às empresas clientes. A ausência de análises preditivas detalhadas hoje compromete sua confiabilidade e reduz a segurança do planejamento financeiro. Ao mapear sua jornada, evidenciamos gargalos como processos manuais, dispersão de dados e ciclos de fechamento demorados, e identificamos oportunidades de evolução com automação, integração de fontes, modelagem preditiva e relatórios em tempo real. Assim, o journey map orienta a priorização de soluções que elevem a acurácia das previsões, reduzam retrabalho e fortaleçam o papel da Finnet como parceira confiável na gestão financeira dos clientes.
+<div align="center">
+<sub align="center">Figura 7 – Jornada de Usuário - Pessoa Jurídica</sub>
+</div>
+
+<div align="center">
+<img src="../assets/Jornada - Carlos Almeida.png" alt="Jornada da Pessoa Jurídica" border="0" width=100% height=100%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp; A persona escolhida, Carlos Almeida, representa uma pessoa jurídica e reflete os desafios complexos enfrentados por gestores financeiros de empresas, como a dificuldade em gerenciar grandes volumes de recebimentos, mitigar riscos de inadimplência e garantir previsibilidade no fluxo de caixa. Optamos por esse perfil porque ele evidencia problemas organizacionais e estratégicos que não se limitam ao indivíduo, mas impactam diretamente a sustentabilidade do negócio. Dessa forma, o journey map permite mapear desde a frustração inicial até a satisfação com soluções de análise preditiva, dashboards e estratégias personalizadas de cobrança, demonstrando o valor de ferramentas que oferecem clareza, confiabilidade e suporte à tomada de decisão no contexto corporativo.
+
+<div align="center">
+<sub align="center">Figura 8 – Jornada de Usuário - Pessoa Finnet</sub>
+</div>
+
+<div align="center">
+<img src="../assets/Jornada - Roberto Silveira.png" alt="Jornada da Pessoa Jurídica" border="0" width=100% height=100%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp; Escolhemos o Rogério como persona do journey map porque ele representa um ator crítico dentro da Finnet: o gerente financeiro responsável por consolidar relatórios e entregar previsões confiáveis à diretoria e às empresas clientes. A ausência de análises preditivas detalhadas hoje compromete sua confiabilidade e reduz a segurança do planejamento financeiro. Ao mapear sua jornada, evidenciamos gargalos como processos manuais, dispersão de dados e ciclos de fechamento demorados, e identificamos oportunidades de evolução com automação, integração de fontes, modelagem preditiva e relatórios em tempo real. Assim, o journey map orienta a priorização de soluções que elevem a acurácia das previsões, reduzam retrabalho e fortaleçam o papel da Finnet como parceira confiável na gestão financeira dos clientes.
 
 
-Em síntese, o uso de journey maps se mostrou fundamental para garantir que o desenvolvimento do modelo preditivo em Python fosse orientado não apenas pela lógica técnica, mas também pela perspectiva do usuário. Ao possibilitar a visualização detalhada da jornada, essa ferramenta contribuiu para antecipar potenciais barreiras, refinar pontos de interação e alinhar a solução às reais necessidades dos futuros usuários. Assim, asseguramos que o projeto alcance maior usabilidade, relevância prática e impacto efetivo no contexto em que será aplicado.
+&nbsp;&nbsp;&nbsp;&nbsp; Em síntese, o uso de journey maps se mostrou fundamental para garantir que o desenvolvimento do modelo preditivo em Python fosse orientado não apenas pela lógica técnica, mas também pela perspectiva do usuário. Ao possibilitar a visualização detalhada da jornada, essa ferramenta contribuiu para antecipar potenciais barreiras, refinar pontos de interação e alinhar a solução às reais necessidades dos futuros usuários. Assim, asseguramos que o projeto alcance maior usabilidade, relevância prática e impacto efetivo no contexto em que será aplicado.
 
 #### 4.1.8 Política de Privacidade
 

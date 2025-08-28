@@ -550,3 +550,389 @@ Utilize esta seção para anexar materiais como manuais de usuário, documentos 
 Remova este bloco ao final
 ```
 ### 6.1. Análise de Normalidade e Escalonamento das Variáveis
+
+Para compreender o comportamento estatístico dos dados e prepará-los para as etapas seguintes da análise, foram aplicados dois procedimentos principais: a verificação da normalidade das distribuições e o escalonamento das variáveis. A seguir, cada um desses processos é detalhado.
+
+#### 6.1.1. Análise de Normalidade
+
+Nesta subseção, são apresentados os testes estatísticos utilizados para avaliar se as variáveis seguem uma distribuição normal. A análise da normalidade é fundamental, pois influencia diretamente na escolha dos métodos estatísticos e de modelagem que podem ser aplicados de forma adequada.
+
+##### 6.1.1.1. Afirmações e suas hipóteses
+
+1. Afirmação: a variável valor do boleto (`vl_boleto`) não segue uma distribuição normal.
+- Hipótese nula (H₀): o valor do boleto segue distribuição normal.
+- Hipótese alternativa (H₁): o valor do boleto não segue distribuição normal.
+
+2. Afirmação: a variável valor pago (`vl_pagto`) não segue uma distribuição normal.
+- Hipótese nula (H₀): o valor pago segue distribuição normal.
+- Hipótese alternativa (H₁): o valor pago não segue distribuição normal.
+
+3. Afirmação: a variável valor do juros (`juros`) não segue uma distribuição normal.
+- Hipótese nula (H₀): o valor do juros segue distribuição normal.
+- Hipótese alternativa (H₁): o valor do juros não segue distribuição normal.
+
+4. Afirmação: a variável quantidade de acessos (`qtd_acessos_pagador`) não segue uma distribuição normal.
+- Hipótese nula (H₀): o quantidade de acessos segue distribuição normal.
+- Hipótese alternativa (H₁): o quantidade de acessos não segue distribuição normal.
+
+5. Afirmação: a variável valor da multa (`multa`) não segue uma distribuição normal.
+- Hipótese nula (H₀): o valor da multa segue distribuição normal.
+- Hipótese alternativa (H₁): o valor da multa não segue distribuição normal.
+
+Observação: H₀ sempre assumirá normalidade, o teste irá indicar se a hipótese nula será rejeitada ou se não há evidências o suficiente para isso.
+
+##### 6.1.1.2. Nível de significância e sua relação com o valor de p
+
+O nível de significância ($\alpha$) é o limite que usamos para decidir se a hipótese nula será rejeitada ou não. A escolha do alfa ($\alpha$) é definida ante da análise e nesse caso será o mesmo alfa para todas as afirmações.
+
+$\alpha$ = 5% 
+
+essa escolha de alfa ($\alpha$) é um padrão usado historicamente
+
+**Relação com o valor de p:**
+
+Como o nível de significância ($\alpha$) é fixo, a regra de decisão é a mesma para todas as variáveis.  
+O p-valor, por sua vez, varia de acordo com cada teste; a comparação é sempre feita com o mesmo $\alpha$.
+
+- Se p $\leq \alpha \rightarrow$ rejeitamos H₀. Portanto, a variável **não segue** distribuição normal.  
+- Se p $> \alpha \rightarrow$ não rejeitamos H₀. Portanto, a variável **pode seguir** distribuição normal.
+
+##### 6.1.1.3. Teste de Normalidade das Variáveis Quantitativas
+
+O teste adotado para todas as variáveis foi o teste de Lilliefors, que consiste em uma adaptação do teste de Kolmogorov–Smirnov (KS). Enquanto o KS clássico pressupõe que a média ($\mu$) e o desvio padrão ($\sigma$) da população sejam previamente conhecidos, o teste de Lilliefors é adequado quando esses parâmetros precisam ser estimados a partir da própria amostra. Essa escolha se justifica, pois mesmo dispondo de todas as planilhas disponíveis, os dados não seriam suficientes para representar integralmente a população da Finnet, de modo que trabalhamos efetivamente com amostras.
+
+<div align="center">
+<sub align="center">Tabela 1 – Resumo dos Testes de Normalidade</sub>
+</div>
+
+<div align="center">
+
+| Variável   | Teste de Normalidade | Valor de p | Conclusão (α = 0,05)                 |
+|------------|----------------------|------------|--------------------------------------|
+| valor do boleto | Lilliefors           | 0,0010      | Rejeita H₀ (não segue normalidade)   |
+| valor pago | Lilliefors           | 0,0010      | Rejeita H₀ (não segue normalidade)     |
+| valor do juros | Lilliefors           | 0,0010      | Rejeita H₀ (não segue normalidade)   |
+| quantidade de acessos | Lilliefors           | 0,0010      | Rejeita H₀ (não segue normalidade)   |
+| valor da multa | Lilliefors           | 0,0010      | Rejeita H₀ (não segue normalidade)   |
+
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+</div>
+
+##### 6.1.1.4. Teste de Normalidade das Variáveis Quantitativas
+
+Além dos testes estatísticos aplicados, foram elaborados histogramas para cada uma das cinco variáveis, a fim de avaliar visualmente a forma das distribuições. Essa análise gráfica permite verificar se os dados apresentam comportamento próximo ao da distribuição normal, reforçando ou contrastando os resultados obtidos nos testes de normalidade.
+
+<div align="center">
+<sub align="center">Figura 7 – Histograma - Valor do Boleto</sub>
+</div>
+
+<div align="center">
+<img src="../assets/histograma_vl_boleto.png" alt="Histograma Valor do Boleto" border="0" width=100% height=100%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+</div>
+
+O histograma da variável valor do boleto não apresenta uma distribuição próxima da normal. Observa-se ausência de cauda à esquerda, indicando assimetria na distribuição dos dados.
+
+<div align="center">
+<sub align="center">Figura 8 – Histograma - Valor Pago</sub>
+</div>
+
+<div align="center">
+<img src="../assets/histograma_vl_pagto.png" alt="Histograma Valor Pago" border="0" width=100% height=100%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+</div>
+
+O histograma da variável valor pago não apresenta uma distribuição próxima da normal. Observa-se, de forma semelhante ao histograma do valor dos boletos, a ausência de cauda à esquerda, indicando assimetria na distribuição dos dados.
+
+<div align="center">
+<sub align="center">Figura 9 – Histograma - Valor do Juros</sub>
+</div>
+
+<div align="center">
+<img src="../assets/histograma_juros.png" alt="Histograma Valor do Juros" border="0" width=100% height=100%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+</div>
+
+O histograma da variável valor dos juros não apresenta uma distribuição compatível com a normal. Nota-se a ausência de cauda à esquerda, além de uma diferença acentuada na frequência entre as primeiras classes, o que reforça a assimetria da distribuição.
+
+<div align="center">
+<sub align="center">Figura 10 – Histograma - Quantidade de Acessos</sub>
+</div>
+
+<div align="center">
+<img src="../assets/histograma_qtd_de_acessos.png" alt="Histograma Quantidade de Acessos" border="0" width=100% height=100%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+</div>
+
+De maneira bastante acentuada, o histograma da variável quantidade de acessos se distancia do padrão de uma distribuição normal. Observa-se a ausência de cauda à esquerda e a predominância de colunas à direita com frequências mais elevadas em relação às da esquerda, evidenciando a assimetria da distribuição.
+
+<div align="center">
+<sub align="center">Figura 11 – Histograma - Valor da Multa</sub>
+</div>
+
+<div align="center">
+<img src="../assets/histograma_multa.png" alt="Histograma Valor da Multa" border="0" width=100% height=100%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+</div>
+
+O histograma da variável valor das multas evidencia um forte desvio em relação à distribuição normal. Observa-se que a primeira coluna possui frequência extremamente elevada, tornando as demais quase imperceptíveis, o que indica forte assimetria e concentração dos dados em valores mais baixos.
+
+##### 6.1.1.5. Comparação das Média e Medianas
+
+A comparação entre a média e a mediana das variáveis quantitativas fornece informações importantes sobre a simetria das distribuições. Diferenças significativas entre esses dois parâmetros indicam assimetria nos dados e podem reforçar os resultados obtidos nos testes estatísticos de normalidade. Esta análise permite compreender melhor o comportamento das variáveis e identificar desvios que impactam a interpretação dos dados.
+
+1. Valor do Boleto:
+A média da variável Valor do Boleto (R$ 8.278,10) é significativamente maior que a mediana (R$ 2.799,24), refletindo a presença de valores extremamente altos e o alto desvio padrão (R$ 46.433,90). Essa diferença evidencia assimetria à direita, reforçando que a distribuição não se aproxima da normalidade, conforme indicado pelos testes estatísticos e pelo histograma.
+
+2. Valor Pago: Na variável Valor Pago, a média (R$ 7.302,77) também supera a mediana (R$ 2.708,33), indicando que a maioria dos pagamentos está concentrada em valores baixos, enquanto poucos pagamentos muito altos elevam a média. O desvio padrão elevado (R$ 30.500,66) reforça a assimetria à direita, confirmando o afastamento da normalidade.
+
+3. Valor do Juros: Para a variável Valor do Juros, a média (R$ 2,76) é maior que a mediana (R$ 0,94) e o desvio padrão (R$ 15,48) indica grande dispersão em relação à maioria dos valores próximos de zero. Essa diferença evidencia assimetria à direita e a não conformidade com uma distribuição normal.
+
+4. Quantidade de acessos: A média da variável Quantidade de acessos (1,98) é ligeiramente superior à mediana (1,00) e desvio padrão relativamente baixo (2,20). Isso indica que a maioria dos registros está concentrada em valores próximos de 1, enquanto alguns acessos maiores elevam a média. Esse padrão evidencia assimetria à direita, confirmando que a distribuição não segue a normalidade, em concordância com os resultados dos testes estatísticos e do histograma..
+
+5. Valor da Multa: Na variável multa, a média (44,54) é consideravelmente maior que a mediana (10,00), enquanto o desvio padrão elevado (326,98) revela a presença de poucos valores muito altos que distorcem a distribuição. Essa diferença entre média e mediana indica forte assimetria à direita, reforçando que os dados não apresentam distribuição normal, conforme já observado nos histogramas e nos testes de normalidade.
+
+Ademais, nessa seção também foi utilizado o desvio padrão para dar maior embasamento às conclusões proveninentes da comparação entre média e mediana, uma vez que o desvio padrão é responsável medir o grau de dispersão dos dados em relação a média.
+
+#### 6.1.2. Escalonamento das Variáveis
+
+Aqui, são descritos os procedimentos de escalonamento, como normalização e/ou padronização, aplicados para ajustar variáveis com diferentes escalas. Esse processo garante comparabilidade entre os atributos e contribui para a melhoria do desempenho de algoritmos de aprendizado de máquina e análises comparativas.
+
+##### 6.1.2.1. Escalonamento Escolhido
+
+O escalonamento das variáveis quantitativas tem como objetivo ajustar os dados para que fiquem em uma mesma escala, permitindo comparabilidade entre diferentes medidas e evitando que variáveis com amplitudes maiores influenciem de forma desproporcional os resultados da análise. Esse processo preserva a forma das distribuições originais, mantendo informações sobre assimetrias, concentração de valores e outliers, mas ajustando os valores para facilitar interpretações e aplicações em modelos estatísticos.
+
+<div align="center">
+<sub align="center">Tabela 2 – Resumo do Escalonamento das Variáveis</sub>
+</div>
+
+<div align="center">
+
+| Variável               | Escalonamento   | Descrição                                                                                  |
+|------------------------|----------------|--------------------------------------------------------------------------------------------|
+| valor do boleto         | Normalização   | Valores apresentam grande amplitude e outliers; a normalização ajusta todos os valores para o mesmo intervalo [0,1]. |
+| valor pago              | Normalização   | Semelhante ao valor do boleto, possui grande variação entre registros; a normalização permite comparabilidade. |
+| valor do juros          | Normalização   | Valores pequenos, mas dispersos; normalização mantém a escala padrão sem depender de média e desvio populacional. |
+| quantidade de acessos   | Normalização   | Concentração de registros em valores baixos com alguns valores altos; normalização ajusta a escala e facilita análise. |
+| valor da multa          | Normalização   | Presença de poucos valores extremamente altos; normalização preserva a forma da distribuição e ajusta a escala. |
+
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+</div>
+
+##### 6.1.2.2. Estatísticas Utilizadas
+
+Nesta subseção, apresentam-se os principais valores estatísticos das variáveis quantitativas que serão utilizados no processo de escalonamento: mínimo, máximo, média, mediana e desvio padrão populacional. Esses parâmetros permitem compreender a amplitude e a dispersão dos dados, servindo de base para ajustar as variáveis a uma escala comparável, preservando a forma das distribuições e facilitando análises subsequentes.
+
+<div align="center">
+<sub align="center">Tabela 3 – Valores Estatísticos</sub>
+</div>
+
+<div align="center">
+
+| Variável               | Mínimo   | Máximo       | Média       | Mediana  | Desvio padrão (populacional) |
+|------------------------|----------|-------------|------------|---------|------------------------------|
+| vl_boleto              | 0.05     | 3.325.737,15 | 8.278,10   | 2.799,24 | 46.433,90                   |
+| vl_pagto               | 0.00     | 1.936.467,04 | 7.302,77   | 2.708,33 | 30.500,66                   |
+| juros                  | 0.00     | 1.108,58     | 2,76       | 0,94     | 15,48                        |
+| qtd_acessos_pagador    | 1.00     | 86.00        | 1,98       | 1,00     | 2,20                         |
+| multa                  | 1.46     | 18.325,01    | 44,54      | 10,00    | 326,98                       |
+
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+</div>
+
+##### 6.1.2.3. Equações de Escalonamento
+
+O escalonamento foi realizado utilizando a **normalização Min-Max**, que transforma os valores de cada variável para o intervalo [0,1]:
+
+$
+x_{\text{norm}} = \frac{x - x_{\min}}{x_{\max} - x_{\min}}
+$
+
+Substituindo os valores mínimos e máximos de cada variável:
+
+- **valor do boleto**:  
+$
+vl\_boleto_{\text{norm}} = \frac{vl\_boleto - 0.05}{3325737.15 - 0.05}
+$
+
+- **valor pago**:  
+$
+vl\_pagto_{\text{norm}} = \frac{vl\_pagto - 0.00}{1936467.04 - 0.00}
+$
+
+- **juros**:  
+$
+juros_{\text{norm}} = \frac{juros - 0.00}{1108.58 - 0.00}
+$
+
+- **quantidade de acessos**:  
+$
+qtd\_acessos\_pagador_{\text{norm}} = \frac{qtd\_acessos\_pagador - 1.00}{86.00 - 1.00}
+$
+
+- **multa**:  
+$
+multa_{\text{norm}} = \frac{multa - 1.46}{18325.01 - 1.46}
+$
+
+##### 6.1.2.4. Histogramas Escalonados E Sua Relação Com Não Escalonados
+
+Nesta subseção são apresentados os histogramas das variáveis após o processo de escalonamento, acompanhados de uma comparação com os histogramas originais. O objetivo é observar de que forma a transformação impacta a distribuição dos dados e identificar se houve alterações relevantes em relação ao padrão anteriormente verificado.
+
+<div align="center">
+<sub align="center">Figura 12 – Histograma - Valor do Boleto Escalonado</sub>
+</div>
+
+<div align="center">
+<img src="../assets/valor_boleto_escalonado.png" alt="Histograma Valor do Boleto Escalonado" border="0" width=100% height=100%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+</div>
+
+Após o processo de escalonamento, o histograma da variável valor do boleto manteve a mesma forma observada antes da transformação, ou seja, não apresentou aproximação a uma distribuição normal. A principal diferença está na escala: os valores, que antes variavam entre 0,05 e 3.325.737,15, foram transformados para o intervalo de 0 a 1. Essa mudança fez com que a concentração dos dados na maior coluna do histograma se tornasse mais evidente, reforçando a assimetria já observada na distribuição original.
+
+<div align="center">
+<sub align="center">Figura 13 – Histograma - Valor Pago Escalonado</sub>
+</div>
+
+<div align="center">
+<img src="../assets/valor_pago_escalonado.png" alt="Histograma Valor Pago Escalonado" border="0" width=100% height=100%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+</div>
+
+Após o processo de escalonamento, o histograma da variável valor pago preservou o mesmo padrão de assimetria observado na distribuição original, sem se aproximar de uma distribuição normal. Assim como ocorreu com a variável valor do boleto, a ausência de cauda à esquerda permaneceu evidente, e a transformação apenas ajustou os dados para o intervalo de 0 a 1. Com isso, a concentração de valores em determinadas faixas tornou-se mais destacada no histograma escalonado, reforçando o comportamento assimétrico já identificado anteriormente.
+
+<div align="center">
+<sub align="center">Figura 14 – Histograma - Valor do Juros Escalonado</sub>
+</div>
+
+<div align="center">
+<img src="../assets/juros_escalonado.png" alt="Histograma Valor do Juros Escalonado" border="0" width=100% height=100%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+</div>
+
+Após o escalonamento, o histograma da variável juros manteve o padrão de assimetria identificado na análise original. A ausência de cauda à esquerda continuou presente, assim como a diferença acentuada na frequência das primeiras classes, que se tornou ainda mais evidente no histograma escalonado. A transformação para o intervalo de 0 a 1 não aproximou a distribuição da normalidade, mas destacou a concentração de valores em faixas menores, reforçando o comportamento assimétrico dos dados.
+
+<div align="center">
+<sub align="center">Figura 15 – Histograma - Quantidade de Acessos Escalonado</sub>
+</div>
+
+<div align="center">
+<img src="../assets/acessos_escalonado.png" alt="Histograma Quantidade de Acessos Escalonado" border="0" width=100% height=100%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+</div>
+
+Após o escalonamento, o histograma da variável quantidade de acessos manteve a forte assimetria já identificada na análise original. A ausência de cauda à esquerda permaneceu evidente, enquanto a predominância de colunas à direita com maiores frequências tornou-se ainda mais concentrada no novo intervalo de valores. Embora o processo de escalonamento tenha ajustado a escala dos dados, ele não aproximou a variável de uma distribuição normal, reforçando o comportamento assimétrico característico dessa métrica.
+
+<div align="center">
+<sub align="center">Figura 16 – Histograma - Valor da Multa Escalonado</sub>
+</div>
+
+<div align="center">
+<img src="../assets/multa_escalonada.png" alt="Histograma Valor da Multa Escalonado" border="0" width=100% height=100%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+</div>
+
+Após o escalonamento, o histograma da variável valor das multas manteve o padrão de forte assimetria observado anteriormente. A primeira coluna continuou concentrando a maior parte dos registros, o que torna as demais pouco representativas visualmente. Apesar da alteração na escala, a distribuição permaneceu distante do formato normal, reforçando a predominância de valores muito baixos e a elevada discrepância em relação às classes subsequentes.
+
+##### 6.1.2.5. Tabelas de Dados Originais e Escalonados
+
+Para complementar a análise gráfica dos histogramas, esta subseção apresenta as tabelas com os 10 primeiros registros das variáveis quantitativas utilizadas no estudo, tanto em sua forma original quanto após o processo de escalonamento. Essa comparação possibilita observar, de maneira mais direta, as diferenças entre os valores brutos e os valores transformados, ressaltando como o escalonamento modifica a escala dos dados sem alterar sua estrutura ou relações internas.
+
+As tabelas a seguir apresentam, de forma comparativa, os dez primeiros registros das variáveis quantitativas em sua forma original e após o processo de escalonamento. Essa comparação permite observar as transformações numéricas realizadas pelo método de padronização, sem que haja alteração das relações entre os valores.
+
+<div align="center">
+<sub align="center">Tabela 4 – Valores Originais</sub>
+</div>
+
+<div align="center">
+
+| vl_boleto | vl_pagto | juros | qtd_acessos_pagador | multa |
+|-----------|----------|-------|----------------------|-------|
+| 8528.52   | NaN      | 2.84  | 3.0                  | 10.0  |
+| 8528.52   | 8528.52  | 2.84  | 1.0                  | 10.0  |
+| 8528.52   | 8528.52  | 2.84  | 3.0                  | 10.0  |
+| 8528.52   | 8528.52  | 2.84  | 2.0                  | 10.0  |
+| 8528.52   | 8528.52  | 2.84  | 2.0                  | 10.0  |
+| 8528.49   | 8528.49  | 2.84  | 2.0                  | 10.0  |
+| 726.97    | 726.97   | 0.24  | 1.0                  | 10.0  |
+| 726.97    | 726.97   | 0.24  | 1.0                  | 10.0  |
+| 726.97    | NaN      | 0.24  | 2.0                  | 10.0  |
+| 726.97    | 726.97   | 0.24  | 2.0                  | 10.0  |
+
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+</div>
+
+Na tabela dos dados originais, nota-se que as variáveis apresentam magnitudes bastante distintas entre si, o que poderia impactar em análises comparativas e algoritmos que dependem da escala dos valores.
+
+<div align="center">
+<sub align="center">Tabela 5 – Valores Escalonados</sub>
+</div>
+
+<div align="center">
+
+| vl_boleto | vl_pagto | juros   | qtd_acessos_pagador | multa   |
+|-----------|----------|---------|----------------------|---------|
+| 0.002564  | NaN      | 0.002562| 0.023529             | 0.000466|
+| 0.002564  | 0.004404 | 0.002562| 0.000000             | 0.000466|
+| 0.002564  | 0.004404 | 0.002562| 0.023529             | 0.000466|
+| 0.002564  | 0.004404 | 0.002562| 0.011765             | 0.000466|
+| 0.002564  | 0.004404 | 0.002562| 0.011765             | 0.000466|
+| 0.002564  | 0.004404 | 0.002562| 0.011765             | 0.000466|
+| 0.000219  | 0.000375 | 0.000216| 0.000000             | 0.000466|
+| 0.000219  | 0.000375 | 0.000216| 0.000000             | 0.000466|
+| 0.000219  | NaN      | 0.000216| 0.011765             | 0.000466|
+| 0.000219  | 0.000375 | 0.000216| 0.011765             | 0.000466|
+
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+</div>
+
+Após o escalonamento, observa-se que os valores passam a estar distribuídos em torno de zero, com variabilidade mais uniforme, o que favorece análises estatísticas e modelos que utilizam essas variáveis de forma conjunta.
+
+### 7. Referências
+
+ALPHA Level (Significance Level): What is it? Statistics How To. Disponível em: https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/what-is-an-alpha-level/#:~:text=3.,equil%C3%ADbrio%20entre%20esses%20dois%20problemas. Acesso em: 27 ago. 2025.

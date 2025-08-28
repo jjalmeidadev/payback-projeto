@@ -470,9 +470,43 @@ Não foram fornecidos dados sensíveis sobre os titulares.
 #### 4.2.1. Exploração de dados
 
 ```
-Apresentar a estatística descritiva básica de cada coluna, identificar se a coluna é numérica ou categórica e pelo menos 3 gráficos para visualizar a relação entre colunas escolhidas pelo grupo.
 
-Remova este bloco ao final
+Nesta etapa, foi realizada uma análise exploratória detalhada dos dados, com o objetivo de compreender as principais características das variáveis e suas relações. O processo seguiu as seguintes etapas:
+
+**1. Estatística descritiva básica de cada coluna**
+
+Foram aplicadas funções como `describe()` e análise de frequência para todas as colunas dos dataframes, permitindo identificar:
+- Distribuição de valores (média, mediana, desvio padrão, quartis) para variáveis numéricas como `vl_boleto`, `vl_pagto`, `juros`, `qtd_acessos_pagador`.
+- Frequência e proporção das categorias para variáveis categóricas como `status_boleto`, `banco`, `pagador_cidade`.
+- Análise de datas (`data_inclusao`, `data_vencto`, `dt_pagto`) para entender sazonalidade e intervalos de pagamento.
+
+**2. Identificação dos tipos de colunas**
+
+As colunas foram classificadas conforme abaixo:
+- **Numéricas:** `vl_boleto`, `vl_pagto`, `juros`, `qtd_acessos_pagador`, `dias_para_pagar`, `dias_para_vencer`.
+- **Categóricas:** `status_boleto`, `banco`, `pagador_cidade`, `tipo_juros`.
+- **Datas:** `data_inclusao`, `data_vencto`, `dt_pagto` (convertidas para datetime e desmembradas em ano, mês, dia para análises específicas).
+
+**3. Visualizações gráficas**
+
+Foram gerados diversos gráficos para explorar as relações entre as variáveis. Destacam-se:
+
+- **Gráfico 1: Pagamentos vs Boletos Incluídos por Mês**
+  - Barras para o número de boletos incluídos e pagos em cada mês, com linha de taxa de pagamento (%). Permitiu identificar sazonalidade e meses críticos para inadimplência.
+
+- **Gráfico 2: Média de acessos por status de pagamento**
+  - Barplot comparando a média de acessos à plataforma entre boletos pagos e não pagos. Evidenciou que usuários que pagam tendem a acessar mais a plataforma.
+
+- **Gráfico 3: Dias necessários para pagar após inclusão**
+  - Linha mostrando a distribuição do número de dias entre a inclusão e o pagamento dos boletos. Auxiliou na identificação de padrões de atraso e comportamento dos pagadores.
+
+Outras visualizações relevantes incluíram:
+- Distribuição dos valores dos boletos (histograma)
+- Média de valor dos boletos por status de pagamento
+- Relação entre valor do boleto e tempo para pagamento
+- Média de valor dos boletos por cidade do pagador
+
+Essas análises permitiram identificar padrões importantes, como a influência do mês na taxa de pagamento, o impacto do engajamento do usuário (acessos) na adimplência e a distribuição dos valores dos boletos pagos e não pagos.
 ```
 
 #### 4.2.2. Pré-processamento dos dados

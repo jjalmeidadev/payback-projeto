@@ -720,6 +720,8 @@ Aqui, são descritos os procedimentos de escalonamento, como normalização e/ou
 
 O escalonamento das variáveis quantitativas tem como objetivo ajustar os dados para que fiquem em uma mesma escala, permitindo comparabilidade entre diferentes medidas e evitando que variáveis com amplitudes maiores influenciem de forma desproporcional os resultados da análise. Esse processo preserva a forma das distribuições originais, mantendo informações sobre assimetrias, concentração de valores e outliers, mas ajustando os valores para facilitar interpretações e aplicações em modelos estatísticos.
 
+No presente estudo, optou-se por aplicar exclusivamente a normalização Min-Max em todas as variáveis. A decisão se justifica pelo fato de que os dados apresentam alta amplitude e forte presença de outliers, o que poderia distorcer os resultados caso fosse utilizada a padronização (Z-score), que depende da média e do desvio padrão. A normalização, ao restringir os valores para o intervalo [0,1], garante comparabilidade entre as variáveis sem que valores extremos exerçam influência desproporcional sobre o escalonamento.
+
 <div align="center">
 <sub align="center">Tabela 2 – Resumo do Escalonamento das Variáveis</sub>
 </div>

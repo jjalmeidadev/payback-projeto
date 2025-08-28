@@ -469,7 +469,7 @@ Não foram fornecidos dados sensíveis sobre os titulares.
 
 #### 4.2.1. Exploração de dados
 
-```
+
 
 Nesta etapa, foi realizada uma análise exploratória detalhada dos dados, com o objetivo de compreender as principais características das variáveis e suas relações. O processo seguiu as seguintes etapas:
 
@@ -507,11 +507,11 @@ Outras visualizações relevantes incluíram:
 - Média de valor dos boletos por cidade do pagador
 
 Essas análises permitiram identificar padrões importantes, como a influência do mês na taxa de pagamento, o impacto do engajamento do usuário (acessos) na adimplência e a distribuição dos valores dos boletos pagos e não pagos.
-```
+
 
 #### 4.2.2. Pré-processamento dos dados
 
-```
+
 Apresentar quais foram as ações realizadas de limpeza (tratamento de missing values e remoção de outliers) e transformação (normalização e codificação) das colunas. Se houverem outliers, cite quais são e qual(is) correção(ões) será(ão) aplicada(s).
 
 
@@ -540,7 +540,7 @@ Visualização dos Resultados: Ao final, foram exibidos os dataframes resultante
 Esse fluxo garante que todas as etapas fundamentais de preparação dos dados foram seguidas, promovendo qualidade e robustez para o desenvolvimento do modelo preditivo.
 
 
-```
+
 
 #### 4.2.3. Hipóteses
 

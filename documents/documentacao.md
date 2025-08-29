@@ -551,13 +551,60 @@ Remova este bloco ao final
 ```
 ### 6.1. Análise de Normalidade e Escalonamento das Variáveis
 
-Para compreender o comportamento estatístico dos dados e prepará-los para as etapas seguintes da análise, foram aplicados dois procedimentos principais: a verificação da normalidade das distribuições e o escalonamento das variáveis. A seguir, cada um desses processos é detalhado.
+Para compreender o comportamento estatístico dos dados e prepará-los para as etapas seguintes da análise, foram aplicados dois procedimentos principais: a verificação da normalidade das distribuições e o escalonamento das variáveis. A seguir, cada um desses processos é detalhado. Segue abaixo um glossário explicando palavras chaves que serão usadas posteriormente:
+
+**Hipótese Nula (H₀)**
+É o ponto de partida em testes estatísticos e só é rejeitada caso haja evidências suficientes (p ≤ α).
+
+**Hipótese Alternativa (H₁)**
+Afirmação contrária à hipótese nula, indicando que a variável não segue uma distribuição normal.
+
+**Nível de Significância (α)**
+Critério usado para aceitar ou rejeitar H₀. No estudo, foi adotado α = 5%, valor historicamente usado em testes estatísticos.
+
+**p-valor**
+Probabilidade de observar os resultados obtidos (ou mais extremos) caso H₀ seja verdadeira. É comparado com α para decidir a rejeição ou não da hipótese nula.
+
+**Kolmogorov–Smirnov (KS)**
+Teste estatístico que compara a distribuição empírica de uma amostra com uma distribuição teórica (como a normal). Requer que média e desvio padrão da população sejam conhecidos.
+
+**Lilliefors**
+Adaptação do teste KS usada quando a média e o desvio padrão precisam ser estimados da própria amostra. É o mais adequado quando se trabalha com dados amostrais.
+
+**Histograma**
+Gráfico de barras usado para representar a frequência de valores de uma variável, permitindo avaliar visualmente a forma da distribuição.
+
+**Assimetria**
+Condição em que a distribuição não é equilibrada em torno da média. No caso estudado, predominou a assimetria à direita (valores altos deslocando a média).
+
+**Média ($\mu$)**
+Métrica de tendência central calculada pela soma de todos os valores dividida pelo número de observações. Sensível a outliers.
+
+**Mediana**
+Valor central de uma distribuição ordenada. É mais robusta a outliers do que a média, sendo útil para identificar assimetrias.
+
+**Desvio Padrão ($\sigma$)**
+Medida de dispersão dos dados em relação à média. Desvios altos indicam grande variabilidade.
+
+**Outliers**
+Valores atípicos que se distanciam significativamente do padrão dos demais dados, podendo distorcer média e desvio padrão.
+
+**Escalonamento**
+Transformação aplicada às variáveis para ajustá-las a uma mesma escala, facilitando comparações e evitando que variáveis com grande amplitude dominem a análise.
+
+**Normalização Min-Max**
+Técnica de escalonamento que transforma valores para o intervalo [0,1], preservando a forma da distribuição original e reduzindo o impacto de amplitudes diferentes.
+
+**Normalidade**
+Característica de distribuições que seguem o padrão da curva normal (ou gaussiana), simétrica e em formato de sino.
 
 #### 6.1.1. Análise de Normalidade
 
 Nesta subseção, são apresentados os testes estatísticos utilizados para avaliar se as variáveis seguem uma distribuição normal. A análise da normalidade é fundamental, pois influencia diretamente na escolha dos métodos estatísticos e de modelagem que podem ser aplicados de forma adequada.
 
 ##### 6.1.1.1. Afirmações e suas hipóteses
+
+Nesta subseção, são definidas as afirmações e hipóteses que orientam a verificação de normalidade das variáveis analisadas. Para cada variável quantitativa, estabelece-se a hipótese nula (H₀), que pressupõe a normalidade da distribuição, e a hipótese alternativa (H₁), que refuta essa condição. Esse procedimento fornece a base estatística necessária para a aplicação dos testes de normalidade.
 
 1. Afirmação: a variável valor do boleto (`vl_boleto`) não segue uma distribuição normal.
 - Hipótese nula (H₀): o valor do boleto segue distribuição normal.
@@ -581,9 +628,11 @@ Nesta subseção, são apresentados os testes estatísticos utilizados para aval
 
 Observação: H₀ sempre assumirá normalidade, o teste irá indicar se a hipótese nula será rejeitada ou se não há evidências o suficiente para isso.
 
+Assim, nesta etapa foram organizadas as afirmações e hipóteses de cada variável relevante ao estudo, sempre considerando H₀ como a suposição de normalidade. A partir dessa estrutura, torna-se possível avaliar se os dados seguem ou não uma distribuição normal, servindo de suporte para as análises subsequentes.
+
 ##### 6.1.1.2. Nível de significância e sua relação com o valor de p
 
-O nível de significância ($\alpha$) é o limite que usamos para decidir se a hipótese nula será rejeitada ou não. A escolha do alfa ($\alpha$) é definida ante da análise e nesse caso será o mesmo alfa para todas as afirmações.
+Na análise estatística, o nível de significância ($\alpha$) e o p-valor caminham juntos no processo de tomada de decisão. O nível de significância é um critério fixo, definido antes da análise, e neste estudo será o mesmo para todos os testes. Já o p-valor é calculado individualmente em cada caso, representando a probabilidade de observarmos os dados (ou mais extremos) caso a hipótese nula seja verdadeira. A comparação entre o p-valor de cada teste e o $\alpha$ fixo orienta a decisão sobre a normalidade dos dados.
 
 $\alpha$ = 5% 
 
@@ -597,7 +646,11 @@ O p-valor, por sua vez, varia de acordo com cada teste; a comparação é sempre
 - Se p $\leq \alpha \rightarrow$ rejeitamos H₀. Portanto, a variável **não segue** distribuição normal.  
 - Se p $> \alpha \rightarrow$ não rejeitamos H₀. Portanto, a variável **pode seguir** distribuição normal.
 
+Portanto, ao adotar $\alpha = 5%$, seguimos um padrão amplamente utilizado. A comparação entre o p-valor de cada teste e esse limite fixo indica, de forma uniforme, se rejeitamos a hipótese nula de normalidade ou se os dados podem ser compatíveis com uma distribuição normal.
+
 ##### 6.1.1.3. Teste de Normalidade das Variáveis Quantitativas
+
+A verificação da normalidade é um passo essencial para definir quais métodos estatísticos podem ser aplicados de forma adequada. Por isso, todas as variáveis quantitativas passaram por testes formais de normalidade.
 
 O teste adotado para todas as variáveis foi o teste de Lilliefors, que consiste em uma adaptação do teste de Kolmogorov–Smirnov (KS). Enquanto o KS clássico pressupõe que a média ($\mu$) e o desvio padrão ($\sigma$) da população sejam previamente conhecidos, o teste de Lilliefors é adequado quando esses parâmetros precisam ser estimados a partir da própria amostra. Essa escolha se justifica, pois mesmo dispondo de todas as planilhas disponíveis, os dados não seriam suficientes para representar integralmente a população da Finnet, de modo que trabalhamos efetivamente com amostras.
 
@@ -620,6 +673,8 @@ O teste adotado para todas as variáveis foi o teste de Lilliefors, que consiste
 <div align="center">
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
+
+Os resultados indicam que, para todas as variáveis analisadas, a hipótese de normalidade foi rejeitada ao nível de significância de 5%. Assim, os dados não seguem distribuição normal, o que orienta o uso de técnicas estatísticas que não dependam dessa suposição.
 
 ##### 6.1.1.4. Teste de Normalidade das Variáveis Quantitativas
 
@@ -695,6 +750,8 @@ De maneira bastante acentuada, o histograma da variável quantidade de acessos s
 
 O histograma da variável valor das multas evidencia um forte desvio em relação à distribuição normal. Observa-se que a primeira coluna possui frequência extremamente elevada, tornando as demais quase imperceptíveis, o que indica forte assimetria e concentração dos dados em valores mais baixos.
 
+A avaliação gráfica confirmou os resultados dos testes estatísticos: em todas as variáveis, os histogramas evidenciaram desvios claros em relação à normalidade, sobretudo pela forte assimetria nas distribuições.
+
 ##### 6.1.1.5. Comparação das Média e Medianas
 
 A comparação entre a média e a mediana das variáveis quantitativas fornece informações importantes sobre a simetria das distribuições. Diferenças significativas entre esses dois parâmetros indicam assimetria nos dados e podem reforçar os resultados obtidos nos testes estatísticos de normalidade. Esta análise permite compreender melhor o comportamento das variáveis e identificar desvios que impactam a interpretação dos dados.
@@ -711,6 +768,8 @@ A média da variável Valor do Boleto (R$ 8.278,10) é significativamente maior 
 5. Valor da Multa: Na variável multa, a média (44,54) é consideravelmente maior que a mediana (10,00), enquanto o desvio padrão elevado (326,98) revela a presença de poucos valores muito altos que distorcem a distribuição. Essa diferença entre média e mediana indica forte assimetria à direita, reforçando que os dados não apresentam distribuição normal, conforme já observado nos histogramas e nos testes de normalidade.
 
 Ademais, nessa seção também foi utilizado o desvio padrão para dar maior embasamento às conclusões proveninentes da comparação entre média e mediana, uma vez que o desvio padrão é responsável medir o grau de dispersão dos dados em relação a média.
+
+A comparação entre média e mediana, complementada pelo desvio padrão, evidenciou padrões de assimetria em todas as variáveis analisadas, reforçando as conclusões sobre o afastamento da normalidade apontadas pelos testes estatísticos e análises gráficas.
 
 #### 6.1.2. Escalonamento das Variáveis
 
@@ -742,6 +801,8 @@ No presente estudo, optou-se por aplicar exclusivamente a normalização Min-Max
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
 
+O escalonamento aplicado uniformemente às variáveis garantiu comparabilidade entre elas, mantendo as propriedades originais dos dados e preparando-os adequadamente para análises subsequentes.
+
 ##### 6.1.2.2. Estatísticas Utilizadas
 
 Nesta subseção, apresentam-se os principais valores estatísticos das variáveis quantitativas que serão utilizados no processo de escalonamento: mínimo, máximo, média, mediana e desvio padrão populacional. Esses parâmetros permitem compreender a amplitude e a dispersão dos dados, servindo de base para ajustar as variáveis a uma escala comparável, preservando a forma das distribuições e facilitando análises subsequentes.
@@ -766,7 +827,11 @@ Nesta subseção, apresentam-se os principais valores estatísticos das variáve
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
 
+A apresentação das estatísticas descritivas permite interpretar a variabilidade e a amplitude de cada variável, fornecendo o suporte necessário para aplicar o escalonamento de forma consistente e confiável.
+
 ##### 6.1.2.3. Equações de Escalonamento
+
+O escalonamento das variáveis quantitativas transforma os dados para uma mesma escala, permitindo comparabilidade entre diferentes medidas e evitando que variáveis com amplitudes maiores tenham influência desproporcional.
 
 O escalonamento foi realizado utilizando a **normalização Min-Max**, que transforma os valores de cada variável para o intervalo [0,1]:
 
@@ -800,6 +865,8 @@ $
 $
 multa_{\text{norm}} = \frac{multa - 1.46}{18325.01 - 1.46}
 $
+
+Ao aplicar as equações de normalização Min-Max, todos os valores das variáveis foram ajustados para o intervalo [0,1], garantindo consistência na escala sem alterar a estrutura dos dados, permitindo comparações diretas entre diferentes variáveis e suportando análises subsequentes.
 
 ##### 6.1.2.4. Histogramas Escalonados E Sua Relação Com Não Escalonados
 
@@ -874,6 +941,8 @@ Após o escalonamento, o histograma da variável quantidade de acessos manteve a
 </div>
 
 Após o escalonamento, o histograma da variável valor das multas manteve o padrão de forte assimetria observado anteriormente. A primeira coluna continuou concentrando a maior parte dos registros, o que torna as demais pouco representativas visualmente. Apesar da alteração na escala, a distribuição permaneceu distante do formato normal, reforçando a predominância de valores muito baixos e a elevada discrepância em relação às classes subsequentes.
+
+Os histogramas escalonados mantiveram o padrão de assimetria e concentração de valores das distribuições originais. A transformação ajustou os dados para o intervalo [0,1] sem modificar a forma geral dos histogramas, confirmando que o escalonamento preservou a estrutura dos dados e reforçou visualmente comportamentos já identificados anteriormente.
 
 ##### 6.1.2.5. Tabelas de Dados Originais e Escalonados
 

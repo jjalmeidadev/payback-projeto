@@ -511,40 +511,35 @@ Essas análises permitiram identificar padrões importantes, como a influência 
 
 #### 4.2.2. Pré-processamento dos dados
 
-
-Apresentar quais foram as ações realizadas de limpeza (tratamento de missing values e remoção de outliers) e transformação (normalização e codificação) das colunas. Se houverem outliers, cite quais são e qual(is) correção(ões) será(ão) aplicada(s).
-
+O processo de análise de dados exige uma preparação cuidadosa para garantir que as informações estejam organizadas, limpas e adequadas para a modelagem. Para isso, foi realizada uma série de etapas de pré-processamento que envolveram desde a importação das bibliotecas necessárias até a transformação e normalização dos dados. Essas etapas visaram estruturar os registros de forma padronizada, corrigir inconsistências e reduzir impactos de valores ausentes ou extremos, assegurando maior confiabilidade na análise estatística e nas futuras aplicações em modelos preditivos.
 
 A exploração e preparação dos dados foi realizada de forma estruturada, conforme documentado no notebook do projeto:
 
-Importação de Bibliotecas: Inicialmente, foram importadas bibliotecas essenciais para análise de dados, como pandas, numpy, matplotlib, seaborn e ferramentas de pré-processamento do scikit-learn.
-
-Importação dos Dados: Os arquivos de diferentes grupos foram carregados em dataframes separados, permitindo a análise segmentada dos registros, possibilitando o carregamento direto ou em seções menores para preservação de memória.
-
-Divisão de Colunas: Como os dados originais estavam em colunas únicas separadas por tabulação, foi implementada uma função para dividir corretamente as colunas, garantindo a estrutura adequada dos dataframes.
-
-Conversão de Tipos: As colunas foram classificadas em numéricas e categóricas, sendo convertidas para os tipos apropriados. Valores ausentes e entradas inválidas foram tratados, substituindo por NaN ou categorias específicas, como datatime e textos/objetos.
-
-Tratamento de Valores Ausentes: Colunas irrelevantes foram removidas (referentes principalmente às multas por estarem majoritariamente vazias) e valores ausentes em variáveis importantes, como valor de pagamento e cidade do pagador, foram preenchidos com valores padrão ou categorias “Desconhecido”.
-
-Estatística Descritiva: Foram geradas estatísticas descritivas para cada dataframe.
-
-Tratamento de Outliers: Outliers nas variáveis numéricas foram tratados utilizando a técnica de capping, limitando os valores aos intervalos interquartis.
-
-Codificação de Variáveis Categóricas: As variáveis categóricas foram transformadas em valores binários (one-hot encoding),tornando-as adequadas para uso em modelos preditivos.
-
-Normalização: As variáveis numéricas foram normalizadas utilizando o StandardScaler, padronizando a escala dos dados para melhorar o desempenho dos algoritmos de machine learning na escala de 0-10000 algarismos.
-
-Visualização dos Resultados: Ao final, foram exibidos os dataframes resultantes após todas as etapas de pré-processamento, garantindo que os dados estivessem prontos para modelagem de gráficos e demais.
-
-Esse fluxo garante que todas as etapas fundamentais de preparação dos dados foram seguidas, promovendo qualidade e robustez para o desenvolvimento do modelo preditivo.
 
 
+- **Conversão de Tipos:** As colunas foram classificadas em numéricas e categóricas, sendo convertidas para os tipos apropriados. Valores ausentes e entradas inválidas foram tratados, substituindo por NaN ou categorias específicas, como datatime e textos/objetos.
 
+- **Tratamento de Valores Ausentes:** Colunas irrelevantes foram removidas (referentes principalmente às multas por estarem majoritariamente vazias) e valores ausentes em variáveis importantes, como valor de pagamento e cidade do pagador, foram preenchidos com valores padrão ou categorias “Desconhecido”.
+
+- **Estatística Descritiva:** Foram geradas estatísticas descritivas para cada dataframe.
+
+- **Tratamento de Outliers:** Outliers nas variáveis numéricas foram tratados utilizando a técnica de capping, limitando os valores aos intervalos interquartis.
+
+- **Codificação de Variáveis Categóricas:** As variáveis categóricas foram transformadas em valores binários (one-hot encoding),tornando-as adequadas para uso em modelos preditivos.
+
+- **Normalização:** As variáveis numéricas foram normalizadas utilizando o StandardScaler, padronizando a escala dos dados para melhorar o desempenho dos algoritmos de machine learning na escala de 0-10000 algarismos.
+
+
+&nbsp;&nbsp;&nbsp;&nbsp; Esse fluxo garante que todas as etapas fundamentais de preparação dos dados foram seguidas, promovendo qualidade e robustez para o desenvolvimento do modelo preditivo.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Com a execução dessas etapas de pré-processamento, os dados foram devidamente estruturados, tratados e normalizados, eliminando inconsistências e preparando-os para análises mais aprofundadas. Esse trabalho garante uma base sólida e confiável, permitindo a construção de gráficos, extração de insights relevantes e melhor entendimento das relações e importância das variáveis do nosso conjunto para criação do nosso modelo preditivo.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Todas as etapas do Pré-Processamento e criação dos gráficos são encontradas no notebook geral do projeto, localizado em: <a href="../notebooks/Exploração_de_Dados,_Pré_processamento_e_Levantamento_de_Hipóteses_The_Seven.ipynb">**Link do Notebook**</a>
 
 #### 4.2.3. Hipóteses
 
 &nbsp;&nbsp;&nbsp;&nbsp; Nesta análise, foram levantadas hipóteses relacionadas ao comportamento de pagamento de boletos pelos usuários da plataforma. O objetivo é identificar padrões e fatores que influenciam o tempo de pagamento. Essas hipóteses servem como base para exploração de dados e para a criação do modelo preditivo, auxiliando na compreensão dos fatores que impactam atrasos, pontualidade nos pagamentos e permitem identificar quais variáveis impactão ou não no pagamento de boletos.
+
 
 #### Hipotese 1
 
@@ -631,6 +626,54 @@ Esse fluxo garante que todas as etapas fundamentais de preparação dos dados fo
 &nbsp;&nbsp;&nbsp;&nbsp; A partir da análise do gráfico acima, é possível identificar que não há uma tendência linear clara entre essas variáveis. A maioria dos pagamentos ocorre em até 30 dias, concentrando-se em boletos de R$ 200 a R$ 400. Casos isolados de valores acima de R$ 600 mostram pagamentos tanto rápidos quanto atrasados, sugerindo que o valor sozinho não determina o tempo de quitação. Após 40 dias, os pagamentos se tornam mais raros. Assim, o prazo para pagamento parece depender mais de fatores como comportamento do cliente, sazonalidade ou disciplina financeira, indicando que o valor do boleto deve ser analisado junto a outras variáveis em modelos preditivos.
 
 **Resultado:** Portanto, é possível afirmar que NÃO há uma relação clara entre o valor do boleto e tempo necessário para pagar.
+
+#### Hipotese 4
+
+- **Hipótese 4:** O tempo necessário para pagamento de boletos varia de acordo com o perfil financeiro e comportamento dos clientes
+
+&nbsp;&nbsp;&nbsp;&nbsp; Esta hipótese busca confirmar que o tempo necessário para pagamento de boletos varia de acordo com o perfil financeiro e comportamento dos clientes. Observa-se que grande parte dos boletos é quitada dentro dos primeiros 30 dias após a inclusão, indicando que muitos clientes priorizam pagamentos imediatos. Por outro lado, uma parcela menor apresenta atrasos mais longos, podendo estar relacionada a dificuldades financeiras temporárias, menor disciplina de pagamento ou atrasos na compensação bancária.
+
+&nbsp;&nbsp;&nbsp;&nbsp; No gráfico abaixo, o eixo X representa os dias necessários para pagar, enquanto o eixo Y representa o número de boletos quitados em cada período. Cada ponto azul indica a quantidade de boletos pagos após determinado número de dias desde a inclusão.
+
+<br>
+<div align="center">
+<sub align="center">Figura 9 – Gráfico de relação entre valor do boleto e dias necessários para pagar.</sub>
+</div>
+
+<div align="center">
+<img src="../assets/hipoteses-dia-inclusao.png" alt="Persona Finnet" border="0" width=100% height=100%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp; A análise do gráfico revela padrões importantes no comportamento de pagamento. Observa-se um pico significativo entre 20 e 30 dias, sugerindo que a maioria dos clientes paga dentro do prazo mensal típico. Além disso, o número de boletos pagos decresce rapidamente após 40 dias, evidenciando que atrasos prolongados são menos frequentes, mas ainda presentes, indicando a necessidade de monitoramento e estratégias de cobrança para evitar inadimplência.
+
+**Resultado:** Portanto, é possível afirmar que o tempo de pagamento de boletos segue um padrão concentrado nos primeiros 30 dias, com uma diminuição acentuada à medida que os dias avançam.
+
+#### Hipotese 5
+
+- **Hipótese 5:** Média de valor entre boletos pagos e não pagos.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Esta hipótese busca afirmar que a média de valor é maior para os boletos com status 'Não Pago', sugerindo que valores mais altos podem influenciar negativamente a quitação dos boletos.
+
+<br>
+<div align="center">
+<sub align="center">Figura 9 – Gráfico de relação entre status do pagamento e média de valor do boleto.</sub>
+</div>
+
+<div align="center">
+<img src="../assets/hipotese-status-valor.png" alt="Persona Finnet" border="0" width=100% height=100%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+**Resultado**: Após a análise do gráfico, pode-se concluir que a média de valor entre boletos pagos e não pagos é praticamente igual, o que anula completamente a hipótese de que a média de valor de boletos não pagos é maior.
 
 &nbsp;&nbsp;&nbsp;&nbsp; As hipóteses levantadas permitem direcionar análises quantitativas para verificar a influência de diferentes fatores sobre o comportamento de pagamento. A avaliação de padrões relacionados a valores, frequência de acessos e histórico de pagamentos ajuda a confirmar ou rejeitar essas hipóteses, identificando variáveis relevantes para modelos preditivos e aprimorando a tomada de decisão baseada em dados.
 

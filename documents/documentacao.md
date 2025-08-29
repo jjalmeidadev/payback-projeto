@@ -144,19 +144,19 @@ posicionamento da empresa, permitindo o alinhamento do projeto aos seus pontos f
 </div>
 
 <div align="center">
-<sub>Fonte: Material produzido pela equipe, 2025.</sub>
+<sub>Fonte: Material produzido pela equipe The Seven, 2025.</sub>
 </div>
 <br>
 
 &nbsp;&nbsp;&nbsp;&nbsp; Com essa base, a análise SWOT pode orientar o projeto de modelo preditivo ao explorar:
 
-**Forças:** expertise consolidada em integração com ERPs, robustez das soluções multibanco/multiempresas e pioneirismo em produtos como Bolepix e Open Finance.
+- **Forças:** expertise consolidada em integração com ERPs, robustez das soluções multibanco/multiempresas e pioneirismo em produtos como Bolepix e Open Finance.
 
-**Fraquezas:** possíveis pontos de fragilidade podem incluir dependência de infraestrutura legada dos clientes, ciclos de adoção de inovações e a necessidade de customização intensa para diferentes ERPs e setores.
+- **Fraquezas:** possíveis pontos de fragilidade podem incluir dependência de infraestrutura legada dos clientes, ciclos de adoção de inovações e a necessidade de customização intensa para diferentes ERPs e setores.
 
-**Oportunidades:** o crescente ambiente regulatório e de inovação em pagamentos digitais, expansão do ecossistema Open Finance e potencial de uso de dados para previsão de inadimplência, comportamento de pagamentos ou risco na cadeia de fornecedores.
+- **Oportunidades:** o crescente ambiente regulatório e de inovação em pagamentos digitais, expansão do ecossistema Open Finance e potencial de uso de dados para previsão de inadimplência, comportamento de pagamentos ou risco na cadeia de fornecedores.
 
-**Ameaças:** concorrência crescente de fintechs e grandes provedores de serviços financeiros, mudanças regulatórias rápidas e riscos relacionados à segurança da informação e conformidade com LGPD.
+- **Ameaças:** concorrência crescente de fintechs e grandes provedores de serviços financeiros, mudanças regulatórias rápidas e riscos relacionados à segurança da informação e conformidade com LGPD.
 
 &nbsp;&nbsp;&nbsp;&nbsp; Ao analisar essas dimensões, torna-se possível estruturar um modelo preditivo direcionado a maximizar os benefícios para a Finnet, como o aprimoramento na tomada de decisões financeiras, a antecipação de possíveis riscos e o incremento na personalização das soluções oferecidas. Dessa forma, garante-se que o projeto não apenas esteja alinhado às diretrizes estratégicas da Finnet, mas também promova um impacto substancial e sustentável em longo prazo.
 
@@ -197,7 +197,7 @@ Em fases futuras, a solução será incorporada de forma nativa na plataforma, p
 </div>
 
 <div align="center">
-<sub>Fonte: Material produzido pela equipe, 2025.</sub>
+<sub>Fonte: Material produzido pela equipe The Seven, 2025.</sub>
 </div>
 <br>
 
@@ -274,7 +274,7 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 </div>
 
 <div align="center">
-<sub>Fonte: Material produzido pela equipe, 2025.</sub>
+<sub>Fonte: Material produzido pela equipe The Seven, 2025.</sub>
 </div>
 <br>
 
@@ -345,7 +345,7 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 ##### Pessoa Jurídica
 
 <div align="center">
-<sub align="center">Figure 4 – Persona - Pessoa Jurídica</sub>
+<sub align="center">Figura 4 – Persona - Pessoa Jurídica</sub>
 </div>
 
 <div align="center">
@@ -353,7 +353,7 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 </div>
 
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 
@@ -370,7 +370,7 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 </div>
 
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 
 Rogério Silveira é o perfil de cliente principal do projeto e atua como Gerente Financeiro na Finnet. Ele é responsável por monitorar transações e elaborar relatórios financeiros para empresas parceiras, garantindo que estas tenham uma visão clara e atualizada do seu fluxo de caixa. Com alta afinidade com tecnologia, busca automatizar processos de coleta e análise de dados, reduzindo o trabalho manual e aumentando a precisão das informações. Entre suas principais necessidades está prever a inadimplência e identificar tendências de pagamento, permitindo agir de forma proativa. Atualmente, Rogério deseja agregar valor ao serviço prestado pela Finnet implementando recursos como score de risco de inadimplência, melhor janela provável de pagamento e análise do impacto da inadimplência no fluxo de recebimentos, fortalecendo a tomada de decisão dos clientes e da própria empresa.
@@ -467,11 +467,11 @@ Não foram fornecidos dados sensíveis sobre os titulares.
 
 ### 4.2. Compreensão dos Dados
 
+&nbsp;&nbsp;&nbsp;&nbsp; A compreensão dos dados é uma etapa fundamental no processo de análise, pois permite identificar padrões, relações e possíveis inconsistências presentes no conjunto analisado. Nesta fase, busca-se explorar as variáveis disponíveis, avaliando suas distribuições, correlações e significados dentro do contexto do problema. Essa etapa fornece uma visão geral do comportamento dos dados, permitindo levantar hipóteses iniciais e orientar as etapas seguintes de pré-processamento e modelagem.
+
 #### 4.2.1. Exploração de dados
 
-
-
-Nesta etapa, foi realizada uma análise exploratória detalhada dos dados, com o objetivo de compreender as principais características das variáveis e suas relações. O processo seguiu as seguintes etapas:
+&nbsp;&nbsp;&nbsp;&nbsp; Nesta etapa, foi realizada uma análise exploratória detalhada dos dados, com o objetivo de compreender as principais características das variáveis e suas relações. O processo seguiu as seguintes etapas:
 
 **1. Estatística descritiva básica de cada coluna**
 
@@ -492,28 +492,143 @@ As colunas foram classificadas conforme abaixo:
 Foram gerados diversos gráficos para explorar as relações entre as variáveis. Destacam-se:
 
 - **Gráfico 1: Pagamentos vs Boletos Incluídos por Mês**
-  - Barras para o número de boletos incluídos e pagos em cada mês, com linha de taxa de pagamento (%). Permitiu identificar sazonalidade e meses críticos para inadimplência.
+  - Barras para o número de boletos incluídos e pagos em cada mês. Permitiu identificar sazonalidade e meses críticos para inadimplência.
 
-- **Gráfico 2: Média de acessos por status de pagamento**
+<div align="center">
+<sub align="center">Figura 6 – Gráfico de relação entre número de boletos incluídos de pagos por mês.</sub>
+</div>
+
+<div align="center">
+<img src="../assets/grafico-mes.png" alt="Persona Finnet" border="0" width=70% height=60%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+- **Gráfico 2: Quantidade de acessos por status de número de boletos pagos**
   - Barplot comparando a média de acessos à plataforma entre boletos pagos e não pagos. Evidenciou que usuários que pagam tendem a acessar mais a plataforma.
 
-- **Gráfico 3: Dias necessários para pagar após inclusão**
-  - Linha mostrando a distribuição do número de dias entre a inclusão e o pagamento dos boletos. Auxiliou na identificação de padrões de atraso e comportamento dos pagadores.
+<div align="center">
+<sub align="center">Figura 7 – Quantidade de acessos por status de número de boletos pagos.</sub>
+</div>
 
-Outras visualizações relevantes incluíram:
-- Distribuição dos valores dos boletos (histograma)
-- Média de valor dos boletos por status de pagamento
-- Relação entre valor do boleto e tempo para pagamento
-- Média de valor dos boletos por cidade do pagador
+<div align="center">
+<img src="../assets/acessosxboletos.png" alt="Persona Finnet" border="0" width=70% height=60%>
+</div>
 
-Essas análises permitiram identificar padrões importantes, como a influência do mês na taxa de pagamento, o impacto do engajamento do usuário (acessos) na adimplência e a distribuição dos valores dos boletos pagos e não pagos.
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+- **Gráfico 3: Quantidade de boletos por dias possíveis para pagar**
+  - Histograma mostrando a relação entre a quantidade de boletos por dias possíveis de pagamento (Diferença entre data de inclusão e vencimento)
+
+
+<div align="center">
+<sub align="center">Figura 8 – Quantidade de acessos por status de número de boletos pagos.</sub>
+</div>
+
+<div align="center">
+<img src="../assets/vencimentoinclusao.png" alt="Persona Finnet" border="0" width=70% height=60%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+- **Gráfico 4: Pagamentos vs Boletos Incluídos por Mês (Com taxa de pagamento)**
+  - Barras para o número de boletos incluídos e pagos em cada mês, com linha de taxa de pagamento (%). Permitiu identificar sazonalidade e meses críticos para inadimplência.
+
+<div align="center">
+<sub align="center">Figura 9 – Gráfico de número de boletos e meses do ano.</sub>
+</div>
+
+<div align="center">
+<img src="../assets/hipoteses-meses.png" alt="Persona Finnet" border="0" width=70% height=60%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+- **Gráfico 5: Média de acessos x Status do pagamento**
+  - O gráfico a seguir busca mostrar a diferença de média de acessos a plataforma entre boletos pagos e não pagos.
+
+<div align="center">
+<sub align="center">Figura 10 – Gráfico de relação entre status do boleto e média de acessos na plataforma.</sub>
+</div>
+
+<div align="center">
+<img src="../assets/hipoteses-acessos.png" alt="Persona Finnet" border="0" width=70% height=60%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+- **Gráfico 6: Dias para pagar x Valor do boleto**
+  - O gráfico a seguir busca mostrar a relação entre o valor do boleto e os dias necessários para pagar.
+
+<div align="center">
+<sub align="center">Figura 11 – Gráfico de relação entre dias para pagar e valor do boleto.</sub>
+</div>
+
+<div align="center">
+<img src="../assets/hipoteses-dia-valor.png" alt="Persona Finnet" border="0" width=70% height=60%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+- **Gráfico 7: Status do pagamento x média de valor**
+  - O gráfico Boxplot a seguir busca mostrar a relação entre a média de valor entre boletos pagos e não pagos.
+
+<div align="center">
+<sub align="center">Figura 12 – Gráfico de relação entre status do pagamento e média de valor do boleto.</sub>
+</div>
+
+<div align="center">
+<img src="../assets/hipotese-status-valor.png" alt="Persona Finnet" border="0" width=70% height=60%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+
+- **Gráfico 8: Cidade x média de valor**
+  - O histograma a seguir demonstra as cidades com maior média de valor dentre uma amostra selecionada.
+
+<div align="center">
+<sub align="center">Figura 13 – Gráfico de relação entre cidade e média de valor.</sub>
+</div>
+
+<div align="center">
+<img src="../assets/grafico-cidades.png" alt="Persona Finnet" border="0" width=100% height=100%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp; Essas análises permitiram identificar padrões importantes, como a influência do mês na taxa de pagamento, o impacto do engajamento do usuário (acessos) na adimplência e a distribuição dos valores dos boletos pagos e não pagos.
 
 
 #### 4.2.2. Pré-processamento dos dados
 
-O processo de análise de dados exige uma preparação cuidadosa para garantir que as informações estejam organizadas, limpas e adequadas para a modelagem. Para isso, foi realizada uma série de etapas de pré-processamento que envolveram desde a importação das bibliotecas necessárias até a transformação e normalização dos dados. Essas etapas visaram estruturar os registros de forma padronizada, corrigir inconsistências e reduzir impactos de valores ausentes ou extremos, assegurando maior confiabilidade na análise estatística e nas futuras aplicações em modelos preditivos.
+&nbsp;&nbsp;&nbsp;&nbsp; O processo de análise de dados exige uma preparação cuidadosa para garantir que as informações estejam organizadas, limpas e adequadas para a modelagem. Para isso, foi realizada uma série de etapas de pré-processamento que envolveram desde a importação das bibliotecas necessárias até a transformação e normalização dos dados. Essas etapas visaram estruturar os registros de forma padronizada, corrigir inconsistências e reduzir impactos de valores ausentes ou extremos, assegurando maior confiabilidade na análise estatística e nas futuras aplicações em modelos preditivos.
 
-A exploração e preparação dos dados foi realizada de forma estruturada, conforme documentado no notebook do projeto:
+&nbsp;&nbsp;&nbsp;&nbsp; A exploração e preparação dos dados foi realizada de forma estruturada, conforme documentado no notebook do projeto:
 
 
 
@@ -555,7 +670,7 @@ A exploração e preparação dos dados foi realizada de forma estruturada, conf
 
 
 <div align="center">
-<sub align="center">Figura 6 – Gráfico de relação entre status do boleto e média de acessos na plataforma.</sub>
+<sub align="center">Figura 14 – Gráfico de relação entre status do boleto e média de acessos na plataforma.</sub>
 </div>
 
 <div align="center">
@@ -563,7 +678,7 @@ A exploração e preparação dos dados foi realizada de forma estruturada, conf
 </div>
 
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 
@@ -581,7 +696,7 @@ A exploração e preparação dos dados foi realizada de forma estruturada, conf
 
 
 <div align="center">
-<sub align="center">Figura 7 – Gráfico de relação entre mês, número de boleto e taxa de pagamento.</sub>
+<sub align="center">Figura 15 – Gráfico de relação entre mês, número de boleto e taxa de pagamento.</sub>
 </div>
 
 <div align="center">
@@ -589,7 +704,7 @@ A exploração e preparação dos dados foi realizada de forma estruturada, conf
 </div>
 
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 
@@ -611,7 +726,7 @@ A exploração e preparação dos dados foi realizada de forma estruturada, conf
 
 <br>
 <div align="center">
-<sub align="center">Figura 7 – Gráfico de relação entre valor do boleto e dias necessários para pagar.</sub>
+<sub align="center">Figura 16 – Gráfico de relação entre valor do boleto e dias necessários para pagar.</sub>
 </div>
 
 <div align="center">
@@ -619,7 +734,7 @@ A exploração e preparação dos dados foi realizada de forma estruturada, conf
 </div>
 
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 
@@ -637,11 +752,11 @@ A exploração e preparação dos dados foi realizada de forma estruturada, conf
 
 <br>
 <div align="center">
-<sub align="center">Figura 9 – Gráfico de relação entre valor do boleto e dias necessários para pagar.</sub>
+<sub align="center">Figura 17 – Gráfico de relação entre valor do boleto e dias necessários para pagar.</sub>
 </div>
 
 <div align="center">
-<img src="../assets/hipoteses-dia-inclusao.png" alt="Persona Finnet" border="0" width=100% height=100%>
+<img src="../assets/hipoteses-dia-inclusao.png" alt="Persona Finnet" border="0" width=70% height=100%>
 </div>
 
 <div align="center">
@@ -661,7 +776,7 @@ A exploração e preparação dos dados foi realizada de forma estruturada, conf
 
 <br>
 <div align="center">
-<sub align="center">Figura 9 – Gráfico de relação entre status do pagamento e média de valor do boleto.</sub>
+<sub align="center">Figura 18 – Gráfico de relação entre status do pagamento e média de valor do boleto.</sub>
 </div>
 
 <div align="center">

@@ -144,19 +144,19 @@ posicionamento da empresa, permitindo o alinhamento do projeto aos seus pontos f
 </div>
 
 <div align="center">
-<sub>Fonte: Material produzido pela equipe, 2025.</sub>
+<sub>Fonte: Material produzido pela equipe The Seven, 2025.</sub>
 </div>
 <br>
 
 &nbsp;&nbsp;&nbsp;&nbsp; Com essa base, a análise SWOT pode orientar o projeto de modelo preditivo ao explorar:
 
-**Forças:** expertise consolidada em integração com ERPs, robustez das soluções multibanco/multiempresas e pioneirismo em produtos como Bolepix e Open Finance.
+- **Forças:** expertise consolidada em integração com ERPs, robustez das soluções multibanco/multiempresas e pioneirismo em produtos como Bolepix e Open Finance.
 
-**Fraquezas:** possíveis pontos de fragilidade podem incluir dependência de infraestrutura legada dos clientes, ciclos de adoção de inovações e a necessidade de customização intensa para diferentes ERPs e setores.
+- **Fraquezas:** possíveis pontos de fragilidade podem incluir dependência de infraestrutura legada dos clientes, ciclos de adoção de inovações e a necessidade de customização intensa para diferentes ERPs e setores.
 
-**Oportunidades:** o crescente ambiente regulatório e de inovação em pagamentos digitais, expansão do ecossistema Open Finance e potencial de uso de dados para previsão de inadimplência, comportamento de pagamentos ou risco na cadeia de fornecedores.
+- **Oportunidades:** o crescente ambiente regulatório e de inovação em pagamentos digitais, expansão do ecossistema Open Finance e potencial de uso de dados para previsão de inadimplência, comportamento de pagamentos ou risco na cadeia de fornecedores.
 
-**Ameaças:** concorrência crescente de fintechs e grandes provedores de serviços financeiros, mudanças regulatórias rápidas e riscos relacionados à segurança da informação e conformidade com LGPD.
+- **Ameaças:** concorrência crescente de fintechs e grandes provedores de serviços financeiros, mudanças regulatórias rápidas e riscos relacionados à segurança da informação e conformidade com LGPD.
 
 &nbsp;&nbsp;&nbsp;&nbsp; Ao analisar essas dimensões, torna-se possível estruturar um modelo preditivo direcionado a maximizar os benefícios para a Finnet, como o aprimoramento na tomada de decisões financeiras, a antecipação de possíveis riscos e o incremento na personalização das soluções oferecidas. Dessa forma, garante-se que o projeto não apenas esteja alinhado às diretrizes estratégicas da Finnet, mas também promova um impacto substancial e sustentável em longo prazo.
 
@@ -197,7 +197,7 @@ Em fases futuras, a solução será incorporada de forma nativa na plataforma, p
 </div>
 
 <div align="center">
-<sub>Fonte: Material produzido pela equipe, 2025.</sub>
+<sub>Fonte: Material produzido pela equipe The Seven, 2025.</sub>
 </div>
 <br>
 
@@ -274,7 +274,7 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 </div>
 
 <div align="center">
-<sub>Fonte: Material produzido pela equipe, 2025.</sub>
+<sub>Fonte: Material produzido pela equipe The Seven, 2025.</sub>
 </div>
 <br>
 
@@ -345,7 +345,7 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 ##### Pessoa Jurídica
 
 <div align="center">
-<sub align="center">Figure 4 – Persona - Pessoa Jurídica</sub>
+<sub align="center">Figura 4 – Persona - Pessoa Jurídica</sub>
 </div>
 
 <div align="center">
@@ -353,7 +353,7 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 </div>
 
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 
@@ -370,7 +370,7 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 </div>
 
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 
 Rogério Silveira é o perfil de cliente principal do projeto e atua como Gerente Financeiro na Finnet. Ele é responsável por monitorar transações e elaborar relatórios financeiros para empresas parceiras, garantindo que estas tenham uma visão clara e atualizada do seu fluxo de caixa. Com alta afinidade com tecnologia, busca automatizar processos de coleta e análise de dados, reduzindo o trabalho manual e aumentando a precisão das informações. Entre suas principais necessidades está prever a inadimplência e identificar tendências de pagamento, permitindo agir de forma proativa. Atualmente, Rogério deseja agregar valor ao serviço prestado pela Finnet implementando recursos como score de risco de inadimplência, melhor janela provável de pagamento e análise do impacto da inadimplência no fluxo de recebimentos, fortalecendo a tomada de decisão dos clientes e da própria empresa.
@@ -467,29 +467,330 @@ Não foram fornecidos dados sensíveis sobre os titulares.
 
 ### 4.2. Compreensão dos Dados
 
+&nbsp;&nbsp;&nbsp;&nbsp; A compreensão dos dados é uma etapa fundamental no processo de análise, pois permite identificar padrões, relações e possíveis inconsistências presentes no conjunto analisado. Nesta fase, busca-se explorar as variáveis disponíveis, avaliando suas distribuições, correlações e significados dentro do contexto do problema. Essa etapa fornece uma visão geral do comportamento dos dados, permitindo levantar hipóteses iniciais e orientar as etapas seguintes de pré-processamento e modelagem.
+
 #### 4.2.1. Exploração de dados
 
-```
-Apresentar a estatística descritiva básica de cada coluna, identificar se a coluna é numérica ou categórica e pelo menos 3 gráficos para visualizar a relação entre colunas escolhidas pelo grupo.
+&nbsp;&nbsp;&nbsp;&nbsp; Nesta etapa, foi realizada uma análise exploratória detalhada dos dados, com o objetivo de compreender as principais características das variáveis e suas relações. O processo seguiu as seguintes etapas:
 
-Remova este bloco ao final
-```
+**1. Estatística descritiva básica de cada coluna**
+
+Foram aplicadas funções como `describe()` e análise de frequência para todas as colunas dos dataframes, permitindo identificar:
+- Distribuição de valores (média, mediana, desvio padrão, quartis) para variáveis numéricas como `vl_boleto`, `vl_pagto`, `juros`, `qtd_acessos_pagador`.
+- Frequência e proporção das categorias para variáveis categóricas como `status_boleto`, `banco`, `pagador_cidade`.
+- Análise de datas (`data_inclusao`, `data_vencto`, `dt_pagto`) para entender sazonalidade e intervalos de pagamento.
+
+**2. Identificação dos tipos de colunas**
+
+As colunas foram classificadas conforme abaixo:
+- **Numéricas:** `vl_boleto`, `vl_pagto`, `juros`, `qtd_acessos_pagador`, `dias_para_pagar`, `dias_para_vencer`.
+- **Categóricas:** `status_boleto`, `banco`, `pagador_cidade`, `tipo_juros`.
+- **Datas:** `data_inclusao`, `data_vencto`, `dt_pagto` (convertidas para datetime e desmembradas em ano, mês, dia para análises específicas).
+
+**3. Visualizações gráficas**
+
+Foram gerados diversos gráficos para explorar as relações entre as variáveis. Destacam-se:
+
+- **Gráfico 1: Pagamentos vs Boletos Incluídos por Mês**
+  - Barras para o número de boletos incluídos e pagos em cada mês. Permitiu identificar sazonalidade e meses críticos para inadimplência.
+
+<div align="center">
+<sub align="center">Figura 6 – Gráfico de relação entre número de boletos incluídos de pagos por mês.</sub>
+</div>
+
+<div align="center">
+<img src="../assets/grafico-mes.png" alt="Persona Finnet" border="0" width=70% height=60%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+- **Gráfico 2: Quantidade de acessos por status de número de boletos pagos**
+  - Barplot comparando a média de acessos à plataforma entre boletos pagos e não pagos. Evidenciou que usuários que pagam tendem a acessar mais a plataforma.
+
+<div align="center">
+<sub align="center">Figura 7 – Quantidade de acessos por status de número de boletos pagos.</sub>
+</div>
+
+<div align="center">
+<img src="../assets/acessosxboletos.png" alt="Persona Finnet" border="0" width=70% height=60%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+- **Gráfico 3: Quantidade de boletos por dias possíveis para pagar**
+  - Histograma mostrando a relação entre a quantidade de boletos por dias possíveis de pagamento (Diferença entre data de inclusão e vencimento)
+
+
+<div align="center">
+<sub align="center">Figura 8 – Quantidade de acessos por status de número de boletos pagos.</sub>
+</div>
+
+<div align="center">
+<img src="../assets/vencimentoinclusao.png" alt="Persona Finnet" border="0" width=70% height=60%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+- **Gráfico 4: Pagamentos vs Boletos Incluídos por Mês (Com taxa de pagamento)**
+  - Barras para o número de boletos incluídos e pagos em cada mês, com linha de taxa de pagamento (%). Permitiu identificar sazonalidade e meses críticos para inadimplência.
+
+<div align="center">
+<sub align="center">Figura 9 – Gráfico de número de boletos e meses do ano.</sub>
+</div>
+
+<div align="center">
+<img src="../assets/hipoteses-meses.png" alt="Persona Finnet" border="0" width=70% height=60%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+- **Gráfico 5: Média de acessos x Status do pagamento**
+  - O gráfico a seguir busca mostrar a diferença de média de acessos a plataforma entre boletos pagos e não pagos.
+
+<div align="center">
+<sub align="center">Figura 10 – Gráfico de relação entre status do boleto e média de acessos na plataforma.</sub>
+</div>
+
+<div align="center">
+<img src="../assets/hipoteses-acessos.png" alt="Persona Finnet" border="0" width=70% height=60%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+- **Gráfico 6: Dias para pagar x Valor do boleto**
+  - O gráfico a seguir busca mostrar a relação entre o valor do boleto e os dias necessários para pagar.
+
+<div align="center">
+<sub align="center">Figura 11 – Gráfico de relação entre dias para pagar e valor do boleto.</sub>
+</div>
+
+<div align="center">
+<img src="../assets/hipoteses-dia-valor.png" alt="Persona Finnet" border="0" width=70% height=60%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+- **Gráfico 7: Status do pagamento x média de valor**
+  - O gráfico Boxplot a seguir busca mostrar a relação entre a média de valor entre boletos pagos e não pagos.
+
+<div align="center">
+<sub align="center">Figura 12 – Gráfico de relação entre status do pagamento e média de valor do boleto.</sub>
+</div>
+
+<div align="center">
+<img src="../assets/hipotese-status-valor.png" alt="Persona Finnet" border="0" width=70% height=60%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+
+- **Gráfico 8: Cidade x média de valor**
+  - O histograma a seguir demonstra as cidades com maior média de valor dentre uma amostra selecionada.
+
+<div align="center">
+<sub align="center">Figura 13 – Gráfico de relação entre cidade e média de valor.</sub>
+</div>
+
+<div align="center">
+<img src="../assets/grafico-cidades.png" alt="Persona Finnet" border="0" width=100% height=100%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp; Essas análises permitiram identificar padrões importantes, como a influência do mês na taxa de pagamento, o impacto do engajamento do usuário (acessos) na adimplência e a distribuição dos valores dos boletos pagos e não pagos.
+
 
 #### 4.2.2. Pré-processamento dos dados
 
-```
-Apresentar quais foram as ações realizadas de limpeza (tratamento de missing values e remoção de outliers) e transformação (normalização e codificação) das colunas. Se houverem outliers, cite quais são e qual(is) correção(ões) será(ão) aplicada(s).
+&nbsp;&nbsp;&nbsp;&nbsp; O processo de análise de dados exige uma preparação cuidadosa para garantir que as informações estejam organizadas, limpas e adequadas para a modelagem. Para isso, foi realizada uma série de etapas de pré-processamento que envolveram desde a importação das bibliotecas necessárias até a transformação e normalização dos dados. Essas etapas visaram estruturar os registros de forma padronizada, corrigir inconsistências e reduzir impactos de valores ausentes ou extremos, assegurando maior confiabilidade na análise estatística e nas futuras aplicações em modelos preditivos.
 
-Remova este bloco ao final
-```
+&nbsp;&nbsp;&nbsp;&nbsp; A exploração e preparação dos dados foi realizada de forma estruturada, conforme documentado no notebook do projeto:
+
+
+
+- **Conversão de Tipos:** As colunas foram classificadas em numéricas e categóricas, sendo convertidas para os tipos apropriados. Valores ausentes e entradas inválidas foram tratados, substituindo por NaN ou categorias específicas, como datatime e textos/objetos.
+
+- **Tratamento de Valores Ausentes:** Colunas irrelevantes foram removidas (referentes principalmente às multas por estarem majoritariamente vazias) e valores ausentes em variáveis importantes, como valor de pagamento e cidade do pagador, foram preenchidos com valores padrão ou categorias “Desconhecido”.
+
+- **Estatística Descritiva:** Foram geradas estatísticas descritivas para cada dataframe.
+
+- **Tratamento de Outliers:** Outliers nas variáveis numéricas foram tratados utilizando a técnica de capping, limitando os valores aos intervalos interquartis.
+
+- **Codificação de Variáveis Categóricas:** As variáveis categóricas foram transformadas em valores binários (one-hot encoding),tornando-as adequadas para uso em modelos preditivos.
+
+- **Normalização:** As variáveis numéricas foram normalizadas utilizando o StandardScaler, padronizando a escala dos dados para melhorar o desempenho dos algoritmos de machine learning na escala de 0-10000 algarismos.
+
+
+&nbsp;&nbsp;&nbsp;&nbsp; Esse fluxo garante que todas as etapas fundamentais de preparação dos dados foram seguidas, promovendo qualidade e robustez para o desenvolvimento do modelo preditivo.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Com a execução dessas etapas de pré-processamento, os dados foram devidamente estruturados, tratados e normalizados, eliminando inconsistências e preparando-os para análises mais aprofundadas. Esse trabalho garante uma base sólida e confiável, permitindo a construção de gráficos, extração de insights relevantes e melhor entendimento das relações e importância das variáveis do nosso conjunto para criação do nosso modelo preditivo.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Todas as etapas do Pré-Processamento e criação dos gráficos são encontradas no notebook geral do projeto, localizado em: <a href="../notebooks/Exploração_de_Dados,_Pré_processamento_e_Levantamento_de_Hipóteses_The_Seven.ipynb">**Link do Notebook**</a>
 
 #### 4.2.3. Hipóteses
 
-```
-Descreva três hipóteses sobre a relação dos dados e o problema. Justifique cada uma delas.
+&nbsp;&nbsp;&nbsp;&nbsp; Nesta análise, foram levantadas hipóteses relacionadas ao comportamento de pagamento de boletos pelos usuários da plataforma. O objetivo é identificar padrões e fatores que influenciam o tempo de pagamento. Essas hipóteses servem como base para exploração de dados e para a criação do modelo preditivo, auxiliando na compreensão dos fatores que impactam atrasos, pontualidade nos pagamentos e permitem identificar quais variáveis impactão ou não no pagamento de boletos.
 
-Remova este bloco ao final
-```
+
+#### Hipotese 1
+
+- **Hipótese 1:** A média de acesso de pessoas que pagaram o boleto é maior que as que não pagaram.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Essa hipótese busca confirmar que usuários que efetivam o pagamento de seus boletos tendem a apresentar uma quantidade de acessos à plataforma significativamente maior do que aqueles que não realizam o pagamento.
+
+&nbsp;&nbsp;&nbsp;&nbsp; O número de acessos pode refletir o nível de engajamento do usuário com a plataforma. Um usuário mais engajado costuma ter maior contato com os serviços, maior percepção de valor e, consequentemente, maior probabilidade de honrar o pagamento. Por outro lado, usuários com baixa frequência de acessos podem demonstrar desinteresse ou menor vínculo, aumentando a chance de inadimplência.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Se a hipótese for confirmada, a quantidade de acesso pode se tornar uma forte variável na implementação do modelo preditivo, pois se torna um dos indicadores de pagamento e influencia na busca de inadimplentes.
+
+&nbsp;&nbsp;&nbsp;&nbsp; No gráfico abaixo, o eixo X possui dois valores, os boletos pagos e não pagos, enquanto o eixo Y representa a média de acessos dos usuários de cada um desses grupos.
+
+
+<div align="center">
+<sub align="center">Figura 14 – Gráfico de relação entre status do boleto e média de acessos na plataforma.</sub>
+</div>
+
+<div align="center">
+<img src="../assets/hipoteses-acessos.png" alt="Persona Finnet" border="0" width=60% height=60%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+**Resultado:** Portanto, através da análise do gráfico, é possível confirmar que a média de acessos das pessoas que pagaram os boletos é consideravelmente maior que das pessoas que não pagaram.
+
+#### Hipotese 2
+
+- **Hipótese 2:** O período do ano influencia diretamente na taxa de pagamento de boletos.
+
+
+&nbsp;&nbsp;&nbsp;&nbsp; Esta hipótese busca confirmar que a taxa de pagamento de boletos varia de acordo com o mês ou período do ano, influenciada por fatores sazonais e econômicos. Em determinados meses, como dezembro (festividades de fim de ano) ou março/abril (pagamento de impostos), pode haver uma maior pressão financeira, reduzindo a taxa de quitação de boletos. Já em períodos de maior liquidez, como meses de recebimento de 13º salário ou distribuição de bônus corporativos, a taxa de pagamento tende a aumentar. Além disso, mudanças na governança ou estratégias financeiras das empresas ao longo do ano podem impactar diretamente a capacidade de honrar pagamentos.
+
+&nbsp;&nbsp;&nbsp;&nbsp; No gráfico abaixo, análisamos mais de 30 mil boletos entre um período de 12 meses, utilizando Python e bibliotecas como Pandas, Matplotlib e Seaborn. O eixo X representa os meses do ano, enquanto o Y representa o número de boletos. A barra em azul representa os boletos incluídos, a laranja os boletos pagos e a linha vermelha representa a taxa de pagamento em porcentagem.
+<br>
+
+
+<div align="center">
+<sub align="center">Figura 15 – Gráfico de relação entre mês, número de boleto e taxa de pagamento.</sub>
+</div>
+
+<div align="center">
+<img src="../assets/hipoteses-meses.png" alt="Persona Finnet" border="0" width=100% height=100%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp; A análise do gráfico revela padrões importantes no comportamento de pagamento dos boletos. Em janeiro, observa-se que a quantidade de pagamentos supera a de inclusões, o que desmonstra o impacto das festividades e despesas concentradas no fim do ano. Isso ocorre porque em dezembro há um aumento expressivo na emissão de boletos, enquanto em janeiro, período de retomada das atividades, o número de novos boletos é significativamente menor.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Além disso, nota-se que em abril a taxa de pagamentos apresenta um dos menores índices do ano, o que pode estar associado à sobrecarga financeira causada pelo pagamento de impostos obrigatórios, como o Imposto de Renda e tributos anuais. Esse padrão reforça a influência de fatores econômicos e sazonais na dinâmica de pagamento.
+
+**Resultado:** Portanto, é possível afirmar que o período do ano influncia diretamente no pagamento de boletos.
+
+#### Hipotese 3
+
+- **Hipótese 3:** Boletos com valores mais altos tendem a ser pagos em um maior número de dias após a emissão, enquanto boletos de menor valor costumam ser liquidados mais rapidamente.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Essa hipótese busca afirmar se valores elevados representam um maior impacto no orçamento do cliente, já que exigem maior planejamento financeiro, o que pode gerar atrasos ou maior tempo médio até o pagamento.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Esse comportamento pode estar associado tanto ao poder aquisitivo dos clientes quanto à priorização de despesas no ciclo financeiro. 
+
+&nbsp;&nbsp;&nbsp;&nbsp; No gráfico abaixo, o eixo X representa os dias necessários para pagar o boleto e o Y o valor do boleto.
+
+<br>
+<div align="center">
+<sub align="center">Figura 16 – Gráfico de relação entre valor do boleto e dias necessários para pagar.</sub>
+</div>
+
+<div align="center">
+<img src="../assets/hipoteses-dia-valor.png" alt="Persona Finnet" border="0" width=100% height=100%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp; A partir da análise do gráfico acima, é possível identificar que não há uma tendência linear clara entre essas variáveis. A maioria dos pagamentos ocorre em até 30 dias, concentrando-se em boletos de R$ 200 a R$ 400. Casos isolados de valores acima de R$ 600 mostram pagamentos tanto rápidos quanto atrasados, sugerindo que o valor sozinho não determina o tempo de quitação. Após 40 dias, os pagamentos se tornam mais raros. Assim, o prazo para pagamento parece depender mais de fatores como comportamento do cliente, sazonalidade ou disciplina financeira, indicando que o valor do boleto deve ser analisado junto a outras variáveis em modelos preditivos.
+
+**Resultado:** Portanto, é possível afirmar que NÃO há uma relação clara entre o valor do boleto e tempo necessário para pagar.
+
+#### Hipotese 4
+
+- **Hipótese 4:** O tempo necessário para pagamento de boletos varia de acordo com o perfil financeiro e comportamento dos clientes
+
+&nbsp;&nbsp;&nbsp;&nbsp; Esta hipótese busca confirmar que o tempo necessário para pagamento de boletos varia de acordo com o perfil financeiro e comportamento dos clientes. Observa-se que grande parte dos boletos é quitada dentro dos primeiros 30 dias após a inclusão, indicando que muitos clientes priorizam pagamentos imediatos. Por outro lado, uma parcela menor apresenta atrasos mais longos, podendo estar relacionada a dificuldades financeiras temporárias, menor disciplina de pagamento ou atrasos na compensação bancária.
+
+&nbsp;&nbsp;&nbsp;&nbsp; No gráfico abaixo, o eixo X representa os dias necessários para pagar, enquanto o eixo Y representa o número de boletos quitados em cada período. Cada ponto azul indica a quantidade de boletos pagos após determinado número de dias desde a inclusão.
+
+<br>
+<div align="center">
+<sub align="center">Figura 17 – Gráfico de relação entre valor do boleto e dias necessários para pagar.</sub>
+</div>
+
+<div align="center">
+<img src="../assets/hipoteses-dia-inclusao.png" alt="Persona Finnet" border="0" width=70% height=100%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp; A análise do gráfico revela padrões importantes no comportamento de pagamento. Observa-se um pico significativo entre 20 e 30 dias, sugerindo que a maioria dos clientes paga dentro do prazo mensal típico. Além disso, o número de boletos pagos decresce rapidamente após 40 dias, evidenciando que atrasos prolongados são menos frequentes, mas ainda presentes, indicando a necessidade de monitoramento e estratégias de cobrança para evitar inadimplência.
+
+**Resultado:** Portanto, é possível afirmar que o tempo de pagamento de boletos segue um padrão concentrado nos primeiros 30 dias, com uma diminuição acentuada à medida que os dias avançam.
+
+#### Hipotese 5
+
+- **Hipótese 5:** Média de valor entre boletos pagos e não pagos.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Esta hipótese busca afirmar que a média de valor é maior para os boletos com status 'Não Pago', sugerindo que valores mais altos podem influenciar negativamente a quitação dos boletos.
+
+<br>
+<div align="center">
+<sub align="center">Figura 18 – Gráfico de relação entre status do pagamento e média de valor do boleto.</sub>
+</div>
+
+<div align="center">
+<img src="../assets/hipotese-status-valor.png" alt="Persona Finnet" border="0" width=100% height=100%>
+</div>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+**Resultado**: Após a análise do gráfico, pode-se concluir que a média de valor entre boletos pagos e não pagos é praticamente igual, o que anula completamente a hipótese de que a média de valor de boletos não pagos é maior.
+
+&nbsp;&nbsp;&nbsp;&nbsp; As hipóteses levantadas permitem direcionar análises quantitativas para verificar a influência de diferentes fatores sobre o comportamento de pagamento. A avaliação de padrões relacionados a valores, frequência de acessos e histórico de pagamentos ajuda a confirmar ou rejeitar essas hipóteses, identificando variáveis relevantes para modelos preditivos e aprimorando a tomada de decisão baseada em dados.
 
 ### 4.3. Preparação dos Dados e Modelagem
 

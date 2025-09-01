@@ -347,10 +347,12 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 <div align="center">
 <sub align="center">Figura 4 – Persona - Pessoa Jurídica</sub>
 </div>
+<br>
 
 <div align="center">
 <img src="../assets/Persona_Jurídica.png" alt="Value Proposition Canvas" border="0" width=100% height=100%>
 </div>
+<br>
 
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
@@ -365,16 +367,38 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 <div align="center">
 <sub align="center">Figura 5 – Persona - Gerente Finnet</sub>
 </div>
+<br>
 
 <div align="center">
 <img src="../assets/persona_finnet.png" alt="Persona Finnet" border="0" width=100% height=100%>
 </div>
+<br>
 
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
+<br>
 
-Rogério Silveira é o perfil de cliente principal do projeto e atua como Gerente Financeiro na Finnet. Ele é responsável por monitorar transações e elaborar relatórios financeiros para empresas parceiras, garantindo que estas tenham uma visão clara e atualizada do seu fluxo de caixa. Com alta afinidade com tecnologia, busca automatizar processos de coleta e análise de dados, reduzindo o trabalho manual e aumentando a precisão das informações. Entre suas principais necessidades está prever a inadimplência e identificar tendências de pagamento, permitindo agir de forma proativa. Atualmente, Rogério deseja agregar valor ao serviço prestado pela Finnet implementando recursos como score de risco de inadimplência, melhor janela provável de pagamento e análise do impacto da inadimplência no fluxo de recebimentos, fortalecendo a tomada de decisão dos clientes e da própria empresa.
+&nbsp;&nbsp;&nbsp;&nbsp; Rogério Silveira é o perfil de cliente principal do projeto e atua como Gerente Financeiro na Finnet. Ele é responsável por monitorar transações e elaborar relatórios financeiros para empresas parceiras, garantindo que estas tenham uma visão clara e atualizada do seu fluxo de caixa. Com alta afinidade com tecnologia, busca automatizar processos de coleta e análise de dados, reduzindo o trabalho manual e aumentando a precisão das informações. Entre suas principais necessidades está prever a inadimplência e identificar tendências de pagamento, permitindo agir de forma proativa. Atualmente, Rogério deseja agregar valor ao serviço prestado pela Finnet implementando recursos como score de risco de inadimplência, melhor janela provável de pagamento e análise do impacto da inadimplência no fluxo de recebimentos, fortalecendo a tomada de decisão dos clientes e da própria empresa.
+
+#### Técnico de Informática 
+
+<div align="center">
+<sub align="center">Figura 4 – Persona - Técnico de informática</sub>
+</div>
+<br>
+
+<div align="center">
+<img src="../assets/persona TI.png" alt="Value Proposition Canvas" border="0" width=100% height=100%>
+</div>
+<br>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp; Rafael Costa representa o perfil de um técnico de informática 
 
 #### 4.1.7. Jornadas do Usuário
 

@@ -342,6 +342,8 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 
 #### 4.1.6. Personas
 
+&nbsp;&nbsp;&nbsp;&nbsp;O uso de personas em projetos de desenvolvimento é uma prática consolidada que permite compreender perfis de usuários e stakeholders, alinhando expectativas e reduzindo ambiguidades. Construídas a partir de dados reais, elas traduzem necessidades e comportamentos em representações acessíveis que orientam decisões estratégicas e de design. Neste trabalho, focado na criação de um modelo preditivo para mitigação da inadimplência de pessoas físicas, jurídicas e empresas, as personas assumem papel central ao aproximar a solução de realidades cotidianas, unindo análise quantitativa e qualitativa. Dessa forma, fortalecem o projeto ao integrar fundamentos técnicos e dimensões humanas, resultando em um modelo mais contextualizado, eficaz e alinhado ao mercado.
+
 ##### Pessoa Jurídica
 
 <div align="center">

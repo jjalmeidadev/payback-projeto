@@ -402,7 +402,9 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 </div>
 <br>
 
-&nbsp;&nbsp;&nbsp;&nbsp; Renata Arantes é
+&nbsp;&nbsp;&nbsp;&nbsp; Renata Arantes representa o perfil de uma pessoa física em situação de inadimplência, que enfrenta dificuldades financeiras para manter seus compromissos em dia. Seu comportamento reflete a realidade de muitos pagadores que, diante de imprevistos ou limitações de renda, acabam atrasando ou deixando de quitar boletos. Essa condição impacta diretamente tanto as empresas credoras quanto os intermediários financeiros que buscam reduzir riscos e manter previsibilidade em seus recebimentos.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Sua finalidade como persona do projeto é simbolizar os devedores cujos padrões de pagamento alimentam o modelo preditivo de inadimplência baseado em machine learning. Esta representa como perfis semelhantes influenciam a modelagem e a análise estatística. Nesse contexto, Renata funciona como um canvas que traz insights ao sistema em situações cotidianas, auxiliando na criação de estratégias mais assertivas de cobrança e mitigação de riscos com as features desenvolvidas no projeto.
  
 #### Técnico de Informática 
 
@@ -425,6 +427,10 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 &nbsp;&nbsp;&nbsp;&nbsp; Rafael Costa representa o perfil do analista técnico que busca soluções eficientes para garantir a estabilidade e a segurança dos sistemas corporativos. Atuando como Analista de Sistemas na Finnet, ele é responsável por desenvolver e manter plataformas financeiras, assegurando que atendam às exigências de confiabilidade e compliance. Seu dia a dia envolve lidar com alta demanda de suporte, integrações complexas e desafios relacionados à segurança da informação. Com forte afinidade tecnológica, Rafael procura ferramentas que otimizem processos, reduzam retrabalho e aumentem a agilidade na entrega de soluções, permitindo que a empresa continue oferecendo valor e inovação aos seus clientes. 
 
 &nbsp;&nbsp;&nbsp;&nbsp; Para o projeto, Rafael representa os profissionais responsáveis pela implementação e manutenção técnica da solução dentro da plataforma já utilizada pela Finnet. Sua presença como persona garante a perspectiva de quem lida diretamente com integrações complexas e desafios de segurança, aspectos fundamentais para que o sistema funcione de forma estável, prática e eficiente. Assim, Rafael simboliza a ponte entre a viabilidade técnica e a entrega de valor ao usuário final.
+
+
+
+Em síntese, as personas apresentadas funcionam como representações estratégicas dos diferentes atores envolvidos no ecossistema de cobrança e gestão financeira. Cada uma delas traduz, de forma humanizada, as necessidades, dores e expectativas que o projeto busca atender. Ao integrar o modelo de predição de inadimplência com machine learning, essas personas atuam como pontos de referência que não só exemplificam o potencial impacto da solução, mas também a segurança de que o desenvolvimento técnico esteja constantemente alinhado à experiência prática dos usuários. Dessa forma, podemos reforçar a relevância e a utilidade da proposta tanto para a própria Finnet, quanto para instituições de finanças e seus respectivos atores em atividade.
 
 #### 4.1.7. Jornadas do Usuário
 

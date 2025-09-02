@@ -430,7 +430,10 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 
 
 
-Em síntese, as personas apresentadas funcionam como representações estratégicas dos diferentes atores envolvidos no ecossistema de cobrança e gestão financeira. Cada uma delas traduz, de forma humanizada, as necessidades, dores e expectativas que o projeto busca atender. Ao integrar o modelo de predição de inadimplência com machine learning, essas personas atuam como pontos de referência que não só exemplificam o potencial impacto da solução, mas também a segurança de que o desenvolvimento técnico esteja constantemente alinhado à experiência prática dos usuários. Dessa forma, podemos reforçar a relevância e a utilidade da proposta tanto para a própria Finnet, quanto para instituições de finanças e seus respectivos atores em atividade.
+
+
+
+</br></br>Em síntese, as personas apresentadas funcionam como representações estratégicas dos diferentes atores envolvidos no ecossistema de cobrança e gestão financeira. Cada uma delas traduz, de forma humanizada, as necessidades, dores e expectativas que o projeto busca atender. Ao integrar o modelo de predição de inadimplência com machine learning, essas personas atuam como pontos de referência que não só exemplificam o potencial impacto da solução, mas também a segurança de que o desenvolvimento técnico esteja constantemente alinhado à experiência prática dos usuários. Dessa forma, podemos reforçar a relevância e a utilidade da proposta tanto para a própria Finnet, quanto para instituições de finanças e seus respectivos atores em atividade.
 
 #### 4.1.7. Jornadas do Usuário
 

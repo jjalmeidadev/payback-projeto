@@ -150,13 +150,13 @@ posicionamento da empresa, permitindo o alinhamento do projeto aos seus pontos f
 
 &nbsp;&nbsp;&nbsp;&nbsp; Com essa base, a análise SWOT pode orientar o projeto de modelo preditivo ao explorar:
 
-- **Forças:** expertise consolidada em integração com ERPs, robustez das soluções multibanco/multiempresas e pioneirismo em produtos como Bolepix e Open Finance.
+- **Forças:** expertise consolidada na criação de automações financeiras e integração com ERPs; ampla rede de atendimento multibanco (+120 instituições), que assegura capilaridade; soluções reconhecidas no mercado, como Bolepix e integrações em Open Finance; além de uma forte base de dados transacionais, com potencial para treinar modelos de previsão de inadimplência.
 
-- **Fraquezas:** possíveis pontos de fragilidade podem incluir dependência de infraestrutura legada dos clientes, ciclos de adoção de inovações e a necessidade de customização intensa para diferentes ERPs e setores.
+- **Fraquezas:** Concentração em clientes de médio e grande porte, o que limita o alcance às PMEs que poderiam se beneficiar do modelo; dependência de sistemas bancários e de gestão, sujeitando-se a instabilidades externas e necessidade de alto nível de customização para diferentes setores e ERPs, fator que pode comprometer a escalabilidade da plataforma Luna, voltada à gestão e predição de recebimentos.
 
-- **Oportunidades:** o crescente ambiente regulatório e de inovação em pagamentos digitais, expansão do ecossistema Open Finance e potencial de uso de dados para previsão de inadimplência, comportamento de pagamentos ou risco na cadeia de fornecedores.
+- **Oportunidades:** o ambiente regulatório e de inovação em pagamentos digitais, impulsionado pelo avanço do uso do PIX em cobranças e contas a receber, cria novas bases para análises preditivas. Soma-se a isso a expansão do ecossistema Open Finance, que amplia o acesso a informações relevantes para modelos de risco de crédito e inadimplência, possibilitando o desenvolvimento de relatórios estratégicos capazes de antecipar padrões de comportamento de pagamento e agregar valor direto aos clientes.
 
-- **Ameaças:** concorrência crescente de fintechs e grandes provedores de serviços financeiros, mudanças regulatórias rápidas e riscos relacionados à segurança da informação e conformidade com LGPD.
+- **Ameaças:** aceleração da concorrência, com soluções mais simplificadas e acessíveis; mudanças regulatórias rápidas, que podem impactar a modelagem de dados e riscos relacionados à segurança e à conformidade com a LGPD, especialmente críticos em modelos que utilizam dados financeiros sensíveis.
 
 &nbsp;&nbsp;&nbsp;&nbsp; Ao analisar essas dimensões, torna-se possível estruturar um modelo preditivo direcionado a maximizar os benefícios para a Finnet, como o aprimoramento na tomada de decisões financeiras, a antecipação de possíveis riscos e o incremento na personalização das soluções oferecidas. Dessa forma, garante-se que o projeto não apenas esteja alinhado às diretrizes estratégicas da Finnet, mas também promova um impacto substancial e sustentável em longo prazo.
 
@@ -179,7 +179,7 @@ Em fases futuras, a solução será incorporada de forma nativa na plataforma, p
 
 **O sucesso da solução será medido por meio dos seguintes critérios:**
 
-- **Acurácia das predições**: Porcentagem de assertividade nas projeções de inadimplência satisfatória, conforme métricas definidas durante o desenvolvimento.
+- **Acurácia das predições**: Porcentagem de assertividade nas projeções de inadimplência satisfatória, com média em 95%.
 - **Usabilidade e aderência**: validação positiva por parte dos stakeholders e usuários-chave (gerentes financeiros e coordenadores de contas a receber) durante testes e apresentações.
 - **Relevância dos insights**: feedback qualitativo dos usuários demonstrando utilidade prática para tomadas de decisões reais.
 - **Viabilidade de escalabilidade**: capacidade técnica de aplicar o modelo a diferentes clientes e setores com necessidade mínima de customização.

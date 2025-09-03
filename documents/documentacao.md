@@ -359,9 +359,8 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp; Carlos Almeida representa o perfil do decisor financeiro que busca soluções tecnológicas para otimizar a gestão de crédito e reduzir riscos de inadimplência. Como Chief Financial Officer de uma empresa de grande porte, lida diariamente com o desafio de manter a saúde financeira da organização, equilibrando previsibilidade de caixa, controle de recebimentos e mitigação de perdas. Sua atuação exige acesso rápido a informações confiáveis e ferramentas que apoiem decisões estratégicas baseadas em dados.
 
+&nbsp;&nbsp;&nbsp;&nbsp; Carlos Almeida representa o perfil do decisor financeiro que busca soluções tecnológicas para otimizar a gestão de crédito e reduzir riscos de inadimplência. Como Chief Financial Officer de uma empresa de grande porte, lida diariamente com o desafio de manter a saúde financeira da organização, equilibrando previsibilidade de caixa, controle de recebimentos e mitigação de perdas. Sua atuação exige acesso rápido a informações confiáveis e ferramentas que apoiem decisões estratégicas baseadas em dados.
 
 #### Gerente Finnet
 
@@ -377,6 +376,7 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
+
 Rogério Silveira é o perfil de cliente principal do projeto e atua como Gerente Financeiro na Finnet. Ele é responsável por monitorar transações e elaborar relatórios financeiros para empresas parceiras, garantindo que estas tenham uma visão clara e atualizada do seu fluxo de caixa. Com alta afinidade com tecnologia, busca automatizar processos de coleta e análise de dados, reduzindo o trabalho manual e aumentando a precisão das informações. Entre suas principais necessidades está prever a inadimplência e identificar tendências de pagamento, permitindo agir de forma proativa. Atualmente, Rogério deseja agregar valor ao serviço prestado pela Finnet implementando recursos como score de risco de inadimplência, melhor janela provável de pagamento e análise do impacto da inadimplência no fluxo de recebimentos, fortalecendo a tomada de decisão dos clientes e da própria empresa.
 
 #### 4.1.7. Jornadas do Usuário
@@ -389,7 +389,6 @@ Rogério Silveira é o perfil de cliente principal do projeto e atua como Gerent
 <sub align="center">Figura 6 – Descrição de Oportunidades e Problemas</sub>
 </div>
 <br>
-
 <div align="center">
 <img src="../assets/Oportunidades.png" alt="Jornada da Pessoa Jurídica" border="0" width=20% height=100%>
 </div>
@@ -410,6 +409,7 @@ Rogério Silveira é o perfil de cliente principal do projeto e atua como Gerent
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
 <br>
+
 &nbsp;&nbsp;&nbsp;&nbsp; A persona escolhida, Carlos Almeida, representa uma pessoa jurídica e reflete os desafios complexos enfrentados por gestores financeiros de empresas, como a dificuldade em gerenciar grandes volumes de recebimentos, mitigar riscos de inadimplência e garantir previsibilidade no fluxo de caixa. Optamos por esse perfil porque ele evidencia problemas organizacionais e estratégicos que não se limitam ao indivíduo, mas impactam diretamente a sustentabilidade do negócio. Dessa forma, o journey map permite mapear desde a frustração inicial até a satisfação com soluções de análise preditiva, dashboards e estratégias personalizadas de cobrança, demonstrando o valor de ferramentas que oferecem clareza, confiabilidade e suporte à tomada de decisão no contexto corporativo.
 
 <br>
@@ -417,18 +417,16 @@ Rogério Silveira é o perfil de cliente principal do projeto e atua como Gerent
 <sub align="center">Figura 8 – Jornada de Usuário - Pessoa Finnet</sub>
 </div>
 <br>
-<br>
 <div align="center">
 <img src="../assets/Jornada - Roberto Silveira.png" alt="Jornada da Pessoa Jurídica" border="0" width=100% height=100%>
 </div>
-<br>
 <br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp; Escolhemos o Rogério como persona do journey map porque ele representa um ator crítico dentro da Finnet: o gerente financeiro responsável por consolidar relatórios e entregar previsões confiáveis à diretoria e às empresas clientes. A ausência de análises preditivas detalhadas hoje compromete sua confiabilidade e reduz a segurança do planejamento financeiro. Ao mapear sua jornada, evidenciamos gargalos como processos manuais, dispersão de dados e ciclos de fechamento demorados, e identificamos oportunidades de evolução com automação, integração de fontes, modelagem preditiva e relatórios em tempo real. Assim, o journey map orienta a priorização de soluções que elevem a acurácia das previsões, reduzam retrabalho e fortaleçam o papel da Finnet como parceira confiável na gestão financeira dos clientes.
 
+&nbsp;&nbsp;&nbsp;&nbsp; Escolhemos o Rogério como persona do journey map porque ele representa um ator crítico dentro da Finnet: o gerente financeiro responsável por consolidar relatórios e entregar previsões confiáveis à diretoria e às empresas clientes. A ausência de análises preditivas detalhadas hoje compromete sua confiabilidade e reduz a segurança do planejamento financeiro. Ao mapear sua jornada, evidenciamos gargalos como processos manuais, dispersão de dados e ciclos de fechamento demorados, e identificamos oportunidades de evolução com automação, integração de fontes, modelagem preditiva e relatórios em tempo real. Assim, o journey map orienta a priorização de soluções que elevem a acurácia das previsões, reduzam retrabalho e fortaleçam o papel da Finnet como parceira confiável na gestão financeira dos clientes.
 
 &nbsp;&nbsp;&nbsp;&nbsp; Em síntese, o uso de journey maps se mostrou fundamental para garantir que o desenvolvimento do modelo preditivo em Python fosse orientado não apenas pela lógica técnica, mas também pela perspectiva do usuário. Ao possibilitar a visualização detalhada da jornada, essa ferramenta contribuiu para antecipar potenciais barreiras, refinar pontos de interação e alinhar a solução às reais necessidades dos futuros usuários. Assim, asseguramos que o projeto alcance maior usabilidade, relevância prática e impacto efetivo no contexto em que será aplicado.
 
@@ -542,15 +540,15 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 - **Gráfico 1: Pagamentos vs Boletos Incluídos por Mês**
   - Barras para o número de boletos incluídos e pagos em cada mês. Permitiu identificar sazonalidade e meses críticos para inadimplência.
-
+<br>
 <div align="center">
 <sub align="center">Figura 6 – Gráfico de relação entre número de boletos incluídos de pagos por mês.</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/grafico-mes.png" alt="Persona Finnet" border="0" width=70% height=60%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -558,15 +556,15 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 - **Gráfico 2: Quantidade de acessos por status de número de boletos pagos**
   - Barplot comparando a média de acessos à plataforma entre boletos pagos e não pagos. Evidenciou que usuários que pagam tendem a acessar mais a plataforma.
-
+<br>
 <div align="center">
 <sub align="center">Figura 7 – Quantidade de acessos por status de número de boletos pagos.</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/acessosxboletos.png" alt="Persona Finnet" border="0" width=70% height=60%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -575,15 +573,15 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 - **Gráfico 3: Quantidade de boletos por dias possíveis para pagar**
   - Histograma mostrando a relação entre a quantidade de boletos por dias possíveis de pagamento (Diferença entre data de inclusão e vencimento)
 
-
+<br>
 <div align="center">
 <sub align="center">Figura 8 – Quantidade de acessos por status de número de boletos pagos.</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/vencimentoinclusao.png" alt="Persona Finnet" border="0" width=70% height=60%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -591,15 +589,15 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 - **Gráfico 4: Pagamentos vs Boletos Incluídos por Mês (Com taxa de pagamento)**
   - Barras para o número de boletos incluídos e pagos em cada mês, com linha de taxa de pagamento (%). Permitiu identificar sazonalidade e meses críticos para inadimplência.
-
+<br>
 <div align="center">
 <sub align="center">Figura 9 – Gráfico de número de boletos e meses do ano.</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/hipoteses-meses.png" alt="Persona Finnet" border="0" width=70% height=60%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -607,15 +605,15 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 - **Gráfico 5: Média de acessos x Status do pagamento**
   - O gráfico a seguir busca mostrar a diferença de média de acessos a plataforma entre boletos pagos e não pagos.
-
+<br>
 <div align="center">
 <sub align="center">Figura 10 – Gráfico de relação entre status do boleto e média de acessos na plataforma.</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/hipoteses-acessos.png" alt="Persona Finnet" border="0" width=70% height=60%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -623,15 +621,15 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 - **Gráfico 6: Dias para pagar x Valor do boleto**
   - O gráfico a seguir busca mostrar a relação entre o valor do boleto e os dias necessários para pagar.
-
+<br>
 <div align="center">
 <sub align="center">Figura 11 – Gráfico de relação entre dias para pagar e valor do boleto.</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/hipoteses-dia-valor.png" alt="Persona Finnet" border="0" width=70% height=60%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -639,15 +637,15 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 - **Gráfico 7: Status do pagamento x média de valor**
   - O gráfico Boxplot a seguir busca mostrar a relação entre a média de valor entre boletos pagos e não pagos.
-
+<br>
 <div align="center">
 <sub align="center">Figura 12 – Gráfico de relação entre status do pagamento e média de valor do boleto.</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/hipotese-status-valor.png" alt="Persona Finnet" border="0" width=70% height=60%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -656,15 +654,15 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 - **Gráfico 8: Cidade x média de valor**
   - O histograma a seguir demonstra as cidades com maior média de valor dentre uma amostra selecionada.
-
+<br>
 <div align="center">
 <sub align="center">Figura 13 – Gráfico de relação entre cidade e média de valor.</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/grafico-cidades.png" alt="Persona Finnet" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -717,16 +715,14 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 &nbsp;&nbsp;&nbsp;&nbsp; No gráfico abaixo, o eixo X possui dois valores, os boletos pagos e não pagos, enquanto o eixo Y representa a média de acessos dos usuários de cada um desses grupos.
 
-
+<br>
 <div align="center">
 <sub align="center">Figura 14 – Gráfico de relação entre status do boleto e média de acessos na plataforma.</sub>
 </div>
 <br>
-<br>
 <div align="center">
 <img src="../assets/hipoteses-acessos.png" alt="Persona Finnet" border="0" width=60% height=60%>
 </div>
-<br>
 <br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
@@ -743,17 +739,16 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 &nbsp;&nbsp;&nbsp;&nbsp; Esta hipótese busca confirmar que a taxa de pagamento de boletos varia de acordo com o mês ou período do ano, influenciada por fatores sazonais e econômicos. Em determinados meses, como dezembro (festividades de fim de ano) ou março/abril (pagamento de impostos), pode haver uma maior pressão financeira, reduzindo a taxa de quitação de boletos. Já em períodos de maior liquidez, como meses de recebimento de 13º salário ou distribuição de bônus corporativos, a taxa de pagamento tende a aumentar. Além disso, mudanças na governança ou estratégias financeiras das empresas ao longo do ano podem impactar diretamente a capacidade de honrar pagamentos.
 
 &nbsp;&nbsp;&nbsp;&nbsp; No gráfico abaixo, análisamos mais de 30 mil boletos entre um período de 12 meses, utilizando Python e bibliotecas como Pandas, Matplotlib e Seaborn. O eixo X representa os meses do ano, enquanto o Y representa o número de boletos. A barra em azul representa os boletos incluídos, a laranja os boletos pagos e a linha vermelha representa a taxa de pagamento em porcentagem.
+
 <br>
-
-
 <div align="center">
 <sub align="center">Figura 15 – Gráfico de relação entre mês, número de boleto e taxa de pagamento.</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/hipoteses-meses.png" alt="Persona Finnet" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -779,11 +774,11 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 <div align="center">
 <sub align="center">Figura 16 – Gráfico de relação entre valor do boleto e dias necessários para pagar.</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/hipoteses-dia-valor.png" alt="Persona Finnet" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -829,11 +824,11 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 <div align="center">
 <sub align="center">Figura 18 – Gráfico de relação entre status do pagamento e média de valor do boleto.</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/hipotese-status-valor.png" alt="Persona Finnet" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -1006,10 +1001,11 @@ A verificação da normalidade é um passo essencial para definir quais métodos
 
 O teste adotado para todas as variáveis foi o teste de Lilliefors, que consiste em uma adaptação do teste de Kolmogorov–Smirnov (KS). Enquanto o KS clássico pressupõe que a média ($\mu$) e o desvio padrão ($\sigma$) da população sejam previamente conhecidos, o teste de Lilliefors é adequado quando esses parâmetros precisam ser estimados a partir da própria amostra. Essa escolha se justifica, pois mesmo dispondo de todas as planilhas disponíveis, os dados não seriam suficientes para representar integralmente a população da Finnet, de modo que trabalhamos efetivamente com amostras.
 
+<br>
 <div align="center">
 <sub align="center">Tabela 1 – Resumo dos Testes de Normalidade</sub>
 </div>
-
+<br>
 <div align="center">
 
 | Variável   | Teste de Normalidade | Valor de p | Conclusão (α = 0,05)                 |
@@ -1021,10 +1017,11 @@ O teste adotado para todas as variáveis foi o teste de Lilliefors, que consiste
 | valor da multa | Lilliefors           | 0,0010      | Rejeita H₀ (não segue normalidade)   |
 
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
+<br>
 
 Os resultados indicam que, para todas as variáveis analisadas, a hipótese de normalidade foi rejeitada ao nível de significância de 5%. Assim, os dados não seguem distribuição normal, o que orienta o uso de técnicas estatísticas que não dependam dessa suposição.
 
@@ -1032,73 +1029,83 @@ Os resultados indicam que, para todas as variáveis analisadas, a hipótese de n
 
 Além dos testes estatísticos aplicados, foram elaborados histogramas para cada uma das cinco variáveis, a fim de avaliar visualmente a forma das distribuições. Essa análise gráfica permite verificar se os dados apresentam comportamento próximo ao da distribuição normal, reforçando ou contrastando os resultados obtidos nos testes de normalidade.
 
+<br>
 <div align="center">
 <sub align="center">Figura 7 – Histograma - Valor do Boleto</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/histograma_vl_boleto.png" alt="Histograma Valor do Boleto" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
+<br>
 
 O histograma da variável valor do boleto não apresenta uma distribuição próxima da normal. Observa-se ausência de cauda à esquerda, indicando assimetria na distribuição dos dados.
 
+<br>
 <div align="center">
 <sub align="center">Figura 8 – Histograma - Valor Pago</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/histograma_vl_pagto.png" alt="Histograma Valor Pago" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
+<br>
 
 O histograma da variável valor pago não apresenta uma distribuição próxima da normal. Observa-se, de forma semelhante ao histograma do valor dos boletos, a ausência de cauda à esquerda, indicando assimetria na distribuição dos dados.
 
+<br>
 <div align="center">
 <sub align="center">Figura 9 – Histograma - Valor do Juros</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/histograma_juros.png" alt="Histograma Valor do Juros" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
+<br>
 
 O histograma da variável valor dos juros não apresenta uma distribuição compatível com a normal. Nota-se a ausência de cauda à esquerda, além de uma diferença acentuada na frequência entre as primeiras classes, o que reforça a assimetria da distribuição.
 
+<br>
 <div align="center">
 <sub align="center">Figura 10 – Histograma - Quantidade de Acessos</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/histograma_qtd_de_acessos.png" alt="Histograma Quantidade de Acessos" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
+<br>
 
 De maneira bastante acentuada, o histograma da variável quantidade de acessos se distancia do padrão de uma distribuição normal. Observa-se a ausência de cauda à esquerda e a predominância de colunas à direita com frequências mais elevadas em relação às da esquerda, evidenciando a assimetria da distribuição.
 
+<br>
 <div align="center">
 <sub align="center">Figura 11 – Histograma - Valor da Multa</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/histograma_multa.png" alt="Histograma Valor da Multa" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
+<br>
 
 O histograma da variável valor das multas evidencia um forte desvio em relação à distribuição normal. Observa-se que a primeira coluna possui frequência extremamente elevada, tornando as demais quase imperceptíveis, o que indica forte assimetria e concentração dos dados em valores mais baixos.
 
@@ -1133,10 +1140,11 @@ O escalonamento das variáveis quantitativas tem como objetivo ajustar os dados 
 
 No presente estudo, optou-se por aplicar exclusivamente a normalização Min-Max em todas as variáveis. A decisão se justifica pelo fato de que os dados apresentam alta amplitude e forte presença de outliers, o que poderia distorcer os resultados caso fosse utilizada a padronização (Z-score), que depende da média e do desvio padrão. A normalização, ao restringir os valores para o intervalo [0,1], garante comparabilidade entre as variáveis sem que valores extremos exerçam influência desproporcional sobre o escalonamento.
 
+<br>
 <div align="center">
 <sub align="center">Tabela 2 – Resumo do Escalonamento das Variáveis</sub>
 </div>
-
+<br>
 <div align="center">
 
 | Variável               | Escalonamento   | Descrição                                                                                  |
@@ -1148,10 +1156,11 @@ No presente estudo, optou-se por aplicar exclusivamente a normalização Min-Max
 | valor da multa          | Normalização   | Presença de poucos valores extremamente altos; normalização preserva a forma da distribuição e ajusta a escala. |
 
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
+<br>
 
 O escalonamento aplicado uniformemente às variáveis garantiu comparabilidade entre elas, mantendo as propriedades originais dos dados e preparando-os adequadamente para análises subsequentes.
 
@@ -1159,10 +1168,11 @@ O escalonamento aplicado uniformemente às variáveis garantiu comparabilidade e
 
 Nesta subseção, apresentam-se os principais valores estatísticos das variáveis quantitativas que serão utilizados no processo de escalonamento: mínimo, máximo, média, mediana e desvio padrão populacional. Esses parâmetros permitem compreender a amplitude e a dispersão dos dados, servindo de base para ajustar as variáveis a uma escala comparável, preservando a forma das distribuições e facilitando análises subsequentes.
 
+<br>
 <div align="center">
 <sub align="center">Tabela 3 – Valores Estatísticos</sub>
 </div>
-
+<br>
 <div align="center">
 
 | Variável               | Mínimo   | Máximo       | Média       | Mediana  | Desvio padrão (populacional) |
@@ -1174,10 +1184,11 @@ Nesta subseção, apresentam-se os principais valores estatísticos das variáve
 | multa                  | 1.46     | 18.325,01    | 44,54      | 10,00    | 326,98                       |
 
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
+<br>
 
 A apresentação das estatísticas descritivas permite interpretar a variabilidade e a amplitude de cada variável, fornecendo o suporte necessário para aplicar o escalonamento de forma consistente e confiável.
 
@@ -1224,73 +1235,83 @@ Ao aplicar as equações de normalização Min-Max, todos os valores das variáv
 
 Nesta subseção são apresentados os histogramas das variáveis após o processo de escalonamento, acompanhados de uma comparação com os histogramas originais. O objetivo é observar de que forma a transformação impacta a distribuição dos dados e identificar se houve alterações relevantes em relação ao padrão anteriormente verificado.
 
+<br>
 <div align="center">
 <sub align="center">Figura 12 – Histograma - Valor do Boleto Escalonado</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/valor_boleto_escalonado.png" alt="Histograma Valor do Boleto Escalonado" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
+<br>
 
 Após o processo de escalonamento, o histograma da variável valor do boleto manteve a mesma forma observada antes da transformação, ou seja, não apresentou aproximação a uma distribuição normal. A principal diferença está na escala: os valores, que antes variavam entre 0,05 e 3.325.737,15, foram transformados para o intervalo de 0 a 1. Essa mudança fez com que a concentração dos dados na maior coluna do histograma se tornasse mais evidente, reforçando a assimetria já observada na distribuição original.
 
+<br>
 <div align="center">
 <sub align="center">Figura 13 – Histograma - Valor Pago Escalonado</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/valor_pago_escalonado.png" alt="Histograma Valor Pago Escalonado" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
+<br>
 
 Após o processo de escalonamento, o histograma da variável valor pago preservou o mesmo padrão de assimetria observado na distribuição original, sem se aproximar de uma distribuição normal. Assim como ocorreu com a variável valor do boleto, a ausência de cauda à esquerda permaneceu evidente, e a transformação apenas ajustou os dados para o intervalo de 0 a 1. Com isso, a concentração de valores em determinadas faixas tornou-se mais destacada no histograma escalonado, reforçando o comportamento assimétrico já identificado anteriormente.
 
+<br>
 <div align="center">
 <sub align="center">Figura 14 – Histograma - Valor do Juros Escalonado</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/juros_escalonado.png" alt="Histograma Valor do Juros Escalonado" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
+<br>
 
 Após o escalonamento, o histograma da variável juros manteve o padrão de assimetria identificado na análise original. A ausência de cauda à esquerda continuou presente, assim como a diferença acentuada na frequência das primeiras classes, que se tornou ainda mais evidente no histograma escalonado. A transformação para o intervalo de 0 a 1 não aproximou a distribuição da normalidade, mas destacou a concentração de valores em faixas menores, reforçando o comportamento assimétrico dos dados.
 
+<br>
 <div align="center">
 <sub align="center">Figura 15 – Histograma - Quantidade de Acessos Escalonado</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/acessos_escalonado.png" alt="Histograma Quantidade de Acessos Escalonado" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
+<br>
 
 Após o escalonamento, o histograma da variável quantidade de acessos manteve a forte assimetria já identificada na análise original. A ausência de cauda à esquerda permaneceu evidente, enquanto a predominância de colunas à direita com maiores frequências tornou-se ainda mais concentrada no novo intervalo de valores. Embora o processo de escalonamento tenha ajustado a escala dos dados, ele não aproximou a variável de uma distribuição normal, reforçando o comportamento assimétrico característico dessa métrica.
 
+<br>
 <div align="center">
 <sub align="center">Figura 16 – Histograma - Valor da Multa Escalonado</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/multa_escalonada.png" alt="Histograma Valor da Multa Escalonado" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
+<br>
 
 Após o escalonamento, o histograma da variável valor das multas manteve o padrão de forte assimetria observado anteriormente. A primeira coluna continuou concentrando a maior parte dos registros, o que torna as demais pouco representativas visualmente. Apesar da alteração na escala, a distribuição permaneceu distante do formato normal, reforçando a predominância de valores muito baixos e a elevada discrepância em relação às classes subsequentes.
 
@@ -1302,10 +1323,11 @@ Para complementar a análise gráfica dos histogramas, esta subseção apresenta
 
 As tabelas a seguir apresentam, de forma comparativa, os dez primeiros registros das variáveis quantitativas em sua forma original e após o processo de escalonamento. Essa comparação permite observar as transformações numéricas realizadas pelo método de padronização, sem que haja alteração das relações entre os valores.
 
+<br>
 <div align="center">
 <sub align="center">Tabela 4 – Valores Originais</sub>
 </div>
-
+<br>
 <div align="center">
 
 | vl_boleto | vl_pagto | juros | qtd_acessos_pagador | multa |
@@ -1322,17 +1344,19 @@ As tabelas a seguir apresentam, de forma comparativa, os dez primeiros registros
 | 726.97    | 726.97   | 0.24  | 2.0                  | 10.0  |
 
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
+<br>
 
 Na tabela dos dados originais, nota-se que as variáveis apresentam magnitudes bastante distintas entre si, o que poderia impactar em análises comparativas e algoritmos que dependem da escala dos valores.
 
+<br>
 <div align="center">
 <sub align="center">Tabela 5 – Valores Escalonados</sub>
 </div>
-
+<br>
 <div align="center">
 
 | vl_boleto | vl_pagto | juros   | qtd_acessos_pagador | multa   |
@@ -1349,10 +1373,11 @@ Na tabela dos dados originais, nota-se que as variáveis apresentam magnitudes b
 | 0.000219  | 0.000375 | 0.000216| 0.011765             | 0.000466|
 
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
+<br>
 
 Após o escalonamento, observa-se que os valores passam a estar distribuídos em torno de zero, com variabilidade mais uniforme, o que favorece análises estatísticas e modelos que utilizam essas variáveis de forma conjunta.
 

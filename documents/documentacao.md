@@ -139,10 +139,11 @@ posicionamento da empresa, permitindo o alinhamento do projeto aos seus pontos f
 <div align="center">
 <sub>Figura 1: Análise SWOT.</sub>
 </div>
+<br>
 <div align="center">
 <img width=100% height=100% alt="Análise SWOT" src="../assets/SWOT.png"/>
 </div>
-
+<br>
 <div align="center">
 <sub>Fonte: Material produzido pela equipe The Seven, 2025.</sub>
 </div>
@@ -162,14 +163,14 @@ posicionamento da empresa, permitindo o alinhamento do projeto aos seus pontos f
 
 #### 4.1.3. Planejamento Geral da Solução
 
-&nbsp;&nbsp;&nbsp;&nbsp; A solução é baseada em uma base de dados de pagadores, contendo histórico de boletos, status de liquidação, datas de vencimento, bancos emissores, endereços dos devedores, dados dos recebedores e registros de interações anteriores entre pagadores e a instituição, como número e data dos contatos realizados.
+&nbsp;&nbsp;&nbsp;&nbsp; A solução é baseada em uma base de dados de pagadores. Ela contém histórico  de boletos, status de liquidação, datas de vencimento, bancos emissores, endereços dos devedores, dados dos recebedores e registros de interações anteriores entre pagadores e a instituição, como número e data dos contatos realizados.
 
 &nbsp;&nbsp;&nbsp;&nbsp; A partir dessa base, será desenvolvido um modelo preditivo que fornecerá aos clientes da Finnet insights como: score de risco de inadimplência, tendência de pagamento, previsão de recebimentos no período e a melhor janela provável de pagamento. Esses dados preditivos visam apoiar decisões estratégicas em processos de cobrança e gestão financeira.
 
 &nbsp;&nbsp;&nbsp;&nbsp; Inicialmente, a solução será disponibilizada como uma **Prova de Conceito (POC)** para integração na plataforma Luna, utilizada para emissão de cobranças e gestão de recebíveis por instituições financeiras ou empresas com alto volume de transações. O produto será entregue por meio de um script em Python, possibilitando que gestores financeiros acessem os insights preditivos diretamente em seu fluxo de trabalho.
 Em fases futuras, a solução será incorporada de forma nativa na plataforma, permitindo automações com base nas predições e visualizações em tempo real.
 
-**Benefício esperados da solução:**
+**Benefícios esperados da solução:**
 
 - **Redução do risco de inadimplência**, garantindo uma maior previsibilidade de comportamento dos pagadores.
 - **Aumento da eficiência operacional**, ao priorizar estratégias de cobranças e renegociações.
@@ -183,19 +184,20 @@ Em fases futuras, a solução será incorporada de forma nativa na plataforma, p
 - **Usabilidade e aderência**: validação positiva por parte dos stakeholders e usuários-chave (gerentes financeiros e coordenadores de contas a receber) durante testes e apresentações.
 - **Relevância dos insights**: feedback qualitativo dos usuários demonstrando utilidade prática para tomadas de decisões reais.
 - **Viabilidade de escalabilidade**: capacidade técnica de aplicar o modelo a diferentes clientes e setores com necessidade mínima de customização.
-- **Níveis de segurança compatíveis com a LGPD**: o tratamento de dados pessoais deverá respeitar os princípios da Lei Geral de Proteção de Dados (LGPD)
+- **Níveis de segurança compatíveis com a LGPD**: o tratamento de dados pessoais deverá respeitar os princípios da Lei Geral de Proteção de Dados (LGPD).
 
 #### 4.1.4. Value Proposition Canvas
 
-&nbsp;&nbsp;&nbsp;&nbsp; Com o objetivo de alinhar a oferta do produto ou serviço às necessidades e expectativas da Finnet, foi elaborado o Canva Proposta de Valor da solução. Ele busca garantir que a equipe entregue valor real à empresa parceira, a partir de uma compreensão aprofundada do perfil do cliente, das suas principais dores e dos ganhos que a proposta é capaz de gerar. Assim, assegura-se que o desenvolvimento e a entrega da solução estejam diretamente conectados às demandas estratégicas e operacionais da Finnet.
+&nbsp;&nbsp;&nbsp;&nbsp; Com o objetivo de alinhar a oferta do produto ou serviço às necessidades e expectativas da Finnet, foi elaborado o Canvas Proposta de Valor da solução. Ele busca garantir que a equipe entregue valor real à empresa parceira, a partir de uma compreensão aprofundada do perfil do cliente, das suas principais dores e dos ganhos que a proposta é capaz de gerar. Assim, assegura-se que o desenvolvimento e a entrega da solução estejam diretamente conectados às demandas estratégicas e operacionais da Finnet.
 
 <div align="center">
-<sub>Figura 2: Canva Proposta de Valor.</sub>
+<sub>Figura 2: Canvas Proposta de Valor.</sub>
 </div>
+<br>
 <div align="center">
 <img src="../assets/CanvaValue.png">
 </div>
-
+<br>
 <div align="center">
 <sub>Fonte: Material produzido pela equipe The Seven, 2025.</sub>
 </div>
@@ -268,6 +270,7 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 <div align="center">
 <sub>Figura 3: Matriz de Risco.</sub>
 </div>
+<br>
 <div align="center">
 
 ![Matriz de riscos](../assets/Matriz_de_risco.png)
@@ -342,23 +345,21 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 
 #### 4.1.6. Personas
 
-&nbsp;&nbsp;&nbsp;&nbsp;O uso de personas em projetos de desenvolvimento é uma prática consolidada que permite compreender perfis de usuários e stakeholders, alinhando expectativas e reduzindo ambiguidades. Construídas a partir de dados reais, elas traduzem necessidades e comportamentos em representações acessíveis que orientam decisões estratégicas e de design. Neste trabalho, focado na criação de um modelo preditivo para mitigação da inadimplência de pessoas físicas, jurídicas e empresas, as personas assumem papel central ao aproximar a solução de realidades cotidianas, unindo análise quantitativa e qualitativa. Dessa forma, fortalecem o projeto ao integrar fundamentos técnicos e dimensões humanas, resultando em um modelo mais contextualizado, eficaz e alinhado ao mercado.
-
 ##### Pessoa Jurídica
 
 <div align="center">
 <sub align="center">Figura 4 – Persona - Pessoa Jurídica</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/Persona_Jurídica.png" alt="Value Proposition Canvas" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
-
+<br>
 &nbsp;&nbsp;&nbsp;&nbsp; Carlos Almeida representa o perfil do decisor financeiro que busca soluções tecnológicas para otimizar a gestão de crédito e reduzir riscos de inadimplência. Como Chief Financial Officer de uma empresa de grande porte, lida diariamente com o desafio de manter a saúde financeira da organização, equilibrando previsibilidade de caixa, controle de recebimentos e mitigação de perdas. Sua atuação exige acesso rápido a informações confiáveis e ferramentas que apoiem decisões estratégicas baseadas em dados.
 
 
@@ -367,15 +368,15 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 <div align="center">
 <sub align="center">Figura 5 – Persona - Gerente Finnet</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/persona_finnet.png" alt="Persona Finnet" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
-
+<br>
 Rogério Silveira é o perfil de cliente principal do projeto e atua como Gerente Financeiro na Finnet. Ele é responsável por monitorar transações e elaborar relatórios financeiros para empresas parceiras, garantindo que estas tenham uma visão clara e atualizada do seu fluxo de caixa. Com alta afinidade com tecnologia, busca automatizar processos de coleta e análise de dados, reduzindo o trabalho manual e aumentando a precisão das informações. Entre suas principais necessidades está prever a inadimplência e identificar tendências de pagamento, permitindo agir de forma proativa. Atualmente, Rogério deseja agregar valor ao serviço prestado pela Finnet implementando recursos como score de risco de inadimplência, melhor janela provável de pagamento e análise do impacto da inadimplência no fluxo de recebimentos, fortalecendo a tomada de decisão dos clientes e da própria empresa.
 
 #### 4.1.7. Jornadas do Usuário
@@ -387,41 +388,45 @@ Rogério Silveira é o perfil de cliente principal do projeto e atua como Gerent
 <div align="center">
 <sub align="center">Figura 6 – Descrição de Oportunidades e Problemas</sub>
 </div>
+<br>
 
 <div align="center">
 <img src="../assets/Oportunidades.png" alt="Jornada da Pessoa Jurídica" border="0" width=20% height=100%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
-
+<br>
 <div align="center">
 <sub align="center">Figura 7 – Jornada de Usuário - Pessoa Jurídica</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/Jornada - Carlos Almeida.png" alt="Jornada da Pessoa Jurídica" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
-
+<br>
 &nbsp;&nbsp;&nbsp;&nbsp; A persona escolhida, Carlos Almeida, representa uma pessoa jurídica e reflete os desafios complexos enfrentados por gestores financeiros de empresas, como a dificuldade em gerenciar grandes volumes de recebimentos, mitigar riscos de inadimplência e garantir previsibilidade no fluxo de caixa. Optamos por esse perfil porque ele evidencia problemas organizacionais e estratégicos que não se limitam ao indivíduo, mas impactam diretamente a sustentabilidade do negócio. Dessa forma, o journey map permite mapear desde a frustração inicial até a satisfação com soluções de análise preditiva, dashboards e estratégias personalizadas de cobrança, demonstrando o valor de ferramentas que oferecem clareza, confiabilidade e suporte à tomada de decisão no contexto corporativo.
 
+<br>
 <div align="center">
 <sub align="center">Figura 8 – Jornada de Usuário - Pessoa Finnet</sub>
 </div>
-
+<br>
+<br>
 <div align="center">
 <img src="../assets/Jornada - Roberto Silveira.png" alt="Jornada da Pessoa Jurídica" border="0" width=100% height=100%>
 </div>
-
+<br>
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo, 2025.</sup>
 </div>
-
+<br>
 &nbsp;&nbsp;&nbsp;&nbsp; Escolhemos o Rogério como persona do journey map porque ele representa um ator crítico dentro da Finnet: o gerente financeiro responsável por consolidar relatórios e entregar previsões confiáveis à diretoria e às empresas clientes. A ausência de análises preditivas detalhadas hoje compromete sua confiabilidade e reduz a segurança do planejamento financeiro. Ao mapear sua jornada, evidenciamos gargalos como processos manuais, dispersão de dados e ciclos de fechamento demorados, e identificamos oportunidades de evolução com automação, integração de fontes, modelagem preditiva e relatórios em tempo real. Assim, o journey map orienta a priorização de soluções que elevem a acurácia das previsões, reduzam retrabalho e fortaleçam o papel da Finnet como parceira confiável na gestão financeira dos clientes.
 
 
@@ -716,11 +721,13 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 <div align="center">
 <sub align="center">Figura 14 – Gráfico de relação entre status do boleto e média de acessos na plataforma.</sub>
 </div>
-
+<br>
+<br>
 <div align="center">
 <img src="../assets/hipoteses-acessos.png" alt="Persona Finnet" border="0" width=60% height=60%>
 </div>
-
+<br>
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>

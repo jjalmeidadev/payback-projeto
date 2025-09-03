@@ -136,6 +136,7 @@ Tudo isso funciona integrado aos bancos por meio de tecnologia própria (**API, 
 desenvolvimento de um modelo preditivo em parceria com a Finnet Tecnologias. Essa metodologia estratégica oferece um panorama claro do
 posicionamento da empresa, permitindo o alinhamento do projeto aos seus pontos fortes, desafios internos e ao contexto competitivo do mercado financeiro.
 
+<br>
 <div align="center">
 <sub>Figura 1: Análise SWOT.</sub>
 </div>
@@ -145,7 +146,7 @@ posicionamento da empresa, permitindo o alinhamento do projeto aos seus pontos f
 </div>
 <br>
 <div align="center">
-<sub>Fonte: Material produzido pela equipe The Seven, 2025.</sub>
+<sub>Fonte: Material produzido pelo grupo The Seven, 2025.</sub>
 </div>
 <br>
 
@@ -190,6 +191,7 @@ Em fases futuras, a solução será incorporada de forma nativa na plataforma, p
 
 &nbsp;&nbsp;&nbsp;&nbsp; Com o objetivo de alinhar a oferta do produto ou serviço às necessidades e expectativas da Finnet, foi elaborado o Canvas Proposta de Valor da solução. Ele busca garantir que a equipe entregue valor real à empresa parceira, a partir de uma compreensão aprofundada do perfil do cliente, das suas principais dores e dos ganhos que a proposta é capaz de gerar. Assim, assegura-se que o desenvolvimento e a entrega da solução estejam diretamente conectados às demandas estratégicas e operacionais da Finnet.
 
+<br>
 <div align="center">
 <sub>Figura 2: Canvas Proposta de Valor.</sub>
 </div>
@@ -199,7 +201,7 @@ Em fases futuras, a solução será incorporada de forma nativa na plataforma, p
 </div>
 <br>
 <div align="center">
-<sub>Fonte: Material produzido pela equipe The Seven, 2025.</sub>
+<sub>Fonte: Material produzido pelo grupo The Seven, 2025.</sub>
 </div>
 <br>
 
@@ -277,7 +279,7 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 </div>
 
 <div align="center">
-<sub>Fonte: Material produzido pela equipe The Seven, 2025.</sub>
+<sub>Fonte: Material produzido pelo grupo The Seven, 2025.</sub>
 </div>
 <br>
 
@@ -394,7 +396,7 @@ Rogério Silveira é o perfil de cliente principal do projeto e atua como Gerent
 </div>
 <br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 <div align="center">
@@ -406,7 +408,7 @@ Rogério Silveira é o perfil de cliente principal do projeto e atua como Gerent
 </div>
 <br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 
@@ -422,7 +424,7 @@ Rogério Silveira é o perfil de cliente principal do projeto e atua como Gerent
 </div>
 <br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 
@@ -542,7 +544,7 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
   - Barras para o número de boletos incluídos e pagos em cada mês. Permitiu identificar sazonalidade e meses críticos para inadimplência.
 <br>
 <div align="center">
-<sub align="center">Figura 6 – Gráfico de relação entre número de boletos incluídos de pagos por mês.</sub>
+<sub align="center">Figura 9 – Gráfico de relação entre número de boletos incluídos de pagos por mês.</sub>
 </div>
 <br>
 <div align="center">
@@ -558,7 +560,7 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
   - Barplot comparando a média de acessos à plataforma entre boletos pagos e não pagos. Evidenciou que usuários que pagam tendem a acessar mais a plataforma.
 <br>
 <div align="center">
-<sub align="center">Figura 7 – Quantidade de acessos por status de número de boletos pagos.</sub>
+<sub align="center">Figura 10 – Quantidade de acessos por status de número de boletos pagos.</sub>
 </div>
 <br>
 <div align="center">
@@ -575,7 +577,7 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 <br>
 <div align="center">
-<sub align="center">Figura 8 – Quantidade de acessos por status de número de boletos pagos.</sub>
+<sub align="center">Figura 11 – Quantidade de acessos por status de número de boletos pagos.</sub>
 </div>
 <br>
 <div align="center">
@@ -591,7 +593,7 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
   - Barras para o número de boletos incluídos e pagos em cada mês, com linha de taxa de pagamento (%). Permitiu identificar sazonalidade e meses críticos para inadimplência.
 <br>
 <div align="center">
-<sub align="center">Figura 9 – Gráfico de número de boletos e meses do ano.</sub>
+<sub align="center">Figura 12 – Gráfico de número de boletos e meses do ano.</sub>
 </div>
 <br>
 <div align="center">
@@ -607,7 +609,7 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
   - O gráfico a seguir busca mostrar a diferença de média de acessos a plataforma entre boletos pagos e não pagos.
 <br>
 <div align="center">
-<sub align="center">Figura 10 – Gráfico de relação entre status do boleto e média de acessos na plataforma.</sub>
+<sub align="center">Figura 13 – Gráfico de relação entre status do boleto e média de acessos na plataforma.</sub>
 </div>
 <br>
 <div align="center">
@@ -623,7 +625,7 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
   - O gráfico a seguir busca mostrar a relação entre o valor do boleto e os dias necessários para pagar.
 <br>
 <div align="center">
-<sub align="center">Figura 11 – Gráfico de relação entre dias para pagar e valor do boleto.</sub>
+<sub align="center">Figura 14 – Gráfico de relação entre dias para pagar e valor do boleto.</sub>
 </div>
 <br>
 <div align="center">
@@ -639,7 +641,7 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
   - O gráfico Boxplot a seguir busca mostrar a relação entre a média de valor entre boletos pagos e não pagos.
 <br>
 <div align="center">
-<sub align="center">Figura 12 – Gráfico de relação entre status do pagamento e média de valor do boleto.</sub>
+<sub align="center">Figura 15 – Gráfico de relação entre status do pagamento e média de valor do boleto.</sub>
 </div>
 <br>
 <div align="center">
@@ -656,7 +658,7 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
   - O histograma a seguir demonstra as cidades com maior média de valor dentre uma amostra selecionada.
 <br>
 <div align="center">
-<sub align="center">Figura 13 – Gráfico de relação entre cidade e média de valor.</sub>
+<sub align="center">Figura 116 – Gráfico de relação entre cidade e média de valor.</sub>
 </div>
 <br>
 <div align="center">
@@ -717,7 +719,7 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 <br>
 <div align="center">
-<sub align="center">Figura 14 – Gráfico de relação entre status do boleto e média de acessos na plataforma.</sub>
+<sub align="center">Figura 17 – Gráfico de relação entre status do boleto e média de acessos na plataforma.</sub>
 </div>
 <br>
 <div align="center">
@@ -742,7 +744,7 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 <br>
 <div align="center">
-<sub align="center">Figura 15 – Gráfico de relação entre mês, número de boleto e taxa de pagamento.</sub>
+<sub align="center">Figura 18 – Gráfico de relação entre mês, número de boleto e taxa de pagamento.</sub>
 </div>
 <br>
 <div align="center">
@@ -772,7 +774,7 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 <br>
 <div align="center">
-<sub align="center">Figura 16 – Gráfico de relação entre valor do boleto e dias necessários para pagar.</sub>
+<sub align="center">Figura 19 – Gráfico de relação entre valor do boleto e dias necessários para pagar.</sub>
 </div>
 <br>
 <div align="center">
@@ -798,7 +800,7 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 <br>
 <div align="center">
-<sub align="center">Figura 17 – Gráfico de relação entre valor do boleto e dias necessários para pagar.</sub>
+<sub align="center">Figura 20 – Gráfico de relação entre valor do boleto e dias necessários para pagar.</sub>
 </div>
 
 <div align="center">
@@ -822,7 +824,7 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 <br>
 <div align="center">
-<sub align="center">Figura 18 – Gráfico de relação entre status do pagamento e média de valor do boleto.</sub>
+<sub align="center">Figura 21 – Gráfico de relação entre status do pagamento e média de valor do boleto.</sub>
 </div>
 <br>
 <div align="center">
@@ -1019,7 +1021,7 @@ O teste adotado para todas as variáveis foi o teste de Lilliefors, que consiste
 </div>
 <br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 
@@ -1031,7 +1033,7 @@ Além dos testes estatísticos aplicados, foram elaborados histogramas para cada
 
 <br>
 <div align="center">
-<sub align="center">Figura 7 – Histograma - Valor do Boleto</sub>
+<sub align="center">Figura 23 – Histograma - Valor do Boleto</sub>
 </div>
 <br>
 <div align="center">
@@ -1039,7 +1041,7 @@ Além dos testes estatísticos aplicados, foram elaborados histogramas para cada
 </div>
 <br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 
@@ -1047,7 +1049,7 @@ O histograma da variável valor do boleto não apresenta uma distribuição pró
 
 <br>
 <div align="center">
-<sub align="center">Figura 8 – Histograma - Valor Pago</sub>
+<sub align="center">Figura 24 – Histograma - Valor Pago</sub>
 </div>
 <br>
 <div align="center">
@@ -1055,7 +1057,7 @@ O histograma da variável valor do boleto não apresenta uma distribuição pró
 </div>
 <br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 
@@ -1063,7 +1065,7 @@ O histograma da variável valor pago não apresenta uma distribuição próxima 
 
 <br>
 <div align="center">
-<sub align="center">Figura 9 – Histograma - Valor do Juros</sub>
+<sub align="center">Figura 25 – Histograma - Valor do Juros</sub>
 </div>
 <br>
 <div align="center">
@@ -1071,7 +1073,7 @@ O histograma da variável valor pago não apresenta uma distribuição próxima 
 </div>
 <br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 
@@ -1079,7 +1081,7 @@ O histograma da variável valor dos juros não apresenta uma distribuição comp
 
 <br>
 <div align="center">
-<sub align="center">Figura 10 – Histograma - Quantidade de Acessos</sub>
+<sub align="center">Figura 26 – Histograma - Quantidade de Acessos</sub>
 </div>
 <br>
 <div align="center">
@@ -1087,7 +1089,7 @@ O histograma da variável valor dos juros não apresenta uma distribuição comp
 </div>
 <br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 
@@ -1095,7 +1097,7 @@ De maneira bastante acentuada, o histograma da variável quantidade de acessos s
 
 <br>
 <div align="center">
-<sub align="center">Figura 11 – Histograma - Valor da Multa</sub>
+<sub align="center">Figura 27 – Histograma - Valor da Multa</sub>
 </div>
 <br>
 <div align="center">
@@ -1103,7 +1105,7 @@ De maneira bastante acentuada, o histograma da variável quantidade de acessos s
 </div>
 <br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 
@@ -1158,7 +1160,7 @@ No presente estudo, optou-se por aplicar exclusivamente a normalização Min-Max
 </div>
 <br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 
@@ -1186,7 +1188,7 @@ Nesta subseção, apresentam-se os principais valores estatísticos das variáve
 </div>
 <br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 
@@ -1237,7 +1239,7 @@ Nesta subseção são apresentados os histogramas das variáveis após o process
 
 <br>
 <div align="center">
-<sub align="center">Figura 12 – Histograma - Valor do Boleto Escalonado</sub>
+<sub align="center">Figura 28 – Histograma - Valor do Boleto Escalonado</sub>
 </div>
 <br>
 <div align="center">
@@ -1245,7 +1247,7 @@ Nesta subseção são apresentados os histogramas das variáveis após o process
 </div>
 <br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 
@@ -1253,7 +1255,7 @@ Após o processo de escalonamento, o histograma da variável valor do boleto man
 
 <br>
 <div align="center">
-<sub align="center">Figura 13 – Histograma - Valor Pago Escalonado</sub>
+<sub align="center">Figura 29 – Histograma - Valor Pago Escalonado</sub>
 </div>
 <br>
 <div align="center">
@@ -1261,7 +1263,7 @@ Após o processo de escalonamento, o histograma da variável valor do boleto man
 </div>
 <br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 
@@ -1269,7 +1271,7 @@ Após o processo de escalonamento, o histograma da variável valor pago preservo
 
 <br>
 <div align="center">
-<sub align="center">Figura 14 – Histograma - Valor do Juros Escalonado</sub>
+<sub align="center">Figura 30 – Histograma - Valor do Juros Escalonado</sub>
 </div>
 <br>
 <div align="center">
@@ -1277,7 +1279,7 @@ Após o processo de escalonamento, o histograma da variável valor pago preservo
 </div>
 <br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 
@@ -1285,7 +1287,7 @@ Após o escalonamento, o histograma da variável juros manteve o padrão de assi
 
 <br>
 <div align="center">
-<sub align="center">Figura 15 – Histograma - Quantidade de Acessos Escalonado</sub>
+<sub align="center">Figura 31 – Histograma - Quantidade de Acessos Escalonado</sub>
 </div>
 <br>
 <div align="center">
@@ -1293,7 +1295,7 @@ Após o escalonamento, o histograma da variável juros manteve o padrão de assi
 </div>
 <br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 
@@ -1301,7 +1303,7 @@ Após o escalonamento, o histograma da variável quantidade de acessos manteve a
 
 <br>
 <div align="center">
-<sub align="center">Figura 16 – Histograma - Valor da Multa Escalonado</sub>
+<sub align="center">Figura 32 – Histograma - Valor da Multa Escalonado</sub>
 </div>
 <br>
 <div align="center">
@@ -1309,7 +1311,7 @@ Após o escalonamento, o histograma da variável quantidade de acessos manteve a
 </div>
 <br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 
@@ -1346,7 +1348,7 @@ As tabelas a seguir apresentam, de forma comparativa, os dez primeiros registros
 </div>
 <br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 
@@ -1375,7 +1377,7 @@ Na tabela dos dados originais, nota-se que as variáveis apresentam magnitudes b
 </div>
 <br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 

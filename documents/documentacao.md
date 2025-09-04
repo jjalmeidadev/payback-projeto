@@ -41,7 +41,7 @@ https://docs.github.com/en/get-started/writing-on-github/getting-started-with-wr
 
 &nbsp;&nbsp;&nbsp;&nbsp; A Finnet é uma empresa brasileira de médio porte, com um quadro de 201 a 500 colaboradores, que se destaca no mercado de tecnologia financeira pela sua capacidade de oferecer soluções inovadoras e adaptáveis às necessidades do ambiente corporativo. Com o slogan “Somos tecnologia. Multibanco. Integração.”, a companhia atua no desenvolvimento de tecnologias que simplificam e automatizam processos financeiros, promovendo maior eficiência operacional para seus clientes. Sua atuação concentra-se em áreas como Gestão Financeira e Conciliação Bancária, Cobranças, Boletos e Meios de Pagamento, além de Conectividade Financeira por meio de EDI e RPA. Com base nesses segmentos, a Finnet se posiciona como uma TechFin B2B, especializada em soluções que promovem a automação, a integração e a digitalização das rotinas financeiras de empresas de médio e grande porte.
 
-&nbsp;&nbsp;&nbsp;&nbsp; Nesse contexto, um dos principais desafios enfrentados por seus clientes, e que impacta diretamente o trabalho da própria Finnet, é o aumento da inadimplência no mercado nacional. Esse fenômeno compromete a saúde financeira e a previsibilidade de receita de médias e grandes empresas, dificultando o planejamento estratégico e a tomada de decisões. Além disso, a ausência de dados estruturados, como o histórico de pagamentos e o impacto da inadimplência no fluxo de caixa, prejudica o monitoramento de riscos e a definição de ações corretivas. Para a Finnet, esse cenário representa uma limitação relevante, já que a fragmentação e a complexidade das informações restringem a capacidade de fornecer análises mais aprofundadas, dificultando o apoio efetivo à gestão financeira de seus clientes.
+&nbsp;&nbsp;&nbsp;&nbsp; Nesse contexto, um dos principais desafios enfrentados por seus clientes, e que impacta diretamente o trabalho da própria Finnet, é o aumento de pagadores inadimplentes no mercado nacional. Esse fenômeno compromete a saúde financeira e a previsibilidade de receita de médias e grandes empresas, dificultando o planejamento estratégico e a tomada de decisões. Além disso, a ausência de dados estruturados, como o histórico de pagamentos e o impacto da inadimplência no fluxo de caixa, prejudica o monitoramento de riscos e a definição de ações corretivas. Para a Finnet, esse cenário representa uma limitação relevante, já que a fragmentação e a complexidade das informações restringem a capacidade de fornecer análises mais aprofundadas, dificultando o apoio efetivo à gestão financeira de seus clientes.
 
 ## <a name="c2"></a>2. Objetivos e Justificativa
 
@@ -152,13 +152,13 @@ posicionamento da empresa, permitindo o alinhamento do projeto aos seus pontos f
 
 &nbsp;&nbsp;&nbsp;&nbsp; Com essa base, a análise SWOT pode orientar o projeto de modelo preditivo ao explorar:
 
-- **Forças:** expertise consolidada em integração com ERPs, robustez das soluções multibanco/multiempresas e pioneirismo em produtos como Bolepix e Open Finance.
+- **Forças:** expertise consolidada na criação de automações financeiras e integração com ERPs; ampla rede de atendimento multibanco (+120 instituições), que assegura capilaridade; soluções reconhecidas no mercado, como Bolepix e integrações em Open Finance; além de uma forte base de dados transacionais, com potencial para treinar modelos de previsão de inadimplência.
 
-- **Fraquezas:** possíveis pontos de fragilidade podem incluir dependência de infraestrutura legada dos clientes, ciclos de adoção de inovações e a necessidade de customização intensa para diferentes ERPs e setores.
+- **Fraquezas:** Concentração em clientes de médio e grande porte, o que limita o alcance às PMEs que poderiam se beneficiar do modelo; dependência de sistemas bancários e de gestão, sujeitando-se a instabilidades externas e necessidade de alto nível de customização para diferentes setores e ERPs, fator que pode comprometer a escalabilidade da plataforma Luna, voltada à gestão e predição de recebimentos.
 
-- **Oportunidades:** o crescente ambiente regulatório e de inovação em pagamentos digitais, expansão do ecossistema Open Finance e potencial de uso de dados para previsão de inadimplência, comportamento de pagamentos ou risco na cadeia de fornecedores.
+- **Oportunidades:** o ambiente regulatório e de inovação em pagamentos digitais, impulsionado pelo avanço do uso do PIX em cobranças e contas a receber, cria novas bases para análises preditivas. Soma-se a isso a expansão do ecossistema Open Finance, que amplia o acesso a informações relevantes para modelos de risco de crédito e inadimplência, possibilitando o desenvolvimento de relatórios estratégicos capazes de antecipar padrões de comportamento de pagamento e agregar valor direto aos clientes.
 
-- **Ameaças:** concorrência crescente de fintechs e grandes provedores de serviços financeiros, mudanças regulatórias rápidas e riscos relacionados à segurança da informação e conformidade com LGPD.
+- **Ameaças:** aceleração da concorrência, com soluções mais simplificadas e acessíveis; mudanças regulatórias rápidas, que podem impactar a modelagem de dados e riscos relacionados à segurança e à conformidade com a LGPD, especialmente críticos em modelos que utilizam dados financeiros sensíveis.
 
 &nbsp;&nbsp;&nbsp;&nbsp; Ao analisar essas dimensões, torna-se possível estruturar um modelo preditivo direcionado a maximizar os benefícios para a Finnet, como o aprimoramento na tomada de decisões financeiras, a antecipação de possíveis riscos e o incremento na personalização das soluções oferecidas. Dessa forma, garante-se que o projeto não apenas esteja alinhado às diretrizes estratégicas da Finnet, mas também promova um impacto substancial e sustentável em longo prazo.
 
@@ -181,7 +181,7 @@ Em fases futuras, a solução será incorporada de forma nativa na plataforma, p
 
 **O sucesso da solução será medido por meio dos seguintes critérios:**
 
-- **Acurácia das predições**: Porcentagem de assertividade nas projeções de inadimplência satisfatória, conforme métricas definidas durante o desenvolvimento.
+- **Acurácia das predições**: Porcentagem de assertividade nas projeções de inadimplência satisfatória, com média em 95%.
 - **Usabilidade e aderência**: validação positiva por parte dos stakeholders e usuários-chave (gerentes financeiros e coordenadores de contas a receber) durante testes e apresentações.
 - **Relevância dos insights**: feedback qualitativo dos usuários demonstrando utilidade prática para tomadas de decisões reais.
 - **Viabilidade de escalabilidade**: capacidade técnica de aplicar o modelo a diferentes clientes e setores com necessidade mínima de customização.
@@ -347,16 +347,22 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 
 #### 4.1.6. Personas
 
+&nbsp;&nbsp;&nbsp;&nbsp;O uso de personas em projetos de desenvolvimento é uma prática consolidada que permite compreender perfis de usuários e stakeholders, alinhando expectativas e reduzindo ambiguidades. Construídas a partir de dados reais, elas traduzem necessidades e comportamentos em representações acessíveis que orientam decisões estratégicas e de design. Neste trabalho, focado na criação de um modelo preditivo para mitigação da inadimplência de pessoas físicas, jurídicas e empresas, as personas assumem papel central ao aproximar a solução de realidades cotidianas, unindo análise quantitativa e qualitativa. Dessa forma, fortalecem o projeto ao integrar fundamentos técnicos e dimensões humanas, resultando em um modelo mais contextualizado, eficaz e alinhado ao mercado.
+
 ##### Pessoa Jurídica
 
 <div align="center">
 <sub align="center">Figura 4 – Persona - Pessoa Jurídica</sub>
 </div>
 <br>
+<br>
+
 <div align="center">
 <img src="../assets/Persona_Jurídica.png" alt="Value Proposition Canvas" border="0" width=100% height=100%>
 </div>
 <br>
+<br>
+
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -364,22 +370,80 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 
 &nbsp;&nbsp;&nbsp;&nbsp; Carlos Almeida representa o perfil do decisor financeiro que busca soluções tecnológicas para otimizar a gestão de crédito e reduzir riscos de inadimplência. Como Chief Financial Officer de uma empresa de grande porte, lida diariamente com o desafio de manter a saúde financeira da organização, equilibrando previsibilidade de caixa, controle de recebimentos e mitigação de perdas. Sua atuação exige acesso rápido a informações confiáveis e ferramentas que apoiem decisões estratégicas baseadas em dados.
 
+&nbsp;&nbsp;&nbsp;&nbsp; Sua finalidade como persona do projeto é representar as empresas impactadas diretamente pela solução, servindo como usuário estratégico que se beneficia do acesso a métricas avançadas, como o score de inadimplência. Com esses recursos, suas decisões financeiras ganham mais embasamento, fortalecendo a gestão de riscos e a previsibilidade de resultados.
+
+
 #### Gerente Finnet
 
 <div align="center">
 <sub align="center">Figura 5 – Persona - Gerente Finnet</sub>
 </div>
 <br>
+<br>
+
 <div align="center">
 <img src="../assets/persona_finnet.png" alt="Persona Finnet" border="0" width=100% height=100%>
 </div>
 <br>
+
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
 <br>
 
-Rogério Silveira é o perfil de cliente principal do projeto e atua como Gerente Financeiro na Finnet. Ele é responsável por monitorar transações e elaborar relatórios financeiros para empresas parceiras, garantindo que estas tenham uma visão clara e atualizada do seu fluxo de caixa. Com alta afinidade com tecnologia, busca automatizar processos de coleta e análise de dados, reduzindo o trabalho manual e aumentando a precisão das informações. Entre suas principais necessidades está prever a inadimplência e identificar tendências de pagamento, permitindo agir de forma proativa. Atualmente, Rogério deseja agregar valor ao serviço prestado pela Finnet implementando recursos como score de risco de inadimplência, melhor janela provável de pagamento e análise do impacto da inadimplência no fluxo de recebimentos, fortalecendo a tomada de decisão dos clientes e da própria empresa.
+&nbsp;&nbsp;&nbsp;&nbsp; Rogério Silveira é o perfil de cliente principal do projeto e atua como Gerente Financeiro na Finnet. Ele é responsável por monitorar transações e elaborar relatórios financeiros para empresas parceiras, garantindo que estas tenham uma visão clara e atualizada do seu fluxo de caixa. Com alta afinidade com tecnologia, busca automatizar processos de coleta e análise de dados, reduzindo o trabalho manual e aumentando a precisão das informações. Entre suas principais necessidades está prever a inadimplência e identificar tendências de pagamento, permitindo agir de forma proativa. Atualmente, Rogério deseja agregar valor ao serviço prestado pela Finnet implementando recursos como score de risco de inadimplência, melhor janela provável de pagamento e análise do impacto da inadimplência no fluxo de recebimentos, fortalecendo a tomada de decisão dos clientes e da própria empresa.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Essa persona representa os gestores financeiros da Finnet, público-alvo direto do projeto. Por sua função dentro da empresa, Rogério é o responsável por analisar os dados gerados e transformá-los em insights que agregam valor ao serviço oferecido aos clientes, fortalecendo tanto a tomada de decisão quanto a competitividade da organização.
+
+#### Pessoa Física Inadimplente
+
+<div align="center">
+<sub align="center">Figura 4 – Persona - Pessoa Física Inadimplente</sub>
+</div>
+<br>
+
+<div align="center">
+<img src="../assets/personaFI.png" alt="Value Proposition Canvas" border="0" width=100% height=100%>
+</div>
+<br>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp; Renata Arantes representa o perfil de uma pessoa física em situação de inadimplência, que enfrenta dificuldades financeiras para manter seus compromissos em dia. Seu comportamento reflete a realidade de muitos pagadores que, diante de imprevistos ou limitações de renda, acabam atrasando ou deixando de quitar boletos. Essa condição impacta diretamente tanto as empresas credoras quanto os intermediários financeiros que buscam reduzir riscos e manter previsibilidade em seus recebimentos.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Sua finalidade como persona do projeto é simbolizar os devedores cujos padrões de pagamento alimentam o modelo preditivo de inadimplência baseado em machine learning. Esta representa como perfis semelhantes influenciam a modelagem e a análise estatística. Nesse contexto, Renata funciona como um canvas que traz insights ao sistema em situações cotidianas, auxiliando na criação de estratégias mais assertivas de cobrança e mitigação de riscos com as features desenvolvidas no projeto.
+ 
+#### Técnico de Informática 
+
+
+<div align="center">
+<sub align="center">Figura 4 – Persona - Técnico de informática</sub>
+</div>
+<br>
+
+<div align="center">
+<img src="../assets/persona TI.png" alt="Value Proposition Canvas" border="0" width=100% height=100%>
+</div>
+<br>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp; Rafael Costa representa o perfil do analista técnico que busca soluções eficientes para garantir a estabilidade e a segurança dos sistemas corporativos. Atuando como Analista de Sistemas na Finnet, ele é responsável por desenvolver e manter plataformas financeiras, assegurando que atendam às exigências de confiabilidade e compliance. Seu dia a dia envolve lidar com alta demanda de suporte, integrações complexas e desafios relacionados à segurança da informação. Com forte afinidade tecnológica, Rafael procura ferramentas que otimizem processos, reduzam retrabalho e aumentem a agilidade na entrega de soluções, permitindo que a empresa continue oferecendo valor e inovação aos seus clientes. 
+
+&nbsp;&nbsp;&nbsp;&nbsp; Para o projeto, Rafael representa os profissionais responsáveis pela implementação e manutenção técnica da solução dentro da plataforma já utilizada pela Finnet. Sua presença como persona garante a perspectiva de quem lida diretamente com integrações complexas e desafios de segurança, aspectos fundamentais para que o sistema funcione de forma estável, prática e eficiente. Assim, Rafael simboliza a ponte entre a viabilidade técnica e a entrega de valor ao usuário final.
+
+
+
+
+
+
+</br></br>Em síntese, as personas apresentadas funcionam como representações estratégicas dos diferentes atores envolvidos no ecossistema de cobrança e gestão financeira. Cada uma delas traduz, de forma humanizada, as necessidades, dores e expectativas que o projeto busca atender. Ao integrar o modelo de predição de inadimplência com machine learning, essas personas atuam como pontos de referência que não só exemplificam o potencial impacto da solução, mas também a segurança de que o desenvolvimento técnico esteja constantemente alinhado à experiência prática dos usuários. Dessa forma, podemos reforçar a relevância e a utilidade da proposta tanto para a própria Finnet, quanto para instituições de finanças e seus respectivos atores em atividade.
 
 #### 4.1.7. Jornadas do Usuário
 

@@ -71,11 +71,15 @@ Remova este bloco ao final
 
 ## <a name="c3"></a>3. Metodologia
 
-```
-Descreva a metodologia CRISP-DM e suas etapas de desenvolvimento, citando o referencial teórico. Você deve apenas enunciar os métodos, sem dizer ainda como eles foram aplicados, nem quais resultados foram obtidos.
-
-Remova este bloco ao final
-```
+<br>
+A metodologia CRISP-DM (Cross Industry Standard Process for Data Mining) é um modelo de referência amplamente utilizado em projetos de mineração de dados, criado para oferecer um processo estruturado, padronizado e flexível. Segundo Chapman et al. (2000), trata-se de uma abordagem cíclica que organiza o trabalho em fases bem definidas, favorecendo tanto a compreensão dos dados quanto a transformação destes em conhecimento útil para a tomada de decisão.
+<br>
+O processo é composto por seis etapas principais. A primeira é o entendimento do negócio, em que se busca esclarecer os objetivos e requisitos sob a perspectiva organizacional. Em seguida, ocorre o entendimento dos dados, voltado à coleta inicial, familiarização e identificação de problemas ou padrões relevantes. A terceira etapa é a de preparação dos dados, na qual se realizam atividades como limpeza, transformação e organização, a fim de obter um conjunto de dados adequado para análise.
+<br>
+A quarta etapa é a de modelagem, em que diferentes técnicas são aplicadas para criar representações capazes de explicar ou prever comportamentos nos dados. Logo após, tem-se a fase de avaliação, destinada a verificar se os modelos atendem aos objetivos estabelecidos e se são confiáveis. Por fim, a etapa de implantação envolve a integração dos resultados ao contexto real, permitindo que os conhecimentos extraídos sejam aplicados na prática e gerem valor efetivo.
+<br>
+Esse ciclo não deve ser visto como linear e estático, mas como um processo iterativo e adaptável, no qual cada etapa pode ser revisitada conforme novas descobertas surgem ou ajustes se fazem necessários.
+<br>
 
 ## <a name="c4"></a>4. Desenvolvimento e Resultados
 

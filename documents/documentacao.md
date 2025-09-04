@@ -355,13 +355,13 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 <sub align="center">Figura 4 – Persona - Pessoa Jurídica</sub>
 </div>
 <br>
-<br>
+
 
 <div align="center">
 <img src="../assets/Persona_Jurídica.png" alt="Value Proposition Canvas" border="0" width=100% height=100%>
 </div>
 <br>
-<br>
+
 
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
@@ -379,7 +379,7 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 <sub align="center">Figura 5 – Persona - Gerente Finnet</sub>
 </div>
 <br>
-<br>
+
 
 <div align="center">
 <img src="../assets/persona_finnet.png" alt="Persona Finnet" border="0" width=100% height=100%>

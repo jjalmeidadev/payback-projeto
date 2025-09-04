@@ -383,10 +383,11 @@ Rogério Silveira é o perfil de cliente principal do projeto e atua como Gerent
 
 #### 4.1.7. Jornadas do Usuário
 
-&nbsp;&nbsp;&nbsp;&nbsp; A escolha pelo uso de journey maps em nosso projeto está diretamente relacionada à necessidade de compreender de forma clara e estruturada a experiência do usuário, especialmente no eixo voltado ao entendimento de UX. Essa ferramenta nos permitiu representar visualmente as etapas percorridas pelo usuário, favorecendo a identificação de pontos de contato relevantes e possíveis dificuldades no processo. Desse modo, torna-se possível projetar com maior precisão como o usuário final fará uso do modelo preditivo desenvolvido em Python, assegurando que a solução proposta seja não apenas tecnicamente eficiente, mas também alinhada às expectativas e necessidades reais de quem irá utilizá-la.
+&nbsp;&nbsp;&nbsp;&nbsp; A utilização de journey maps em nosso projeto foi fundamental para compreender de forma clara e organizada a experiência do usuário, especialmente no que diz respeito ao eixo de UX. Essa ferramenta possibilitou representar visualmente cada etapa percorrida pelo usuário, facilitando a identificação de pontos de contato relevantes e de possíveis dificuldades ao longo do processo. Com isso, conseguimos projetar de maneira mais precisa como o usuário final interagirá com o modelo preditivo desenvolvido em Python, garantindo que a solução seja não apenas tecnicamente eficaz, mas também alinhada às expectativas e necessidades reais de quem irá utilizá-la.
 
 &nbsp;&nbsp;&nbsp;&nbsp; A figura a seguir apresenta os sinais identificados nas jornadas de usuário. As etapas marcadas com seta para cima indicam pontos com maior número de oportunidades, enquanto as etapas com seta para baixo evidenciam aquelas em que prevalecem os problemas.
 
+<br>
 <div align="center">
 <sub align="center">Figura 6 – Descrição de Oportunidades e Problemas</sub>
 </div>

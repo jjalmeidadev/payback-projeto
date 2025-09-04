@@ -658,7 +658,7 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
   - O histograma a seguir demonstra as cidades com maior média de valor dentre uma amostra selecionada.
 <br>
 <div align="center">
-<sub align="center">Figura 116 – Gráfico de relação entre cidade e média de valor.</sub>
+<sub align="center">Figura 16 – Gráfico de relação entre cidade e média de valor.</sub>
 </div>
 <br>
 <div align="center">

@@ -1090,7 +1090,7 @@ O teste adotado para todas as variáveis foi o teste de Lilliefors, que consiste
 </div>
 <br>
 
-Os resultados indicam que, para todas as variáveis analisadas, a hipótese de normalidade foi rejeitada ao nível de significância de 5%. Assim, os dados não seguem distribuição normal, o que orienta o uso de técnicas estatísticas que não dependam dessa suposição.
+Os resultados indicam que, para todas as variáveis analisadas, a hipótese nula de normalidade foi rejeitada ao nível de significância de 5%. Assim, os dados não seguem distribuição normal, o que orienta o uso de técnicas estatísticas que não dependam dessa suposição.
 
 ##### 6.1.1.4. Teste de Normalidade das Variáveis Quantitativas
 
@@ -1205,7 +1205,7 @@ Aqui, são descritos os procedimentos de escalonamento, como normalização e/ou
 
 O escalonamento das variáveis quantitativas tem como objetivo ajustar os dados para que fiquem em uma mesma escala, permitindo comparabilidade entre diferentes medidas e evitando que variáveis com amplitudes maiores influenciem de forma desproporcional os resultados da análise. Esse processo preserva a forma das distribuições originais, mantendo informações sobre assimetrias, concentração de valores e outliers, mas ajustando os valores para facilitar interpretações e aplicações em modelos estatísticos.
 
-No presente estudo, optou-se por aplicar exclusivamente a normalização Min-Max em todas as variáveis. A decisão se justifica pelo fato de que os dados apresentam alta amplitude e forte presença de outliers, o que poderia distorcer os resultados caso fosse utilizada a padronização (Z-score), que depende da média e do desvio padrão. A normalização, ao restringir os valores para o intervalo [0,1], garante comparabilidade entre as variáveis sem que valores extremos exerçam influência desproporcional sobre o escalonamento.
+Antes da escolha do método, foi realizado o teste de normalidade, cujo resultado indicou que as variáveis não seguem uma distribuição normal. Esse diagnóstico reforçou a opção pela normalização Min-Max, aplicada em todas as variáveis, uma vez que a padronização (Z-score) tende a ser mais adequada para dados aproximadamente normais e poderia ser distorcida pela alta amplitude e presença de outliers observada no conjunto analisado. A normalização, ao restringir os valores para o intervalo [0,1], garante comparabilidade entre as variáveis sem que valores extremos exerçam influência desproporcional sobre o escalonamento.
 
 <br>
 <div align="center">
@@ -1265,36 +1265,24 @@ O escalonamento das variáveis quantitativas transforma os dados para uma mesma 
 
 O escalonamento foi realizado utilizando a **normalização Min-Max**, que transforma os valores de cada variável para o intervalo [0,1]:
 
-$
-x_{\text{norm}} = \frac{x - x_{\min}}{x_{\max} - x_{\min}}
-$
+$x_{\text{norm}} = \frac{x - x_{\min}}{x_{\max} - x_{\min}}$
 
 Substituindo os valores mínimos e máximos de cada variável:
 
 - **valor do boleto**:  
-$
-vl\_boleto_{\text{norm}} = \frac{vl\_boleto - 0.05}{3325737.15 - 0.05}
-$
+$vl\_boleto_{\text{norm}} = \frac{vl\_boleto - 0.05}{3325737.1}$
 
 - **valor pago**:  
-$
-vl\_pagto_{\text{norm}} = \frac{vl\_pagto - 0.00}{1936467.04 - 0.00}
-$
+$vl\_pagto_{\text{norm}} = \frac{vl\_pagto - 0.00}{1936467.04}$
 
 - **juros**:  
-$
-juros_{\text{norm}} = \frac{juros - 0.00}{1108.58 - 0.00}
-$
+$juros_{\text{norm}} = \frac{juros - 0.00}{1108.58}$
 
 - **quantidade de acessos**:  
-$
-qtd\_acessos\_pagador_{\text{norm}} = \frac{qtd\_acessos\_pagador - 1.00}{86.00 - 1.00}
-$
+$qtd\_acessos\_pagador_{\text{norm}} = \frac{qtd\_acessos\_pagador - 1.00}{85}$
 
 - **multa**:  
-$
-multa_{\text{norm}} = \frac{multa - 1.46}{18325.01 - 1.46}
-$
+$multa_{\text{norm}} = \frac{multa - 1.46}{18323.55}$
 
 Ao aplicar as equações de normalização Min-Max, todos os valores das variáveis foram ajustados para o intervalo [0,1], garantindo consistência na escala sem alterar a estrutura dos dados, permitindo comparações diretas entre diferentes variáveis e suportando análises subsequentes.
 
@@ -1399,7 +1387,7 @@ As tabelas a seguir apresentam, de forma comparativa, os dez primeiros registros
 
 | vl_boleto | vl_pagto | juros | qtd_acessos_pagador | multa |
 |-----------|----------|-------|----------------------|-------|
-| 8528.52   | NaN      | 2.84  | 3.0                  | 10.0  |
+| 8528.52   | 0      | 2.84  | 3.0                  | 10.0  |
 | 8528.52   | 8528.52  | 2.84  | 1.0                  | 10.0  |
 | 8528.52   | 8528.52  | 2.84  | 3.0                  | 10.0  |
 | 8528.52   | 8528.52  | 2.84  | 2.0                  | 10.0  |
@@ -1407,7 +1395,7 @@ As tabelas a seguir apresentam, de forma comparativa, os dez primeiros registros
 | 8528.49   | 8528.49  | 2.84  | 2.0                  | 10.0  |
 | 726.97    | 726.97   | 0.24  | 1.0                  | 10.0  |
 | 726.97    | 726.97   | 0.24  | 1.0                  | 10.0  |
-| 726.97    | NaN      | 0.24  | 2.0                  | 10.0  |
+| 726.97    | 0      | 0.24  | 2.0                  | 10.0  |
 | 726.97    | 726.97   | 0.24  | 2.0                  | 10.0  |
 
 </div>
@@ -1428,7 +1416,7 @@ Na tabela dos dados originais, nota-se que as variáveis apresentam magnitudes b
 
 | vl_boleto | vl_pagto | juros   | qtd_acessos_pagador | multa   |
 |-----------|----------|---------|----------------------|---------|
-| 0.002564  | NaN      | 0.002562| 0.023529             | 0.000466|
+| 0.002564  | 0      | 0.002562| 0.023529             | 0.000466|
 | 0.002564  | 0.004404 | 0.002562| 0.000000             | 0.000466|
 | 0.002564  | 0.004404 | 0.002562| 0.023529             | 0.000466|
 | 0.002564  | 0.004404 | 0.002562| 0.011765             | 0.000466|
@@ -1436,7 +1424,7 @@ Na tabela dos dados originais, nota-se que as variáveis apresentam magnitudes b
 | 0.002564  | 0.004404 | 0.002562| 0.011765             | 0.000466|
 | 0.000219  | 0.000375 | 0.000216| 0.000000             | 0.000466|
 | 0.000219  | 0.000375 | 0.000216| 0.000000             | 0.000466|
-| 0.000219  | NaN      | 0.000216| 0.011765             | 0.000466|
+| 0.000219  | 0      | 0.000216| 0.011765             | 0.000466|
 | 0.000219  | 0.000375 | 0.000216| 0.011765             | 0.000466|
 
 </div>

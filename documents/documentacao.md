@@ -897,21 +897,43 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 ### 4.3. Preparação dos Dados e Modelagem
 
-```
 Caso seu projeto seja Modelo Supervisionado, apresentar:
 a) Organização dos dados (conjunto de treinamento, validação e testes)
 b) Modelagem para o problema (proposta de features com a explicação completa da linha de raciocínio).
 c) Métricas relacionadas ao modelo (pelo menos 3).
 d) Apresentar o primeiro modelo candidato, e uma discussão sobre os resultados deste modelo (discussão sobre as métricas para esse modelo candidato).
 
-Caso seu projeto seja Modelo Não-Supervisionado, apresentar:
-a) Modelagem para o problema (proposta de features com a explicação completa da linha de raciocínio).
-b) Primeiro modelo candidato para o problema.
-c) Justificativa para a definição do K do modelo.
-d) Escolha de um tipo de sistema de recomendação e a justificativa para essa escolha.
 
-Remova este bloco ao final
-```
+*Respostas do primeiro modelo aqui*
+
+
+Na seção 4.4 do notebook:
+
+
+a) Organização dos dados (conjunto de treinamento, validação e testes):
+
+Os dados foram organizados para prever o valor total de recebimentos por pagador, considerando o histórico de pagamentos. Para cada pagador_hash, foram agrupadas as linhas do dataset, separando os casos em que vl_pagto == valor_boleto (pagamento integral) e vl_pagto < valor_boleto (pagamento parcial ou inadimplência). A proporção de pagamentos integrais foi calculada para cada pagador, servindo como base para a previsão. Os dados foram divididos em conjuntos de treinamento e teste utilizando train_test_split, garantindo robustez na avaliação.
+
+b) Modelagem para o problema (proposta de features e explicação):
+
+A modelagem utiliza como principais features:
+
+Proporção de pagamentos integrais por pagador.
+Diferença média entre valor_boleto e vl_pagto para cada pagador (coluna criada: diferença = (soma dos valores de valor_boleto - soma dos valores de vl_pagto de cada pagador) / número de linhas).
+Histórico de pagamentos (quantidade de boletos pagos corretamente).
+Valor total de boletos emitidos por pagador.
+A lógica de previsão é:
+
+Se a chance de um pagador pagar o total for maior que 0,5, soma-se os valores das linhas da coluna valor_boleto para esse pagador.
+Se a chance for menor ou igual a 0,5, aplica-se: valor_boleto - diferença média registrada.
+O resultado é armazenado em uma nova coluna pagamento_total_previsto, que representa a previsão de recebimento por pagador.
+
+c) Métricas relacionadas ao modelo (pelo menos 3):
+
+Accuracy: Proporção de previsões corretas em relação ao valor real pago (vl_pagto).
+MAE (Mean Absolute Error): Média dos erros absolutos entre o valor previsto e o valor real recebido.
+RMSE (Root Mean Squared Error): Raiz quadrada da média dos erros quadráticos entre o valor previsto e o valor real.
+
 
 ### 4.4. Comparação de Modelos
 

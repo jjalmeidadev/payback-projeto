@@ -74,19 +74,19 @@ Remova este bloco ao final
 <br>
 A metodologia CRISP-DM (Cross Industry Standard Process for Data Mining) é um modelo de referência amplamente utilizado em projetos de mineração de dados, criado para oferecer um processo estruturado, padronizado e flexível. Segundo Chapman et al. (2000), trata-se de uma abordagem cíclica que organiza o trabalho em fases bem definidas, favorecendo tanto a compreensão dos dados quanto a transformação destes em conhecimento útil para a tomada de decisão.
 <br>
-O processo é composto por seis etapas principais:
+O processo é dividido em seis fases interdependentes, que vão do entendimento do problema até a implantação dos resultados:
 
-- Entendimento do negócio, em que se busca esclarecer os objetivos e requisitos sob a perspectiva organizacional;
+- Entendimento do negócio: definição dos objetivos e requisitos do projeto sob a perspectiva organizacional;
   
-- Entendimento dos dados, voltado à coleta inicial, familiarização e identificação de problemas ou padrões relevantes;
+- Entendimento dos dados: coleta inicial, exploração e identificação de problemas ou padrões relevantes;
   
-- Preparação dos dados, na qual se realizam atividades como limpeza, transformação e organização, a fim de obter um conjunto de dados adequado para análise;
+- Preparação dos dados: limpeza, transformação e organização dos dados para obter um conjunto adequado à análise;
   
-- Modelagem, em que diferentes técnicas são aplicadas para criar representações capazes de explicar ou prever comportamentos nos dados;
+- Modelagem: aplicação de diferentes técnicas para criar representações capazes de explicar ou prever comportamentos nos dados;
   
-- Avaliação, destinada a verificar se os modelos atendem aos objetivos estabelecidos e se são confiáveis;
+- Avaliação: verificação do desempenho dos modelos e de sua aderência aos objetivos estabelecidos;
   
-- Implantação, que envolve a integração dos resultados ao contexto real, permitindo que os conhecimentos extraídos sejam aplicados na prática e gerem valor efetivo.
+- Implantação: integração dos resultados ao contexto real, permitindo que os conhecimentos extraídos sejam aplicados e gerem valor efetivo.
   
 É importante ressaltar que esse ciclo não deve ser visto como linear e estático, mas como um processo iterativo e adaptável, no qual cada etapa pode ser revisitada conforme novas descobertas surgem ou ajustes se fazem necessários.
 <br>

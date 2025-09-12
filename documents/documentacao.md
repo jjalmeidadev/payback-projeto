@@ -126,23 +126,26 @@ Tudo isso funciona integrado aos bancos por meio de tecnologia própria (**API, 
 
 ##### Ameaça de novos entrantes
 
-**Média** – Embora o setor seja atraente para startups, a entrada de novos concorrentes enfrenta barreiras significativas, como exigências regulatórias rigorosas, incluindo a necessidade de autorização como Instituição de Transação de Pagamento (ITP), a demanda por integração bancária sólida e investimentos substanciais em cibersegurança. Essas condições elevam o nível de complexidade e custo para novos entrantes, protegendo as empresas já estabelecidas.
+**Média** – Embora o setor seja atraente para startups, a entrada de novos concorrentes enfrenta barreiras significativas, como exigências regulatórias rigorosas, incluindo a necessidade de autorização como Instituição de Transação de Pagamento (ITP) (MARCAS E MERCADOS, 2024), a demanda por integração bancária sólida e investimentos substanciais em cibersegurança. Essas condições elevam o nível de complexidade e custo para novos entrantes, protegendo as empresas já estabelecidas.
+Além disso, o Banco Central do Brasil tem endurecido normas de governança, compliance e segurança digital para instituições financeiras, exigindo robustos controles contra fraudes, relatórios de conformidade e certificações em segurança da informação. Isso significa que, mesmo que startups consigam atrair clientes com soluções inovadoras, o custo regulatório pode inviabilizar a escala. Por outro lado, o crescimento do ecossistema Open Finance no Brasil pode abrir brechas para novas fintechs, especialmente as que atuam em nichos de análise de dados e prevenção de fraudes, o que mantém a pressão competitiva em nível médio (BCB, 2017; BCB, 2025; EY, 2025).
 
 ##### Poder de negociação dos fornecedores
 
-**Baixo** – A Finnet desenvolve suas soluções com base em tecnologia própria, incorporando recursos como APIs para integração ágil entre sistemas, EDI para a troca eletrônica estruturada de dados e RPA para a automação de processos repetitivos. Essa abordagem interna reduz significativamente a necessidade de recorrer a fornecedores externos, o que diminui seu poder de barganha e garante maior controle sobre prazos, custos e qualidade das entregas.
+**Baixo** – A Finnet desenvolve suas soluções com base em tecnologia própria, incorporando recursos como APIs para integração ágil entre sistemas, EDI para a troca eletrônica estruturada de dados e RPA para a automação de processos repetitivos (FINNET, 2024a; LEADIQ, 2024). Essa abordagem interna reduz significativamente a necessidade de recorrer a fornecedores externos, o que diminui seu poder de barganha e garante maior controle sobre prazos, custos e qualidade das entregas.
+No entanto, é importante ressaltar que, embora o núcleo tecnológico seja proprietário, a Finnet ainda depende da infraestrutura bancária nacional e da regulamentação do Banco Central para viabilizar suas integrações. Isso significa que fornecedores estratégicos, como bancos parceiros e provedores de nuvem (AWS, Azure, etc.), podem ter alguma influência indireta, principalmente em questões de custos de processamento e armazenamento de dados. Ainda assim, esse poder é diluído, pois a Finnet consegue negociar com múltiplos parceiros e diversificar sua base tecnológica.
 
 ##### Poder de negociação dos compradores
 
-**Alto** – Os clientes da Finnet são, em sua maioria, empresas que realizam um elevado volume de transações financeiras diariamente. Esse perfil lhes confere maior poder de negociação, permitindo discutir de forma mais favorável aspectos como políticas de preços, prazos e níveis de serviço (SLA), além de exigir um grau elevado de personalização das soluções para atender necessidades específicas de integração, automação e segurança.
+**Alto** – Os clientes da Finnet são, em sua maioria, empresas que realizam um elevado volume de transações financeiras diariamente. Esse perfil lhes confere maior poder de negociação, permitindo discutir de forma mais favorável aspectos como políticas de preços, prazos e níveis de serviço, além de exigir um grau elevado de personalização das soluções para atender necessidades específicas de integração, automação e segurança (PwC & ABFintechs, 2025; Falando de Negócio, 2025).
 
 ##### Ameaça de produtos substitutos
 
-**Média** – Algumas empresas ainda recorrem ao uso de planilhas ou ERPs generalistas para gerir suas operações financeiras. No entanto, essas ferramentas costumam apresentar limitações significativas, como a baixa capacidade de automação de processos, integração bancária restrita e mecanismos de controle de risco pouco robustos. Por conta dessas deficiências, sua substituição por soluções mais completas tende a ocorrer apenas em cenários de menor complexidade operacional, nos quais o volume de transações e a necessidade de conformidade regulatória são reduzidos.
+**Média** – Algumas empresas ainda recorrem ao uso de planilhas ou ERPs generalistas para gerir suas operações financeiras. No entanto, essas ferramentas costumam apresentar limitações significativas, como a baixa capacidade de automação de processos, integração bancária restrita e mecanismos de controle de risco pouco robustos. Por conta dessas deficiências, sua substituição por soluções mais completas tende a ocorrer apenas em cenários de menor complexidade operacional, nos quais o volume de transações e a necessidade de conformidade regulatória são reduzidos (INFOMONEY, 2025; RIMINI STREET & KEARNEY, 2024; FOURBANK, 2025).
 
 ##### Rivalidade entre concorrentes existentes
 
-**Alta** - No segmento financeiro, a concorrência é acirrada, com inúmeras fintechs disputando espaço e oferecendo soluções semelhantes. Apesar desse cenário competitivo, a Finnet se diferencia por entregar um alto nível de automação, capaz de otimizar processos e reduzir custos operacionais para seus clientes. Além disso, mantém parcerias estratégicas que ampliam seu alcance e fortalecem seu portfólio de serviços, ao mesmo tempo em que garante uma integração sólida e eficiente com o ecossistema bancário, assegurando conformidade regulatória, agilidade nas transações e maior segurança nas operações.
+**Alta** - No segmento financeiro, a concorrência é acirrada, com inúmeras fintechs, como Celcoin, Matera e Pismo têm avançado em soluções de infraestrutura financeira, aumentando a rivalidade e pressionando players como a Finnet a investir continuamente em inovação disputando espaço e oferecendo soluções semelhantes. 
+Porém, apesar desse cenário competitivo, a Finnet movimentou R$ 1,6 trilhão em transações em 2023 e se diferencia por entregar um alto nível de automação, capaz de otimizar processos e reduzir custos operacionais para seus clientes (OLHAR DIGITAL, 2024; CANAL EXECUTIVO, 2024).
 
 #### 4.1.2. Análise SWOT
 
@@ -1452,4 +1455,42 @@ Após o escalonamento, observa-se que os valores passam a estar distribuídos em
 
 ### 7. Referências
 
-ALPHA Level (Significance Level): What is it? Statistics How To. Disponível em: https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/what-is-an-alpha-level/#:~:text=3.,equil%C3%ADbrio%20entre%20esses%20dois%20problemas. Acesso em: 27 ago. 2025.
+- MARCAS E MERCADOS. Finnet é homologada para ofertar Pix Automático dentro do Open Finance. Marcas e Mercados, 2024. Disponível em: https://marcasemercados.com.br/finnet-e-homologada-para-ofertar-pix-automatico-dentro-do-open-finance/
+. Acesso em: 3 set. 2025.
+
+- BANCO CENTRAL DO BRASIL. Resolução nº 4.595, de 28 de agosto de 2017: dispõe sobre a política de conformidade das instituições autorizadas pelo BCB. Brasília, 2017.
+
+- BANCO CENTRAL DO BRASIL. Brazil Central Bank unveils key fintech and digital currency policies. Fintech Review, Brasília, 2025. Disponível em: https://fintechreview.net/brazil-central-bank-unveils-key-fintech-and-digital-currency-policies/
+. Acesso em: 3 set. 2025.
+
+- EY. Próximos desafios e oportunidades do Open Finance no Brasil. EY Insights, 2025. Disponível em: https://www.ey.com/pt_br/insights/open-finance/proximos-desafios-e-oportunidades-open-finance-no-brasil
+. Acesso em: 3 set. 2025.
+
+- FINNET. Sobre a Finnet. Finnet, São Paulo, 2024a. Disponível em: https://finnet.com.br/sobre-a-finnet/
+. Acesso em: 3 set. 2025.
+
+- LEADIQ. Finnet company profile. Leadiq, 2024. Disponível em: https://leadiq.com/c/finnet/5a1d9b0823000059008a5202
+. Acesso em: 3 set. 2025.
+
+- OLHAR DIGITAL. Finnet liderando a transformação digital financeira com inovação empresarial. Olhar Digital, São Paulo, 2024. Disponível em: https://olhardigital.com.br/2024/06/24/pro/finnet-liderando-a-transformacao-digital-financeira-com-inovacao-empresarial/
+. Acesso em: 3 set. 2025.
+
+- PwC Brasil; ASSOCIAÇÃO BRASILEIRA DE CRÉDITO DIGITAL. Pesquisa Fintechs de Crédito Digital 2025. São Paulo, 2025. Disponível em: https://www.pwc.com.br/pt/estudos/setores-atividade/financeiro/2025/pesquisa-fintechs-de-credito-digital-2025.html
+. Acesso em: 3 set. 2025.
+
+- FALANDO DE NEGÓCIO. “2025 será o ano dos PJs no Open Finance”, acredita Finnet. Falando de Negócio, 30 jan. 2025. Disponível em: https://falandodenegocio.com/2025/01/30/2025-sera-o-ano-dos-pjs-no-open-finance-acredita-finnet/
+. Acesso em: 3 set. 2025.
+
+- SERASA EXPERIAN. Inadimplência bate recorde no Brasil com 7,3 milhões de empresas que somam dívidas de quase R$ 170 bilhões, aponta Serasa Experian. Serasa Experian, São Paulo, 2025. Disponível em: https://www.serasaexperian.com.br/sala-de-imprensa/indicadores/inadimplencia-bate-recorde-no-brasil-com-73-milhoes-de-empresas-que-somam-dividas-de-quase-rdollar-170-bilhoes-aponta-serasa-experian/
+. Acesso em: 3 set. 2025.
+
+- FOURBANK. Backoffice do futuro: menos planilhas, mais estratégia. Fourbank, 2025. Disponível em: https://www.fourbank.com.br/backoffice-do-futuro-menos-planilhas-mais-estrategia?utm_source=chatgpt.com
+. Acesso em: 3 set. 2025.
+
+- INFO MONEY. Pesquisa mostra que 39 % das MPMEs ainda controlam despesas de forma manual. InfoMoney, São Paulo, 2025. Disponível em: https://www.infomoney.com.br/minhas-financas/pesquisa-mostra-que-39-das-mpmes-ainda-controlam-despesas-de-forma-manual/?utm_source=chatgpt.com
+. Acesso em: 3 set. 2025.
+
+- RIMINI STREET; KEARNEY. Panorama de uso de ERP no mercado brasileiro (Benchmark Nacional de ERPs). São Paulo, 2024. Disponível em: https://www.riministreet.com/br/press-releases/kearney-panorama-erp-no-mercado-brasileiro/?utm_source=chatgpt.com
+. Acesso em: 3 set. 2025.
+
+- ALPHA Level (Significance Level): What is it? Statistics How To. Disponível em: https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/what-is-an-alpha-level/#:~:text=3.,equil%C3%ADbrio%20entre%20esses%20dois%20problemas. Acesso em: 27 ago. 2025.

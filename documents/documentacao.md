@@ -41,7 +41,7 @@ https://docs.github.com/en/get-started/writing-on-github/getting-started-with-wr
 
 &nbsp;&nbsp;&nbsp;&nbsp; A Finnet é uma empresa brasileira de médio porte, com um quadro de 201 a 500 colaboradores, que se destaca no mercado de tecnologia financeira pela sua capacidade de oferecer soluções inovadoras e adaptáveis às necessidades do ambiente corporativo. Com o slogan “Somos tecnologia. Multibanco. Integração.”, a companhia atua no desenvolvimento de tecnologias que simplificam e automatizam processos financeiros, promovendo maior eficiência operacional para seus clientes. Sua atuação concentra-se em áreas como Gestão Financeira e Conciliação Bancária, Cobranças, Boletos e Meios de Pagamento, além de Conectividade Financeira por meio de EDI e RPA. Com base nesses segmentos, a Finnet se posiciona como uma TechFin B2B, especializada em soluções que promovem a automação, a integração e a digitalização das rotinas financeiras de empresas de médio e grande porte.
 
-&nbsp;&nbsp;&nbsp;&nbsp; Nesse contexto, um dos principais desafios enfrentados por seus clientes, e que impacta diretamente o trabalho da própria Finnet, é o aumento da inadimplência no mercado nacional. Esse fenômeno compromete a saúde financeira e a previsibilidade de receita de médias e grandes empresas, dificultando o planejamento estratégico e a tomada de decisões. Além disso, a ausência de dados estruturados, como o histórico de pagamentos e o impacto da inadimplência no fluxo de caixa, prejudica o monitoramento de riscos e a definição de ações corretivas. Para a Finnet, esse cenário representa uma limitação relevante, já que a fragmentação e a complexidade das informações restringem a capacidade de fornecer análises mais aprofundadas, dificultando o apoio efetivo à gestão financeira de seus clientes.
+&nbsp;&nbsp;&nbsp;&nbsp; Nesse contexto, um dos principais desafios enfrentados por seus clientes, e que impacta diretamente o trabalho da própria Finnet, é o aumento de pagadores inadimplentes no mercado nacional. Esse fenômeno compromete a saúde financeira e a previsibilidade de receita de médias e grandes empresas, dificultando o planejamento estratégico e a tomada de decisões. Além disso, a ausência de dados estruturados, como o histórico de pagamentos e o impacto da inadimplência no fluxo de caixa, prejudica o monitoramento de riscos e a definição de ações corretivas. Para a Finnet, esse cenário representa uma limitação relevante, já que a fragmentação e a complexidade das informações restringem a capacidade de fornecer análises mais aprofundadas, dificultando o apoio efetivo à gestão financeira de seus clientes.
 
 ## <a name="c2"></a>2. Objetivos e Justificativa
 
@@ -71,11 +71,46 @@ Remova este bloco ao final
 
 ## <a name="c3"></a>3. Metodologia
 
-```
-Descreva a metodologia CRISP-DM e suas etapas de desenvolvimento, citando o referencial teórico. Você deve apenas enunciar os métodos, sem dizer ainda como eles foram aplicados, nem quais resultados foram obtidos.
+<br>
+A metodologia CRISP-DM (Cross Industry Standard Process for Data Mining) é um modelo de referência amplamente utilizado em projetos de mineração de dados, criado para oferecer um processo estruturado, padronizado e flexível. Segundo Chapman et al. (2000), trata-se de uma abordagem cíclica que organiza o trabalho em fases bem definidas, favorecendo tanto a compreensão dos dados quanto a transformação destes em conhecimento útil para a tomada de decisão.
+<br>
 
-Remova este bloco ao final
-```
+O processo é dividido em seis fases interdependentes, que vão do entendimento do problema até a implantação dos resultados:
+
+### 3.1 Entendimento do negócio:
+
+Nesta fase, busca-se compreender o problema a partir da perspectiva organizacional. O foco não está nos dados em si, mas nos objetivos estratégicos da empresa ou instituição. É aqui que se define claramente o propósito do projeto e os requisitos de sucesso.
+Exemplo: em uma rede de varejo, o objetivo pode ser reduzir a taxa de abandono de clientes (churn). A equipe de ciência de dados precisa entender o que “retenção” significa para o negócio, quais métricas indicam sucesso e quais restrições existem (como orçamento ou tempo).
+  
+### 3.2 Entendimento dos dados:
+
+Uma vez definido o problema, inicia-se a coleta inicial e a exploração dos dados disponíveis. Esta etapa envolve identificação das fontes, análise de qualidade, descoberta de valores faltantes ou inconsistentes e observação de padrões preliminares.
+Exemplo: ao analisar os dados de clientes de uma empresa de telecomunicações, pode-se perceber que há campos em branco nas informações de idade, ou que o histórico de chamadas mostra picos de cancelamentos em determinados meses.
+  
+### 3.3 Preparação dos dados:
+
+Depois da exploração, os dados precisam ser organizados em um formato adequado para a análise. Isso envolve limpeza, integração, transformação e seleção de variáveis relevantes. É comum que essa fase seja a mais trabalhosa, consumindo grande parte do esforço em um projeto de ciência de dados.
+Exemplo: normalizar colunas de preços, tratar valores ausentes substituindo-os por médias ou medianas, converter datas em períodos (como trimestre/ano) e criar variáveis derivadas, como “tempo de contrato”.
+  
+### 3.4 Modelagem:
+
+Com os dados preparados, aplicam-se diferentes técnicas de modelagem, como regressão, árvores de decisão, redes neurais, clustering ou séries temporais. É comum experimentar mais de um algoritmo e ajustar parâmetros (hiperparâmetros) para encontrar o melhor desempenho.
+Exemplo: para prever churn, pode-se comparar o resultado de um modelo de regressão logística com o de uma árvore de decisão, analisando qual apresenta maior precisão e menor taxa de falsos positivos.
+
+### 3.5 Avaliação:
+
+Mesmo que o modelo apresente bons resultados em métricas estatísticas, é fundamental verificar sua aderência aos objetivos do negócio. Nesta fase, revisa-se se as descobertas realmente ajudam a responder ao problema original e se não existem riscos de interpretações equivocadas.
+Exemplo: um modelo pode prever corretamente 85% dos cancelamentos de clientes, mas se não indicar quem são os clientes mais valiosos, pode não atender à necessidade da empresa, que prioriza manter clientes de alto gasto.
+
+### 3.6 Implantação:
+
+Na última fase, os resultados são integrados ao contexto real, permitindo que o conhecimento extraído gere valor efetivo. A implantação pode variar desde a criação de um relatório analítico até a implementação de um sistema automatizado de predição em tempo real.
+Exemplo: no caso do churn, o modelo pode ser incorporado ao CRM da empresa, alertando a equipe de marketing quando um cliente apresenta alta probabilidade de cancelamento, possibilitando campanhas de retenção personalizadas.
+
+### Observação:
+
+É importante destacar que o CRISP-DM não deve ser interpretado como um processo linear e estático. Ao contrário, trata-se de um ciclo iterativo e adaptável, no qual os resultados de uma fase podem levar à revisão das anteriores. Por exemplo, durante a modelagem pode-se perceber que faltam dados importantes, exigindo um retorno à fase de preparação ou até mesmo ao entendimento do negócio.
+<br>
 
 ## <a name="c4"></a>4. Desenvolvimento e Resultados
 
@@ -112,23 +147,26 @@ Tudo isso funciona integrado aos bancos por meio de tecnologia própria (**API, 
 
 ##### Ameaça de novos entrantes
 
-**Média** – Embora o setor seja atraente para startups, a entrada de novos concorrentes enfrenta barreiras significativas, como exigências regulatórias rigorosas, incluindo a necessidade de autorização como Instituição de Transação de Pagamento (ITP), a demanda por integração bancária sólida e investimentos substanciais em cibersegurança. Essas condições elevam o nível de complexidade e custo para novos entrantes, protegendo as empresas já estabelecidas.
+**Média** – Embora o setor seja atraente para startups, a entrada de novos concorrentes enfrenta barreiras significativas, como exigências regulatórias rigorosas, incluindo a necessidade de autorização como Instituição de Transação de Pagamento (ITP) (MARCAS E MERCADOS, 2024), a demanda por integração bancária sólida e investimentos substanciais em cibersegurança. Essas condições elevam o nível de complexidade e custo para novos entrantes, protegendo as empresas já estabelecidas.
+Além disso, o Banco Central do Brasil tem endurecido normas de governança, compliance e segurança digital para instituições financeiras, exigindo robustos controles contra fraudes, relatórios de conformidade e certificações em segurança da informação. Isso significa que, mesmo que startups consigam atrair clientes com soluções inovadoras, o custo regulatório pode inviabilizar a escala. Por outro lado, o crescimento do ecossistema Open Finance no Brasil pode abrir brechas para novas fintechs, especialmente as que atuam em nichos de análise de dados e prevenção de fraudes, o que mantém a pressão competitiva em nível médio (BCB, 2017; BCB, 2025; EY, 2025).
 
 ##### Poder de negociação dos fornecedores
 
-**Baixo** – A Finnet desenvolve suas soluções com base em tecnologia própria, incorporando recursos como APIs para integração ágil entre sistemas, EDI para a troca eletrônica estruturada de dados e RPA para a automação de processos repetitivos. Essa abordagem interna reduz significativamente a necessidade de recorrer a fornecedores externos, o que diminui seu poder de barganha e garante maior controle sobre prazos, custos e qualidade das entregas.
+**Baixo** – A Finnet desenvolve suas soluções com base em tecnologia própria, incorporando recursos como APIs para integração ágil entre sistemas, EDI para a troca eletrônica estruturada de dados e RPA para a automação de processos repetitivos (FINNET, 2024a; LEADIQ, 2024). Essa abordagem interna reduz significativamente a necessidade de recorrer a fornecedores externos, o que diminui seu poder de barganha e garante maior controle sobre prazos, custos e qualidade das entregas.
+No entanto, é importante ressaltar que, embora o núcleo tecnológico seja proprietário, a Finnet ainda depende da infraestrutura bancária nacional e da regulamentação do Banco Central para viabilizar suas integrações. Isso significa que fornecedores estratégicos, como bancos parceiros e provedores de nuvem (AWS, Azure, etc.), podem ter alguma influência indireta, principalmente em questões de custos de processamento e armazenamento de dados. Ainda assim, esse poder é diluído, pois a Finnet consegue negociar com múltiplos parceiros e diversificar sua base tecnológica.
 
 ##### Poder de negociação dos compradores
 
-**Alto** – Os clientes da Finnet são, em sua maioria, empresas que realizam um elevado volume de transações financeiras diariamente. Esse perfil lhes confere maior poder de negociação, permitindo discutir de forma mais favorável aspectos como políticas de preços, prazos e níveis de serviço (SLA), além de exigir um grau elevado de personalização das soluções para atender necessidades específicas de integração, automação e segurança.
+**Alto** – Os clientes da Finnet são, em sua maioria, empresas que realizam um elevado volume de transações financeiras diariamente. Esse perfil lhes confere maior poder de negociação, permitindo discutir de forma mais favorável aspectos como políticas de preços, prazos e níveis de serviço, além de exigir um grau elevado de personalização das soluções para atender necessidades específicas de integração, automação e segurança (PwC & ABFintechs, 2025; Falando de Negócio, 2025).
 
 ##### Ameaça de produtos substitutos
 
-**Média** – Algumas empresas ainda recorrem ao uso de planilhas ou ERPs generalistas para gerir suas operações financeiras. No entanto, essas ferramentas costumam apresentar limitações significativas, como a baixa capacidade de automação de processos, integração bancária restrita e mecanismos de controle de risco pouco robustos. Por conta dessas deficiências, sua substituição por soluções mais completas tende a ocorrer apenas em cenários de menor complexidade operacional, nos quais o volume de transações e a necessidade de conformidade regulatória são reduzidos.
+**Média** – Algumas empresas ainda recorrem ao uso de planilhas ou ERPs generalistas para gerir suas operações financeiras. No entanto, essas ferramentas costumam apresentar limitações significativas, como a baixa capacidade de automação de processos, integração bancária restrita e mecanismos de controle de risco pouco robustos. Por conta dessas deficiências, sua substituição por soluções mais completas tende a ocorrer apenas em cenários de menor complexidade operacional, nos quais o volume de transações e a necessidade de conformidade regulatória são reduzidos (INFOMONEY, 2025; RIMINI STREET & KEARNEY, 2024; FOURBANK, 2025).
 
 ##### Rivalidade entre concorrentes existentes
 
-**Alta** - No segmento financeiro, a concorrência é acirrada, com inúmeras fintechs disputando espaço e oferecendo soluções semelhantes. Apesar desse cenário competitivo, a Finnet se diferencia por entregar um alto nível de automação, capaz de otimizar processos e reduzir custos operacionais para seus clientes. Além disso, mantém parcerias estratégicas que ampliam seu alcance e fortalecem seu portfólio de serviços, ao mesmo tempo em que garante uma integração sólida e eficiente com o ecossistema bancário, assegurando conformidade regulatória, agilidade nas transações e maior segurança nas operações.
+**Alta** - No segmento financeiro, a concorrência é acirrada, com inúmeras fintechs, como Celcoin, Matera e Pismo têm avançado em soluções de infraestrutura financeira, aumentando a rivalidade e pressionando players como a Finnet a investir continuamente em inovação disputando espaço e oferecendo soluções semelhantes. 
+Porém, apesar desse cenário competitivo, a Finnet movimentou R$ 1,6 trilhão em transações em 2023 e se diferencia por entregar um alto nível de automação, capaz de otimizar processos e reduzir custos operacionais para seus clientes (OLHAR DIGITAL, 2024; CANAL EXECUTIVO, 2024).
 
 #### 4.1.2. Análise SWOT
 
@@ -136,40 +174,42 @@ Tudo isso funciona integrado aos bancos por meio de tecnologia própria (**API, 
 desenvolvimento de um modelo preditivo em parceria com a Finnet Tecnologias. Essa metodologia estratégica oferece um panorama claro do
 posicionamento da empresa, permitindo o alinhamento do projeto aos seus pontos fortes, desafios internos e ao contexto competitivo do mercado financeiro.
 
+<br>
 <div align="center">
 <sub>Figura 1: Análise SWOT.</sub>
 </div>
+<br>
 <div align="center">
 <img width=100% height=100% alt="Análise SWOT" src="../assets/SWOT.png"/>
 </div>
-
+<br>
 <div align="center">
-<sub>Fonte: Material produzido pela equipe The Seven, 2025.</sub>
+<sub>Fonte: Material produzido pelo grupo The Seven, 2025.</sub>
 </div>
 <br>
 
 &nbsp;&nbsp;&nbsp;&nbsp; Com essa base, a análise SWOT pode orientar o projeto de modelo preditivo ao explorar:
 
-- **Forças:** expertise consolidada em integração com ERPs, robustez das soluções multibanco/multiempresas e pioneirismo em produtos como Bolepix e Open Finance.
+- **Forças:** expertise consolidada na criação de automações financeiras e integração com ERPs; ampla rede de atendimento multibanco (+120 instituições), que assegura capilaridade; soluções reconhecidas no mercado, como Bolepix e integrações em Open Finance; além de uma forte base de dados transacionais, com potencial para treinar modelos de previsão de inadimplência.
 
-- **Fraquezas:** possíveis pontos de fragilidade podem incluir dependência de infraestrutura legada dos clientes, ciclos de adoção de inovações e a necessidade de customização intensa para diferentes ERPs e setores.
+- **Fraquezas:** Concentração em clientes de médio e grande porte, o que limita o alcance às PMEs que poderiam se beneficiar do modelo; dependência de sistemas bancários e de gestão, sujeitando-se a instabilidades externas e necessidade de alto nível de customização para diferentes setores e ERPs, fator que pode comprometer a escalabilidade da plataforma Luna, voltada à gestão e predição de recebimentos.
 
-- **Oportunidades:** o crescente ambiente regulatório e de inovação em pagamentos digitais, expansão do ecossistema Open Finance e potencial de uso de dados para previsão de inadimplência, comportamento de pagamentos ou risco na cadeia de fornecedores.
+- **Oportunidades:** o ambiente regulatório e de inovação em pagamentos digitais, impulsionado pelo avanço do uso do PIX em cobranças e contas a receber, cria novas bases para análises preditivas. Soma-se a isso a expansão do ecossistema Open Finance, que amplia o acesso a informações relevantes para modelos de risco de crédito e inadimplência, possibilitando o desenvolvimento de relatórios estratégicos capazes de antecipar padrões de comportamento de pagamento e agregar valor direto aos clientes.
 
-- **Ameaças:** concorrência crescente de fintechs e grandes provedores de serviços financeiros, mudanças regulatórias rápidas e riscos relacionados à segurança da informação e conformidade com LGPD.
+- **Ameaças:** aceleração da concorrência, com soluções mais simplificadas e acessíveis; mudanças regulatórias rápidas, que podem impactar a modelagem de dados e riscos relacionados à segurança e à conformidade com a LGPD, especialmente críticos em modelos que utilizam dados financeiros sensíveis.
 
 &nbsp;&nbsp;&nbsp;&nbsp; Ao analisar essas dimensões, torna-se possível estruturar um modelo preditivo direcionado a maximizar os benefícios para a Finnet, como o aprimoramento na tomada de decisões financeiras, a antecipação de possíveis riscos e o incremento na personalização das soluções oferecidas. Dessa forma, garante-se que o projeto não apenas esteja alinhado às diretrizes estratégicas da Finnet, mas também promova um impacto substancial e sustentável em longo prazo.
 
 #### 4.1.3. Planejamento Geral da Solução
 
-&nbsp;&nbsp;&nbsp;&nbsp; A solução é baseada em uma base de dados de pagadores, contendo histórico de boletos, status de liquidação, datas de vencimento, bancos emissores, endereços dos devedores, dados dos recebedores e registros de interações anteriores entre pagadores e a instituição, como número e data dos contatos realizados.
+&nbsp;&nbsp;&nbsp;&nbsp; A solução é baseada em uma base de dados de pagadores. Ela contém histórico  de boletos, status de liquidação, datas de vencimento, bancos emissores, endereços dos devedores, dados dos recebedores e registros de interações anteriores entre pagadores e a instituição, como número e data dos contatos realizados.
 
 &nbsp;&nbsp;&nbsp;&nbsp; A partir dessa base, será desenvolvido um modelo preditivo que fornecerá aos clientes da Finnet insights como: score de risco de inadimplência, tendência de pagamento, previsão de recebimentos no período e a melhor janela provável de pagamento. Esses dados preditivos visam apoiar decisões estratégicas em processos de cobrança e gestão financeira.
 
 &nbsp;&nbsp;&nbsp;&nbsp; Inicialmente, a solução será disponibilizada como uma **Prova de Conceito (POC)** para integração na plataforma Luna, utilizada para emissão de cobranças e gestão de recebíveis por instituições financeiras ou empresas com alto volume de transações. O produto será entregue por meio de um script em Python, possibilitando que gestores financeiros acessem os insights preditivos diretamente em seu fluxo de trabalho.
 Em fases futuras, a solução será incorporada de forma nativa na plataforma, permitindo automações com base nas predições e visualizações em tempo real.
 
-**Benefício esperados da solução:**
+**Benefícios esperados da solução:**
 
 - **Redução do risco de inadimplência**, garantindo uma maior previsibilidade de comportamento dos pagadores.
 - **Aumento da eficiência operacional**, ao priorizar estratégias de cobranças e renegociações.
@@ -179,25 +219,27 @@ Em fases futuras, a solução será incorporada de forma nativa na plataforma, p
 
 **O sucesso da solução será medido por meio dos seguintes critérios:**
 
-- **Acurácia das predições**: Porcentagem de assertividade nas projeções de inadimplência satisfatória, conforme métricas definidas durante o desenvolvimento.
+- **Acurácia das predições**: Porcentagem de assertividade nas projeções de inadimplência satisfatória, com média em 95%.
 - **Usabilidade e aderência**: validação positiva por parte dos stakeholders e usuários-chave (gerentes financeiros e coordenadores de contas a receber) durante testes e apresentações.
 - **Relevância dos insights**: feedback qualitativo dos usuários demonstrando utilidade prática para tomadas de decisões reais.
 - **Viabilidade de escalabilidade**: capacidade técnica de aplicar o modelo a diferentes clientes e setores com necessidade mínima de customização.
-- **Níveis de segurança compatíveis com a LGPD**: o tratamento de dados pessoais deverá respeitar os princípios da Lei Geral de Proteção de Dados (LGPD)
+- **Níveis de segurança compatíveis com a LGPD**: o tratamento de dados pessoais deverá respeitar os princípios da Lei Geral de Proteção de Dados (LGPD).
 
 #### 4.1.4. Value Proposition Canvas
 
-&nbsp;&nbsp;&nbsp;&nbsp; Com o objetivo de alinhar a oferta do produto ou serviço às necessidades e expectativas da Finnet, foi elaborado o Canva Proposta de Valor da solução. Ele busca garantir que a equipe entregue valor real à empresa parceira, a partir de uma compreensão aprofundada do perfil do cliente, das suas principais dores e dos ganhos que a proposta é capaz de gerar. Assim, assegura-se que o desenvolvimento e a entrega da solução estejam diretamente conectados às demandas estratégicas e operacionais da Finnet.
+&nbsp;&nbsp;&nbsp;&nbsp; Com o objetivo de alinhar a oferta do produto ou serviço às necessidades e expectativas da Finnet, foi elaborado o Canvas Proposta de Valor da solução. Ele busca garantir que a equipe entregue valor real à empresa parceira, a partir de uma compreensão aprofundada do perfil do cliente, das suas principais dores e dos ganhos que a proposta é capaz de gerar. Assim, assegura-se que o desenvolvimento e a entrega da solução estejam diretamente conectados às demandas estratégicas e operacionais da Finnet.
 
+<br>
 <div align="center">
-<sub>Figura 2: Canva Proposta de Valor.</sub>
+<sub>Figura 2: Canvas Proposta de Valor.</sub>
 </div>
+<br>
 <div align="center">
 <img src="../assets/CanvaValue.png">
 </div>
-
+<br>
 <div align="center">
-<sub>Fonte: Material produzido pela equipe The Seven, 2025.</sub>
+<sub>Fonte: Material produzido pelo grupo The Seven, 2025.</sub>
 </div>
 <br>
 
@@ -268,13 +310,14 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 <div align="center">
 <sub>Figura 3: Matriz de Risco.</sub>
 </div>
+<br>
 <div align="center">
 
 ![Matriz de riscos](../assets/Matriz_de_risco.png)
 </div>
 
 <div align="center">
-<sub>Fonte: Material produzido pela equipe The Seven, 2025.</sub>
+<sub>Fonte: Material produzido pelo grupo The Seven, 2025.</sub>
 </div>
 <br>
 
@@ -342,15 +385,21 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 
 #### 4.1.6. Personas
 
+&nbsp;&nbsp;&nbsp;&nbsp;O uso de personas em projetos de desenvolvimento é uma prática consolidada que permite compreender perfis de usuários e stakeholders, alinhando expectativas e reduzindo ambiguidades. Construídas a partir de dados reais, elas traduzem necessidades e comportamentos em representações acessíveis que orientam decisões estratégicas e de design. Neste trabalho, focado na criação de um modelo preditivo para mitigação da inadimplência de pessoas físicas, jurídicas e empresas, as personas assumem papel central ao aproximar a solução de realidades cotidianas, unindo análise quantitativa e qualitativa. Dessa forma, fortalecem o projeto ao integrar fundamentos técnicos e dimensões humanas, resultando em um modelo mais contextualizado, eficaz e alinhado ao mercado.
+
 ##### Pessoa Jurídica
 
 <div align="center">
 <sub align="center">Figura 4 – Persona - Pessoa Jurídica</sub>
 </div>
+<br>
+
 
 <div align="center">
 <img src="../assets/Persona_Jurídica.png" alt="Value Proposition Canvas" border="0" width=100% height=100%>
 </div>
+<br>
+
 
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
@@ -359,69 +408,130 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 
 &nbsp;&nbsp;&nbsp;&nbsp; Carlos Almeida representa o perfil do decisor financeiro que busca soluções tecnológicas para otimizar a gestão de crédito e reduzir riscos de inadimplência. Como Chief Financial Officer de uma empresa de grande porte, lida diariamente com o desafio de manter a saúde financeira da organização, equilibrando previsibilidade de caixa, controle de recebimentos e mitigação de perdas. Sua atuação exige acesso rápido a informações confiáveis e ferramentas que apoiem decisões estratégicas baseadas em dados.
 
+&nbsp;&nbsp;&nbsp;&nbsp; Sua finalidade como persona do projeto é representar as empresas impactadas diretamente pela solução, servindo como usuário estratégico que se beneficia do acesso a métricas avançadas, como o score de inadimplência. Com esses recursos, suas decisões financeiras ganham mais embasamento, fortalecendo a gestão de riscos e a previsibilidade de resultados.
+
 
 #### Gerente Finnet
 
 <div align="center">
 <sub align="center">Figura 5 – Persona - Gerente Finnet</sub>
 </div>
+<br>
+
 
 <div align="center">
 <img src="../assets/persona_finnet.png" alt="Persona Finnet" border="0" width=100% height=100%>
 </div>
+<br>
 
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
+<br>
 
-Rogério Silveira é o perfil de cliente principal do projeto e atua como Gerente Financeiro na Finnet. Ele é responsável por monitorar transações e elaborar relatórios financeiros para empresas parceiras, garantindo que estas tenham uma visão clara e atualizada do seu fluxo de caixa. Com alta afinidade com tecnologia, busca automatizar processos de coleta e análise de dados, reduzindo o trabalho manual e aumentando a precisão das informações. Entre suas principais necessidades está prever a inadimplência e identificar tendências de pagamento, permitindo agir de forma proativa. Atualmente, Rogério deseja agregar valor ao serviço prestado pela Finnet implementando recursos como score de risco de inadimplência, melhor janela provável de pagamento e análise do impacto da inadimplência no fluxo de recebimentos, fortalecendo a tomada de decisão dos clientes e da própria empresa.
+&nbsp;&nbsp;&nbsp;&nbsp; Rogério Silveira é o perfil de cliente principal do projeto e atua como Gerente Financeiro na Finnet. Ele é responsável por monitorar transações e elaborar relatórios financeiros para empresas parceiras, garantindo que estas tenham uma visão clara e atualizada do seu fluxo de caixa. Com alta afinidade com tecnologia, busca automatizar processos de coleta e análise de dados, reduzindo o trabalho manual e aumentando a precisão das informações. Entre suas principais necessidades está prever a inadimplência e identificar tendências de pagamento, permitindo agir de forma proativa. Atualmente, Rogério deseja agregar valor ao serviço prestado pela Finnet implementando recursos como score de risco de inadimplência, melhor janela provável de pagamento e análise do impacto da inadimplência no fluxo de recebimentos, fortalecendo a tomada de decisão dos clientes e da própria empresa.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Essa persona representa os gestores financeiros da Finnet, público-alvo direto do projeto. Por sua função dentro da empresa, Rogério é o responsável por analisar os dados gerados e transformá-los em insights que agregam valor ao serviço oferecido aos clientes, fortalecendo tanto a tomada de decisão quanto a competitividade da organização.
+
+#### Pessoa Física Inadimplente
+
+<div align="center">
+<sub align="center">Figura 4 – Persona - Pessoa Física Inadimplente</sub>
+</div>
+<br>
+
+<div align="center">
+<img src="../assets/personaFI.png" alt="Value Proposition Canvas" border="0" width=100% height=100%>
+</div>
+<br>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp; Renata Arantes representa o perfil de uma pessoa física em situação de inadimplência, que enfrenta dificuldades financeiras para manter seus compromissos em dia. Seu comportamento reflete a realidade de muitos pagadores que, diante de imprevistos ou limitações de renda, acabam atrasando ou deixando de quitar boletos. Essa condição impacta diretamente tanto as empresas credoras quanto os intermediários financeiros que buscam reduzir riscos e manter previsibilidade em seus recebimentos.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Sua finalidade como persona do projeto é simbolizar os devedores cujos padrões de pagamento alimentam o modelo preditivo de inadimplência baseado em machine learning. Esta representa como perfis semelhantes influenciam a modelagem e a análise estatística. Nesse contexto, Renata funciona como um canvas que traz insights ao sistema em situações cotidianas, auxiliando na criação de estratégias mais assertivas de cobrança e mitigação de riscos com as features desenvolvidas no projeto.
+ 
+#### Técnico de Informática 
+
+
+<div align="center">
+<sub align="center">Figura 4 – Persona - Técnico de informática</sub>
+</div>
+<br>
+
+<div align="center">
+<img src="../assets/persona TI.png" alt="Value Proposition Canvas" border="0" width=100% height=100%>
+</div>
+<br>
+
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp; Rafael Costa representa o perfil do analista técnico que busca soluções eficientes para garantir a estabilidade e a segurança dos sistemas corporativos. Atuando como Analista de Sistemas na Finnet, ele é responsável por desenvolver e manter plataformas financeiras, assegurando que atendam às exigências de confiabilidade e compliance. Seu dia a dia envolve lidar com alta demanda de suporte, integrações complexas e desafios relacionados à segurança da informação. Com forte afinidade tecnológica, Rafael procura ferramentas que otimizem processos, reduzam retrabalho e aumentem a agilidade na entrega de soluções, permitindo que a empresa continue oferecendo valor e inovação aos seus clientes. 
+
+&nbsp;&nbsp;&nbsp;&nbsp; Para o projeto, Rafael representa os profissionais responsáveis pela implementação e manutenção técnica da solução dentro da plataforma já utilizada pela Finnet. Sua presença como persona garante a perspectiva de quem lida diretamente com integrações complexas e desafios de segurança, aspectos fundamentais para que o sistema funcione de forma estável, prática e eficiente. Assim, Rafael simboliza a ponte entre a viabilidade técnica e a entrega de valor ao usuário final.
+
+
+
+
+
+
+</br></br>Em síntese, as personas apresentadas funcionam como representações estratégicas dos diferentes atores envolvidos no ecossistema de cobrança e gestão financeira. Cada uma delas traduz, de forma humanizada, as necessidades, dores e expectativas que o projeto busca atender. Ao integrar o modelo de predição de inadimplência com machine learning, essas personas atuam como pontos de referência que não só exemplificam o potencial impacto da solução, mas também a segurança de que o desenvolvimento técnico esteja constantemente alinhado à experiência prática dos usuários. Dessa forma, podemos reforçar a relevância e a utilidade da proposta tanto para a própria Finnet, quanto para instituições de finanças e seus respectivos atores em atividade.
 
 #### 4.1.7. Jornadas do Usuário
 
-&nbsp;&nbsp;&nbsp;&nbsp; A escolha pelo uso de journey maps em nosso projeto está diretamente relacionada à necessidade de compreender de forma clara e estruturada a experiência do usuário, especialmente no eixo voltado ao entendimento de UX. Essa ferramenta nos permitiu representar visualmente as etapas percorridas pelo usuário, favorecendo a identificação de pontos de contato relevantes e possíveis dificuldades no processo. Desse modo, torna-se possível projetar com maior precisão como o usuário final fará uso do modelo preditivo desenvolvido em Python, assegurando que a solução proposta seja não apenas tecnicamente eficiente, mas também alinhada às expectativas e necessidades reais de quem irá utilizá-la.
+&nbsp;&nbsp;&nbsp;&nbsp; A utilização de journey maps em nosso projeto foi fundamental para compreender de forma clara e organizada a experiência do usuário, especialmente no que diz respeito ao eixo de UX. Essa ferramenta possibilitou representar visualmente cada etapa percorrida pelo usuário, facilitando a identificação de pontos de contato relevantes e de possíveis dificuldades ao longo do processo. Com isso, conseguimos projetar de maneira mais precisa como o usuário final interagirá com o modelo preditivo desenvolvido em Python, garantindo que a solução seja não apenas tecnicamente eficaz, mas também alinhada às expectativas e necessidades reais de quem irá utilizá-la.
 
 &nbsp;&nbsp;&nbsp;&nbsp; A figura a seguir apresenta os sinais identificados nas jornadas de usuário. As etapas marcadas com seta para cima indicam pontos com maior número de oportunidades, enquanto as etapas com seta para baixo evidenciam aquelas em que prevalecem os problemas.
 
+<br>
 <div align="center">
 <sub align="center">Figura 6 – Descrição de Oportunidades e Problemas</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/Oportunidades.png" alt="Jornada da Pessoa Jurídica" border="0" width=20% height=100%>
 </div>
-
+<br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
-
+<br>
 <div align="center">
 <sub align="center">Figura 7 – Jornada de Usuário - Pessoa Jurídica</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/Jornada - Carlos Almeida.png" alt="Jornada da Pessoa Jurídica" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
+<br>
 
 &nbsp;&nbsp;&nbsp;&nbsp; A persona escolhida, Carlos Almeida, representa uma pessoa jurídica e reflete os desafios complexos enfrentados por gestores financeiros de empresas, como a dificuldade em gerenciar grandes volumes de recebimentos, mitigar riscos de inadimplência e garantir previsibilidade no fluxo de caixa. Optamos por esse perfil porque ele evidencia problemas organizacionais e estratégicos que não se limitam ao indivíduo, mas impactam diretamente a sustentabilidade do negócio. Dessa forma, o journey map permite mapear desde a frustração inicial até a satisfação com soluções de análise preditiva, dashboards e estratégias personalizadas de cobrança, demonstrando o valor de ferramentas que oferecem clareza, confiabilidade e suporte à tomada de decisão no contexto corporativo.
 
+<br>
 <div align="center">
 <sub align="center">Figura 8 – Jornada de Usuário - Pessoa Finnet</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/Jornada - Roberto Silveira.png" alt="Jornada da Pessoa Jurídica" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
+<br>
 
 &nbsp;&nbsp;&nbsp;&nbsp; Escolhemos o Rogério como persona do journey map porque ele representa um ator crítico dentro da Finnet: o gerente financeiro responsável por consolidar relatórios e entregar previsões confiáveis à diretoria e às empresas clientes. A ausência de análises preditivas detalhadas hoje compromete sua confiabilidade e reduz a segurança do planejamento financeiro. Ao mapear sua jornada, evidenciamos gargalos como processos manuais, dispersão de dados e ciclos de fechamento demorados, e identificamos oportunidades de evolução com automação, integração de fontes, modelagem preditiva e relatórios em tempo real. Assim, o journey map orienta a priorização de soluções que elevem a acurácia das previsões, reduzam retrabalho e fortaleçam o papel da Finnet como parceira confiável na gestão financeira dos clientes.
-
 
 &nbsp;&nbsp;&nbsp;&nbsp; Em síntese, o uso de journey maps se mostrou fundamental para garantir que o desenvolvimento do modelo preditivo em Python fosse orientado não apenas pela lógica técnica, mas também pela perspectiva do usuário. Ao possibilitar a visualização detalhada da jornada, essa ferramenta contribuiu para antecipar potenciais barreiras, refinar pontos de interação e alinhar a solução às reais necessidades dos futuros usuários. Assim, asseguramos que o projeto alcance maior usabilidade, relevância prática e impacto efetivo no contexto em que será aplicado.
 
@@ -535,15 +645,15 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 - **Gráfico 1: Pagamentos vs Boletos Incluídos por Mês**
   - Barras para o número de boletos incluídos e pagos em cada mês. Permitiu identificar sazonalidade e meses críticos para inadimplência.
-
+<br>
 <div align="center">
-<sub align="center">Figura 6 – Gráfico de relação entre número de boletos incluídos de pagos por mês.</sub>
+<sub align="center">Figura 9 – Gráfico de relação entre número de boletos incluídos de pagos por mês.</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/grafico-mes.png" alt="Persona Finnet" border="0" width=70% height=60%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -551,15 +661,15 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 - **Gráfico 2: Quantidade de acessos por status de número de boletos pagos**
   - Barplot comparando a média de acessos à plataforma entre boletos pagos e não pagos. Evidenciou que usuários que pagam tendem a acessar mais a plataforma.
-
+<br>
 <div align="center">
-<sub align="center">Figura 7 – Quantidade de acessos por status de número de boletos pagos.</sub>
+<sub align="center">Figura 10 – Quantidade de acessos por status de número de boletos pagos.</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/acessosxboletos.png" alt="Persona Finnet" border="0" width=70% height=60%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -568,15 +678,15 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 - **Gráfico 3: Quantidade de boletos por dias possíveis para pagar**
   - Histograma mostrando a relação entre a quantidade de boletos por dias possíveis de pagamento (Diferença entre data de inclusão e vencimento)
 
-
+<br>
 <div align="center">
-<sub align="center">Figura 8 – Quantidade de acessos por status de número de boletos pagos.</sub>
+<sub align="center">Figura 11 – Quantidade de acessos por status de número de boletos pagos.</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/vencimentoinclusao.png" alt="Persona Finnet" border="0" width=70% height=60%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -584,15 +694,15 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 - **Gráfico 4: Pagamentos vs Boletos Incluídos por Mês (Com taxa de pagamento)**
   - Barras para o número de boletos incluídos e pagos em cada mês, com linha de taxa de pagamento (%). Permitiu identificar sazonalidade e meses críticos para inadimplência.
-
+<br>
 <div align="center">
-<sub align="center">Figura 9 – Gráfico de número de boletos e meses do ano.</sub>
+<sub align="center">Figura 12 – Gráfico de número de boletos e meses do ano.</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/hipoteses-meses.png" alt="Persona Finnet" border="0" width=70% height=60%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -600,15 +710,15 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 - **Gráfico 5: Média de acessos x Status do pagamento**
   - O gráfico a seguir busca mostrar a diferença de média de acessos a plataforma entre boletos pagos e não pagos.
-
+<br>
 <div align="center">
-<sub align="center">Figura 10 – Gráfico de relação entre status do boleto e média de acessos na plataforma.</sub>
+<sub align="center">Figura 13 – Gráfico de relação entre status do boleto e média de acessos na plataforma.</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/hipoteses-acessos.png" alt="Persona Finnet" border="0" width=70% height=60%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -616,15 +726,15 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 - **Gráfico 6: Dias para pagar x Valor do boleto**
   - O gráfico a seguir busca mostrar a relação entre o valor do boleto e os dias necessários para pagar.
-
+<br>
 <div align="center">
-<sub align="center">Figura 11 – Gráfico de relação entre dias para pagar e valor do boleto.</sub>
+<sub align="center">Figura 14 – Gráfico de relação entre dias para pagar e valor do boleto.</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/hipoteses-dia-valor.png" alt="Persona Finnet" border="0" width=70% height=60%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -632,15 +742,15 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 - **Gráfico 7: Status do pagamento x média de valor**
   - O gráfico Boxplot a seguir busca mostrar a relação entre a média de valor entre boletos pagos e não pagos.
-
+<br>
 <div align="center">
-<sub align="center">Figura 12 – Gráfico de relação entre status do pagamento e média de valor do boleto.</sub>
+<sub align="center">Figura 15 – Gráfico de relação entre status do pagamento e média de valor do boleto.</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/hipotese-status-valor.png" alt="Persona Finnet" border="0" width=70% height=60%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -649,15 +759,15 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 - **Gráfico 8: Cidade x média de valor**
   - O histograma a seguir demonstra as cidades com maior média de valor dentre uma amostra selecionada.
-
+<br>
 <div align="center">
-<sub align="center">Figura 13 – Gráfico de relação entre cidade e média de valor.</sub>
+<sub align="center">Figura 16 – Gráfico de relação entre cidade e média de valor.</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/grafico-cidades.png" alt="Persona Finnet" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -710,15 +820,15 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 &nbsp;&nbsp;&nbsp;&nbsp; No gráfico abaixo, o eixo X possui dois valores, os boletos pagos e não pagos, enquanto o eixo Y representa a média de acessos dos usuários de cada um desses grupos.
 
-
+<br>
 <div align="center">
-<sub align="center">Figura 14 – Gráfico de relação entre status do boleto e média de acessos na plataforma.</sub>
+<sub align="center">Figura 17 – Gráfico de relação entre status do boleto e média de acessos na plataforma.</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/hipoteses-acessos.png" alt="Persona Finnet" border="0" width=60% height=60%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -734,17 +844,16 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 &nbsp;&nbsp;&nbsp;&nbsp; Esta hipótese busca confirmar que a taxa de pagamento de boletos varia de acordo com o mês ou período do ano, influenciada por fatores sazonais e econômicos. Em determinados meses, como dezembro (festividades de fim de ano) ou março/abril (pagamento de impostos), pode haver uma maior pressão financeira, reduzindo a taxa de quitação de boletos. Já em períodos de maior liquidez, como meses de recebimento de 13º salário ou distribuição de bônus corporativos, a taxa de pagamento tende a aumentar. Além disso, mudanças na governança ou estratégias financeiras das empresas ao longo do ano podem impactar diretamente a capacidade de honrar pagamentos.
 
 &nbsp;&nbsp;&nbsp;&nbsp; No gráfico abaixo, análisamos mais de 30 mil boletos entre um período de 12 meses, utilizando Python e bibliotecas como Pandas, Matplotlib e Seaborn. O eixo X representa os meses do ano, enquanto o Y representa o número de boletos. A barra em azul representa os boletos incluídos, a laranja os boletos pagos e a linha vermelha representa a taxa de pagamento em porcentagem.
+
 <br>
-
-
 <div align="center">
-<sub align="center">Figura 15 – Gráfico de relação entre mês, número de boleto e taxa de pagamento.</sub>
+<sub align="center">Figura 18 – Gráfico de relação entre mês, número de boleto e taxa de pagamento.</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/hipoteses-meses.png" alt="Persona Finnet" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -768,13 +877,13 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 <br>
 <div align="center">
-<sub align="center">Figura 16 – Gráfico de relação entre valor do boleto e dias necessários para pagar.</sub>
+<sub align="center">Figura 19 – Gráfico de relação entre valor do boleto e dias necessários para pagar.</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/hipoteses-dia-valor.png" alt="Persona Finnet" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -794,7 +903,7 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 <br>
 <div align="center">
-<sub align="center">Figura 17 – Gráfico de relação entre valor do boleto e dias necessários para pagar.</sub>
+<sub align="center">Figura 20 – Gráfico de relação entre valor do boleto e dias necessários para pagar.</sub>
 </div>
 
 <div align="center">
@@ -818,13 +927,13 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 <br>
 <div align="center">
-<sub align="center">Figura 18 – Gráfico de relação entre status do pagamento e média de valor do boleto.</sub>
+<sub align="center">Figura 21 – Gráfico de relação entre status do pagamento e média de valor do boleto.</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/hipotese-status-valor.png" alt="Persona Finnet" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
 <sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
@@ -997,10 +1106,11 @@ A verificação da normalidade é um passo essencial para definir quais métodos
 
 O teste adotado para todas as variáveis foi o teste de Lilliefors, que consiste em uma adaptação do teste de Kolmogorov–Smirnov (KS). Enquanto o KS clássico pressupõe que a média ($\mu$) e o desvio padrão ($\sigma$) da população sejam previamente conhecidos, o teste de Lilliefors é adequado quando esses parâmetros precisam ser estimados a partir da própria amostra. Essa escolha se justifica, pois mesmo dispondo de todas as planilhas disponíveis, os dados não seriam suficientes para representar integralmente a população da Finnet, de modo que trabalhamos efetivamente com amostras.
 
+<br>
 <div align="center">
 <sub align="center">Tabela 1 – Resumo dos Testes de Normalidade</sub>
 </div>
-
+<br>
 <div align="center">
 
 | Variável   | Teste de Normalidade | Valor de p | Conclusão (α = 0,05)                 |
@@ -1012,84 +1122,95 @@ O teste adotado para todas as variáveis foi o teste de Lilliefors, que consiste
 | valor da multa | Lilliefors           | 0,0010      | Rejeita H₀ (não segue normalidade)   |
 
 </div>
-
+<br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
+<br>
 
-Os resultados indicam que, para todas as variáveis analisadas, a hipótese de normalidade foi rejeitada ao nível de significância de 5%. Assim, os dados não seguem distribuição normal, o que orienta o uso de técnicas estatísticas que não dependam dessa suposição.
+Os resultados indicam que, para todas as variáveis analisadas, a hipótese nula de normalidade foi rejeitada ao nível de significância de 5%. Assim, os dados não seguem distribuição normal, o que orienta o uso de técnicas estatísticas que não dependam dessa suposição.
 
 ##### 6.1.1.4. Teste de Normalidade das Variáveis Quantitativas
 
 Além dos testes estatísticos aplicados, foram elaborados histogramas para cada uma das cinco variáveis, a fim de avaliar visualmente a forma das distribuições. Essa análise gráfica permite verificar se os dados apresentam comportamento próximo ao da distribuição normal, reforçando ou contrastando os resultados obtidos nos testes de normalidade.
 
+<br>
 <div align="center">
-<sub align="center">Figura 7 – Histograma - Valor do Boleto</sub>
+<sub align="center">Figura 23 – Histograma - Valor do Boleto</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/histograma_vl_boleto.png" alt="Histograma Valor do Boleto" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
+<br>
 
 O histograma da variável valor do boleto não apresenta uma distribuição próxima da normal. Observa-se ausência de cauda à esquerda, indicando assimetria na distribuição dos dados.
 
+<br>
 <div align="center">
-<sub align="center">Figura 8 – Histograma - Valor Pago</sub>
+<sub align="center">Figura 24 – Histograma - Valor Pago</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/histograma_vl_pagto.png" alt="Histograma Valor Pago" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
+<br>
 
 O histograma da variável valor pago não apresenta uma distribuição próxima da normal. Observa-se, de forma semelhante ao histograma do valor dos boletos, a ausência de cauda à esquerda, indicando assimetria na distribuição dos dados.
 
+<br>
 <div align="center">
-<sub align="center">Figura 9 – Histograma - Valor do Juros</sub>
+<sub align="center">Figura 25 – Histograma - Valor do Juros</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/histograma_juros.png" alt="Histograma Valor do Juros" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
+<br>
 
 O histograma da variável valor dos juros não apresenta uma distribuição compatível com a normal. Nota-se a ausência de cauda à esquerda, além de uma diferença acentuada na frequência entre as primeiras classes, o que reforça a assimetria da distribuição.
 
+<br>
 <div align="center">
-<sub align="center">Figura 10 – Histograma - Quantidade de Acessos</sub>
+<sub align="center">Figura 26 – Histograma - Quantidade de Acessos</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/histograma_qtd_de_acessos.png" alt="Histograma Quantidade de Acessos" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
+<br>
 
 De maneira bastante acentuada, o histograma da variável quantidade de acessos se distancia do padrão de uma distribuição normal. Observa-se a ausência de cauda à esquerda e a predominância de colunas à direita com frequências mais elevadas em relação às da esquerda, evidenciando a assimetria da distribuição.
 
+<br>
 <div align="center">
-<sub align="center">Figura 11 – Histograma - Valor da Multa</sub>
+<sub align="center">Figura 27 – Histograma - Valor da Multa</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/histograma_multa.png" alt="Histograma Valor da Multa" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
+<br>
 
 O histograma da variável valor das multas evidencia um forte desvio em relação à distribuição normal. Observa-se que a primeira coluna possui frequência extremamente elevada, tornando as demais quase imperceptíveis, o que indica forte assimetria e concentração dos dados em valores mais baixos.
 
@@ -1122,12 +1243,13 @@ Aqui, são descritos os procedimentos de escalonamento, como normalização e/ou
 
 O escalonamento das variáveis quantitativas tem como objetivo ajustar os dados para que fiquem em uma mesma escala, permitindo comparabilidade entre diferentes medidas e evitando que variáveis com amplitudes maiores influenciem de forma desproporcional os resultados da análise. Esse processo preserva a forma das distribuições originais, mantendo informações sobre assimetrias, concentração de valores e outliers, mas ajustando os valores para facilitar interpretações e aplicações em modelos estatísticos.
 
-No presente estudo, optou-se por aplicar exclusivamente a normalização Min-Max em todas as variáveis. A decisão se justifica pelo fato de que os dados apresentam alta amplitude e forte presença de outliers, o que poderia distorcer os resultados caso fosse utilizada a padronização (Z-score), que depende da média e do desvio padrão. A normalização, ao restringir os valores para o intervalo [0,1], garante comparabilidade entre as variáveis sem que valores extremos exerçam influência desproporcional sobre o escalonamento.
+Antes da escolha do método, foi realizado o teste de normalidade, cujo resultado indicou que as variáveis não seguem uma distribuição normal. Esse diagnóstico reforçou a opção pela normalização Min-Max, aplicada em todas as variáveis, uma vez que a padronização (Z-score) tende a ser mais adequada para dados aproximadamente normais e poderia ser distorcida pela alta amplitude e presença de outliers observada no conjunto analisado. A normalização, ao restringir os valores para o intervalo [0,1], garante comparabilidade entre as variáveis sem que valores extremos exerçam influência desproporcional sobre o escalonamento.
 
+<br>
 <div align="center">
 <sub align="center">Tabela 2 – Resumo do Escalonamento das Variáveis</sub>
 </div>
-
+<br>
 <div align="center">
 
 | Variável               | Escalonamento   | Descrição                                                                                  |
@@ -1139,10 +1261,11 @@ No presente estudo, optou-se por aplicar exclusivamente a normalização Min-Max
 | valor da multa          | Normalização   | Presença de poucos valores extremamente altos; normalização preserva a forma da distribuição e ajusta a escala. |
 
 </div>
-
+<br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
+<br>
 
 O escalonamento aplicado uniformemente às variáveis garantiu comparabilidade entre elas, mantendo as propriedades originais dos dados e preparando-os adequadamente para análises subsequentes.
 
@@ -1150,10 +1273,11 @@ O escalonamento aplicado uniformemente às variáveis garantiu comparabilidade e
 
 Nesta subseção, apresentam-se os principais valores estatísticos das variáveis quantitativas que serão utilizados no processo de escalonamento: mínimo, máximo, média, mediana e desvio padrão populacional. Esses parâmetros permitem compreender a amplitude e a dispersão dos dados, servindo de base para ajustar as variáveis a uma escala comparável, preservando a forma das distribuições e facilitando análises subsequentes.
 
+<br>
 <div align="center">
 <sub align="center">Tabela 3 – Valores Estatísticos</sub>
 </div>
-
+<br>
 <div align="center">
 
 | Variável               | Mínimo   | Máximo       | Média       | Mediana  | Desvio padrão (populacional) |
@@ -1165,10 +1289,11 @@ Nesta subseção, apresentam-se os principais valores estatísticos das variáve
 | multa                  | 1.46     | 18.325,01    | 44,54      | 10,00    | 326,98                       |
 
 </div>
-
+<br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
+<br>
 
 A apresentação das estatísticas descritivas permite interpretar a variabilidade e a amplitude de cada variável, fornecendo o suporte necessário para aplicar o escalonamento de forma consistente e confiável.
 
@@ -1178,36 +1303,24 @@ O escalonamento das variáveis quantitativas transforma os dados para uma mesma 
 
 O escalonamento foi realizado utilizando a **normalização Min-Max**, que transforma os valores de cada variável para o intervalo [0,1]:
 
-$
-x_{\text{norm}} = \frac{x - x_{\min}}{x_{\max} - x_{\min}}
-$
+$x_{\text{norm}} = \frac{x - x_{\min}}{x_{\max} - x_{\min}}$
 
 Substituindo os valores mínimos e máximos de cada variável:
 
 - **valor do boleto**:  
-$
-vl\_boleto_{\text{norm}} = \frac{vl\_boleto - 0.05}{3325737.15 - 0.05}
-$
+$vl\_boleto_{\text{norm}} = \frac{vl\_boleto - 0.05}{3325737.1}$
 
 - **valor pago**:  
-$
-vl\_pagto_{\text{norm}} = \frac{vl\_pagto - 0.00}{1936467.04 - 0.00}
-$
+$vl\_pagto_{\text{norm}} = \frac{vl\_pagto - 0.00}{1936467.04}$
 
 - **juros**:  
-$
-juros_{\text{norm}} = \frac{juros - 0.00}{1108.58 - 0.00}
-$
+$juros_{\text{norm}} = \frac{juros - 0.00}{1108.58}$
 
 - **quantidade de acessos**:  
-$
-qtd\_acessos\_pagador_{\text{norm}} = \frac{qtd\_acessos\_pagador - 1.00}{86.00 - 1.00}
-$
+$qtd\_acessos\_pagador_{\text{norm}} = \frac{qtd\_acessos\_pagador - 1.00}{85}$
 
 - **multa**:  
-$
-multa_{\text{norm}} = \frac{multa - 1.46}{18325.01 - 1.46}
-$
+$multa_{\text{norm}} = \frac{multa - 1.46}{18323.55}$
 
 Ao aplicar as equações de normalização Min-Max, todos os valores das variáveis foram ajustados para o intervalo [0,1], garantindo consistência na escala sem alterar a estrutura dos dados, permitindo comparações diretas entre diferentes variáveis e suportando análises subsequentes.
 
@@ -1215,73 +1328,83 @@ Ao aplicar as equações de normalização Min-Max, todos os valores das variáv
 
 Nesta subseção são apresentados os histogramas das variáveis após o processo de escalonamento, acompanhados de uma comparação com os histogramas originais. O objetivo é observar de que forma a transformação impacta a distribuição dos dados e identificar se houve alterações relevantes em relação ao padrão anteriormente verificado.
 
+<br>
 <div align="center">
-<sub align="center">Figura 12 – Histograma - Valor do Boleto Escalonado</sub>
+<sub align="center">Figura 28 – Histograma - Valor do Boleto Escalonado</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/valor_boleto_escalonado.png" alt="Histograma Valor do Boleto Escalonado" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
+<br>
 
 Após o processo de escalonamento, o histograma da variável valor do boleto manteve a mesma forma observada antes da transformação, ou seja, não apresentou aproximação a uma distribuição normal. A principal diferença está na escala: os valores, que antes variavam entre 0,05 e 3.325.737,15, foram transformados para o intervalo de 0 a 1. Essa mudança fez com que a concentração dos dados na maior coluna do histograma se tornasse mais evidente, reforçando a assimetria já observada na distribuição original.
 
+<br>
 <div align="center">
-<sub align="center">Figura 13 – Histograma - Valor Pago Escalonado</sub>
+<sub align="center">Figura 29 – Histograma - Valor Pago Escalonado</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/valor_pago_escalonado.png" alt="Histograma Valor Pago Escalonado" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
+<br>
 
 Após o processo de escalonamento, o histograma da variável valor pago preservou o mesmo padrão de assimetria observado na distribuição original, sem se aproximar de uma distribuição normal. Assim como ocorreu com a variável valor do boleto, a ausência de cauda à esquerda permaneceu evidente, e a transformação apenas ajustou os dados para o intervalo de 0 a 1. Com isso, a concentração de valores em determinadas faixas tornou-se mais destacada no histograma escalonado, reforçando o comportamento assimétrico já identificado anteriormente.
 
+<br>
 <div align="center">
-<sub align="center">Figura 14 – Histograma - Valor do Juros Escalonado</sub>
+<sub align="center">Figura 30 – Histograma - Valor do Juros Escalonado</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/juros_escalonado.png" alt="Histograma Valor do Juros Escalonado" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
+<br>
 
 Após o escalonamento, o histograma da variável juros manteve o padrão de assimetria identificado na análise original. A ausência de cauda à esquerda continuou presente, assim como a diferença acentuada na frequência das primeiras classes, que se tornou ainda mais evidente no histograma escalonado. A transformação para o intervalo de 0 a 1 não aproximou a distribuição da normalidade, mas destacou a concentração de valores em faixas menores, reforçando o comportamento assimétrico dos dados.
 
+<br>
 <div align="center">
-<sub align="center">Figura 15 – Histograma - Quantidade de Acessos Escalonado</sub>
+<sub align="center">Figura 31 – Histograma - Quantidade de Acessos Escalonado</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/acessos_escalonado.png" alt="Histograma Quantidade de Acessos Escalonado" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
+<br>
 
 Após o escalonamento, o histograma da variável quantidade de acessos manteve a forte assimetria já identificada na análise original. A ausência de cauda à esquerda permaneceu evidente, enquanto a predominância de colunas à direita com maiores frequências tornou-se ainda mais concentrada no novo intervalo de valores. Embora o processo de escalonamento tenha ajustado a escala dos dados, ele não aproximou a variável de uma distribuição normal, reforçando o comportamento assimétrico característico dessa métrica.
 
+<br>
 <div align="center">
-<sub align="center">Figura 16 – Histograma - Valor da Multa Escalonado</sub>
+<sub align="center">Figura 32 – Histograma - Valor da Multa Escalonado</sub>
 </div>
-
+<br>
 <div align="center">
 <img src="../assets/multa_escalonada.png" alt="Histograma Valor da Multa Escalonado" border="0" width=100% height=100%>
 </div>
-
+<br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
+<br>
 
 Após o escalonamento, o histograma da variável valor das multas manteve o padrão de forte assimetria observado anteriormente. A primeira coluna continuou concentrando a maior parte dos registros, o que torna as demais pouco representativas visualmente. Apesar da alteração na escala, a distribuição permaneceu distante do formato normal, reforçando a predominância de valores muito baixos e a elevada discrepância em relação às classes subsequentes.
 
@@ -1293,15 +1416,16 @@ Para complementar a análise gráfica dos histogramas, esta subseção apresenta
 
 As tabelas a seguir apresentam, de forma comparativa, os dez primeiros registros das variáveis quantitativas em sua forma original e após o processo de escalonamento. Essa comparação permite observar as transformações numéricas realizadas pelo método de padronização, sem que haja alteração das relações entre os valores.
 
+<br>
 <div align="center">
 <sub align="center">Tabela 4 – Valores Originais</sub>
 </div>
-
+<br>
 <div align="center">
 
 | vl_boleto | vl_pagto | juros | qtd_acessos_pagador | multa |
 |-----------|----------|-------|----------------------|-------|
-| 8528.52   | NaN      | 2.84  | 3.0                  | 10.0  |
+| 8528.52   | 0      | 2.84  | 3.0                  | 10.0  |
 | 8528.52   | 8528.52  | 2.84  | 1.0                  | 10.0  |
 | 8528.52   | 8528.52  | 2.84  | 3.0                  | 10.0  |
 | 8528.52   | 8528.52  | 2.84  | 2.0                  | 10.0  |
@@ -1309,26 +1433,28 @@ As tabelas a seguir apresentam, de forma comparativa, os dez primeiros registros
 | 8528.49   | 8528.49  | 2.84  | 2.0                  | 10.0  |
 | 726.97    | 726.97   | 0.24  | 1.0                  | 10.0  |
 | 726.97    | 726.97   | 0.24  | 1.0                  | 10.0  |
-| 726.97    | NaN      | 0.24  | 2.0                  | 10.0  |
+| 726.97    | 0      | 0.24  | 2.0                  | 10.0  |
 | 726.97    | 726.97   | 0.24  | 2.0                  | 10.0  |
 
 </div>
-
+<br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
+<br>
 
 Na tabela dos dados originais, nota-se que as variáveis apresentam magnitudes bastante distintas entre si, o que poderia impactar em análises comparativas e algoritmos que dependem da escala dos valores.
 
+<br>
 <div align="center">
 <sub align="center">Tabela 5 – Valores Escalonados</sub>
 </div>
-
+<br>
 <div align="center">
 
 | vl_boleto | vl_pagto | juros   | qtd_acessos_pagador | multa   |
 |-----------|----------|---------|----------------------|---------|
-| 0.002564  | NaN      | 0.002562| 0.023529             | 0.000466|
+| 0.002564  | 0      | 0.002562| 0.023529             | 0.000466|
 | 0.002564  | 0.004404 | 0.002562| 0.000000             | 0.000466|
 | 0.002564  | 0.004404 | 0.002562| 0.023529             | 0.000466|
 | 0.002564  | 0.004404 | 0.002562| 0.011765             | 0.000466|
@@ -1336,17 +1462,56 @@ Na tabela dos dados originais, nota-se que as variáveis apresentam magnitudes b
 | 0.002564  | 0.004404 | 0.002562| 0.011765             | 0.000466|
 | 0.000219  | 0.000375 | 0.000216| 0.000000             | 0.000466|
 | 0.000219  | 0.000375 | 0.000216| 0.000000             | 0.000466|
-| 0.000219  | NaN      | 0.000216| 0.011765             | 0.000466|
+| 0.000219  | 0      | 0.000216| 0.011765             | 0.000466|
 | 0.000219  | 0.000375 | 0.000216| 0.011765             | 0.000466|
 
 </div>
-
+<br>
 <div align="center">
-<sup>Fonte: Produzido pelo grupo, 2025.</sup>
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
 </div>
+<br>
 
 Após o escalonamento, observa-se que os valores passam a estar distribuídos em torno de zero, com variabilidade mais uniforme, o que favorece análises estatísticas e modelos que utilizam essas variáveis de forma conjunta.
 
 ### 7. Referências
 
-ALPHA Level (Significance Level): What is it? Statistics How To. Disponível em: https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/what-is-an-alpha-level/#:~:text=3.,equil%C3%ADbrio%20entre%20esses%20dois%20problemas. Acesso em: 27 ago. 2025.
+- MARCAS E MERCADOS. Finnet é homologada para ofertar Pix Automático dentro do Open Finance. Marcas e Mercados, 2024. Disponível em: https://marcasemercados.com.br/finnet-e-homologada-para-ofertar-pix-automatico-dentro-do-open-finance/
+. Acesso em: 3 set. 2025.
+
+- BANCO CENTRAL DO BRASIL. Resolução nº 4.595, de 28 de agosto de 2017: dispõe sobre a política de conformidade das instituições autorizadas pelo BCB. Brasília, 2017.
+
+- BANCO CENTRAL DO BRASIL. Brazil Central Bank unveils key fintech and digital currency policies. Fintech Review, Brasília, 2025. Disponível em: https://fintechreview.net/brazil-central-bank-unveils-key-fintech-and-digital-currency-policies/
+. Acesso em: 3 set. 2025.
+
+- EY. Próximos desafios e oportunidades do Open Finance no Brasil. EY Insights, 2025. Disponível em: https://www.ey.com/pt_br/insights/open-finance/proximos-desafios-e-oportunidades-open-finance-no-brasil
+. Acesso em: 3 set. 2025.
+
+- FINNET. Sobre a Finnet. Finnet, São Paulo, 2024a. Disponível em: https://finnet.com.br/sobre-a-finnet/
+. Acesso em: 3 set. 2025.
+
+- LEADIQ. Finnet company profile. Leadiq, 2024. Disponível em: https://leadiq.com/c/finnet/5a1d9b0823000059008a5202
+. Acesso em: 3 set. 2025.
+
+- OLHAR DIGITAL. Finnet liderando a transformação digital financeira com inovação empresarial. Olhar Digital, São Paulo, 2024. Disponível em: https://olhardigital.com.br/2024/06/24/pro/finnet-liderando-a-transformacao-digital-financeira-com-inovacao-empresarial/
+. Acesso em: 3 set. 2025.
+
+- PwC Brasil; ASSOCIAÇÃO BRASILEIRA DE CRÉDITO DIGITAL. Pesquisa Fintechs de Crédito Digital 2025. São Paulo, 2025. Disponível em: https://www.pwc.com.br/pt/estudos/setores-atividade/financeiro/2025/pesquisa-fintechs-de-credito-digital-2025.html
+. Acesso em: 3 set. 2025.
+
+- FALANDO DE NEGÓCIO. “2025 será o ano dos PJs no Open Finance”, acredita Finnet. Falando de Negócio, 30 jan. 2025. Disponível em: https://falandodenegocio.com/2025/01/30/2025-sera-o-ano-dos-pjs-no-open-finance-acredita-finnet/
+. Acesso em: 3 set. 2025.
+
+- SERASA EXPERIAN. Inadimplência bate recorde no Brasil com 7,3 milhões de empresas que somam dívidas de quase R$ 170 bilhões, aponta Serasa Experian. Serasa Experian, São Paulo, 2025. Disponível em: https://www.serasaexperian.com.br/sala-de-imprensa/indicadores/inadimplencia-bate-recorde-no-brasil-com-73-milhoes-de-empresas-que-somam-dividas-de-quase-rdollar-170-bilhoes-aponta-serasa-experian/
+. Acesso em: 3 set. 2025.
+
+- FOURBANK. Backoffice do futuro: menos planilhas, mais estratégia. Fourbank, 2025. Disponível em: https://www.fourbank.com.br/backoffice-do-futuro-menos-planilhas-mais-estrategia?utm_source=chatgpt.com
+. Acesso em: 3 set. 2025.
+
+- INFO MONEY. Pesquisa mostra que 39 % das MPMEs ainda controlam despesas de forma manual. InfoMoney, São Paulo, 2025. Disponível em: https://www.infomoney.com.br/minhas-financas/pesquisa-mostra-que-39-das-mpmes-ainda-controlam-despesas-de-forma-manual/?utm_source=chatgpt.com
+. Acesso em: 3 set. 2025.
+
+- RIMINI STREET; KEARNEY. Panorama de uso de ERP no mercado brasileiro (Benchmark Nacional de ERPs). São Paulo, 2024. Disponível em: https://www.riministreet.com/br/press-releases/kearney-panorama-erp-no-mercado-brasileiro/?utm_source=chatgpt.com
+. Acesso em: 3 set. 2025.
+
+- ALPHA Level (Significance Level): What is it? Statistics How To. Disponível em: https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/what-is-an-alpha-level/#:~:text=3.,equil%C3%ADbrio%20entre%20esses%20dois%20problemas. Acesso em: 27 ago. 2025.

@@ -74,21 +74,42 @@ Remova este bloco ao final
 <br>
 A metodologia CRISP-DM (Cross Industry Standard Process for Data Mining) é um modelo de referência amplamente utilizado em projetos de mineração de dados, criado para oferecer um processo estruturado, padronizado e flexível. Segundo Chapman et al. (2000), trata-se de uma abordagem cíclica que organiza o trabalho em fases bem definidas, favorecendo tanto a compreensão dos dados quanto a transformação destes em conhecimento útil para a tomada de decisão.
 <br>
+
 O processo é dividido em seis fases interdependentes, que vão do entendimento do problema até a implantação dos resultados:
 
-- Entendimento do negócio: definição dos objetivos e requisitos do projeto sob a perspectiva organizacional;
+### 3.1 Entendimento do negócio:
+
+Nesta fase, busca-se compreender o problema a partir da perspectiva organizacional. O foco não está nos dados em si, mas nos objetivos estratégicos da empresa ou instituição. É aqui que se define claramente o propósito do projeto e os requisitos de sucesso.
+Exemplo: em uma rede de varejo, o objetivo pode ser reduzir a taxa de abandono de clientes (churn). A equipe de ciência de dados precisa entender o que “retenção” significa para o negócio, quais métricas indicam sucesso e quais restrições existem (como orçamento ou tempo).
   
-- Entendimento dos dados: coleta inicial, exploração e identificação de problemas ou padrões relevantes;
+### 3.2 Entendimento dos dados:
+
+Uma vez definido o problema, inicia-se a coleta inicial e a exploração dos dados disponíveis. Esta etapa envolve identificação das fontes, análise de qualidade, descoberta de valores faltantes ou inconsistentes e observação de padrões preliminares.
+Exemplo: ao analisar os dados de clientes de uma empresa de telecomunicações, pode-se perceber que há campos em branco nas informações de idade, ou que o histórico de chamadas mostra picos de cancelamentos em determinados meses.
   
-- Preparação dos dados: limpeza, transformação e organização dos dados para obter um conjunto adequado à análise;
+### 3.3 Preparação dos dados:
+
+Depois da exploração, os dados precisam ser organizados em um formato adequado para a análise. Isso envolve limpeza, integração, transformação e seleção de variáveis relevantes. É comum que essa fase seja a mais trabalhosa, consumindo grande parte do esforço em um projeto de ciência de dados.
+Exemplo: normalizar colunas de preços, tratar valores ausentes substituindo-os por médias ou medianas, converter datas em períodos (como trimestre/ano) e criar variáveis derivadas, como “tempo de contrato”.
   
-- Modelagem: aplicação de diferentes técnicas para criar representações capazes de explicar ou prever comportamentos nos dados;
-  
-- Avaliação: verificação do desempenho dos modelos e de sua aderência aos objetivos estabelecidos;
-  
-- Implantação: integração dos resultados ao contexto real, permitindo que os conhecimentos extraídos sejam aplicados e gerem valor efetivo.
-  
-É importante ressaltar que esse ciclo não deve ser visto como linear e estático, mas como um processo iterativo e adaptável, no qual cada etapa pode ser revisitada conforme novas descobertas surgem ou ajustes se fazem necessários.
+### 3.4 Modelagem:
+
+Com os dados preparados, aplicam-se diferentes técnicas de modelagem, como regressão, árvores de decisão, redes neurais, clustering ou séries temporais. É comum experimentar mais de um algoritmo e ajustar parâmetros (hiperparâmetros) para encontrar o melhor desempenho.
+Exemplo: para prever churn, pode-se comparar o resultado de um modelo de regressão logística com o de uma árvore de decisão, analisando qual apresenta maior precisão e menor taxa de falsos positivos.
+
+### 3.5 Avaliação:
+
+Mesmo que o modelo apresente bons resultados em métricas estatísticas, é fundamental verificar sua aderência aos objetivos do negócio. Nesta fase, revisa-se se as descobertas realmente ajudam a responder ao problema original e se não existem riscos de interpretações equivocadas.
+Exemplo: um modelo pode prever corretamente 85% dos cancelamentos de clientes, mas se não indicar quem são os clientes mais valiosos, pode não atender à necessidade da empresa, que prioriza manter clientes de alto gasto.
+
+### 3.6 Implantação:
+
+Na última fase, os resultados são integrados ao contexto real, permitindo que o conhecimento extraído gere valor efetivo. A implantação pode variar desde a criação de um relatório analítico até a implementação de um sistema automatizado de predição em tempo real.
+Exemplo: no caso do churn, o modelo pode ser incorporado ao CRM da empresa, alertando a equipe de marketing quando um cliente apresenta alta probabilidade de cancelamento, possibilitando campanhas de retenção personalizadas.
+
+### Observação:
+
+É importante destacar que o CRISP-DM não deve ser interpretado como um processo linear e estático. Ao contrário, trata-se de um ciclo iterativo e adaptável, no qual os resultados de uma fase podem levar à revisão das anteriores. Por exemplo, durante a modelagem pode-se perceber que faltam dados importantes, exigindo um retorno à fase de preparação ou até mesmo ao entendimento do negócio.
 <br>
 
 ## <a name="c4"></a>4. Desenvolvimento e Resultados

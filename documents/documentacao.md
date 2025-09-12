@@ -126,8 +126,7 @@ No entanto, é importante ressaltar que, embora o núcleo tecnológico seja prop
 
 ##### Ameaça de produtos substitutos
 
-**Média** – Ameaça de produtos substitutos
-Média – Algumas empresas ainda recorrem ao uso de planilhas ou ERPs generalistas para gerir suas operações financeiras. No entanto, essas ferramentas costumam apresentar limitações significativas, como a baixa capacidade de automação de processos, integração bancária restrita e mecanismos de controle de risco pouco robustos. Por conta dessas deficiências, sua substituição por soluções mais completas tende a ocorrer apenas em cenários de menor complexidade operacional, nos quais o volume de transações e a necessidade de conformidade regulatória são reduzidos (INFOMONEY, 2025; RIMINI STREET & KEARNEY, 2024; FOURBANK, 2025).
+**Média** – Algumas empresas ainda recorrem ao uso de planilhas ou ERPs generalistas para gerir suas operações financeiras. No entanto, essas ferramentas costumam apresentar limitações significativas, como a baixa capacidade de automação de processos, integração bancária restrita e mecanismos de controle de risco pouco robustos. Por conta dessas deficiências, sua substituição por soluções mais completas tende a ocorrer apenas em cenários de menor complexidade operacional, nos quais o volume de transações e a necessidade de conformidade regulatória são reduzidos (INFOMONEY, 2025; RIMINI STREET & KEARNEY, 2024; FOURBANK, 2025).
 
 ##### Rivalidade entre concorrentes existentes
 

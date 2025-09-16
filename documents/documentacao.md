@@ -963,14 +963,35 @@ Remova este bloco ao final
 
 ### 4.4. Comparação de Modelos
 
-```
-- Descrever e justificar a escolha da métrica de avaliação dos modelos com base no que é mais importante para o problema ao
-  se medir a qualidade desses modelos;
-- Descrever ao menos três modelos candidatos, seus respectivos algoritmos, seus tunings de hiperparâmetros e suas métricas
-  alcançadas;
+Para aprimorar os modelos e garantir que os algoritmos e hiperparâmetros selecionados sejam os mais adequados, é fundamental definir métricas de avaliação que possibilitem a criação e a comparação entre diferentes abordagens. O uso dessas métricas torna a comparação dos modelos mais eficaz e fornece uma base sólida para a escolha das features, hiperparâmetros e algoritmos mais apropriados.
 
-Remova este bloco ao final
-```
+#### 4.4.1 Modelo de tendência de pagamento
+Esse modelo tem como objetivo classificar os pagamentos em três categorias:
+
+- Inadimplente
+
+- Em atraso
+
+- Em dia
+
+Devido à natureza do problema, as métricas utilizadas para avaliação desse modelo são mais específicas e exigem uma análise detalhada. Para isso, utiliza-se a matriz de confusão como base para a escolha e interpretação dos resultados.
+
+##### 4.4.1.A Inadimplente
+
+Caso um pagador inadimplente seja erroneamente classificado como adimplente, a empresa pode acabar aprovando uma compra que não será paga. Por esse motivo, a revocação (recall) é a métrica mais importante para essa categoria.
+A revocação corresponde à razão entre os verdadeiros positivos e a soma dos verdadeiros positivos com os falsos negativos, ou seja, o número de inadimplentes corretamente identificados pelo sistema em relação ao total de inadimplentes existentes.
+
+##### 4.4.1.B Em dia
+
+Nesta categoria, os boletos classificados como “em dia” tendem a ter suas compras aprovadas. Assim, erros de classificação podem fazer com que boletos de pagadores inadimplentes sejam emitidos e não pagos. Por isso, a métrica mais relevante é a precisão (precision), que corresponde à razão entre os verdadeiros positivos e a soma dos verdadeiros positivos com os falsos positivos, ou seja, o número de pagamentos corretamente classificados como “em dia” em relação ao total de pagamentos previstos como “em dia”.
+
+##### 4.4.1.C Em atraso
+
+A lógica de classificação para pagamentos em atraso segue o mesmo raciocínio da categoria “em dia”. Erros nesse caso também podem fazer com que boletos de inadimplentes tenham suas compras aprovadas. Dessa forma, a métrica mais apropriada é novamente a precisão (precision), que mede a proporção de boletos corretamente identificados como pagos com atraso em relação ao total de boletos classificados como pagamento em atraso.
+
+#### 4.4.2 Modelo de fluxo de caixa
+
+Esse modelo tem como objetivo prever o valor total de recebimentos do grupo e, para avaliar sua eficácia, é utilizada uma métrica que compara o valor previsto com o valor real, permitindo quantificar seu desempenho. Dessa forma, um aumento nesse indicador representa uma melhora na qualidade do modelo. Por esse motivo, essa métrica foi adotada como base para sua avaliação.
 
 ### 4.5. Avaliação
 

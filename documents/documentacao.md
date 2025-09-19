@@ -937,14 +937,72 @@ RMSE (Root Mean Squared Error): Raiz quadrada da média dos erros quadráticos e
 
 ### 4.4. Comparação de Modelos
 
-```
 - Descrever e justificar a escolha da métrica de avaliação dos modelos com base no que é mais importante para o problema ao
   se medir a qualidade desses modelos;
 - Descrever ao menos três modelos candidatos, seus respectivos algoritmos, seus tunings de hiperparâmetros e suas métricas
   alcançadas;
 
-Remova este bloco ao final
-```
+## Modelo de previsão de recebimentos/fluxo de caixa
+
+## **Modelo 1: Regressão Logística Simples**
+
+**Algoritmo:** Logistic Regression
+
+**Hiperparâmetros Configurados:**
+- `class_weight='balanced'` ou `{0: 0.5, 1: 0.5}` (para balanceamento de classes)
+- `solver='sag'` 
+- `max_iter=1000` (para garantir convergência)
+
+**Features Utilizadas:**
+- `vl_boleto` (valor original do boleto)
+- `vl_pagto` (valor efetivamente pago)
+
+**Tuning Realizado:**
+- Teste manual de diferentes estratégias de balanceamento de classes
+- Experimentação com diferentes solvers para otimização
+
+**Métricas Alcançadas:**
+- **Acurácia:** 89.35%
+- **ROC AUC:** 91.97%
+- **Precisão (classe 1):** 
+- **Recall (classe 1):**
+
+---
+
+## **Modelo 2: Random Forest com Otimização**
+
+**Algoritmo:** Random Forest Classifier
+
+### **Hiperparâmetros Configurados**
+- `class_weight='balanced'`
+- `n_estimators=100`
+- `random_state=42`
+- `max_depth=10`
+- `min_samples_split=5`
+- `min_samples_leaf=2`
+
+### **Features Utilizadas**
+- `vl_boleto` (valor original do boleto)  
+- `vl_pagto` (valor efetivamente pago)
+
+### **Tuning Realizado**
+- Configuração manual de parâmetros para evitar overfitting  
+- Balanceamento explícito de classes  
+- Limitação da profundidade das árvores
+
+### **Métricas Alcançadas**
+- **Acurácia:** 89.40%  
+- **ROC AUC:** 96.06% (superior aos demais modelos)  
+- **Performance:** Melhor capacidade discriminativa demonstrada pela AUC
+
+---
+
+## **Conclusão da Modelagem**
+
+O **Modelo 3 (Random Forest)** demonstrou a melhor performance com **ROC AUC de 96.06%**, indicando excelente capacidade discriminativa para prever pagamentos integrais.
+
+A estratégia de usar um modelo mais complexo com tuning adequado de hiperparâmetros foi compreendida como mais eficaz, superando os modelos de regressão logística tanto na versão simples e de outras ferramentas do notebook.
+
 
 ### 4.5. Avaliação
 

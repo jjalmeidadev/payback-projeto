@@ -945,21 +945,6 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 ### 4.3. Preparação dos Dados e Modelagem
 
-```
-Caso seu projeto seja Modelo Supervisionado, apresentar:
-a) Organização dos dados (conjunto de treinamento, validação e testes)
-b) Modelagem para o problema (proposta de features com a explicação completa da linha de raciocínio).
-c) Métricas relacionadas ao modelo (pelo menos 3).
-d) Apresentar o primeiro modelo candidato, e uma discussão sobre os resultados deste modelo (discussão sobre as métricas para esse modelo candidato).
-
-Caso seu projeto seja Modelo Não-Supervisionado, apresentar:
-a) Modelagem para o problema (proposta de features com a explicação completa da linha de raciocínio).
-b) Primeiro modelo candidato para o problema.
-c) Justificativa para a definição do K do modelo.
-d) Escolha de um tipo de sistema de recomendação e a justificativa para essa escolha.
-
-Remova este bloco ao final
-```
 &nbsp;&nbsp;&nbsp;&nbsp; Nessa seção, foram desenvolvidos os modelos preditivos necessários para atender às entregas propostas no TAPI, cada um deles com objetivos específicos:
 
 - Modelo de score de risco de inadimplência: elaborado com base em técnicas de aprendizado supervisionado do tipo regressão, este modelo atribui uma pontuação de risco aos clientes, permitindo identificar a probabilidade de inadimplência e subsidiar estratégias de mitigação.
@@ -968,7 +953,7 @@ Remova este bloco ao final
 
 - Modelo de impacto projetado no fluxo de recebimentos: criado para estimar como diferentes cenários de pagamento (adimplência, atraso ou inadimplência) afetam o fluxo de caixa futuro, permitindo ao grupo avaliar riscos financeiros e tomar decisões de planejamento. Esse modelo será estruturado como um problema de regressão e a aprendizagem será feita de forma supervisionada.
 
-&nbsp;&nbsp;&nbsp;&nbsp; A partir desses modelos, se torna possível entregar todas as demandas da empresa parceira através da criação desses três modelos preditivos.
+&nbsp;&nbsp;&nbsp;&nbsp; A partir desses modelos, torna-se possível entregar todas as demandas previstas no TAPI.
 
 ### 4.3.1 Tratamento de Dados
 
@@ -976,11 +961,11 @@ Remova este bloco ao final
 
 &nbsp;&nbsp;&nbsp;&nbsp;Dessa forma, os seguintes tratamentos foram realizados:
 
-- **Substituição dos valores ausentes:** Os valores que estavam ausentes, nessa caso preenchidos por NaN (Not a Number) das tabelas **dias_para_pagar**, **qtd_acessos_pagador_norm** e **pago/n** foram substituidos por 0, assim possibilitando a utilização dessas dados pelo modelo preditivo.
+- **Substituição dos valores ausentes:** Os valores que estavam ausentes, nesse caso preenchidos por NaN (Not a Number) das tabelas **dias_para_pagar**, **qtd_acessos_pagador_norm** e **pago/n** foram substituidos por 0, assim possibilitando a utilização dessas dados pelo modelo preditivo.
 
-- **Transformação das novas features:** Se fez necessário transformar as novas features desenvolvidas nos gráficos, hipóteses e na preparação do modelo preditivo, para o formato Label Encoder, tramsformando assim variáveis categóricas como (**mes_inclusão**, **mes_pag**, **pagador_inscricao_hash**, **pago/n (pago ou não)** e **mes_vencto**) em números que representam cada uma das categorias, para que assim, os dados possam ser entendidos pelo modelo.
+- **Transformação das novas features:** Se fez necessário transformar as novas features desenvolvidas nos gráficos, hipóteses e na preparação do modelo preditivo, para o formato "Label Encoder", transformando assim variáveis categóricas como (**mes_inclusão**, **mes_pag**, **pagador_inscricao_hash**, **pago/n (pago ou não)** e **mes_vencto**) em números que representam cada uma das categorias, para que assim, os dados possam ser entendidos pelo modelo.
 
-- **Normalização dos dados:** Durante a criação do modelo preditivo, notamos que a alta dispersão de valores dos dados interfere diretamente na acurácia e resultados do modelo. Portanto, se fez necessário criar uma escala padrão para as colunas, assim transformando as linhas de algumas colunas em números em uma escala de (0,1) para melhor aproximação dos dados e assim garantindo melhores resultados e acurácia nos modelos criados.
+- **Normalização dos dados:** Durante a criação do modelo preditivo, notamos que a alta dispersão de valores dos dados interfere diretamente na acurácia e resultados do modelo. Portanto, fez-se necessário criar uma escala padrão para as colunas, transformando assim as linhas de algumas colunas em números em uma escala de (0,1) para melhor aproximação dos dados e assim garantindo melhores resultados e acurácia nos modelos criados.
 
 &nbsp;&nbsp;&nbsp;&nbsp; Após a etapa de tratamento e preparação dos dados, todas as colunas que serão utilizadas pelos modelos preditivos passaram por um processo de padronização, limpeza e ajuste, de forma a garantir que estejam devidamente adequadas para os cálculos e análises subsequentes. Esse cuidado é fundamental para assegurar que os modelos possam operar com dados consistentes, sem ruídos ou valores inválidos, o que contribui não apenas para evitar a ocorrência de erros durante a execução, mas também para aumentar a confiabilidade dos resultados obtidos. Dessa maneira, cria-se uma base sólida para que as previsões geradas apresentem maior precisão, desempenho otimizado e relevância prática para a tomada de decisão. 
 
@@ -995,11 +980,11 @@ Remova este bloco ao final
 
 **Variável Y:**
 
-&nbsp;&nbsp;&nbsp;&nbsp; No desenvolvimento do modelo de tendência de pagamento, fez se necessário estabelecer, para cada boleto, qual foi o resultado do pagamento: em dia, em atraso ou inadimplente. Essa informação é representada pela variável alvo (y), que corresponde ao valor que o modelo deve aprender a prever.
+&nbsp;&nbsp;&nbsp;&nbsp; No desenvolvimento do modelo de tendência de pagamento, fez-se necessário estabelecer, para cada boleto, qual foi o resultado do pagamento: em dia, em atraso ou inadimplente. Essa informação é representada pela variável alvo (y), que corresponde ao valor que o modelo deve aprender a prever.
 
 &nbsp;&nbsp;&nbsp;&nbsp; Em outras palavras, enquanto as features (variáveis independentes) fornecem as características descritivas dos boletos e dos pagadores, a variável alvo indica o comportamento final que se deseja estimar. No caso em questão, a variável alvo foi definida como “Status de Pagamento”, classificando cada boleto em uma das três categorias mencionadas. Essa categorização serve de referência durante o treinamento, permitindo que o algoritmo aprenda padrões e consiga, posteriormente, prever a tendência de pagamento de novos boletos.
 
-&nbsp;&nbsp;&nbsp;&nbsp; Utilizamos da data de vencimento e de pagamento para calcular o número de dias que cada boleto levou para ser pago. Se o número de dias for qualquer número positivo maior que 0, significa que o boleto foi pago em dia, se for entre -1 e -30, significa que o boleto foi pago com atraso e se tiver um valor menor que -30 (Ou seja, demorou mais de 30 dias para pagar) o boleto é considerado como inadimplente.
+&nbsp;&nbsp;&nbsp;&nbsp; Utilizamos a data de vencimento e de pagamento para calcular o número de dias que cada boleto levou para ser pago. Se o número de dias for qualquer número positivo maior que 0, significa que o boleto foi pago em dia, se for entre -1 e -30, significa que o boleto foi pago com atraso e se tiver um valor menor que -30 (Ou seja, demorou mais de 30 dias para pagar) o boleto é considerado como inadimplente.
 
 **Variável X:**
 
@@ -1060,7 +1045,7 @@ Remova este bloco ao final
 </div>
 <br>
 
-&nbsp;&nbsp;&nbsp;&nbsp; A partir dos resultados dos testes, podemos identificar uma acurácia de 60%, precisão de 61% e recall geral de 61%. Observando de forma mais específca, é possível observar que o modelo tem mais facilidade em identificar pagamentos em dia (66% de precisão) e inadimplente (63% de precisão) e tem muita dificuldade de identificar corretamente os boletos que irão atrasar (51% de precisão).
+&nbsp;&nbsp;&nbsp;&nbsp; A partir dos resultados dos testes, podemos identificar uma acurácia de 60%, precisão de 61% e recall geral de 61%. Observando de forma mais específica, é possível observar que o modelo tem mais facilidade em identificar pagamentos em dia (66% de precisão) e inadimplente (63% de precisão) e tem muita dificuldade de identificar corretamente os boletos que irão atrasar (51% de precisão).
 
 &nbsp;&nbsp;&nbsp;&nbsp; Com esse resultado, a conclusão é de que, definimos como próximos passos, buscar novas features e mudar os hiper-parâmetros com o objetivo de alcançar uma melhor acurácia para o modelo preditivo.
 

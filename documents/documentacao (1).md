@@ -945,25 +945,43 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 ### 4.3. Preparação dos Dados e Modelagem
 
-```
+
 Caso seu projeto seja Modelo Supervisionado, apresentar:
 a) Organização dos dados (conjunto de treinamento, validação e testes)
 b) Modelagem para o problema (proposta de features com a explicação completa da linha de raciocínio).
 c) Métricas relacionadas ao modelo (pelo menos 3).
 d) Apresentar o primeiro modelo candidato, e uma discussão sobre os resultados deste modelo (discussão sobre as métricas para esse modelo candidato).
 
-Caso seu projeto seja Modelo Não-Supervisionado, apresentar:
-a) Modelagem para o problema (proposta de features com a explicação completa da linha de raciocínio).
-b) Primeiro modelo candidato para o problema.
-c) Justificativa para a definição do K do modelo.
-d) Escolha de um tipo de sistema de recomendação e a justificativa para essa escolha.
+Na seção 4.4 do notebook:
 
-Remova este bloco ao final
-```
+
+a) Organização dos dados (conjunto de treinamento, validação e testes):
+
+Os dados foram organizados para prever o valor total de recebimentos por pagador, considerando o histórico de pagamentos. Para cada pagador_hash, foram agrupadas as linhas do dataset, separando os casos em que vl_pagto == valor_boleto (pagamento integral) e vl_pagto < valor_boleto (pagamento parcial ou inadimplência). A proporção de pagamentos integrais foi calculada para cada pagador, servindo como base para a previsão. Os dados foram divididos em conjuntos de treinamento e teste utilizando train_test_split, garantindo robustez na avaliação.
+
+b) Modelagem para o problema (proposta de features e explicação):
+
+A modelagem utiliza como principais features:
+
+Proporção de pagamentos integrais por pagador.
+Diferença média entre valor_boleto e vl_pagto para cada pagador (coluna criada: diferença = (soma dos valores de valor_boleto - soma dos valores de vl_pagto de cada pagador) / número de linhas).
+Histórico de pagamentos (quantidade de boletos pagos corretamente).
+Valor total de boletos emitidos por pagador.
+A lógica de previsão é:
+
+Se a chance de um pagador pagar o total for maior que 0,5, soma-se os valores das linhas da coluna valor_boleto para esse pagador.
+Se a chance for menor ou igual a 0,5, aplica-se: valor_boleto - diferença média registrada.
+O resultado é armazenado em uma nova coluna pagamento_total_previsto, que representa a previsão de recebimento por pagador.
+
+c) Métricas relacionadas ao modelo (pelo menos 3):
+
+Accuracy: Proporção de previsões corretas em relação ao valor real pago (vl_pagto).
+MAE (Mean Absolute Error): Média dos erros absolutos entre o valor previsto e o valor real recebido.
+RMSE (Root Mean Squared Error): Raiz quadrada da média dos erros quadráticos entre o valor previsto e o valor real.
 
 ### 4.4. Comparação de Modelos
 
-Para aprimorar os modelos e garantir que os algoritmos e hiperparâmetros selecionados sejam os mais adequados, é fundamental definir métricas de avaliação que possibilitem a criação e a comparação entre diferentes abordagens. O uso dessas métricas torna a comparação dos modelos mais eficaz e fornece uma base sólida para a escolha das features, hiperparâmetros e algoritmos mais apropriados.
+Para aprimorar os modelos e garantir que os algoritmos e hiperparâmetros selecionados sejam os mais adequados, é fundamental definir métricas de avaliação que possibilitem a criação e a comparação entre diferentes abordagens. O uso dessas métricas torna a comparação dos modelos mais eficaz e fornece uma base sólida para a escolha das features, hiperparâmetros e algoritmos mais apropriados:
 
 #### 4.4.1 Modelo de tendência de pagamento
 Esse modelo tem como objetivo classificar os pagamentos em três categorias:
@@ -991,7 +1009,68 @@ A lógica de classificação para pagamentos em atraso segue o mesmo raciocínio
 
 #### 4.4.2 Modelo de fluxo de caixa
 
-Esse modelo tem como objetivo prever o valor total de recebimentos do grupo e, para avaliar sua eficácia, é utilizada uma métrica que compara o valor previsto com o valor real, permitindo quantificar seu desempenho. Dessa forma, um aumento nesse indicador representa uma melhora na qualidade do modelo. Por esse motivo, essa métrica foi adotada como base para sua avaliação.
+Esse modelo tem como objetivo prever o valor total de recebimentos do grupo e, para avaliar sua eficácia, é utilizada uma métrica que compara o valor previsto com o valor real, permitindo quantificar seu desempenho. Dessa forma, um aumento nesse indicador representa uma melhora na qualidade do modelo. Por esse motivo, essa métrica foi adotada como base para sua avaliação:
+
+## **Modelo 1: Regressão Logística Simples**
+
+**Algoritmo:** Logistic Regression
+
+**Hiperparâmetros Configurados:**
+- `class_weight='balanced'` ou `{0: 0.5, 1: 0.5}` (para balanceamento de classes)
+- `solver='sag'` 
+- `max_iter=1000` (para garantir convergência)
+
+**Features Utilizadas:**
+- `vl_boleto` (valor original do boleto)
+- `vl_pagto` (valor efetivamente pago)
+
+**Tuning Realizado:**
+- Teste manual de diferentes estratégias de balanceamento de classes
+- Experimentação com diferentes solvers para otimização
+
+**Métricas Alcançadas:**
+- **Acurácia:** 89.35%
+- **ROC AUC:** 91.97%
+- **Precisão (classe 1):** 
+- **Recall (classe 1):**
+
+---
+
+## **Modelo 2: Random Forest com Otimização**
+
+**Algoritmo:** Random Forest Classifier
+
+### **Hiperparâmetros Configurados**
+- `class_weight='balanced'`
+- `n_estimators=100`
+- `random_state=42`
+- `max_depth=10`
+- `min_samples_split=5`
+- `min_samples_leaf=2`
+
+### **Features Utilizadas**
+- `vl_boleto` (valor original do boleto)  
+- `vl_pagto` (valor efetivamente pago)
+
+### **Tuning Realizado**
+- Configuração manual de parâmetros para evitar overfitting  
+- Balanceamento explícito de classes  
+- Limitação da profundidade das árvores
+
+### **Métricas Alcançadas**
+- **Acurácia:** 89.40%  
+- **ROC AUC:** 96.06% (superior aos demais modelos)  
+- **Performance:** Melhor capacidade discriminativa demonstrada pela AUC
+
+---
+
+## **Conclusão da Modelagem**
+
+O **Modelo 3 (Random Forest)** demonstrou a melhor performance com **ROC AUC de 96.06%**, indicando excelente capacidade discriminativa para prever pagamentos integrais.
+
+A estratégia de usar um modelo mais complexo com tuning adequado de hiperparâmetros foi compreendida como mais eficaz, superando os modelos de regressão logística tanto na versão simples e de outras ferramentas do notebook.
+
+>>>>>>> origin/previsao-recebimento:documents/documentacao (1).md
 
 ### 4.5. Avaliação
 

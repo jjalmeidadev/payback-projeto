@@ -981,16 +981,16 @@ RMSE (Root Mean Squared Error): Raiz quadrada da média dos erros quadráticos e
 
 ### 4.4. Comparação de Modelos
 
-Para aprimorar os modelos e garantir que os algoritmos e hiperparâmetros selecionados sejam os mais adequados, é fundamental definir métricas de avaliação que possibilitem a criação e a comparação entre diferentes abordagens. O uso dessas métricas torna a comparação dos modelos mais eficaz e fornece uma base sólida para a escolha das features, hiperparâmetros e algoritmos mais apropriados:
+Para aprimorar os modelos e garantir que os algoritmos e hiperparâmetros selecionados sejam os mais adequados, é fundamental definir métricas de avaliação que possibilitem a criação e comparação entre diferentes abordagens. O uso dessas métricas torna a comparação dos modelos mais eficaz e fornece uma base sólida para a escolha das features, hiperparâmetros e algoritmos mais apropriados:
 
 #### 4.4.1 Modelo de tendência de pagamento
 Esse modelo tem como objetivo classificar os pagamentos em três categorias:
 
-- Inadimplente
+- Inadimplente.
 
-- Em atraso
+— Em atraso.
 
-- Em dia
+— Em dia.
 
 Devido à natureza do problema, as métricas utilizadas para avaliação desse modelo são mais específicas e exigem uma análise detalhada. Para isso, utiliza-se a matriz de confusão como base para a escolha e interpretação dos resultados.
 
@@ -1001,7 +1001,7 @@ A revocação corresponde à razão entre os verdadeiros positivos e a soma dos 
 
 ##### 4.4.1.B Em dia
 
-Nesta categoria, os boletos classificados como “em dia” tendem a ter suas compras aprovadas. Assim, erros de classificação podem fazer com que boletos de pagadores inadimplentes sejam emitidos e não pagos. Por isso, a métrica mais relevante é a precisão (precision), que corresponde à razão entre os verdadeiros positivos e a soma dos verdadeiros positivos com os falsos positivos, ou seja, o número de pagamentos corretamente classificados como “em dia” em relação ao total de pagamentos previstos como “em dia”.
+Nesta categoria, os boletos classificados como “em dia” tendem a ter suas compras aprovadas. Assim, erros de classificação podem fazer com que boletos de pagadores inadimplentes sejam emitidos e não pagos. Por isso, a métrica mais relevante é a precisão (precision). Ela corresponde à razão entre os verdadeiros positivos e a soma dos verdadeiros positivos com os falsos positivos. Ou seja, o número de pagamentos corretamente classificados como “em dia” em relação ao total de pagamentos previstos como “em dia”.
 
 ##### 4.4.1.C Em atraso
 
@@ -1068,9 +1068,7 @@ Esse modelo tem como objetivo prever o valor total de recebimentos do grupo e, p
 
 O **Modelo 3 (Random Forest)** demonstrou a melhor performance com **ROC AUC de 96.06%**, indicando excelente capacidade discriminativa para prever pagamentos integrais.
 
-A estratégia de usar um modelo mais complexo com tuning adequado de hiperparâmetros foi compreendida como mais eficaz, superando os modelos de regressão logística tanto na versão simples e de outras ferramentas do notebook.
-
->>>>>>> origin/previsao-recebimento:documents/documentacao (1).md
+A estratégia de usar um modelo mais complexo com tuning adequado de hiperparâmetros foi compreendida como mais eficaz, superando os modelos de regressão logística tanto na versão simples quanto de outras ferramentas do notebook.
 
 ### 4.5. Avaliação
 

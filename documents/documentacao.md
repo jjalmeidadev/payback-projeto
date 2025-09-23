@@ -1145,6 +1145,47 @@ A lógica de classificação para pagamentos em atraso segue o mesmo raciocínio
 
 Esse modelo tem como objetivo prever o valor total de recebimentos do grupo e, para avaliar sua eficácia, é utilizada uma métrica que compara o valor previsto com o valor real, permitindo quantificar seu desempenho. Dessa forma, um aumento nesse indicador representa uma melhora na qualidade do modelo. Por esse motivo, essa métrica foi adotada como base para sua avaliação.
 
+#### 4.4.3 Explicabilidade
+
+O **Modelo B de tendência de pagamento** foi escolhido para ser explicado por ser o mais completo, tanto em termos de métodos utilizados quanto de features selecionadas ou criadas.
+
+**Contexto:**  
+Este modelo tem como objetivo prever a tendência de pagamento de um boleto, sendo classificado em três principais categorias: **em dia**, **em atraso** e **inadimplente**.
+
+**Features:**  
+Para treinar um modelo é necessário selecionar as **variáveis independentes (X)** que serão utilizadas para realizar a previsão, além da **variável dependente (y)**, que representa o valor a ser previsto.  
+Neste modelo, as variáveis **X** utilizadas foram:  
+- valor do boleto,  
+- quantidade de acessos do pagador,  
+- hash da inscrição do pagador,  
+- juros,  
+- mês do vencimento,  
+- dia do vencimento,  
+- tipo do pagador (CPF ou CNPJ).  
+
+A variável **y** é o **status do pagamento**.
+
+**Balanceamento dos dados:**  
+Em muitos cenários de treinamento, as classes da variável **y** não estão igualmente representadas, gerando um **desbalanceamento**. Isso pode levar o modelo a ter uma "falsa precisão".  
+Por exemplo: ao escolher uma letra aleatória do alfabeto, a chance de ser uma vogal é naturalmente menor que a de ser uma consoante. Se um modelo previsse sempre "consoante", ele pareceria estar correto na maioria dos casos, mas estaria enviesado.  
+Para corrigir esse problema, foi utilizada a técnica **SMOTE (Synthetic Minority Over-sampling Technique)**, que gera amostras sintéticas das classes minoritárias, equilibrando os dados e reduzindo previsões "corretas" baseadas apenas na sorte.
+
+**Algoritmo utilizado:**  
+O algoritmo escolhido foi o **Random Forest**, que combina diversas árvores de decisão para gerar a previsão. A escolha se deu pelo fato de o primeiro modelo ter utilizado apenas uma árvore de decisão; logo, aumentar o número de árvores tende a aumentar a robustez e a precisão das previsões.
+
+**Hiperparâmetros:**  
+Hiperparâmetros são configurações que controlam como o modelo aprende, podendo influenciar positivamente ou negativamente o desempenho. Eles ajudam a evitar *overfitting*, balancear respostas e controlar a complexidade do modelo.  
+Os hiperparâmetros utilizados foram:  
+- **max_depth:** profundidade máxima da árvore, ou seja, quantos níveis de divisão podem ser feitos.  
+- **min_samples_split:** número mínimo de amostras necessárias para dividir um nó.  
+- **min_samples_leaf:** número mínimo de amostras em um nó folha (nó terminal).  
+- **criterion:** função usada para medir a qualidade da divisão (ex.: `gini` ou `entropy`).  
+
+**Visualização (gráficos):**  
+Modelos preditivos retornam grande volume de dados, por isso é essencial utilizar gráficos para facilitar a interpretação. Os gráficos utilizados neste modelo foram:  
+- **Gráfico de colunas:** para visualizar as métricas de cada categoria de status de pagamento.  
+- **Mapa de calor da matriz de confusão:** para mostrar de forma clara como cada dado foi previsto em relação ao seu status real.
+
 ### 4.5. Avaliação
 
 ```

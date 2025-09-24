@@ -945,12 +945,28 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 ### 4.3. Preparação dos Dados e Modelagem
 
+## **Modelo 1: Regressão Logística Simples**
 
-Caso seu projeto seja Modelo Supervisionado, apresentar:
-a) Organização dos dados (conjunto de treinamento, validação e testes)
-b) Modelagem para o problema (proposta de features com a explicação completa da linha de raciocínio).
-c) Métricas relacionadas ao modelo (pelo menos 3).
-d) Apresentar o primeiro modelo candidato, e uma discussão sobre os resultados deste modelo (discussão sobre as métricas para esse modelo candidato).
+**Algoritmo:** Logistic Regression
+
+**Hiperparâmetros Configurados:**
+- `class_weight='balanced'` ou `{0: 0.5, 1: 0.5}` (para balanceamento de classes)
+- `solver='sag'` 
+- `max_iter=1000` (para garantir convergência)
+
+**Features Utilizadas:**
+- `vl_boleto` (valor original do boleto)
+- `vl_pagto` (valor efetivamente pago)
+
+**Tuning Realizado:**
+- Teste manual de diferentes estratégias de balanceamento de classes
+- Experimentação com diferentes solvers para otimização
+
+**Métricas Alcançadas:**
+- **Acurácia:** 89.35%
+- **ROC AUC:** 91.97%
+- **Precisão (classe 1):** 
+- **Recall (classe 1):**
 
 Na seção 4.4 do notebook:
 
@@ -1011,64 +1027,60 @@ A lógica de classificação para pagamentos em atraso segue o mesmo raciocínio
 
 Esse modelo tem como objetivo prever o valor total de recebimentos do grupo e, para avaliar sua eficácia, é utilizada uma métrica que compara o valor previsto com o valor real, permitindo quantificar seu desempenho. Dessa forma, um aumento nesse indicador representa uma melhora na qualidade do modelo. Por esse motivo, essa métrica foi adotada como base para sua avaliação:
 
-## **Modelo 1: Regressão Logística Simples**
+---
 
-**Algoritmo:** Logistic Regression
-
-**Hiperparâmetros Configurados:**
-- `class_weight='balanced'` ou `{0: 0.5, 1: 0.5}` (para balanceamento de classes)
-- `solver='sag'` 
-- `max_iter=1000` (para garantir convergência)
-
-**Features Utilizadas:**
-- `vl_boleto` (valor original do boleto)
-- `vl_pagto` (valor efetivamente pago)
-
-**Tuning Realizado:**
-- Teste manual de diferentes estratégias de balanceamento de classes
-- Experimentação com diferentes solvers para otimização
-
-**Métricas Alcançadas:**
-- **Acurácia:** 89.35%
-- **ROC AUC:** 91.97%
-- **Precisão (classe 1):** 
-- **Recall (classe 1):**
+##### Algoritmo Selecionado
+O modelo adotado foi o **Random Forest Classifier**, uma técnica de aprendizado supervisionado baseada em múltiplas árvores de decisão. Esse algoritmo foi escolhido por sua robustez em cenários de classificação, especialmente em contextos com desbalanceamento entre classes e alta variabilidade nos dados. Além disso, o Random Forest apresenta menor tendência ao overfitting em relação a modelos mais simples, ao combinar o resultado de diversas árvores para gerar previsões mais consistentes.  
 
 ---
 
-## **Modelo 2: Random Forest com Otimização**
+##### **Hiperparâmetros Configurados**
+Para garantir estabilidade e desempenho, alguns hiperparâmetros foram ajustados manualmente.  
 
-**Algoritmo:** Random Forest Classifier
-
-### **Hiperparâmetros Configurados**
-- `class_weight='balanced'`
-- `n_estimators=100`
-- `random_state=42`
-- `max_depth=10`
-- `min_samples_split=5`
-- `min_samples_leaf=2`
-
-### **Features Utilizadas**
-- `vl_boleto` (valor original do boleto)  
-- `vl_pagto` (valor efetivamente pago)
-
-### **Tuning Realizado**
-- Configuração manual de parâmetros para evitar overfitting  
-- Balanceamento explícito de classes  
-- Limitação da profundidade das árvores
-
-### **Métricas Alcançadas**
-- **Acurácia:** 89.40%  
-- **ROC AUC:** 96.06% (superior aos demais modelos)  
-- **Performance:** Melhor capacidade discriminativa demonstrada pela AUC
+- `class_weight='balanced'`: utilizado para corrigir o desbalanceamento entre as classes, assegurando que o modelo não privilegie apenas a classe majoritária.  
+- `n_estimators=100`: número de árvores, equilibrando custo computacional e qualidade preditiva.  
+- `random_state=42`: assegura reprodutibilidade dos experimentos.  
+- `max_depth=10`: limite da profundidade máxima das árvores, controlando a complexidade.  
+- `min_samples_split=5`: divisão mínima para criação de novos nós, garantindo relevância estatística.  
+- `min_samples_leaf=2`: número mínimo de amostras em cada nó terminal, reduzindo o risco de nós pouco representativos.  
 
 ---
 
-## **Conclusão da Modelagem**
+##### **Variáveis Utilizadas**
+O modelo considerou duas variáveis principais:  
 
-O **Modelo 3 (Random Forest)** demonstrou a melhor performance com **ROC AUC de 96.06%**, indicando excelente capacidade discriminativa para prever pagamentos integrais.
+- **`vl_boleto`**: representa o valor original do boleto emitido, funcionando como referência da obrigação financeira.  
+- **`vl_pagto`**: corresponde ao valor efetivamente pago pelo cliente, sendo indicador direto do comportamento de adimplência.  
 
-A estratégia de usar um modelo mais complexo com tuning adequado de hiperparâmetros foi compreendida como mais eficaz, superando os modelos de regressão logística tanto na versão simples quanto de outras ferramentas do notebook.
+A escolha dessas variáveis decorre de sua relevância prática e de sua relação direta com o objetivo preditivo de identificar pagamentos integrais.  
+
+---
+
+##### **Estratégias de Tuning**
+O processo de otimização do modelo foi conduzido de forma manual, com foco na prevenção de overfitting e na melhoria da generalização.  
+
+- O balanceamento de classes foi crucial para mitigar vieses em favor da classe majoritária.  
+- O controle da profundidade das árvores reduziu a formação de modelos excessivamente complexos.  
+- As restrições de divisão mínima e de amostras por folha asseguraram maior robustez estatística das regras aprendidas.  
+
+---
+
+##### **Métricas de Desempenho**
+O modelo alcançou resultados expressivos:  
+
+- **Acurácia:** 89,40%  
+- **ROC AUC:** 96,06%  
+
+A métrica **ROC AUC** destacou-se por indicar alta capacidade discriminativa, confirmando que o modelo é capaz de distinguir com elevada precisão os casos de pagamentos integrais em relação aos não integrais. Esse desempenho foi superior ao dos modelos de regressão logística utilizados como baseline.  
+
+---
+
+##### **Conclusões**
+O **Random Forest otimizado** demonstrou ser a abordagem mais eficaz para o problema em análise, apresentando métricas significativamente superiores às alternativas testadas. Sua capacidade de equilibrar complexidade e generalização, aliada ao tuning apropriado, garantiu resultados robustos e confiáveis.  
+
+A performance expressa pela **ROC AUC de 96,06%** confirma o potencial do modelo como ferramenta preditiva em cenários reais, especialmente para análise de comportamento de pagamento e previsão de inadimplência. Dessa forma, a adoção de algoritmos mais sofisticados, com ajustes criteriosos de parâmetros, mostrou-se fundamental para a obtenção de maior precisão e aplicabilidade prática.  
+
+---
 
 ### 4.5. Avaliação
 

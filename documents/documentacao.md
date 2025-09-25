@@ -994,16 +994,16 @@ Esse modelo tem como objetivo classificar os pagamentos em três categorias:
 
 Devido à natureza do problema, as métricas utilizadas para avaliação desse modelo são mais específicas e exigem uma análise detalhada. Para isso, utiliza-se a matriz de confusão como base para a escolha e interpretação dos resultados.
 
-##### 4.4.1.A Inadimplente
+##### 4.4.1.1 Inadimplente
 
 Caso um pagador inadimplente seja erroneamente classificado como adimplente, a empresa pode acabar aprovando uma compra que não será paga. Por esse motivo, a revocação (recall) é a métrica mais importante para essa categoria.
 A revocação corresponde à razão entre os verdadeiros positivos e a soma dos verdadeiros positivos com os falsos negativos, ou seja, o número de inadimplentes corretamente identificados pelo sistema em relação ao total de inadimplentes existentes.
 
-##### 4.4.1.B Em dia
+##### 4.4.1.2 Em dia
 
 Nesta categoria, os boletos classificados como “em dia” tendem a ter suas compras aprovadas. Assim, erros de classificação podem fazer com que boletos de pagadores inadimplentes sejam emitidos e não pagos. Por isso, a métrica mais relevante é a precisão (precision), que corresponde à razão entre os verdadeiros positivos e a soma dos verdadeiros positivos com os falsos positivos, ou seja, o número de pagamentos corretamente classificados como “em dia” em relação ao total de pagamentos previstos como “em dia”.
 
-##### 4.4.1.C Em atraso
+##### 4.4.1.3 Em atraso
 
 A lógica de classificação para pagamentos em atraso segue o mesmo raciocínio da categoria “em dia”. Erros nesse caso também podem fazer com que boletos de inadimplentes tenham suas compras aprovadas. Dessa forma, a métrica mais apropriada é novamente a precisão (precision), que mede a proporção de boletos corretamente identificados como pagos com atraso em relação ao total de boletos classificados como pagamento em atraso.
 
@@ -1064,13 +1064,61 @@ Esse modelo tem como objetivo prever o valor total de recebimentos do grupo e, p
 
 ---
 
+## **Modelo 3: Light Gradient Boosting Machine (LightGBM)**  
+
+**Algoritmo:** LightGBM Classifier  
+
+### **Hiperparâmetros Configurados**  
+- `n_estimators=100` (número de árvores)  
+- `learning_rate=0.1` (taxa de aprendizado)  
+- `max_depth=-1` (sem limite fixo de profundidade)  
+- `random_state=42` (reprodutibilidade dos resultados)  
+
+### **Features Utilizadas**  
+- `vl_boleto` (valor original do boleto)  
+- `pagador_cnpjcpf_norm` (identificação normalizada do pagador)  
+- `dia_vencimento_norm` (dia do vencimento normalizado)  
+- `mes_vencimento_norm` (mês do vencimento normalizado)  
+- `qtd_acesso_n` (quantidade de acessos normalizada)  
+
+### **Tuning Realizado**  
+- Utilização do **PyCaret** para identificação do melhor algoritmo com validação cruzada (`fold=10`, `stratifiedkfold`).  
+- Escolha final do LightGBM pela combinação de melhor **recall (classe 0)**, **precisão (classe 1)** e **acurácia geral** entre os modelos testados.  
+
+### **Métricas Alcançadas (Teste)**  
+- **Acurácia:** 61.68%  
+- **Precisão (classe 0):** 0.65  
+- **Recall (classe 0):** 0.64  
+- **F1-score (classe 0):** 0.65  
+- **Precisão (classe 1):** 0.58  
+- **Recall (classe 1):** 0.59  
+- **F1-score (classe 1):** 0.58  
+
+### **Validação de Fluxo de Caixa (Agregado por Pagador)**  
+- **Total valor_boleto:** 4,501,314.00  
+- **Total pagamento previsto:** 3,663,726.49  
+- **Percentual previsto em relação ao total:** **81.39%**  
+
+### **Erros de Regressão**  
+- **MAE (Erro Médio Absoluto):** 420.96  
+- **RMSE (Raiz do Erro Quadrático Médio):** 787.24  
+
+### **Performance**  
+O modelo demonstrou **consistência na classificação binária**, com métricas equilibradas entre classes. Embora a acurácia seja moderada (≈62%), a capacidade de previsão de fluxo de caixa agregado foi satisfatória, alcançando mais de **81% do valor total dos boletos**.  
+Os erros médios (MAE e RMSE) indicam desvios relativamente controlados entre valores previstos e reais.  
+
+---
+
 ## **Conclusão da Modelagem**
 
-O **Modelo 3 (Random Forest)** demonstrou a melhor performance com **ROC AUC de 96.06%**, indicando excelente capacidade discriminativa para prever pagamentos integrais.
+Entre os modelos avaliados, cada um apresentou características distintas:  
 
-A estratégia de usar um modelo mais complexo com tuning adequado de hiperparâmetros foi compreendida como mais eficaz, superando os modelos de regressão logística tanto na versão simples e de outras ferramentas do notebook.
+- O **Modelo 1 (Regressão Logística Simples)** apresentou boa acurácia (89,35%) e facilidade de interpretação, sendo útil para análises rápidas.  
+- O **Modelo 2 (Random Forest)** mostrou excelente capacidade discriminativa com **ROC AUC de 96,06%**, destacando-se na classificação binária.  
+- O **Modelo 3 (LightGBM)**, embora com acurácia moderada (≈62%), demonstrou **robustez na previsão de fluxo de caixa agregado**, alcançando **81,39% do valor total dos boletos**. Seus erros médios (MAE e RMSE) indicam desvios relativamente controlados entre valores previstos e reais.  
 
->>>>>>> origin/previsao-recebimento:documents/documentacao (1).md
+Portanto, considerando o objetivo principal de **previsão de valores agregados e monitoramento do fluxo de caixa sem usar dados futuros**, o **LightGBM (Modelo 3)** se destacou como o modelo mais confiável e adequado. Esta análise reforça a importância de escolher o modelo de acordo com a métrica de interesse, priorizando **precisão financeira e aplicabilidade prática**.
+
 
 ### 4.5. Avaliação
 

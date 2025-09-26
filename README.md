@@ -4,7 +4,7 @@
 <a href= "https://www.inteli.edu.br/"><img src="assets/inteli.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0"></a>
 </p>
 
-# Nome do projeto
+# PayBack
 
 ## The Seven
 
@@ -21,22 +21,19 @@
 ### Orientador(a) 
 - <a href="https://www.linkedin.com/in/fabiana-martins-de-oliveira-8993b0b2/">Fabiana Martins de Oliveira</a>
 ### Instrutores
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do instrutor 1</a>
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do instrutor 2</a> 
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do instrutor 3</a> 
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do instrutor 4</a>
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do instrutor 5</a> 
+- <a href="https://www.linkedin.com/in/rafaelwill/">Rafael Will Macedo de Araujo</a>
+- <a href="https://www.linkedin.com/in/luciano-galdino-26191b36/">Luciano Galdino</a> 
+- <a href="https://www.linkedin.com/in/gui-cestari/">Guilherme Henrique de Oliveira Cestari</a>
+- <a href="https://www.linkedin.com/in/profclaudioandre/">Claudio Fernando André</a>
+- <a href="https://www.linkedin.com/in/victorbarq/">Natalia Varela da Rocha Kloeckner</a> 
 
 
 ## 📝 Descrição
 <br>
-Nossa solução busca enfrentar o desafio da inadimplência crescente que compromete o fluxo de caixa e a previsibilidade de receita de empresas clientes da Finnet. Para isso, desenvolvemos um modelo preditivo baseado em dados históricos de boletos, status de liquidação, prazos, bancos emissores e interações anteriores com pagadores. A partir dessa base, o sistema gera insights como score de risco, tendência de pagamento, previsão de recebimentos e melhor janela provável de quitação, permitindo decisões mais estratégicas em cobranças e gestão financeira. Inicialmente entregue como uma Prova de Conceito (POC) integrada à plataforma Luna via script em Python, a solução será futuramente incorporada de forma nativa, possibilitando automações e visualizações em tempo real. Com isso, buscamos reduzir riscos de inadimplência, otimizar operações, aumentar a assertividade no planejamento financeiro e fortalecer o posicionamento da Finnet como referência em soluções financeiras inteligentes e orientadas por dados.
+A solução proposta busca mitigar o desafio representado pelo aumento da inadimplência, fator que compromete tanto o fluxo de caixa quanto a previsibilidade de receitas das empresas clientes da Finnet. Para tal, foram desenvolvidos modelos preditivos fundamentados em dados históricos de boletos, status de liquidação, prazos, bancos emissores e interações anteriores com os respectivos pagadores. A partir dessa base analítica, o sistema disponibiliza indicadores como score do pagador, tendência de pagamento e previsão de recebimentos, subsidiando decisões estratégicas em processos de cobrança e gestão financeira. Inicialmente concebida como uma Prova de Conceito (POC) integrada à plataforma Luna por meio de script em Python, a solução apresenta potencial para integração nativa, o que possibilitará maior nível de automação e a disponibilização de visualizações em tempo real. Dessa forma, almeja-se minimizar riscos de inadimplência, otimizar a eficiência operacional e elevar a assertividade do planejamento financeiro, reforçando, simultaneamente, o posicionamento da Finnet como referência em soluções financeiras inteligentes e orientadas por dados.
 <br>
-Escreva uma curta descrição sobre o seu projeto (problema a ser resolvido e solução proposta). (minímo 150 palavras, máximo 600 palavras)
 
 <b>Link para vídeo demonstrativo:</b> <a href="https://inteli.edu.br">Coloque seu link aqui</a>
-
-Caso tenha publicado seu modelo preditivo em uma aplicação web, não deixe de colocar o link de acesso aqui.
 
 ## 📁 Estrutura de pastas
 
@@ -81,45 +78,46 @@ Arquivos.csv: arquivos que contêm os dados de treinamento e teste do modelo pre
 
 🚀 Requisitos
 
-VS Code
+**VS Code**
+
 Ter o Visual Studio Code instalado.
 
 Python
 Versão compatível — normalmente versões 3.8, 3.9, 3.10 ou superior. Confirmar se o repositório tem requirements.txt ou pyproject.toml com versão alvo.
 
-Extensões no VS Code
+**Extensões no VS Code**
 
-Python (oficial da Microsoft)
+Python
 
 Jupyter
 
-(Opcional) Pylance ou outra para auxílio de tipagem / linting.
+**Dependências do projeto**
 
-Gerenciador de pacotes
-pip, possivelmente conda, dependendo do projeto.
+Numpy
 
-Ambiente virtual
-Para isolar dependências (virtualenv, venv, conda, pyenv, etc.).
+Pandas
 
-Dependências do projeto
-Qualquer biblioteca especificada nos arquivos de dependência: requirements.txt, environment.yml, setup.py, etc.
+Scikit-learn
 
-Git
+Matplotlib
+
+Seaborn
+
+Light gradient boosting machine
+
+**Git**
+
 Para clonar o repositório.
-
-Outros requisitos específicos
-
-Dados ou arquivos de entrada que estejam fora do repositório (se existirem).
 
 Versões de pacotes compatíveis.
 
 Configurações ambientais (por exemplo, variáveis de ambiente).
 
-Permissões para leitura/escrita de alguns diretórios, se for o caso.
+Permissões para leitura/escrita de diretórios.
 
 🛠 Passos para configurar e rodar os notebooks localmente:
 
-Clonar o repositório
+1. Clonar o repositório
 <br>
 
 ```bash
@@ -127,7 +125,8 @@ git clone https://github.com/Inteli-College/2025-2A-T18-IN03-G04.git
 cd 2025-2A-T18-IN03-G04
 ```
 <br>
-Criar e ativar um ambiente virtual
+2. Criar e ativar um ambiente virtual
+
 <br>
 No Linux/macOS:
 <br>
@@ -150,13 +149,13 @@ python -m venv venv
 <br>
 
 ```bash
-pip install pandas numpy scikit.learn seaborn matplotlib 
+pip install pandas numpy scikit-learn seaborn matplotlib lightgbm
 ```
 <br>
 
-Descreva aqui os requisitos e os passos necessários para execução dos notebooks localmente (VS Code com instalação de Python) e no ambiente Google Colab
+**Colab**
 
-> Não deixe de informar para o caso do Colab que, se o utilizador não salvar uma cópia do notebook no seu Google Drive próprio, não será possível salvar as alterações realizadas no arquivo.
+No uso de ferramentas como o Google Colab, é necessário salvar uma cópia do notebook no Google Drive do usuário. Caso contrário, as alterações realizadas no arquivo não serão preservadas.
 
 ## 🗃 Histórico de lançamentos
 

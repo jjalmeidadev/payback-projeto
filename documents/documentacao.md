@@ -945,32 +945,246 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 ### 4.3. Preparação dos Dados e Modelagem
 
-```
-Caso seu projeto seja Modelo Supervisionado, apresentar:
-a) Organização dos dados (conjunto de treinamento, validação e testes)
-b) Modelagem para o problema (proposta de features com a explicação completa da linha de raciocínio).
-c) Métricas relacionadas ao modelo (pelo menos 3).
-d) Apresentar o primeiro modelo candidato, e uma discussão sobre os resultados deste modelo (discussão sobre as métricas para esse modelo candidato).
+&nbsp;&nbsp;&nbsp;&nbsp; Nessa seção, foram desenvolvidos os modelos preditivos necessários para atender às entregas propostas no TAPI, cada um deles com objetivos específicos:
 
-Caso seu projeto seja Modelo Não-Supervisionado, apresentar:
-a) Modelagem para o problema (proposta de features com a explicação completa da linha de raciocínio).
-b) Primeiro modelo candidato para o problema.
-c) Justificativa para a definição do K do modelo.
-d) Escolha de um tipo de sistema de recomendação e a justificativa para essa escolha.
+- Modelo de score de risco de inadimplência: elaborado com base em técnicas de aprendizado supervisionado do tipo regressão, este modelo atribui uma pontuação de risco aos clientes, permitindo identificar a probabilidade de inadimplência e subsidiar estratégias de mitigação.
 
-Remova este bloco ao final
-```
+- Modelo de tendência de pagamento: estruturado como um problema de classificação e de aprendizado supervisionado, esse modelo prevê se o pagamento ocorrerá em dia, com atraso ou se resultará em inadimplência, fornecendo uma visão antecipada do comportamento do pagador.
+
+- Modelo de impacto projetado no fluxo de recebimentos: criado para estimar como diferentes cenários de pagamento (adimplência, atraso ou inadimplência) afetam o fluxo de caixa futuro, permitindo ao grupo avaliar riscos financeiros e tomar decisões de planejamento. Esse modelo será estruturado como um problema de regressão e a aprendizagem será feita de forma supervisionada.
+
+&nbsp;&nbsp;&nbsp;&nbsp; A partir desses modelos, torna-se possível entregar todas as demandas previstas no TAPI.
+
+### 4.3.1 Tratamento de Dados
+
+&nbsp;&nbsp;&nbsp;&nbsp; Durante o processo de criação de gráficos e hipóteses, alguns dos novos dados criados durante esse processo não foram previamente tratados e normalizados, dessa forma, realizamos novamente a substituição dos valores nulos, codificação das variáveis categóricas e substituição dos valores ausentes. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;Dessa forma, os seguintes tratamentos foram realizados:
+
+- **Substituição dos valores ausentes:** Os valores que estavam ausentes, nesse caso preenchidos por NaN (Not a Number) das tabelas **dias_para_pagar**, **qtd_acessos_pagador_norm** e **pago/n** foram substituidos por 0, assim possibilitando a utilização dessas dados pelo modelo preditivo.
+
+- **Transformação das novas features:** Se fez necessário transformar as novas features desenvolvidas nos gráficos, hipóteses e na preparação do modelo preditivo, para o formato "Label Encoder", transformando assim variáveis categóricas como (**mes_inclusão**, **mes_pag**, **pagador_inscricao_hash**, **pago/n (pago ou não)** e **mes_vencto**) em números que representam cada uma das categorias, para que assim, os dados possam ser entendidos pelo modelo.
+
+- **Normalização dos dados:** Durante a criação do modelo preditivo, notamos que a alta dispersão de valores dos dados interfere diretamente na acurácia e resultados do modelo. Portanto, fez-se necessário criar uma escala padrão para as colunas, transformando assim as linhas de algumas colunas em números em uma escala de (0,1) para melhor aproximação dos dados e assim garantindo melhores resultados e acurácia nos modelos criados.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Após a etapa de tratamento e preparação dos dados, todas as colunas que serão utilizadas pelos modelos preditivos passaram por um processo de padronização, limpeza e ajuste, de forma a garantir que estejam devidamente adequadas para os cálculos e análises subsequentes. Esse cuidado é fundamental para assegurar que os modelos possam operar com dados consistentes, sem ruídos ou valores inválidos, o que contribui não apenas para evitar a ocorrência de erros durante a execução, mas também para aumentar a confiabilidade dos resultados obtidos. Dessa maneira, cria-se uma base sólida para que as previsões geradas apresentem maior precisão, desempenho otimizado e relevância prática para a tomada de decisão. 
+
+
+#### 4.3.2 Modelo de Tendência de Pagamentos
+
+&nbsp;&nbsp;&nbsp;&nbsp; O modelo preditivo de tendência de pagamentos tem como objetivo identificar a probabilidade de o devedor realizar o próximo pagamento em dia, com atraso ou em inadimplência. Trata-se de um problema de aprendizado supervisionado, classificado como classificação multiclasse. Para viabilizar o treinamento, foi criada a variável alvo denominada “Status de Pagamento”, utilizada como variável Y no processo de modelagem preditiva.
+
+#### 4.3.2.1 Features Escolhidas
+
+&nbsp;&nbsp;&nbsp;&nbsp; As features correspondem às variáveis explicativas utilizadas pelo modelo preditivo, ou seja, são os atributos extraídos das colunas dos boletos que fornecem informações relevantes para estimar a tendência de pagamento do usuário. Cada feature representa um aspecto do comportamento do pagador ou das características dos boletos.
+
+**Variável Y:**
+
+&nbsp;&nbsp;&nbsp;&nbsp; No desenvolvimento do modelo de tendência de pagamento, fez-se necessário estabelecer, para cada boleto, qual foi o resultado do pagamento: em dia, em atraso ou inadimplente. Essa informação é representada pela variável alvo (y), que corresponde ao valor que o modelo deve aprender a prever.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Em outras palavras, enquanto as features (variáveis independentes) fornecem as características descritivas dos boletos e dos pagadores, a variável alvo indica o comportamento final que se deseja estimar. No caso em questão, a variável alvo foi definida como “Status de Pagamento”, classificando cada boleto em uma das três categorias mencionadas. Essa categorização serve de referência durante o treinamento, permitindo que o algoritmo aprenda padrões e consiga, posteriormente, prever a tendência de pagamento de novos boletos.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Utilizamos a data de vencimento e de pagamento para calcular o número de dias que cada boleto levou para ser pago. Se o número de dias for qualquer número positivo maior que 0, significa que o boleto foi pago em dia, se for entre -1 e -30, significa que o boleto foi pago com atraso e se tiver um valor menor que -30 (Ou seja, demorou mais de 30 dias para pagar) o boleto é considerado como inadimplente.
+
+**Variável X:**
+
+&nbsp;&nbsp;&nbsp;&nbsp; O X representa o conjunto de variáveis independentes, também chamadas de features, que reúnem todas as informações utilizadas pelo modelo para aprender e prever a tendência de pagamento. No caso dos boletos, essas variáveis correspondem às colunas que descrevem características do boleto e do comportamento do pagador. Em resumo, o X é a entrada do modelo, formada por todos os atributos relevantes que permitem identificar padrões e antecipar se o pagamento ocorrerá em dia, com atraso ou inadimplente.
+
+&nbsp;&nbsp;&nbsp;&nbsp; As features utilizadas no modelo de tendência de pagamentos foram:
+
+- **Valor de boleto normalizado:** O valor do boleto é uma variável essencial para a predição do modelo preditivo, já que comprovamos através dos gráficos, que o valor do boleto tem impacto direto no pagamento do mesmo.
+- **Quantidade de acessos:** A quantidade de acessos por pagador no boleto em específico é decisivo na predição de pagamento de boletos, já que através das hipóteses, foi comprovado que a média de acessos para os pagadores é muito maior do que aqueles que não pagam. Além disso, se a quantidade de acessos for igual a 0, há uma alta chance do boleto não ser pago, a menos que esteja em débito automático.
+- **Número de inscrição do pagador em hash:** A inscrição do jogador em hash ajuda a separar dados de acordo com um pagador.
+- **Juros:** O valor de juros de um boleto ajuda a identificar se o boleto será pago ou não, já que com um alto valor de juros, há uma alta chance do boleto não ser pago, enquanto um valor de juros igual a 0 representa que o boleto ainda não foi atrasado.
+- **Mes_Vencimento:** Através da hipótese 2, foi comprovado que o mês de vencimento impacta diretamente no pagamento de boletos, uma vez que há meses como Janeiro, que uma alta taxa de boletos são pagos, enquanto outros como Abril (período de pagamento de impostos) que a taxa é baixíssima. Dessa forma, esse dado se torna essencial na criação de um modelo de predição de tendência de pagamento.
+- **Dia de vencimento normalizado:** O dia de vencimento é uma variável importante para o modelo, pois o comportamento de pagamento pode variar de acordo com o dia do mês em que o boleto vence. Dias próximos ao início do mês, por exemplo, tendem a apresentar maior taxa de pagamento devido à entrada de salários, enquanto dias próximos ao fim do mês podem ter menor prioridade no pagamento.
+- **CNPJ/CPF do pagador normalizado:** O identificador do pagador, representado em formato hash e normalizado, é essencial para distinguir diferentes perfis de clientes e capturar padrões de comportamento individualizados. Essa variável possibilita ao modelo associar o histórico de pagamentos de cada pagador à sua tendência futura, ajudando a identificar se determinados perfis estão mais propensos a pagar em dia, atrasar ou se tornar inadimplentes.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Outras features testadas no modelo preditivo, mas que não foram utilizadas na entrega:
+
+- **Pago ou não:** a coluna **pago/n** que diz se o boleto foi pago ou não. Não foi utilizada pois causa leakage(vazamento de dados) no modelo.
+- **Dias para pagar:** a coluna **dias_para_pagar** que conta o número de dias entre a data de inclusão e de pagamento. Não foi utilizada pois causa leakage(vazamento de dados) no modelo.
+- **Valor de pagamento:** A coluna **vl_pagto_norm** mostra o valor de pagamento do boleto. Essa feature não foi utilizada pois além de causar leakage(vazamento de dados), não pode ser identificada antes do pagamento, portanto, para um modelo que prevê o pagamento, não há sentido em utilizá-la.
+
+&nbsp;&nbsp;&nbsp;&nbsp; A escolha adequada das features é fundamental para a qualidade do modelo, pois são elas que fornecem os padrões que permitem ao algoritmo aprender e realizar previsões mais assertivas. Dessa forma, a etapa de definição e preparação das features garante que o modelo consiga captar as relações entre os boletos históricos e o status de pagamento futuro, servindo como base para a identificação de pagamentos em dia, com atraso ou inadimplentes.
+
+#### 4.3.2.2 Criação do Modelo 
+
+**Dividindo Dados entre X e Y**
+
+&nbsp;&nbsp;&nbsp;&nbsp; O primeiro passo para criação do modelo é selecionar algumas colunas do DataFrame TabelaAtual para formar as features (X) que serão usadas para treinar o modelo, e definimos assim a coluna status_do_pagamento como o alvo (y) que se quer prever. Em seguida, o próximo passo é dividir os dados em conjunto de treino (escolhemos 80%) e conjunto de teste (escolhemos 20%), mantendo a proporção das classes de status_do_pagamento igual em ambos os conjuntos, usando o parâmetro stratify.
+
+**Padronização e balanceamento dos dados**
+
+&nbsp;&nbsp;&nbsp;&nbsp; Após a divisão, as variáveis explicativas passam por um processo de padronização, em que os valores são centralizados em torno de zero e ajustados para uma escala uniforme, favorecendo o desempenho dos algoritmos de classificação. Na sequência, aplica-se uma técnica de balanceamento para lidar com a desigualdade entre as classes da variável alvo, ampliando artificialmente os exemplos da minoria e garantindo uma distribuição mais equitativa antes da etapa de modelagem.
+
+**Criação do Modelo**
+
+&nbsp;&nbsp;&nbsp;&nbsp; Com os dados preparados, procede-se à seleção dos melhores parâmetros de uma árvore de decisão por meio de um processo de busca em grade. Essa etapa envolve a avaliação de diferentes combinações de profundidade da árvore, tamanho mínimo de divisão, tamanho mínimo de folha e critério de separação, utilizando validação cruzada para assegurar maior robustez dos resultados. O modelo resultante é então treinado sobre o conjunto balanceado e posteriormente validado sobre os dados de teste, de forma a avaliar sua capacidade preditiva.
+
+
+#### 4.3.2.3 Métricas e Testes
+
+&nbsp;&nbsp;&nbsp;&nbsp; Após a etapa de treinamento, o desempenho do modelo de classificação foi avaliado por meio de diferentes métricas. Inicialmente, foram calculadas medidas globais, como a acurácia, que expressa a proporção total de acertos, a precisão, que representa a proporção de previsões corretas em relação ao total de predições de cada classe, o recall, que mede a capacidade do modelo em identificar corretamente os exemplos de cada categoria, e o F1 Score, que corresponde à média harmônica entre precisão e recall ajustada pelo tamanho de cada classe, equilibrando os efeitos de falsos positivos e falsos negativos.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Na sequência, os rótulos previstos e observados foram padronizados, assegurando consistência na comparação entre eles e evitando discrepâncias causadas por diferenças de formatação. Com isso, foi gerado um relatório detalhado por classe, contendo precisão, recall, F1 Score e suporte (quantidade de ocorrências reais), permitindo observar o desempenho do modelo de forma individualizada em cada categoria de pagamento.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Por fim, as métricas foram organizadas em uma estrutura tabular, possibilitando melhor visualização e análise, além de oferecer a opção de exportação para fins de documentação. Essa abordagem proporciona uma visão abrangente, permitindo identificar tanto a performance geral quanto potenciais fragilidades em classes específicas, especialmente nas de menor representatividade.
+
+<br>
+<div align="center">
+<sub align="center">Figura 22 – Resultados dos testes.</sub>
+</div>
+<br>
+<div align="center">
+<img src="../assets/metricas.png" alt="metricas" border="0" width=60% height=60%>
+</div>
+<br>
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp; A partir dos resultados dos testes, podemos identificar uma acurácia de 60%, precisão de 61% e recall geral de 61%. Observando de forma mais específica, é possível observar que o modelo tem mais facilidade em identificar pagamentos em dia (66% de precisão) e inadimplente (63% de precisão) e tem muita dificuldade de identificar corretamente os boletos que irão atrasar (51% de precisão).
+
+&nbsp;&nbsp;&nbsp;&nbsp; Com esse resultado, a conclusão é de que, definimos como próximos passos, buscar novas features e mudar os hiper-parâmetros com o objetivo de alcançar uma melhor acurácia para o modelo preditivo.
+
+#### 4.3.2.4 Gráficos
+
+**Métricas por Classe**
+
+&nbsp;&nbsp;&nbsp;&nbsp; O gráfico acima apresenta a comparação das métricas de avaliação do modelo separadas por classe (inadimplente, em dia e atrasado). Cada grupo mostra os valores de precisão, recall, F1 Score e suporte, permitindo observar como o modelo se comporta em cada categoria. 
+
+<br>
+<div align="center">
+<sub align="center">Figura 23 – Metricas por Classe.</sub>
+</div>
+<br>
+<div align="center">
+<img src="../assets/metricas_pClasse.png" alt="metricas" border="0" width=60% height=60%>
+</div>
+<br>
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp; Nota-se que as métricas variam de acordo com a classe: enquanto a classe em dia apresenta valores ligeiramente mais altos e consistentes, a classe atrasado tem desempenho inferior, especialmente em precisão, o que indica maior dificuldade do modelo em identificar corretamente os exemplos dessa categoria. Já a classe inadimplente apresenta valores intermediários, com desempenho equilibrado, mas ainda abaixo da classe em dia.
+
+**Matriz de Confusão**
+
+&nbsp;&nbsp;&nbsp;&nbsp; A matriz de confusão apresentada resume o desempenho do modelo de árvore de decisão na classificação das três categorias de status de pagamento: inadimplente, em dia e em atraso.
+
+- **Classe "Em dia":** apresenta o maior número de acertos (1.097 casos classificados corretamente), indicando que o modelo tem maior facilidade em identificar clientes que pagam dentro do prazo.
+
+- **Classe "Inadimplente":** obteve 628 acertos, mas ainda apresenta confusões relevantes, principalmente com a classe "em dia" (307 casos classificados incorretamente).
+
+- **Classe "Em atraso":** alcançou 762 acertos, porém com erros notáveis tanto para "em dia" (248 casos) quanto para "inadimplente" (234 casos), revelando maior dificuldade do modelo em separar corretamente essas categorias.
+
+
+<br>
+<div align="center">
+<sub align="center">Figura 24 – Matriz de Confusão.</sub>
+</div>
+<br>
+<div align="center">
+<img src="../assets/matrizConfusao.png" alt="metricas" border="0" width=60% height=60%>
+</div>
+<br>
+<div align="center">
+<sup>Fonte: Produzido pelo grupo The Seven, 2025.</sup>
+</div>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp; De forma geral, observa-se que o modelo consegue distinguir razoavelmente bem as três classes, mas tende a confundir inadimplentes e em atraso com a classe em dia, o que pode impactar decisões práticas, já que esses grupos têm comportamentos de risco diferentes.
+
+#### 4.3.2.5 Conclusão
+
+&nbsp;&nbsp;&nbsp;&nbsp; O modelo consegue prever tendências gerais de pagamento, mas tem um baixo desempenho entre as classes, acertando mais as majoritárias (“em dia”) e confundindo as minoritárias (“inadimplente” e “atrasado”). Após remover variáveis com data leakage como **vl_pagto**, **vl_ratio** e **dias_para_pagar**, a acurácia caiu, mas o modelo passou a generalizar melhor. Gráficos e matriz de confusão mostram claramente onde ele acerta e erra, indicando que há espaço para melhorar com features históricas ou modelos mais robustos.
+
+&nbsp;&nbsp;&nbsp;&nbsp; Como próximos passos para este modelo preditivo, definimos melhorar a acurácia do modelo, para garantir uma maior taxa de acertos nas previsões e usar os dados de todas as tabelas disponibilizadas pela empresa parceira, assim acrescentando valor ao produto oferecido e entregando melhores resultados ao projeto. 
+
+### 4.3.3 Modelo de Previsão de Recebimentos
+
+#### 4.3.3.1 Features Escolhidas
+
+#### 4.3.3.2 Criação do Modelo 
+
+#### 4.3.3.3 Métricas e Testes
+
 
 ### 4.4. Comparação de Modelos
 
-```
-- Descrever e justificar a escolha da métrica de avaliação dos modelos com base no que é mais importante para o problema ao
-  se medir a qualidade desses modelos;
-- Descrever ao menos três modelos candidatos, seus respectivos algoritmos, seus tunings de hiperparâmetros e suas métricas
-  alcançadas;
+Para aprimorar os modelos e garantir que os algoritmos e hiperparâmetros selecionados sejam os mais adequados, é fundamental definir métricas de avaliação que possibilitem a criação e a comparação entre diferentes abordagens. O uso dessas métricas torna a comparação dos modelos mais eficaz e fornece uma base sólida para a escolha das features, hiperparâmetros e algoritmos mais apropriados.
 
-Remova este bloco ao final
-```
+#### 4.4.1 Modelo de tendência de pagamento
+Esse modelo tem como objetivo classificar os pagamentos em três categorias:
+
+- Inadimplente
+
+- Em atraso
+
+- Em dia
+
+Devido à natureza do problema, as métricas utilizadas para avaliação desse modelo são mais específicas e exigem uma análise detalhada. Para isso, utiliza-se a matriz de confusão como base para a escolha e interpretação dos resultados.
+
+##### 4.4.1.A Inadimplente
+
+Caso um pagador inadimplente seja erroneamente classificado como adimplente, a empresa pode acabar aprovando uma compra que não será paga. Por esse motivo, a revocação (recall) é a métrica mais importante para essa categoria.
+A revocação corresponde à razão entre os verdadeiros positivos e a soma dos verdadeiros positivos com os falsos negativos, ou seja, o número de inadimplentes corretamente identificados pelo sistema em relação ao total de inadimplentes existentes.
+
+##### 4.4.1.B Em dia
+
+Nesta categoria, os boletos classificados como “em dia” tendem a ter suas compras aprovadas. Assim, erros de classificação podem fazer com que boletos de pagadores inadimplentes sejam emitidos e não pagos. Por isso, a métrica mais relevante é a precisão (precision), que corresponde à razão entre os verdadeiros positivos e a soma dos verdadeiros positivos com os falsos positivos, ou seja, o número de pagamentos corretamente classificados como “em dia” em relação ao total de pagamentos previstos como “em dia”.
+
+##### 4.4.1.C Em atraso
+
+A lógica de classificação para pagamentos em atraso segue o mesmo raciocínio da categoria “em dia”. Erros nesse caso também podem fazer com que boletos de inadimplentes tenham suas compras aprovadas. Dessa forma, a métrica mais apropriada é novamente a precisão (precision), que mede a proporção de boletos corretamente identificados como pagos com atraso em relação ao total de boletos classificados como pagamento em atraso.
+
+#### 4.4.2 Modelo de fluxo de caixa
+
+Esse modelo tem como objetivo prever o valor total de recebimentos do grupo e, para avaliar sua eficácia, é utilizada uma métrica que compara o valor previsto com o valor real, permitindo quantificar seu desempenho. Dessa forma, um aumento nesse indicador representa uma melhora na qualidade do modelo. Por esse motivo, essa métrica foi adotada como base para sua avaliação.
+
+#### 4.4.3 Explicabilidade
+
+O **Modelo B de tendência de pagamento** foi escolhido para ser explicado por ser o mais completo, tanto em termos de métodos utilizados quanto de features selecionadas ou criadas.
+
+**Contexto:**  
+Este modelo tem como objetivo prever a tendência de pagamento de um boleto, sendo classificado em três principais categorias: **em dia**, **em atraso** e **inadimplente**.
+
+**Features:**  
+Para treinar um modelo é necessário selecionar as **variáveis independentes (X)** que serão utilizadas para realizar a previsão, além da **variável dependente (y)**, que representa o valor a ser previsto.  
+Neste modelo, as variáveis **X** utilizadas foram:  
+- valor do boleto,  
+- quantidade de acessos do pagador,  
+- hash da inscrição do pagador,  
+- juros,  
+- mês do vencimento,  
+- dia do vencimento,  
+- tipo do pagador (CPF ou CNPJ).  
+
+A variável **y** é o **status do pagamento**.
+
+**Balanceamento dos dados:**  
+Em muitos cenários de treinamento, as classes da variável **y** não estão igualmente representadas, gerando um **desbalanceamento**. Isso pode levar o modelo a ter uma "falsa precisão".  
+Por exemplo: ao escolher uma letra aleatória do alfabeto, a chance de ser uma vogal é naturalmente menor que a de ser uma consoante. Se um modelo previsse sempre "consoante", ele pareceria estar correto na maioria dos casos, mas estaria enviesado.  
+Para corrigir esse problema, foi utilizada a técnica **SMOTE (Synthetic Minority Over-sampling Technique)**, que gera amostras sintéticas das classes minoritárias, equilibrando os dados e reduzindo previsões "corretas" baseadas apenas na sorte.
+
+**Algoritmo utilizado:**  
+O algoritmo escolhido foi o **Random Forest**, que combina diversas árvores de decisão para gerar a previsão. A escolha se deu pelo fato de o primeiro modelo ter utilizado apenas uma árvore de decisão; logo, aumentar o número de árvores tende a aumentar a robustez e a precisão das previsões.
+
+**Hiperparâmetros:**  
+Hiperparâmetros são configurações que controlam como o modelo aprende, podendo influenciar positivamente ou negativamente o desempenho. Eles ajudam a evitar *overfitting*, balancear respostas e controlar a complexidade do modelo.  
+Os hiperparâmetros utilizados foram:  
+- **max_depth:** profundidade máxima da árvore, ou seja, quantos níveis de divisão podem ser feitos.  
+- **min_samples_split:** número mínimo de amostras necessárias para dividir um nó.  
+- **min_samples_leaf:** número mínimo de amostras em um nó folha (nó terminal).  
+- **criterion:** função usada para medir a qualidade da divisão (ex.: `gini` ou `entropy`).  
+
+**Visualização (gráficos):**  
+Modelos preditivos retornam grande volume de dados, por isso é essencial utilizar gráficos para facilitar a interpretação. Os gráficos utilizados neste modelo foram:  
+- **Gráfico de colunas:** para visualizar as métricas de cada categoria de status de pagamento.  
+- **Mapa de calor da matriz de confusão:** para mostrar de forma clara como cada dado foi previsto em relação ao seu status real.
 
 ### 4.5. Avaliação
 

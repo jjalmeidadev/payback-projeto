@@ -4,7 +4,7 @@
 <a href= "https://www.inteli.edu.br/"><img src="assets/inteli.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0"></a>
 </p>
 
-# Nome do projeto
+# PayBack
 
 ## The Seven
 
@@ -21,38 +21,141 @@
 ### Orientador(a) 
 - <a href="https://www.linkedin.com/in/fabiana-martins-de-oliveira-8993b0b2/">Fabiana Martins de Oliveira</a>
 ### Instrutores
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do instrutor 1</a>
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do instrutor 2</a> 
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do instrutor 3</a> 
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do instrutor 4</a>
-- <a href="https://www.linkedin.com/in/victorbarq/">Nome do instrutor 5</a> 
+- <a href="https://www.linkedin.com/in/rafaelwill/">Rafael Will Macedo de Araujo</a>
+- <a href="https://www.linkedin.com/in/luciano-galdino-26191b36/">Luciano Galdino</a> 
+- <a href="https://www.linkedin.com/in/gui-cestari/">Guilherme Henrique de Oliveira Cestari</a>
+- <a href="https://www.linkedin.com/in/profclaudioandre/">Claudio Fernando André</a>
+- <a href="https://www.linkedin.com/in/victorbarq/">Natalia Varela da Rocha Kloeckner</a> 
 
 
 ## 📝 Descrição
-
-Escreva uma curta descrição sobre o seu projeto (problema a ser resolvido e solução proposta). (minímo 150 palavras, máximo 600 palavras)
+<br>
+A solução proposta busca mitigar o desafio representado pelo aumento da inadimplência, fator que compromete tanto o fluxo de caixa quanto a previsibilidade de receitas das empresas clientes da Finnet. Para tal, foram desenvolvidos modelos preditivos fundamentados em dados históricos de boletos, status de liquidação, prazos, bancos emissores e interações anteriores com os respectivos pagadores. A partir dessa base analítica, o sistema disponibiliza indicadores como score do pagador, tendência de pagamento e previsão de recebimentos, subsidiando decisões estratégicas em processos de cobrança e gestão financeira. Inicialmente concebida como uma Prova de Conceito (POC) integrada à plataforma Luna por meio de script em Python, a solução apresenta potencial para integração nativa, o que possibilitará maior nível de automação e a disponibilização de visualizações em tempo real. Dessa forma, almeja-se minimizar riscos de inadimplência, otimizar a eficiência operacional e elevar a assertividade do planejamento financeiro, reforçando, simultaneamente, o posicionamento da Finnet como referência em soluções financeiras inteligentes e orientadas por dados.
+<br>
 
 <b>Link para vídeo demonstrativo:</b> <a href="https://inteli.edu.br">Coloque seu link aqui</a>
 
-Caso tenha publicado seu modelo preditivo em uma aplicação web, não deixe de colocar o link de acesso aqui.
-
 ## 📁 Estrutura de pastas
 
-Dentre os arquivos presentes na raiz do projeto, definem-se:
-
-- <b>readme.md</b>: arquivo que serve como guia e explicação geral sobre o projeto (o mesmo que você está lendo agora).
-
-- <b>assets</b>: todas as imagens e mídias utilizadas nos notebooks e documentação são posicionadas aqui.
-
-- <b>documents</b>: aqui estarão todos os documentos do projeto. Há também uma pasta denominada <b>extras</b> onde estão presentes documentos complementares.
-
-- <b>notebooks</b>: todos os Jupyter Notebooks criados para desenvolvimento do projeto.
+<br>
+├── assets/
+├── documents/
+        ├── extras/
+        ├── matematica/
+├── notebooks/
+├── .gitattributes
+├── .gitignore
+├── CanvaValue.png
+├── README.md
+├── Arquivo A.csv
+├── Arquivo B.csv
+├── Arquivo C.csv
+├── Arquivo D.csv
+├── Arquivo E.csv
+├── Arquivo F.csv
+└── Arquivo G.csv
+<br>
+### Descrição das pastas por escrito:
+<br>
+README.md: arquivo principal de documentação do repositório, serve como guia inicial explicando os objetivos, organização e instruções de uso do projeto.
+<br>
+assets: pasta destinada a imagens, ícones e outros recursos visuais utilizados no projeto e na documentação.
+<br>
+documents: pasta reservada para armazenar documentos relacionados ao projeto, como relatórios, especificações ou arquivos de apoio.
+<br>
+notebooks: pasta onde ficam armazenados os Jupyter Notebooks utilizados para análises, prototipação de código e experimentos do projeto.
+<br>
+.gitattributes: arquivo de configuração do Git, utilizado para definir atributos de arquivos (como normalização de fim de linha ou regras específicas de merge).
+<br>
+.gitignore: arquivo de configuração do Git que lista os arquivos e pastas a serem ignorados no versionamento (ex: arquivos temporários, cache, etc.).
+<br>
+CanvaValue.png: imagem armazenada na raiz do projeto, provavelmente um recurso gráfico utilizado na documentação ou análise.
+<br>
+Arquivos.csv: arquivos que contêm os dados de treinamento e teste do modelo preditivo desenvolvido no projeto.
+<br>
 
 ## 💻 Execução dos projetos
 
-Descreva aqui os requisitos e os passos necessários para execução dos notebooks localmente (VS Code com instalação de Python) e no ambiente Google Colab
+🚀 Requisitos
 
-> Não deixe de informar para o caso do Colab que, se o utilizador não salvar uma cópia do notebook no seu Google Drive próprio, não será possível salvar as alterações realizadas no arquivo.
+**VS Code**
+
+Ter o Visual Studio Code instalado.
+
+Python
+Versão compatível — normalmente versões 3.8, 3.9, 3.10 ou superior. Confirmar se o repositório tem requirements.txt ou pyproject.toml com versão alvo.
+
+**Extensões no VS Code**
+
+Python
+
+Jupyter
+
+**Dependências do projeto**
+
+Numpy
+
+Pandas
+
+Scikit-learn
+
+Matplotlib
+
+Seaborn
+
+Light gradient boosting machine
+
+**Git**
+
+Para clonar o repositório.
+
+Versões de pacotes compatíveis.
+
+Configurações ambientais (por exemplo, variáveis de ambiente).
+
+Permissões para leitura/escrita de diretórios.
+
+🛠 Passos para configurar e rodar os notebooks localmente:
+
+1. Clonar o repositório
+<br>
+
+```bash
+git clone https://github.com/Inteli-College/2025-2A-T18-IN03-G04.git
+cd 2025-2A-T18-IN03-G04
+```
+<br>
+2. Criar e ativar um ambiente virtual
+
+<br>
+No Linux/macOS:
+<br>
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+<br>
+No Windows:
+<br>
+
+```bash
+python -m venv venv
+.\venv\Scripts\activate
+```
+<br>
+
+3. Instalar Denpendências:
+<br>
+
+```bash
+pip install pandas numpy scikit-learn seaborn matplotlib lightgbm
+```
+<br>
+
+**Colab**
+
+No uso de ferramentas como o Google Colab, é necessário salvar uma cópia do notebook no Google Drive do usuário. Caso contrário, as alterações realizadas no arquivo não serão preservadas.
 
 ## 🗃 Histórico de lançamentos
 

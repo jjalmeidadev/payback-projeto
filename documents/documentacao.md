@@ -1729,3 +1729,29 @@ Após o escalonamento, observa-se que os valores passam a estar distribuídos em
 . Acesso em: 3 set. 2025.
 
 - ALPHA Level (Significance Level): What is it? Statistics How To. Disponível em: https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/what-is-an-alpha-level/#:~:text=3.,equil%C3%ADbrio%20entre%20esses%20dois%20problemas. Acesso em: 27 ago. 2025.
+
+### 8. Idealização do Dashboard
+
+#### Critérios de Avaliação do Protótipo
+
+- **Atendimento às Necessidades dos Stakeholders**  
+- **Camadas de Leitura**  
+- **Autoexplicatividade**  
+- **Transparência e Verificabilidade**  
+- **Acessibilidade e Usabilidade**  
+
+#### Status atual do dashboard em relação aos critérios
+
+O protótipo atende às necessidades fundamentais dos stakeholders, na medida em que apresenta, de forma organizada e visualmente clara, os resultados de classificação (status de cada pagador: inadimplente, atrasado, adimplente), de enumeração dos pagamentos (recebimentos por hash de pagador) e os valores previstos de pagamento em diferentes modelos (Regressão Logística, Árvore de Decisãoe Random Forest). A disposição em painéis próximos permite comparações diretas entre métricas e modelos, facilitando a análise de performance e a tomada de decisão.
+
+Quanto às camadas de leitura, o dashboard entrega uma camada inicial de leitura rápida, por meio das métricas em destaque (Acurácia, Precisão, Recall, F1, MAE, RMSE), e uma camada intermediária mais detalhada com tabelas e gráficos de distribuição. Esse encadeamento permite que o stakeholder escolha o nível de detalhe desejado sem perder a visão geral.
+
+No quesito autoexplicatividade, cada seção contém título e legenda de gráficos claros, sendo possível compreender o conteúdo sem consultar documentação externa. 
+
+Transparência e verificabilidade também estão presentes: os resultados apresentados são métricas clássicas e reproduzíveis de modelos preditivos, permitindo que outros analistas validem o desempenho se aplicarem os mesmos dados e modelos descritos. Além disso, a inclusão de múltiplos modelos dá ao stakeholder contexto para comparar resultados, no caso da solução da previsão de recebimentos.
+
+Por fim, há atenção à acessibilidade, com uso de cores de bom contraste no tema escuro, tipografia legível, com gráficos podendo ser expandidos conforme necessidade. Poderiam ser adicionados mais recursos de acessibilidade, como descrição textual alternativa para gráficos ou opção de ajuste de tamanho de fonte para atender a WCAG de forma ainda mais robusta.
+
+**Visual atualizado está disponível no seguinte link de figma:**
+https://www.figma.com/design/VaZoVXZszgxRyxCCdEW1BY/Ponderada-UX-Sem-8---Dashboard---Grupo-4-T18?node-id=0-1&t=8YMuHFIN3nXZGhup-1
+

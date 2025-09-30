@@ -74,7 +74,7 @@ CanvaValue.png: imagem armazenada na raiz do projeto, provavelmente um recurso g
 Arquivos.csv: arquivos que contêm os dados de treinamento e teste do modelo preditivo desenvolvido no projeto.
 <br>
 
-## 💻 Execução dos projetos
+## 💻 Execução do projeto
 
 🚀 Requisitos
 

@@ -47,19 +47,45 @@ https://docs.github.com/en/get-started/writing-on-github/getting-started-with-wr
 
 ### 2.1 Objetivos
 
-```
-Descreva resumidamente os objetivos gerais e específicos do seu parceiro de negócios.
+O objetivo principal do projeto é obter insights individuais sobre os pagadores, de modo a complementar os serviços atualmente oferecidos pela Finnet e aprimorar a relação entre a empresa e seus clientes.
 
-Remova este bloco ao final
-```
+Entre os principais dados analisados estão:
+
+- Score de risco de inadimplência: métrica que classifica o pagador quanto à probabilidade de atraso ou não pagamento, permitindo uma análise detalhada do seu comportamento como cliente;
+
+- Tendência de pagamento: previsão que indica se um boleto será pago em dia, com atraso ou se resultará em inadimplência;
+
+- Fluxo de caixa: estimativa agregada do valor que a empresa deverá receber com base nos boletos emitidos.
+
+Todas essas informações serão apresentadas em um dashboard interativo, que permitirá visualização clara e acompanhamento em tempo real dos dados e previsões, facilitando a tomada de decisão e o monitoramento da carteira de pagadores por parte da empresa cliente.
 
 ### 2.2 Proposta de solução
 
-```
-Descreva resumidamente sua proposta de modelo preditivo e como esse modelo pretende resolver o problema, atendendo os objetivos.
+Para atender às demandas identificadas, foi desenvolvido o **PayBack**, um sistema que integra todas as áreas de análise desejadas e apresenta, de forma visual e interativa, os insights obtidos sobre os pagadores.
 
-Remova este bloco ao final
-```
+A primeira funcionalidade da solução é o **Score de Inadimplência**, uma modelagem matemática responsável por atribuir um valor de score a cada boleto gerado. Ao final do processo, é calculada a média dos scores de todos os boletos de um mesmo pagador, resultando em um **score individual**.
+
+O cálculo do score segue a seguinte classificação:
+
+- Boletos pagos em dia: recebem score igual a 1, pois não há descontos ou penalizações;
+
+- Boletos não pagos (inadimplentes): recebem score igual a 0;
+
+- Boletos pagos com atraso: têm o score calculado pela função:
+
+$f(x)=\dfrac{-x}{31}+1$
+
+em que x representa a diferença entre a data de pagamento e a data de vencimento do boleto, acrescida de 5 dias (prazo de esquecimento). Essa função atribui pesos proporcionais aos dias de atraso, penalizando pagamentos mais tardios.
+
+Os scores resultantes são transformados em features que servem de base para o treinamento de modelos de aprendizado de máquina.
+
+Utilizando essas e outras variáveis selecionadas, o sistema faz uso do algoritmo Light Gradient Boosting Machine (LightGBM) para classificar os boletos em três categorias:
+
+- pagamento em dia;
+- pagamento em atraso;
+- pagamento inadimplente.
+
+O modelo fornece métricas de desempenho, como precisão, revocação e acurácia, calculadas individualmente para cada classe, permitindo uma avaliação detalhada da capacidade preditiva do sistema de forma global.
 
 ### 2.3 Justificativa
 

@@ -47,27 +47,79 @@ https://docs.github.com/en/get-started/writing-on-github/getting-started-with-wr
 
 ### 2.1 Objetivos
 
-```
-Descreva resumidamente os objetivos gerais e específicos do seu parceiro de negócios.
+O objetivo principal do projeto é obter **insights individuais** sobre os pagadores, de modo a complementar os serviços atualmente oferecidos pela Finnet e aprimorar a relação entre a empresa e seus clientes.
 
-Remova este bloco ao final
-```
+Entre os principais dados analisados estão:
+
+- Score de risco de inadimplência: métrica que classifica o pagador quanto à probabilidade de atraso ou não pagamento, permitindo uma análise detalhada do seu comportamento como cliente;
+
+- Tendência de pagamento: previsão que indica se um boleto será pago em dia, com atraso ou se resultará em inadimplência;
+
+- Fluxo de caixa: estimativa agregada do valor que a empresa deverá receber com base nos boletos emitidos.
+
+Todas essas informações serão apresentadas em um **dashboard interativo**, que permitirá visualização clara e **acompanhamento em tempo real** dos dados e previsões, facilitando a tomada de decisão e o monitoramento da carteira de pagadores por parte da empresa cliente.
 
 ### 2.2 Proposta de solução
 
-```
-Descreva resumidamente sua proposta de modelo preditivo e como esse modelo pretende resolver o problema, atendendo os objetivos.
+Para atender às demandas identificadas, foi desenvolvido o **PayBack**, um sistema que integra todas as áreas de análise desejadas e apresenta, de forma visual, os insights obtidos sobre os pagadores.
 
-Remova este bloco ao final
-```
+#### 2.2.1 Score de Inadimplência
+
+A primeira funcionalidade da solução é o **Score de Inadimplência**, uma modelagem matemática responsável por atribuir um valor de score a cada boleto gerado. Ao final do processo, é calculada a média dos scores de todos os boletos de um mesmo pagador, resultando em um **score individual**.
+
+O cálculo do score segue a seguinte classificação:
+
+- Boletos pagos em dia: recebem score igual a 1, pois não há descontos ou penalizações;
+
+- Boletos não pagos (inadimplentes): recebem score igual a 0;
+
+- Boletos pagos com atraso: têm o score calculado pela função:
+
+$f(x)=\dfrac{-x}{31}+1$
+
+em que **x** representa a diferença entre a data de pagamento e a data de vencimento do boleto, acrescida de 5 dias (prazo de esquecimento). Essa função atribui **pesos proporcionais** aos dias de atraso, penalizando pagamentos mais tardios.
+
+Os scores resultantes são transformados em **features** que servem de base para o treinamento de modelos de aprendizado de máquina.
+
+#### 2.2.2 Previsão de inadimplência
+
+Utilizando essas e outras variáveis selecionadas, o sistema faz uso do algoritmo **Light Gradient Boosting Machine** (LightGBM) para classificar os boletos em três categorias:
+
+- pagamento em dia;
+- pagamento em atraso;
+- pagamento inadimplente.
+
+O modelo fornece métricas de desempenho, como precisão, revocação e acurácia, calculadas individualmente para cada classe, permitindo uma avaliação detalhada da capacidade preditiva do sistema de forma global.
+
+#### 2.2.3 Previsão de fluxo de caixa
+
+Outra funcionalidade do sistema é o modelo de **previsão de fluxo de caixa**, desenvolvido com o algoritmo **Light Gradient Boosting Machine** (LightGBM). Esse modelo tem como objetivo estimar a probabilidade de o **pagador realizar o pagamento integral do boleto**.
+
+A partir dessa previsão, o sistema calcula o **valor médio não pago** por cada pagador, considerando a soma dos montantes pendentes em boletos anteriores. Essa média é então utilizada para ajustar a estimativa dos próximos pagamentos: caso o modelo indique uma alta probabilidade de pagamento parcial, o valor médio de inadimplência é subtraído do valor total previsto para o boleto correspondente.
+
+Por fim, os resultados são agrupados por **empresa ou grupo** de clientes, gerando uma projeção consolidada dos **valores esperados de recebimento**. Essa abordagem permite antecipar possíveis perdas e otimizar o planejamento financeiro, fornecendo uma visão mais precisa e estratégica do fluxo de caixa futuro.
+
+#### 2.2.4 Dashboard
+
+Para consolidar e exibir todas as informações geradas pelos modelos desenvolvidos, foi criado um **dashboard interativo** que apresenta os **principais insights** obtidos pela solução.
+
+Entre os elementos disponíveis estão:
+
+- Tabela de status de pagamento (adimplente, inadimplente e atrasado): exibe a quantidade de pagadores em cada categoria, permitindo uma visão geral da carteira;
+
+- Tabela de pagadores hash: mostra os valores totais esperados por pagador, possibilitando o acompanhamento individualizado;
+
+- Métricas de desempenho dos modelos: apresenta indicadores como acurácia, precisão, revocação e F1-score, permitindo a avaliação contínua da qualidade das previsões.
+
+Com isso, os **gestores financeiros** têm acesso a uma visualização clara, integrada e de **fácil interpretação** dos resultados obtidos, **facilitando a tomada de decisões estratégicas** e o **monitoramento da saúde financeira** da carteira de clientes.
 
 ### 2.3 Justificativa
 
-```
-Faça uma breve defesa de sua proposta de solução, escreva sobre seus potenciais, seus benefícios e como ela se diferencia.
+A solução proposta, **PayBack**, surge como uma ferramenta estratégica para auxiliar a Finnet e suas empresas clientes na gestão de risco e na previsão de inadimplência. O sistema oferece uma abordagem analítica e preditiva, permitindo uma compreensão individualizada do comportamento dos pagadores a partir de dados históricos de pagamento.
 
-Remova este bloco ao final
-```
+Ao reunir indicadores como **score de risco**, **tendência de pagamento** e **fluxo de caixa** em um **dashboard** interativo, a ferramenta promove agilidade na tomada de decisão e maior previsibilidade financeira para as empresas. Diferentemente de abordagens tradicionais baseadas apenas em históricos agregados, o PayBack permite análises detalhadas por cliente, fornecendo insights personalizados que fortalecem a relação entre empresa e pagador.
+
+Além disso, o uso de algoritmos de aprendizado de máquina, como o LightGBM, confere ao sistema um caráter inovador e escalável, possibilitando a evolução contínua do modelo conforme novos dados são incorporados. Assim, a solução não apenas melhora o monitoramento das transações, mas também antecipa comportamentos de risco, contribuindo diretamente para a redução de inadimplência e otimização do fluxo de caixa.
 
 ## <a name="c3"></a>3. Metodologia
 

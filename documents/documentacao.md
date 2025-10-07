@@ -1101,12 +1101,81 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 ### 4.3.3 Modelo de Previsão de Recebimentos
 
+O modelo preditivo de **Regressão Logística Simples** tem como objetivo estimar a probabilidade de um boleto ser pago integralmente ou não, classificando-o entre as categorias “pago” e “não pago”. Esse modelo é baseado em aprendizado supervisionado, sendo, portanto, um problema de **classificação binária**.
+
 #### 4.3.3.1 Features Escolhidas
+
+A seguir estão as variáveis consideradas mais relevantes para estimar a chance de pagamento:
+
+**Variável Y (alvo):**
+
+A variável alvo é binária e indica se o boleto foi pago ou não. Assim, $y=1$ representa um boleto pago integralmente, e $y=0$ representa um boleto não pago ou parcialmente pago. Essa variável foi criada com base no valor original (vl_boleto) e no valor efetivamente pago (vl_pagto).
+
+**Variáveis X (features):**
+
+As variáveis independentes escolhidas para o modelo são:
+
+- Valor do boleto normalizado (vl_boleto): representa o valor original do boleto. Essa feature é essencial, pois boletos de valores mais altos tendem a apresentar maior risco de não pagamento.
+
+- Valor efetivamente pago (vl_pagto): indica o valor pago pelo cliente. Essa variável é utilizada para identificar padrões de quitação e contribuir na estimativa da probabilidade de pagamento integral.
+
+Essas duas features foram selecionadas por apresentarem alta correlação com o status final de pagamento e pela simplicidade na interpretação dos coeficientes resultantes do modelo.
 
 #### 4.3.3.2 Criação do Modelo 
 
+**Divisão dos Dados entre X e Y**
+
+Inicialmente, as colunas vl_boleto e vl_pagto foram selecionadas como variáveis independentes (X), enquanto a coluna status_pagamento foi definida como variável alvo (Y). O conjunto de dados foi dividido em **80% para treino** e **20% para teste**, preservando o equilíbrio entre as classes através do parâmetro stratify para manter a representatividade de pagamentos e não pagamentos.
+
+**Padronização e Balanceamento**
+
+Como a distribuição entre boletos pagos e não pagos apresentava certo desbalanceamento, aplicou-se a configuração de balanceamento interno da regressão logística com o parâmetro class_weight='balanced'. Além disso, os dados foram padronizados para garantir que todas as variáveis tivessem a mesma escala, favorecendo a estabilidade numérica do modelo durante o processo de otimização.
+
+**Treinamento e Hiperparâmetros**
+
+O modelo foi implementado utilizando a classe LogisticRegression da biblioteca scikit-learn. Os principais hiperparâmetros configurados foram:
+
+- solver='sag': método de otimização eficiente para grandes bases e dados balanceados.
+
+- max_iter=1000: garante a convergência do modelo durante o ajuste dos coeficientes.
+
+- class_weight='balanced': ajusta o peso de cada classe com base na frequência dos rótulos, corrigindo o desequilíbrio entre exemplos de boletos pagos e não pagos.
+
+Durante o tuning, foram testadas variações de solvers e estratégias de balanceamento para maximizar a acurácia e a estabilidade do modelo.
+
 #### 4.3.3.3 Métricas e Testes
 
+Após o treinamento, o desempenho do modelo foi avaliado com base em métricas clássicas de classificação binária. As principais métricas obtidas foram:
+
+- Acurácia: 89,35%
+
+- ROC AUC: 91,97%
+
+- Precisão: 91%
+
+- Revocação: 91%
+
+Essas métricas indicam que o modelo apresenta alto poder discriminativo, com capacidade significativa de distinguir entre boletos pagos e não pagos.
+
+A análise detalhada dos resultados revelou que a regressão logística conseguiu capturar bem o padrão linear entre o valor do boleto e o valor pago, o que reforça a adequação do modelo para problemas de classificação simples com fronteiras lineares de decisão.
+
+#### 4.3.3.4 Insterpretação dos resultados
+
+A **regressão logística** permite interpretar diretamente o impacto de cada variável sobre a probabilidade de pagamento. O sinal e a magnitude dos coeficientes indicam se uma feature aumenta ou reduz a chance de um boleto ser quitado.
+
+- Valores mais altos de vl_boleto tendem a reduzir a probabilidade de pagamento (coeficiente negativo).
+
+- Valores mais altos de vl_pagto estão positivamente correlacionados com o pagamento integral (coeficiente positivo).
+
+Essa transparência interpretativa facilita a compreensão de padrões de inadimplência e pode ser usada para definir políticas de cobrança mais assertivas.
+
+#### 4.3.3.5 Conclusão
+
+O modelo de **Regressão Logística Simples** demonstrou bom desempenho geral, evidenciando que é capaz de prever corretamente a maioria dos casos de pagamento.
+
+Embora o modelo seja simples, sua interpretação clara e resultados consistentes o tornam adequado para aplicações que exigem explicabilidade, como a previsão do fluxo de caixa.
+
+Como próximos passos para o modelo, definimos explorar novas features comportamentais e temporais que possam aprimorar a capacidade preditiva, realizar ajuste fino de hiperparâmetros para reduzir erros de classificação em casos limítrofes e avaliar modelos não lineares (como árvores de decisão ou ensembles) para capturar relações mais complexas entre variáveis.
 
 ### 4.4. Comparação de Modelos
 
@@ -1123,16 +1192,16 @@ Esse modelo tem como objetivo classificar os pagamentos em três categorias:
 
 Devido à natureza do problema, as métricas utilizadas para avaliação desse modelo são mais específicas e exigem uma análise detalhada. Para isso, utiliza-se a matriz de confusão como base para a escolha e interpretação dos resultados.
 
-##### 4.4.1.A Inadimplente
+##### 4.4.1.1 Inadimplente
 
 Caso um pagador inadimplente seja erroneamente classificado como adimplente, a empresa pode acabar aprovando uma compra que não será paga. Por esse motivo, a revocação (recall) é a métrica mais importante para essa categoria.
 A revocação corresponde à razão entre os verdadeiros positivos e a soma dos verdadeiros positivos com os falsos negativos, ou seja, o número de inadimplentes corretamente identificados pelo sistema em relação ao total de inadimplentes existentes.
 
-##### 4.4.1.B Em dia
+##### 4.4.1.2 Em dia
 
 Nesta categoria, os boletos classificados como “em dia” tendem a ter suas compras aprovadas. Assim, erros de classificação podem fazer com que boletos de pagadores inadimplentes sejam emitidos e não pagos. Por isso, a métrica mais relevante é a precisão (precision), que corresponde à razão entre os verdadeiros positivos e a soma dos verdadeiros positivos com os falsos positivos, ou seja, o número de pagamentos corretamente classificados como “em dia” em relação ao total de pagamentos previstos como “em dia”.
 
-##### 4.4.1.C Em atraso
+##### 4.4.1.3 Em atraso
 
 A lógica de classificação para pagamentos em atraso segue o mesmo raciocínio da categoria “em dia”. Erros nesse caso também podem fazer com que boletos de inadimplentes tenham suas compras aprovadas. Dessa forma, a métrica mais apropriada é novamente a precisão (precision), que mede a proporção de boletos corretamente identificados como pagos com atraso em relação ao total de boletos classificados como pagamento em atraso.
 

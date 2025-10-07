@@ -47,7 +47,7 @@ https://docs.github.com/en/get-started/writing-on-github/getting-started-with-wr
 
 ### 2.1 Objetivos
 
-O objetivo principal do projeto é obter insights individuais sobre os pagadores, de modo a complementar os serviços atualmente oferecidos pela Finnet e aprimorar a relação entre a empresa e seus clientes.
+O objetivo principal do projeto é obter **insights individuais** sobre os pagadores, de modo a complementar os serviços atualmente oferecidos pela Finnet e aprimorar a relação entre a empresa e seus clientes.
 
 Entre os principais dados analisados estão:
 
@@ -57,11 +57,11 @@ Entre os principais dados analisados estão:
 
 - Fluxo de caixa: estimativa agregada do valor que a empresa deverá receber com base nos boletos emitidos.
 
-Todas essas informações serão apresentadas em um dashboard interativo, que permitirá visualização clara e acompanhamento em tempo real dos dados e previsões, facilitando a tomada de decisão e o monitoramento da carteira de pagadores por parte da empresa cliente.
+Todas essas informações serão apresentadas em um **dashboard interativo**, que permitirá visualização clara e **acompanhamento em tempo real** dos dados e previsões, facilitando a tomada de decisão e o monitoramento da carteira de pagadores por parte da empresa cliente.
 
 ### 2.2 Proposta de solução
 
-Para atender às demandas identificadas, foi desenvolvido o **PayBack**, um sistema que integra todas as áreas de análise desejadas e apresenta, de forma visual e interativa, os insights obtidos sobre os pagadores.
+Para atender às demandas identificadas, foi desenvolvido o **PayBack**, um sistema que integra todas as áreas de análise desejadas e apresenta, de forma visual, os insights obtidos sobre os pagadores.
 
 #### 2.2.1 Score de Inadimplência
 
@@ -77,9 +77,9 @@ O cálculo do score segue a seguinte classificação:
 
 $f(x)=\dfrac{-x}{31}+1$
 
-em que x representa a diferença entre a data de pagamento e a data de vencimento do boleto, acrescida de 5 dias (prazo de esquecimento). Essa função atribui pesos proporcionais aos dias de atraso, penalizando pagamentos mais tardios.
+em que **x** representa a diferença entre a data de pagamento e a data de vencimento do boleto, acrescida de 5 dias (prazo de esquecimento). Essa função atribui **pesos proporcionais** aos dias de atraso, penalizando pagamentos mais tardios.
 
-Os scores resultantes são transformados em features que servem de base para o treinamento de modelos de aprendizado de máquina.
+Os scores resultantes são transformados em **features** que servem de base para o treinamento de modelos de aprendizado de máquina.
 
 #### 2.2.2 Previsão de inadimplência
 
@@ -93,13 +93,25 @@ O modelo fornece métricas de desempenho, como precisão, revocação e acuráci
 
 #### 2.2.3 Previsão de fluxo de caixa
 
-Outra funcionalidade do sistema é um modelo que utiliza o algoritmo 
+Outra funcionalidade do sistema é o modelo de **previsão de fluxo de caixa**, desenvolvido com o algoritmo **Light Gradient Boosting Machine** (LightGBM). Esse modelo tem como objetivo estimar a probabilidade de o **pagador realizar o pagamento integral do boleto**.
+
+A partir dessa previsão, o sistema calcula o **valor médio não pago** por cada pagador, considerando a soma dos montantes pendentes em boletos anteriores. Essa média é então utilizada para ajustar a estimativa dos próximos pagamentos: caso o modelo indique uma alta probabilidade de pagamento parcial, o valor médio de inadimplência é subtraído do valor total previsto para o boleto correspondente.
+
+Por fim, os resultados são agrupados por **empresa ou grupo** de clientes, gerando uma projeção consolidada dos **valores esperados de recebimento**. Essa abordagem permite antecipar possíveis perdas e otimizar o planejamento financeiro, fornecendo uma visão mais precisa e estratégica do fluxo de caixa futuro.
 
 #### 2.2.4 Dashboard
 
-Para exibir todas as informações que a solução oferece, foi desenvolvido um dashboard que contém os **principais insights** obtidos com os modelos, como:
+Para consolidar e exibir todas as informações geradas pelos modelos desenvolvidos, foi criado um **dashboard interativo** que apresenta os **principais insights** obtidos pela solução.
 
+Entre os elementos disponíveis estão:
 
+- Tabela de status de pagamento (adimplente, inadimplente e atrasado): exibe a quantidade de pagadores em cada categoria, permitindo uma visão geral da carteira;
+
+- Tabela de pagadores hash: mostra os valores totais esperados por pagador, possibilitando o acompanhamento individualizado;
+
+- Métricas de desempenho dos modelos: apresenta indicadores como acurácia, precisão, revocação e F1-score, permitindo a avaliação contínua da qualidade das previsões.
+
+Com isso, os **gestores financeiros** têm acesso a uma visualização clara, integrada e de **fácil interpretação** dos resultados obtidos, **facilitando a tomada de decisões estratégicas** e o **monitoramento da saúde financeira** da carteira de clientes.
 
 ### 2.3 Justificativa
 

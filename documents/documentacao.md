@@ -63,6 +63,8 @@ Todas essas informações serão apresentadas em um dashboard interativo, que pe
 
 Para atender às demandas identificadas, foi desenvolvido o **PayBack**, um sistema que integra todas as áreas de análise desejadas e apresenta, de forma visual e interativa, os insights obtidos sobre os pagadores.
 
+#### 2.2.1 Score de Inadimplência
+
 A primeira funcionalidade da solução é o **Score de Inadimplência**, uma modelagem matemática responsável por atribuir um valor de score a cada boleto gerado. Ao final do processo, é calculada a média dos scores de todos os boletos de um mesmo pagador, resultando em um **score individual**.
 
 O cálculo do score segue a seguinte classificação:
@@ -79,7 +81,9 @@ em que x representa a diferença entre a data de pagamento e a data de venciment
 
 Os scores resultantes são transformados em features que servem de base para o treinamento de modelos de aprendizado de máquina.
 
-Utilizando essas e outras variáveis selecionadas, o sistema faz uso do algoritmo Light Gradient Boosting Machine (LightGBM) para classificar os boletos em três categorias:
+#### 2.2.2 Previsão de inadimplência
+
+Utilizando essas e outras variáveis selecionadas, o sistema faz uso do algoritmo **Light Gradient Boosting Machine** (LightGBM) para classificar os boletos em três categorias:
 
 - pagamento em dia;
 - pagamento em atraso;
@@ -87,13 +91,23 @@ Utilizando essas e outras variáveis selecionadas, o sistema faz uso do algoritm
 
 O modelo fornece métricas de desempenho, como precisão, revocação e acurácia, calculadas individualmente para cada classe, permitindo uma avaliação detalhada da capacidade preditiva do sistema de forma global.
 
+#### 2.2.3 Previsão de fluxo de caixa
+
+Outra funcionalidade do sistema é um modelo que utiliza o algoritmo 
+
+#### 2.2.4 Dashboard
+
+Para exibir todas as informações que a solução oferece, foi desenvolvido um dashboard que contém os **principais insights** obtidos com os modelos, como:
+
+
+
 ### 2.3 Justificativa
 
-```
-Faça uma breve defesa de sua proposta de solução, escreva sobre seus potenciais, seus benefícios e como ela se diferencia.
+A solução proposta, **PayBack**, surge como uma ferramenta estratégica para auxiliar a Finnet e suas empresas clientes na gestão de risco e na previsão de inadimplência. O sistema oferece uma abordagem analítica e preditiva, permitindo uma compreensão individualizada do comportamento dos pagadores a partir de dados históricos de pagamento.
 
-Remova este bloco ao final
-```
+Ao reunir indicadores como **score de risco**, **tendência de pagamento** e **fluxo de caixa** em um **dashboard** interativo, a ferramenta promove agilidade na tomada de decisão e maior previsibilidade financeira para as empresas. Diferentemente de abordagens tradicionais baseadas apenas em históricos agregados, o PayBack permite análises detalhadas por cliente, fornecendo insights personalizados que fortalecem a relação entre empresa e pagador.
+
+Além disso, o uso de algoritmos de aprendizado de máquina, como o LightGBM, confere ao sistema um caráter inovador e escalável, possibilitando a evolução contínua do modelo conforme novos dados são incorporados. Assim, a solução não apenas melhora o monitoramento das transações, mas também antecipa comportamentos de risco, contribuindo diretamente para a redução de inadimplência e otimização do fluxo de caixa.
 
 ## <a name="c3"></a>3. Metodologia
 

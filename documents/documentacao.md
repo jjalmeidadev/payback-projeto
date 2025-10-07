@@ -1252,11 +1252,11 @@ Remova este bloco ao final
 
 ## <a name="c5"></a>5. Conclusões e Recomendações
 
-O projeto **PayBack** atingiu seu objetivo principal de desenvolver uma solução preditiva capaz de gerar **insights individuais** sobre os pagadores e aprimorar a **gestão financeira** das empresas clientes da Finnet. Através da aplicação de modelos de aprendizado de máquina, especialmente o Light Gradient Boosting Machine (LightGBM), foi possível criar um score de inadimplência, prever tendências de pagamento e estimar o fluxo de caixa esperado.
+O projeto **PayBack** atingiu seu objetivo principal de desenvolver uma solução preditiva capaz de gerar **insights individuais** sobre os pagadores e aprimorar a **gestão financeira** das empresas clientes da Finnet. Através da aplicação de modelos de aprendizado de máquina, especialmente o **Light Gradient Boosting Machine** (LightGBM), foi possível criar um score de inadimplência, prever tendências de pagamento e estimar o fluxo de caixa esperado.
 
 Os resultados obtidos demonstraram desempenho consistente e **métricas satisfatórias**, como precisão, revocação e acurácia equilibradas entre as classes analisadas. Além disso, o **dashboard interativo** proporcionou uma visualização clara dos indicadores e métricas, facilitando o acompanhamento e a tomada de decisão por parte dos gestores financeiros.
 
-Recomenda-se à **Finnet** a **integração gradual do modelo ao ambiente de produção**, inicialmente em caráter de teste, para monitorar seu desempenho com dados reais e ajustar os parâmetros conforme necessário. Também é sugerida a **manutenção periódica do modelo** — incluindo reavaliação de dados, re-treinamentos e atualizações de features — a fim de garantir que as previsões se mantenham confiáveis ao longo do tempo.
+Recomenda-se à **Finnet** a **integração gradual do modelo ao ambiente de produção**, inicialmente em caráter de teste, para monitorar seu desempenho com dados reais e ajustar os parâmetros conforme necessário. Também é sugerida a **manutenção periódica do modelo**, incluindo reavaliação de dados, re-treinamentos e atualizações de features, a fim de garantir que as previsões se mantenham confiáveis ao longo do tempo.
 
 Por fim, é importante que o uso dos modelos preditivos seja conduzido de forma **ética e transparente**, considerando o impacto das decisões sobre **clientes e pagadores**. As análises devem ser utilizadas como **apoio à decisão** e não como fator exclusivo para definir políticas de crédito, garantindo que as previsões sejam sempre interpretadas dentro de um contexto humano e estratégico.
 

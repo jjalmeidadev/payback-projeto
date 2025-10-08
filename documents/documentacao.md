@@ -1188,20 +1188,11 @@ Modelos preditivos retornam grande volume de dados, por isso é essencial utiliz
 
 ### 4.5. Avaliação
 
-```
-- Descreva a solução final de modelo preditivo e justifique a escolha. Alinhe sua justificativa com a Seção 4.1, resgatando o entendimento
-  do negócio e das personas, explicando de que formas seu modelo atende os requisitos e definições.
-- Descreva também um plano de contingência para os casos em que o modelo falhar em suas predições.
-- Além disso, discuta sobre a explicabilidade do modelo (se aplicável) e realize a verificação de aceitação ou refutação das hipóteses.
-- Se aplicável, utilize equações, tabelas e gráficos de visualização de dados para melhor ilustrar seus argumentos.
+Nesta seção, é apresentada a avaliação da solução preditiva desenvolvida, considerando sua adequação aos objetivos do negócio e às necessidades das personas definidas anteriormente. São discutidos o desempenho do modelo, sua capacidade de generalização e a justificativa para sua escolha frente às alternativas testadas. Além disso, aborda-se a interpretabilidade dos resultados, o plano de contingência para eventuais falhas nas previsões e a validação das hipóteses propostas ao longo do projeto.
 
-Remova este bloco ao final
-```
-# Modelo Preditivo LightGBM para Previsão de Recebimento de Pagamentos
+#### 4.5.1. Modelo Preditivo LightGBM para Previsão de Recebimento de Pagamentos
 
-## 6. Modelo Preditivo LightGBM para Previsão de Recebimento de Pagamentos
-
-### 6.1. Descrição Geral da Solução
+##### 4.5.1.1. Descrição Geral da Solução
 
 A solução consiste em um **modelo preditivo supervisionado** desenvolvido com **Light Gradient Boosting Machine (LightGBM)** para **estimar a probabilidade de recebimento integral de pagamentos**, **prever fluxos de caixa** e **otimizar estratégias de cobrança** para boletos emitidos por clientes da Finnet.
 
@@ -1219,15 +1210,15 @@ O LightGBM foi escolhido por sua capacidade de:
 
 ---
 
-### 6.2. Evolução do Modelo: Correção de Data Leakage
+##### 4.5.1.2. Evolução do Modelo: Correção de Data Leakage
 
-#### 6.2.1 Problema Identificado no Modelo Original
+###### 4.5.1.2.1. Problema Identificado no Modelo Original
 
 Os modelos anteriores utilizavam a coluna **vl_pagto** (valor de pagamento) como feature no treinamento. Esse procedimento introduzia um grave problema conhecido como **data leakage** (vazamento de dados), onde o modelo aprendia a partir de informações futuras ou indisponíveis no momento da predição.
 
 **Impacto crítico:** Novos boletos emitidos ainda não possuem valor de pagamento registrado, impossibilitando a avaliação correta de risco em cenários reais de produção.
 
-#### 6.2.2 Solução Implementada: Nova Seleção de Features
+###### 4.5.1.2.2. Solução Implementada: Nova Seleção de Features
 
 Foi realizada uma reformulação estratégica das variáveis de entrada, removendo `vl_pagto` e mantendo apenas features disponíveis **no momento da emissão do boleto**:
 
@@ -1264,9 +1255,9 @@ X_train3, X_test3, y_train3, y_test3 = train_test_split(
 
 ---
 
-### 6.3. Alinhamento com a Seção 4.1: Personas, Negócio e Requisitos
+##### 4.5.1.3. Alinhamento com a Seção 4.1: Personas, Negócio e Requisitos
 
-#### 6.3.1 Resumo da Seção 4.1: Contexto de Negócio
+###### 4.5.1.3.1. Resumo da Seção 4.1: Contexto de Negócio
 
 A Seção 4.1 identificou três personas-chave e seus desafios:
 
@@ -1289,7 +1280,7 @@ A Seção 4.1 identificou três personas-chave e seus desafios:
 
 **Oportunidades do Setor:** Uso de IA e Open Finance para criar diferencial competitivo
 
-#### 6.3.2 Alinhamento: Como o Modelo LightGBM Atende aos Requisitos
+###### 4.5.1.3.2. Alinhamento: Como o Modelo LightGBM Atende aos Requisitos
 
 **Tabela 1 – Mapeamento Solução vs. Requisitos de Negócio:**
 
@@ -1306,9 +1297,9 @@ A Seção 4.1 identificou três personas-chave e seus desafios:
 
 ---
 
-### 6.4. Seleção do Algoritmo via PyCaret
+##### 4.5.1.4. Seleção do Algoritmo via PyCaret
 
-#### 6.4.1 Processo de Comparação Automática
+###### 4.5.1.4.1 Processo de Comparação Automática
 
 Para identificar o algoritmo com melhor desempenho a partir das features selecionadas, foi utilizada a biblioteca **PyCaret**, que automatiza a busca, o teste e a comparação entre diversos algoritmos de machine learning.
 
@@ -1325,7 +1316,7 @@ best_models = compare_models()
 - **fold=10:** Validação cruzada com 10 splits
 - **fold_strategy='stratifiedkfold':** Preservação da proporção de classes em cada fold, essencial para datasets desbalanceados
 
-#### 6.4.2 Resultados da Comparação
+###### 4.5.1.4.2 Resultados da Comparação
 
 O PyCaret testou aproximadamente 15 algoritmos diferentes (Logistic Regression, Decision Trees, Random Forest, Gradient Boosting, XGBoost, LightGBM, etc.). Os critérios de seleção foram:
 
@@ -1337,9 +1328,9 @@ O PyCaret testou aproximadamente 15 algoritmos diferentes (Logistic Regression, 
 
 ---
 
-### 6.5. Treinamento Inicial do Modelo LightGBM
+##### 4.5.1.5. Treinamento Inicial do Modelo LightGBM
 
-#### 6.5.1 Modelo com Hiperparâmetros Padrão
+###### 4.5.1.5.1 Modelo com Hiperparâmetros Padrão
 
 O modelo foi inicialmente construído com hiperparâmetros padrão para servir como baseline:
 
@@ -1356,7 +1347,7 @@ model3 = LGBMClassifier(
 model3.fit(X_train3, y_train3)
 ```
 
-#### 6.5.2 Logs de Treinamento
+###### 4.5.1.5.2 Logs de Treinamento
 
 ```
 [LightGBM] [Info] Number of positive: 2753, number of negative: 3376
@@ -1373,7 +1364,7 @@ model3.fit(X_train3, y_train3)
 - **Features utilizadas:** 4 (vl_boleto, pagador_cnpjcpf_norm, dia_vencimento_norm, mes_vencimento_norm). **Nota:** qtd_acesso_n não apareceu, possivelmente devido a valores faltantes ou baixa variância
 - **Score inicial:** -0.204, indicando distribuição inicial de probabilidades
 
-#### 6.5.3 Desempenho do Modelo Inicial (Baseline)
+###### 4.5.1.5.3 Desempenho do Modelo Inicial (Baseline)
 
 ```python
 predicaoBoleto3 = model3.predict(X_test3)
@@ -1425,11 +1416,11 @@ $$\text{F1-Score} = 2 \times \frac{\text{Precisão} \times \text{Recall}}{\text{
 
 ---
 
-### 6.6. Otimização de Hiperparâmetros via Grid Search
+##### 4.5.1.6. Otimização de Hiperparâmetros via Grid Search
 
 Para melhorar o desempenho do modelo, foi realizado um **grid search exaustivo** com validação cruzada em 5 folds.
 
-#### 6.6.1 Espaço de Busca de Hiperparâmetros
+###### 4.5.1.6.1 Espaço de Busca de Hiperparâmetros
 
 ```python
 from sklearn.model_selection import GridSearchCV
@@ -1455,7 +1446,7 @@ grid_search.fit(X_train3, y_train3)
 
 **Total de combinações testadas:** 3 × 3 × 3 × 3 × 3 = **243 modelos**
 
-#### 6.6.2 Melhores Hiperparâmetros Encontrados
+###### 4.5.1.6.2 Melhores Hiperparâmetros Encontrados
 
 ```
 Melhores parâmetros: {
@@ -1477,9 +1468,9 @@ Melhores parâmetros: {
 
 ---
 
-### 6.7. Treinamento do Modelo Final
+##### 4.5.1.7. Treinamento do Modelo Final
 
-#### 6.7.1 Implementação com Hiperparâmetros Otimizados
+###### 4.5.1.7.1 Implementação com Hiperparâmetros Otimizados
 
 ```python
 model3 = LGBMClassifier(
@@ -1494,7 +1485,7 @@ model3 = LGBMClassifier(
 model3.fit(X_train3, y_train3)
 ```
 
-#### 6.7.2 Desempenho do Modelo Final
+###### 4.5.1.7.2 Desempenho do Modelo Final
 
 ```python
 y_pred = model3.predict(X_test3)
@@ -1523,7 +1514,7 @@ Real Neg        4.998      2.789
 Real Pos        2.692      3.825
 ```
 
-#### 6.7.3 Comparação Baseline vs. Modelo Otimizado
+###### 4.5.1.7.3 Comparação Baseline vs. Modelo Otimizado
 
 | Métrica      | Baseline | Otimizado | Melhoria |
 |--------------|----------|-----------|----------|
@@ -1537,9 +1528,9 @@ Real Pos        2.692      3.825
 
 ---
 
-### 6.8. Aplicação do Modelo: Previsão de Recebimentos
+##### 4.5.1.8. Aplicação do Modelo: Previsão de Recebimentos
 
-#### 6.8.1 Probabilidade de Pagamento Integral por Pagador
+###### 4.5.1.8.1 Probabilidade de Pagamento Integral por Pagador
 
 O modelo foi aplicado para calcular a **probabilidade média de pagamento integral para cada pagador** no conjunto de teste:
 
@@ -1571,7 +1562,7 @@ resultado3 = (
 - Pagador ID 3: 61.23% de probabilidade (moderado-alto risco de inadimplência)
 - Pagador ID 8: 73.01% de probabilidade (baixo risco)
 
-#### 6.8.2 Cálculo do Pagamento Total Previsto por Pagador
+###### 4.5.1.8.2 Cálculo do Pagamento Total Previsto por Pagador
 
 Foi calculado o **valor total previsto de pagamento** para cada pagador, aplicando a probabilidade ao valor dos boletos:
 
@@ -1619,7 +1610,7 @@ Onde a diferença média representa a perda esperada por boleto não integraliza
 
 $$\text{diferença\_média} = \frac{\text{soma\_valor\_boleto} - \text{soma\_valor\_pago}}{\text{contagem}}$$
 
-#### 6.8.3 Comparação de Valores Totais por Pagador
+###### 4.5.1.8.3 Comparação de Valores Totais por Pagador
 
 **Exemplo de Comparação:**
 
@@ -1630,7 +1621,7 @@ $$\text{diferença\_média} = \frac{\text{soma\_valor\_boleto} - \text{soma\_val
 | 4                      | 1.755,00           | 1.610,99                 |
 | 8                      | 2.874,10           | 2.874,10                 |
 
-#### 6.8.4 Comparação Total Geral
+###### 4.5.1.8.4 Comparação Total Geral
 
 ```python
 total_valor_boleto3 = agrupado3['soma_valor_boleto'].sum()
@@ -1655,7 +1646,7 @@ $$\text{Perda Esperada} = 4.501.314,00 - 3.663.726,49 = \text{R\$ } 837.587,51$$
 
 ---
 
-### 6.9. Métricas de Erro da Previsão
+##### 4.5.1.9. Métricas de Erro da Previsão
 
 Para avaliar a precisão das previsões de valor de pagamento, foram calculadas métricas de regressão:
 
@@ -1690,9 +1681,9 @@ $$\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2} = R\$ 787,
 
 ---
 
-### 6.10. Explicabilidade do Modelo: Feature Importance
+##### 4.5.1.10. Explicabilidade do Modelo: Feature Importance
 
-#### 6.10.1 Análise de Feature Importance
+###### 4.5.1.10.1 Análise de Feature Importance
 
 As variáveis mais importantes para a predição de pagamento integral, em ordem de importância, são:
 

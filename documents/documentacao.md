@@ -1601,14 +1601,11 @@ resultado3['pagamento_total'] = pagamento_total_lista3
 
 **Lógica de Decisão:**
 
-$$\text{Pagamento Previsto} = \begin{cases} 
-\text{soma\_valor\_boleto} & \text{if } P(\text{pago}) > 0.5 \\
-\text{soma\_valor\_boleto} - \text{diferença\_média} & \text{if } P(\text{pago}) \leq 0.5
-\end{cases}$$
+$PagamentoPrevisto = \text{se } P(pago) > 0.5 \text{ então } soma\_valor\_boleto \text{ senão } soma\_valor\_boleto - diferenca\_media$
 
 Onde a diferença média representa a perda esperada por boleto não integralizado:
 
-$$\text{diferença\_média} = \frac{\text{soma\_valor\_boleto} - \text{soma\_valor\_pago}}{\text{contagem}}$$
+$diferenca\_media = \frac{soma\_valor\_boleto - soma\_valor\_pago}{contagem}$
 
 ###### 4.5.1.8.3 Comparação de Valores Totais por Pagador
 
@@ -1640,9 +1637,9 @@ print(f"Porcentagem: {(total_pagamento_previsto3 / total_valor_boleto3) * 100:.2
 
 **Interpretação:** O modelo prevê que, do total de R$ 4,5 milhões em boletos emitidos, R$ 3,66 milhões (81,39%) serão recebidos, implicando em uma perda esperada de R$ 837.587,51 (18,61%).
 
-$$\text{Taxa de Recebimento Prevista} = \frac{3.663.726,49}{4.501.314,00} = 0,8139 = 81,39\%$$
+$\text{Taxa de Recebimento Prevista} = \frac{3.663.726,49}{4.501.314,00} = 0,8139 = 81,39\%$
 
-$$\text{Perda Esperada} = 4.501.314,00 - 3.663.726,49 = \text{R\$ } 837.587,51$$
+$\text{Perda Esperada} = 4.501.314,00 - 3.663.726,49 = \text{837.587,51 reais}$
 
 ---
 

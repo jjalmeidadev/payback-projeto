@@ -1312,14 +1312,10 @@ Remova este bloco ao final
 
 - ALPHA Level (Significance Level): What is it? Statistics How To. Disponível em: https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/what-is-an-alpha-level/#:~:text=3.,equil%C3%ADbrio%20entre%20esses%20dois%20problemas. Acesso em: 27 ago. 2025.
 
-## <a name="attachments"></a>Anexos
+## <a name="attachments"></a>7. Anexos
 
-```
-Utilize esta seção para anexar materiais como manuais de usuário, documentos complementares que ficaram grandes e não couberam no corpo do texto etc.
 
-Remova este bloco ao final
-```
-### 6.1. Análise de Normalidade e Escalonamento das Variáveis
+### 7.1. Análise de Normalidade e Escalonamento das Variáveis
 
 Para compreender o comportamento estatístico dos dados e prepará-los para as etapas seguintes da análise, foram aplicados dois procedimentos principais: a verificação da normalidade das distribuições e o escalonamento das variáveis. A seguir, cada um desses processos é detalhado. Segue abaixo um glossário explicando palavras chaves que serão usadas posteriormente:
 
@@ -1368,11 +1364,11 @@ Técnica de escalonamento que transforma valores para o intervalo [0,1], preserv
 **Normalidade**
 Característica de distribuições que seguem o padrão da curva normal (ou gaussiana), simétrica e em formato de sino.
 
-#### 6.1.1. Análise de Normalidade
+#### 7.1.1. Análise de Normalidade
 
 Nesta subseção, são apresentados os testes estatísticos utilizados para avaliar se as variáveis seguem uma distribuição normal. A análise da normalidade é fundamental, pois influencia diretamente na escolha dos métodos estatísticos e de modelagem que podem ser aplicados de forma adequada.
 
-##### 6.1.1.1. Afirmações e suas hipóteses
+##### 7.1.1.1. Afirmações e suas hipóteses
 
 Nesta subseção, são definidas as afirmações e hipóteses que orientam a verificação de normalidade das variáveis analisadas. Para cada variável quantitativa, estabelece-se a hipótese nula (H₀), que pressupõe a normalidade da distribuição, e a hipótese alternativa (H₁), que refuta essa condição. Esse procedimento fornece a base estatística necessária para a aplicação dos testes de normalidade.
 
@@ -1400,7 +1396,7 @@ Observação: H₀ sempre assumirá normalidade, o teste irá indicar se a hipó
 
 Assim, nesta etapa foram organizadas as afirmações e hipóteses de cada variável relevante ao estudo, sempre considerando H₀ como a suposição de normalidade. A partir dessa estrutura, torna-se possível avaliar se os dados seguem ou não uma distribuição normal, servindo de suporte para as análises subsequentes.
 
-##### 6.1.1.2. Nível de significância e sua relação com o valor de p
+##### 7.1.1.2. Nível de significância e sua relação com o valor de p
 
 Na análise estatística, o nível de significância ($\alpha$) e o p-valor caminham juntos no processo de tomada de decisão. O nível de significância é um critério fixo, definido antes da análise, e neste estudo será o mesmo para todos os testes. Já o p-valor é calculado individualmente em cada caso, representando a probabilidade de observarmos os dados (ou mais extremos) caso a hipótese nula seja verdadeira. A comparação entre o p-valor de cada teste e o $\alpha$ fixo orienta a decisão sobre a normalidade dos dados.
 
@@ -1418,7 +1414,7 @@ O p-valor, por sua vez, varia de acordo com cada teste; a comparação é sempre
 
 Portanto, ao adotar $\alpha = 5%$, seguimos um padrão amplamente utilizado. A comparação entre o p-valor de cada teste e esse limite fixo indica, de forma uniforme, se rejeitamos a hipótese nula de normalidade ou se os dados podem ser compatíveis com uma distribuição normal.
 
-##### 6.1.1.3. Teste de Normalidade das Variáveis Quantitativas
+##### 7.1.1.3. Teste de Normalidade das Variáveis Quantitativas
 
 A verificação da normalidade é um passo essencial para definir quais métodos estatísticos podem ser aplicados de forma adequada. Por isso, todas as variáveis quantitativas passaram por testes formais de normalidade.
 
@@ -1448,7 +1444,7 @@ O teste adotado para todas as variáveis foi o teste de Lilliefors, que consiste
 
 Os resultados indicam que, para todas as variáveis analisadas, a hipótese nula de normalidade foi rejeitada ao nível de significância de 5%. Assim, os dados não seguem distribuição normal, o que orienta o uso de técnicas estatísticas que não dependam dessa suposição.
 
-##### 6.1.1.4. Teste de Normalidade das Variáveis Quantitativas
+##### 7.1.1.4. Teste de Normalidade das Variáveis Quantitativas
 
 Além dos testes estatísticos aplicados, foram elaborados histogramas para cada uma das cinco variáveis, a fim de avaliar visualmente a forma das distribuições. Essa análise gráfica permite verificar se os dados apresentam comportamento próximo ao da distribuição normal, reforçando ou contrastando os resultados obtidos nos testes de normalidade.
 
@@ -1534,7 +1530,7 @@ O histograma da variável valor das multas evidencia um forte desvio em relaçã
 
 A avaliação gráfica confirmou os resultados dos testes estatísticos: em todas as variáveis, os histogramas evidenciaram desvios claros em relação à normalidade, sobretudo pela forte assimetria nas distribuições.
 
-##### 6.1.1.5. Comparação das Média e Medianas
+##### 7.1.1.5. Comparação das Média e Medianas
 
 A comparação entre a média e a mediana das variáveis quantitativas fornece informações importantes sobre a simetria das distribuições. Diferenças significativas entre esses dois parâmetros indicam assimetria nos dados e podem reforçar os resultados obtidos nos testes estatísticos de normalidade. Esta análise permite compreender melhor o comportamento das variáveis e identificar desvios que impactam a interpretação dos dados.
 
@@ -1553,11 +1549,11 @@ Ademais, nessa seção também foi utilizado o desvio padrão para dar maior emb
 
 A comparação entre média e mediana, complementada pelo desvio padrão, evidenciou padrões de assimetria em todas as variáveis analisadas, reforçando as conclusões sobre o afastamento da normalidade apontadas pelos testes estatísticos e análises gráficas.
 
-#### 6.1.2. Escalonamento das Variáveis
+#### 7.1.2. Escalonamento das Variáveis
 
 Aqui, são descritos os procedimentos de escalonamento, como normalização e/ou padronização, aplicados para ajustar variáveis com diferentes escalas. Esse processo garante comparabilidade entre os atributos e contribui para a melhoria do desempenho de algoritmos de aprendizado de máquina e análises comparativas.
 
-##### 6.1.2.1. Escalonamento Escolhido
+##### 7.1.2.1. Escalonamento Escolhido
 
 O escalonamento das variáveis quantitativas tem como objetivo ajustar os dados para que fiquem em uma mesma escala, permitindo comparabilidade entre diferentes medidas e evitando que variáveis com amplitudes maiores influenciem de forma desproporcional os resultados da análise. Esse processo preserva a forma das distribuições originais, mantendo informações sobre assimetrias, concentração de valores e outliers, mas ajustando os valores para facilitar interpretações e aplicações em modelos estatísticos.
 
@@ -1587,7 +1583,7 @@ Antes da escolha do método, foi realizado o teste de normalidade, cujo resultad
 
 O escalonamento aplicado uniformemente às variáveis garantiu comparabilidade entre elas, mantendo as propriedades originais dos dados e preparando-os adequadamente para análises subsequentes.
 
-##### 6.1.2.2. Estatísticas Utilizadas
+##### 7.1.2.2. Estatísticas Utilizadas
 
 Nesta subseção, apresentam-se os principais valores estatísticos das variáveis quantitativas que serão utilizados no processo de escalonamento: mínimo, máximo, média, mediana e desvio padrão populacional. Esses parâmetros permitem compreender a amplitude e a dispersão dos dados, servindo de base para ajustar as variáveis a uma escala comparável, preservando a forma das distribuições e facilitando análises subsequentes.
 
@@ -1615,7 +1611,7 @@ Nesta subseção, apresentam-se os principais valores estatísticos das variáve
 
 A apresentação das estatísticas descritivas permite interpretar a variabilidade e a amplitude de cada variável, fornecendo o suporte necessário para aplicar o escalonamento de forma consistente e confiável.
 
-##### 6.1.2.3. Equações de Escalonamento
+##### 7.1.2.3. Equações de Escalonamento
 
 O escalonamento das variáveis quantitativas transforma os dados para uma mesma escala, permitindo comparabilidade entre diferentes medidas e evitando que variáveis com amplitudes maiores tenham influência desproporcional.
 
@@ -1642,7 +1638,7 @@ $multa_{\text{norm}} = \frac{multa - 1.46}{18323.55}$
 
 Ao aplicar as equações de normalização Min-Max, todos os valores das variáveis foram ajustados para o intervalo [0,1], garantindo consistência na escala sem alterar a estrutura dos dados, permitindo comparações diretas entre diferentes variáveis e suportando análises subsequentes.
 
-##### 6.1.2.4. Histogramas Escalonados E Sua Relação Com Não Escalonados
+##### 7.1.2.4. Histogramas Escalonados E Sua Relação Com Não Escalonados
 
 Nesta subseção são apresentados os histogramas das variáveis após o processo de escalonamento, acompanhados de uma comparação com os histogramas originais. O objetivo é observar de que forma a transformação impacta a distribuição dos dados e identificar se houve alterações relevantes em relação ao padrão anteriormente verificado.
 
@@ -1728,7 +1724,7 @@ Após o escalonamento, o histograma da variável valor das multas manteve o padr
 
 Os histogramas escalonados mantiveram o padrão de assimetria e concentração de valores das distribuições originais. A transformação ajustou os dados para o intervalo [0,1] sem modificar a forma geral dos histogramas, confirmando que o escalonamento preservou a estrutura dos dados e reforçou visualmente comportamentos já identificados anteriormente.
 
-##### 6.1.2.5. Tabelas de Dados Originais e Escalonados
+##### 7.1.2.5. Tabelas de Dados Originais e Escalonados
 
 Para complementar a análise gráfica dos histogramas, esta subseção apresenta as tabelas com os 10 primeiros registros das variáveis quantitativas utilizadas no estudo, tanto em sua forma original quanto após o processo de escalonamento. Essa comparação possibilita observar, de maneira mais direta, as diferenças entre os valores brutos e os valores transformados, ressaltando como o escalonamento modifica a escala dos dados sem alterar sua estrutura ou relações internas.
 
@@ -1792,7 +1788,7 @@ Na tabela dos dados originais, nota-se que as variáveis apresentam magnitudes b
 
 Após o escalonamento, observa-se que os valores passam a estar distribuídos em torno de zero, com variabilidade mais uniforme, o que favorece análises estatísticas e modelos que utilizam essas variáveis de forma conjunta.
 
-### <a name="c7"></a>7. Idealização do Dashboard
+### <a name="c7"></a>8. Idealização do Dashboard
 
 #### Critérios de Avaliação do Protótipo
 

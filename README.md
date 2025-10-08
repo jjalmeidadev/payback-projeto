@@ -189,7 +189,7 @@ python -m venv venv
 <br>
 
 ```bash
-pip install pandas numpy scikit-learn seaborn matplotlib lightgbm
+pip install notebook pandas numpy scikit-learn seaborn matplotlib lightgbm
 ```
 <br>
 

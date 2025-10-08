@@ -1314,6 +1314,7 @@ Remova este bloco ao final
 
 ## <a name="attachments"></a>7. Anexos
 
+Essa seção tem o objetivo de fornecer materiais complementares que ajudam a entender, comprovar ou detalhar o trabalho, mas que seriam longos ou secundários demais para aparecer no corpo do texto principal.
 
 ### 7.1. Análise de Normalidade e Escalonamento das Variáveis
 
@@ -1788,9 +1789,11 @@ Na tabela dos dados originais, nota-se que as variáveis apresentam magnitudes b
 
 Após o escalonamento, observa-se que os valores passam a estar distribuídos em torno de zero, com variabilidade mais uniforme, o que favorece análises estatísticas e modelos que utilizam essas variáveis de forma conjunta.
 
-### <a name="c7"></a>8. Idealização do Dashboard
+### <a name="c7"></a>7.2. Idealização do Dashboard
 
-#### Critérios de Avaliação do Protótipo
+Nessa seção tem o objetivo de apresentar o protótipo criado pela equipe para o dashboard.
+
+#### 7.2.1. Critérios de Avaliação do Protótipo
 
 - **Atendimento às Necessidades dos Stakeholders**  
 - **Camadas de Leitura**  
@@ -1798,7 +1801,7 @@ Após o escalonamento, observa-se que os valores passam a estar distribuídos em
 - **Transparência e Verificabilidade**  
 - **Acessibilidade e Usabilidade**  
 
-#### Status atual do dashboard em relação aos critérios
+#### 7.2.2. Status atual do dashboard em relação aos critérios
 
 O protótipo atende às necessidades fundamentais dos stakeholders, na medida em que apresenta, de forma organizada e visualmente clara, os resultados de classificação (status de cada pagador: inadimplente, atrasado, adimplente), de enumeração dos pagamentos (recebimentos por hash de pagador) e os valores previstos de pagamento em diferentes modelos (Regressão Logística, Árvore de Decisãoe Random Forest). A disposição em painéis próximos permite comparações diretas entre métricas e modelos, facilitando a análise de performance e a tomada de decisão.
 

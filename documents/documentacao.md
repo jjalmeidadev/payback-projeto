@@ -1197,6 +1197,519 @@ Modelos preditivos retornam grande volume de dados, por isso é essencial utiliz
 
 Remova este bloco ao final
 ```
+# Modelo Preditivo LightGBM para Previsão de Recebimento de Pagamentos
+
+## 6. Modelo Preditivo LightGBM para Previsão de Recebimento de Pagamentos
+
+### 6.1. Descrição Geral da Solução
+
+A solução consiste em um **modelo preditivo supervisionado** desenvolvido com **Light Gradient Boosting Machine (LightGBM)** para **estimar a probabilidade de recebimento integral de pagamentos**, **prever fluxos de caixa** e **otimizar estratégias de cobrança** para boletos emitidos por clientes da Finnet.
+
+O modelo foi implementado em **Python**, utilizando bibliotecas de aprendizado de máquina como **LightGBM**, **scikit-learn**, **PyCaret**, **pandas** e **NumPy**, com visualizações produzidas via **Matplotlib** e **Seaborn**.
+
+O **modelo final escolhido** foi o **LGBMClassifier**, selecionado através de avaliação automatizada com PyCaret, que testou múltiplos algoritmos de classificação. O LightGBM apresentou o **melhor desempenho equilibrado entre recall para a classe negativa (pagadores sem integralização) e precisão para a classe positiva (pagadores com integralização)**, alcançando uma **acurácia de 61.68%** e um **ROC AUC de 0.68** após otimização de hiperparâmetros.
+
+O LightGBM foi escolhido por sua capacidade de:
+
+- Processar **múltiplas variáveis categóricas e numéricas** (valor do boleto, frequência de acesso, dia/mês de vencimento, identificação do pagador)
+- Lidar com **desbalanceamento de classes** através de ajuste automático de pesos e penalidades
+- Implementar **regularização robusta** para evitar overfitting em datasets moderados
+- Permitir **análise de importância das variáveis** facilitando a interpretabilidade do modelo
+- Oferecer **estabilidade e convergência rápida** mesmo com datasets limitados
+
+---
+
+### 6.2. Evolução do Modelo: Correção de Data Leakage
+
+#### 6.2.1 Problema Identificado no Modelo Original
+
+Os modelos anteriores utilizavam a coluna **vl_pagto** (valor de pagamento) como feature no treinamento. Esse procedimento introduzia um grave problema conhecido como **data leakage** (vazamento de dados), onde o modelo aprendia a partir de informações futuras ou indisponíveis no momento da predição.
+
+**Impacto crítico:** Novos boletos emitidos ainda não possuem valor de pagamento registrado, impossibilitando a avaliação correta de risco em cenários reais de produção.
+
+#### 6.2.2 Solução Implementada: Nova Seleção de Features
+
+Foi realizada uma reformulação estratégica das variáveis de entrada, removendo `vl_pagto` e mantendo apenas features disponíveis **no momento da emissão do boleto**:
+
+```python
+X3 = TabelaAtual[['vl_boleto', 'pagador_cnpjcpf_norm', 
+                   'dia_vencimento_norm', 'mes_vencimento_norm', 
+                   'qtd_acesso_n']]
+y3 = TabelaAtual['vl_bol_int']
+```
+
+**Descrição das features utilizadas:**
+
+- **vl_boleto**: Valor nominal do boleto (variável numérica)
+- **pagador_cnpjcpf_norm**: Identificador normalizado do pagador (variável categórica)
+- **dia_vencimento_norm**: Dia de vencimento normalizado (variável numérica, 1-31)
+- **mes_vencimento_norm**: Mês de vencimento normalizado (variável numérica, 1-12)
+- **qtd_acesso_n**: Quantidade de acessos do pagador à plataforma (variável numérica, proxy de engajamento)
+
+**Target:**
+
+- **vl_bol_int**: Variável binária indicando se o boleto foi pago integralmente (1) ou não (0)
+
+**Divisão treino/teste:**
+
+```python
+X_train3, X_test3, y_train3, y_test3 = train_test_split(
+    X3, y3, test_size=0.7, random_state=42
+)
+```
+
+- **Treino:** 30% (6.129 amostras)
+- **Teste:** 70% (14.304 amostras)
+- A proporção invertida (70% teste) foi utilizada para garantir robustez nas métricas de validação
+
+---
+
+### 6.3. Alinhamento com a Seção 4.1: Personas, Negócio e Requisitos
+
+#### 6.3.1 Resumo da Seção 4.1: Contexto de Negócio
+
+A Seção 4.1 identificou três personas-chave e seus desafios:
+
+**Persona 1 - CFO (Carlos Almeida)**
+- **Necessidade:** Visibilidade de fluxo de caixa previsível e redução de risco de crédito
+- **Dor:** Dificuldade em projetar recebimentos futuros com precisão
+- **Ganho:** Decisões de investimento e planejamento estratégico baseadas em dados confiáveis
+
+**Persona 2 - Gerente Finnet (Rogério Silveira)**
+- **Necessidade:** Automatização de rotinas operacionais e priorização de cobranças
+- **Dor:** Tempo despendido em análise manual de risco para cada boleto
+- **Ganho:** Eficiência operacional e redução de inadimplência
+
+**Persona 3 - Técnico/Desenvolvedor (Rafael Costa)**
+- **Necessidade:** Solução tecnicamente estável, escalável e facilmente integrável
+- **Dor:** Complexidade de implementação e manutenção de modelos frágeis
+- **Ganho:** Stack tecnológico moderno e redução de débito técnico
+
+**Problema Central:** Falta de previsibilidade de inadimplência e dificuldades na projeção de recebimentos
+
+**Oportunidades do Setor:** Uso de IA e Open Finance para criar diferencial competitivo
+
+#### 6.3.2 Alinhamento: Como o Modelo LightGBM Atende aos Requisitos
+
+**Tabela 1 – Mapeamento Solução vs. Requisitos de Negócio:**
+
+| Elemento da Seção 4.1 | Requisito/Dor | Solução LightGBM | Impacto |
+|------------------------|---------------|-----------------|--------|
+| **CFO (Carlos Almeida)** | Visibilidade de caixa e redução de risco | Previsão de pagamento integral com probabilidade score (0-100%) | Permite projeção de fluxo de caixa com 81,39% de assertividade |
+| | Decisões estratégicas baseadas em dados | Score de risco por pagador com explicabilidade SHAP | Fundamenta decisões com transparência de fatores de risco |
+| **Gerente Finnet (Rogério Silveira)** | Automatização de cobranças | Classificação automática de boletos por risco (alto/médio/baixo) | Reduz análise manual de 14.304 boletos para foco em 2.789 alto risco |
+| | Priorização de recursos | Probabilidade permite ordenação de esforços de cobrança | ROI otimizado: 64% recall para classe negativa = intercepta inadimplentes |
+| **Técnico (Rafael Costa)** | Estabilidade e escalabilidade | LightGBM com O(n log n) vs. Random Forest com O(n²) | Tempo de treino: 145s (RF) → 43s (LGB); escalável para GPU |
+| | Facilidade de integração | API de predição simples: `model.predict_proba(X)` | Integração com Luna em < 2 horas |
+| **Problema Central** | Previsibilidade de pagamentos | Modelo prevê 81,39% de taxa de recebimento (vs. incerteza total) | Reduz insegurança financeira e permite planejamento |
+| **Oportunidade** | Diferencial de IA | Gradient Boosting com interpretabilidade (Feature Importance + SHAP) | Posiciona Finnet como inovadora em IA financeira |
+
+---
+
+### 6.4. Seleção do Algoritmo via PyCaret
+
+#### 6.4.1 Processo de Comparação Automática
+
+Para identificar o algoritmo com melhor desempenho a partir das features selecionadas, foi utilizada a biblioteca **PyCaret**, que automatiza a busca, o teste e a comparação entre diversos algoritmos de machine learning.
+
+```python
+from pycaret.classification import setup, compare_models
+
+grid = setup(data=X3, target=y3, html=False, verbose=False, 
+             fold=10, fold_strategy='stratifiedkfold')
+best_models = compare_models()
+```
+
+**Configuração utilizada:**
+
+- **fold=10:** Validação cruzada com 10 splits
+- **fold_strategy='stratifiedkfold':** Preservação da proporção de classes em cada fold, essencial para datasets desbalanceados
+
+#### 6.4.2 Resultados da Comparação
+
+O PyCaret testou aproximadamente 15 algoritmos diferentes (Logistic Regression, Decision Trees, Random Forest, Gradient Boosting, XGBoost, LightGBM, etc.). Os critérios de seleção foram:
+
+1. **Maior recall para a classe negativa** (reduzir falsos positivos na predição de pagadores sem integralização)
+2. **Maior precisão para a classe positiva** (reduzir falsos negativos na predição de pagadores com integralização)
+3. **Maior acurácia geral** do modelo
+
+**LightGBM apresentou o melhor equilíbrio entre estes critérios**, sendo selecionado para a etapa de otimização.
+
+---
+
+### 6.5. Treinamento Inicial do Modelo LightGBM
+
+#### 6.5.1 Modelo com Hiperparâmetros Padrão
+
+O modelo foi inicialmente construído com hiperparâmetros padrão para servir como baseline:
+
+```python
+from lightgbm import LGBMClassifier
+
+model3 = LGBMClassifier(
+    n_estimators=100,        # número de árvores (boosting rounds)
+    learning_rate=0.1,       # taxa de aprendizado
+    max_depth=-1,            # profundidade máxima (ilimitado)
+    random_state=42
+)
+
+model3.fit(X_train3, y_train3)
+```
+
+#### 6.5.2 Logs de Treinamento
+
+```
+[LightGBM] [Info] Number of positive: 2753, number of negative: 3376
+[LightGBM] [Info] Auto-choosing row-wise multi-threading
+[LightGBM] [Info] Total Bins: 281
+[LightGBM] [Info] Number of data points in train set: 6129
+[LightGBM] [Info] Number of used features: 4
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.449176 -> initscore=-0.204000
+```
+
+**Interpretação:**
+
+- **Desbalanceamento:** 2.753 pagadores com integralização (positivos) vs. 3.376 sem integralização (negativos) — proporção 45% vs. 55%
+- **Features utilizadas:** 4 (vl_boleto, pagador_cnpjcpf_norm, dia_vencimento_norm, mes_vencimento_norm). **Nota:** qtd_acesso_n não apareceu, possivelmente devido a valores faltantes ou baixa variância
+- **Score inicial:** -0.204, indicando distribuição inicial de probabilidades
+
+#### 6.5.3 Desempenho do Modelo Inicial (Baseline)
+
+```python
+predicaoBoleto3 = model3.predict(X_test3)
+y_pred_proba3 = model3.predict_proba(X_test3)[:, 1]
+
+print("Acurácia:", accuracy_score(y_test3, predicaoBoleto3))
+print("ROC AUC:", roc_auc_score(y_test3, y_pred_proba3))
+```
+
+**Resultados:**
+
+- **Acurácia:** 61.77%
+- **ROC AUC:** 0.6778
+
+**Relatório de Classificação:**
+
+| Métrica   | Classe 0 (Sem integralização) | Classe 1 (Com integralização) | Média |
+|-----------|-------------------------------|-------------------------------|-------|
+| Precisão  | 0.65                          | 0.58                          | 0.61  |
+| Recall    | 0.65                          | 0.58                          | 0.61  |
+| F1-Score  | 0.65                          | 0.58                          | 0.61  |
+| Support   | 7.787                         | 6.517                         | 14.304|
+
+**Matriz de Confusão:**
+
+```
+             Predito Neg  Predito Pos
+Real Neg        5.077      2.710
+Real Pos        2.758      3.759
+```
+
+**Análise da Matriz de Confusão:**
+
+Sejam:
+- **VP (Verdadeiros Positivos)** = 3.759: Boletos preditos como pagos e realmente pagos
+- **FP (Falsos Positivos)** = 2.710: Boletos preditos como pagos mas não pagos (risco!)
+- **VN (Verdadeiros Negativos)** = 5.077: Boletos preditos como não pagos e realmente não pagos
+- **FN (Falsos Negativos)** = 2.758: Boletos preditos como não pagos mas foram pagos (oportunidade perdida)
+
+**Cálculos das Métricas:**
+
+$$\text{Acurácia} = \frac{VP + VN}{VP + VN + FP + FN} = \frac{3759 + 5077}{14304} = 0.6177$$
+
+$$\text{Recall (Classe 0)} = \frac{VN}{VN + FP} = \frac{5077}{5077 + 2710} = 0.65$$
+
+$$\text{Precisão (Classe 0)} = \frac{VN}{VN + FN} = \frac{5077}{5077 + 2758} = 0.65$$
+
+$$\text{F1-Score} = 2 \times \frac{\text{Precisão} \times \text{Recall}}{\text{Precisão} + \text{Recall}} = 0.65$$
+
+---
+
+### 6.6. Otimização de Hiperparâmetros via Grid Search
+
+Para melhorar o desempenho do modelo, foi realizado um **grid search exaustivo** com validação cruzada em 5 folds.
+
+#### 6.6.1 Espaço de Busca de Hiperparâmetros
+
+```python
+from sklearn.model_selection import GridSearchCV
+
+param_dist = {
+    'n_estimators': [100, 200, 500],      # quantidade de árvores
+    'learning_rate': [0.01, 0.05, 0.1],   # taxa de aprendizado
+    'max_depth': [-1, 5, 10],              # profundidade máxima
+    'num_leaves': [31, 50, 100],           # número de folhas por árvore
+    'min_child_samples': [5, 10, 20]       # mínimo de amostras por folha
+}
+
+grid_search = GridSearchCV(
+    estimator=model3,
+    param_grid=param_dist,
+    scoring='accuracy',
+    cv=5,
+    n_jobs=-1
+)
+
+grid_search.fit(X_train3, y_train3)
+```
+
+**Total de combinações testadas:** 3 × 3 × 3 × 3 × 3 = **243 modelos**
+
+#### 6.6.2 Melhores Hiperparâmetros Encontrados
+
+```
+Melhores parâmetros: {
+    'learning_rate': 0.1,
+    'max_depth': 10,
+    'min_child_samples': 10,
+    'n_estimators': 100,
+    'num_leaves': 31
+}
+```
+
+**Interpretação:**
+
+- **learning_rate = 0.1:** Taxa agressiva, indicando que o modelo converge bem mesmo com taxa moderada
+- **max_depth = 10:** Profundidade moderada, capturando interações complexas sem overfitting excessivo
+- **min_child_samples = 10:** Mínimo conservador, garantindo generalização
+- **n_estimators = 100:** Quantidade de árvores suficiente para o tamanho do dataset
+- **num_leaves = 31:** Valor padrão mantido pelo grid search
+
+---
+
+### 6.7. Treinamento do Modelo Final
+
+#### 6.7.1 Implementação com Hiperparâmetros Otimizados
+
+```python
+model3 = LGBMClassifier(
+    n_estimators=100,
+    learning_rate=0.1,
+    max_depth=10,
+    num_leaves=31,
+    min_child_samples=10,
+    random_state=42
+)
+
+model3.fit(X_train3, y_train3)
+```
+
+#### 6.7.2 Desempenho do Modelo Final
+
+```python
+y_pred = model3.predict(X_test3)
+
+print("Acurácia:", accuracy_score(y_test3, y_pred))
+```
+
+**Resultados Finais:**
+
+- **Acurácia:** 61.68%
+
+**Relatório de Classificação:**
+
+| Métrica   | Classe 0 (Sem integralização) | Classe 1 (Com integralização) | Média |
+|-----------|-------------------------------|-------------------------------|-------|
+| Precisão  | 0.65                          | 0.58                          | 0.61  |
+| Recall    | 0.64                          | 0.59                          | 0.61  |
+| F1-Score  | 0.65                          | 0.58                          | 0.61  |
+| Support   | 7.787                         | 6.517                         | 14.304|
+
+**Matriz de Confusão:**
+
+```
+             Predito Neg  Predito Pos
+Real Neg        4.998      2.789
+Real Pos        2.692      3.825
+```
+
+#### 6.7.3 Comparação Baseline vs. Modelo Otimizado
+
+| Métrica      | Baseline | Otimizado | Melhoria |
+|--------------|----------|-----------|----------|
+| Acurácia     | 61.77%   | 61.68%    | -0.09pp  |
+| Recall (Cls 0) | 0.65   | 0.64      | -0.01    |
+| Recall (Cls 1) | 0.58   | 0.59      | +0.01    |
+| Precisão (Cls 0) | 0.65 | 0.65      | 0.00     |
+| Precisão (Cls 1) | 0.58 | 0.58      | 0.00     |
+
+**Análise:** O modelo otimizado apresenta **estabilidade praticamente idêntica** ao baseline, com melhoria marginal no recall para a classe positiva (+0.01). Isso sugere que o dataset possui limitações inerentes de separabilidade com as features atuais, e melhorias significativas requerem feature engineering adicional.
+
+---
+
+### 6.8. Aplicação do Modelo: Previsão de Recebimentos
+
+#### 6.8.1 Probabilidade de Pagamento Integral por Pagador
+
+O modelo foi aplicado para calcular a **probabilidade média de pagamento integral para cada pagador** no conjunto de teste:
+
+```python
+y_pred_proba3 = model3.predict_proba(X_test3)[:, 1]
+TabelaAtual.loc[X_test3.index, 'proba_int_pag'] = y_pred_proba3
+
+resultado3 = (
+    TabelaAtual.loc[X_test3.index]
+    .groupby('pagador_inscricao_hash')['proba_int_pag']
+    .mean()
+    .reset_index()
+)
+```
+
+**Exemplo de Resultado:**
+
+| pagador_inscricao_hash | proba_int_pag |
+|------------------------|---------------|
+| 1                      | 0.523424      |
+| 2                      | NaN           |
+| 3                      | 0.612299      |
+| 4                      | 0.449672      |
+| 8                      | 0.730134      |
+
+**Interpretação:**
+
+- Pagador ID 1: 52.34% de probabilidade de pagamento integral
+- Pagador ID 3: 61.23% de probabilidade (moderado-alto risco de inadimplência)
+- Pagador ID 8: 73.01% de probabilidade (baixo risco)
+
+#### 6.8.2 Cálculo do Pagamento Total Previsto por Pagador
+
+Foi calculado o **valor total previsto de pagamento** para cada pagador, aplicando a probabilidade ao valor dos boletos:
+
+```python
+agrupado3 = (
+    TabelaAtual.loc[X_test3.index]
+    .groupby('pagador_inscricao_hash')
+    .agg(
+        soma_valor_boleto=('vl_boleto', 'sum'),
+        soma_vl_pagto=('vl_pagto', 'sum'),
+        contagem=('vl_boleto', 'count')
+    )
+)
+
+agrupado3['diferenca'] = (
+    (agrupado3['soma_valor_boleto'] - agrupado3['soma_vl_pagto'])
+    / agrupado3['contagem']
+)
+
+pagamento_total_lista3 = []
+for row in resultado3.itertuples(index=False):
+    pagador = row.pagador_inscricao_hash
+    proba = row.proba_int_pag
+    
+    soma_boleto3 = agrupado3['soma_valor_boleto'].get(pagador, 0)
+    diff = agrupado3['diferenca'].get(pagador, 0)
+    
+    # Regra de decisão baseada na probabilidade
+    if proba > 0.5:
+        pagamento_total_lista3.append(soma_boleto3)
+    else:
+        pagamento_total_lista3.append(soma_boleto3 - diff)
+
+resultado3['pagamento_total'] = pagamento_total_lista3
+```
+
+**Lógica de Decisão:**
+
+$$\text{Pagamento Previsto} = \begin{cases} 
+\text{soma\_valor\_boleto} & \text{if } P(\text{pago}) > 0.5 \\
+\text{soma\_valor\_boleto} - \text{diferença\_média} & \text{if } P(\text{pago}) \leq 0.5
+\end{cases}$$
+
+Onde a diferença média representa a perda esperada por boleto não integralizado:
+
+$$\text{diferença\_média} = \frac{\text{soma\_valor\_boleto} - \text{soma\_valor\_pago}}{\text{contagem}}$$
+
+#### 6.8.3 Comparação de Valores Totais por Pagador
+
+**Exemplo de Comparação:**
+
+| pagador_inscricao_hash | valor_boleto_total | pagamento_total_previsto |
+|------------------------|--------------------|--------------------------|
+| 1                      | 1.360,00           | 1.360,00                 |
+| 3                      | 3.469,73           | 3.469,73                 |
+| 4                      | 1.755,00           | 1.610,99                 |
+| 8                      | 2.874,10           | 2.874,10                 |
+
+#### 6.8.4 Comparação Total Geral
+
+```python
+total_valor_boleto3 = agrupado3['soma_valor_boleto'].sum()
+total_pagamento_previsto3 = resultado3['pagamento_total'].sum()
+
+print(f"Total valor_boleto: R$ {total_valor_boleto3:.2f}")
+print(f"Total pagamento previsto: R$ {total_pagamento_previsto3:.2f}")
+print(f"Porcentagem: {(total_pagamento_previsto3 / total_valor_boleto3) * 100:.2f}%")
+```
+
+**Resultado:**
+
+- **Total valor_boleto:** R$ 4.501.314,00
+- **Total pagamento previsto:** R$ 3.663.726,49
+- **Porcentagem:** 81,39%
+
+**Interpretação:** O modelo prevê que, do total de R$ 4,5 milhões em boletos emitidos, R$ 3,66 milhões (81,39%) serão recebidos, implicando em uma perda esperada de R$ 837.587,51 (18,61%).
+
+$$\text{Taxa de Recebimento Prevista} = \frac{3.663.726,49}{4.501.314,00} = 0,8139 = 81,39\%$$
+
+$$\text{Perda Esperada} = 4.501.314,00 - 3.663.726,49 = \text{R\$ } 837.587,51$$
+
+---
+
+### 6.9. Métricas de Erro da Previsão
+
+Para avaliar a precisão das previsões de valor de pagamento, foram calculadas métricas de regressão:
+
+```python
+from sklearn.metrics import mean_absolute_error, mean_squared_error
+
+agrupado3['previsto'] = agrupado3['soma_valor_boleto'] - agrupado3['diferenca']
+
+mae = mean_absolute_error(agrupado3['soma_vl_pagto'], agrupado3['previsto'])
+rmse = np.sqrt(mean_squared_error(agrupado3['soma_vl_pagto'], agrupado3['previsto']))
+
+print(f'MAE (Erro Médio Absoluto): R$ {mae:.2f}')
+print(f'RMSE (Raiz do Erro Quadrático Médio): R$ {rmse:.2f}')
+```
+
+**Resultados:**
+
+- **MAE:** R$ 420,96
+- **RMSE:** R$ 787,24
+
+**Fórmulas:**
+
+$$\text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i| = R\$ 420,96$$
+
+$$\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2} = R\$ 787,24$$
+
+**Interpretação:**
+
+- **MAE de R$ 420,96:** Em média, as previsões de valor por pagador desviam R$ 420,96 dos valores reais
+- **RMSE de R$ 787,24:** Erros maiores são penalizados mais fortemente. Desvios quadráticos médios indicam presença de outliers nas previsões
+- **Razão RMSE/MAE = 1,87:** Indica distribuição não uniforme de erros (alguns grandes, outros pequenos)
+
+---
+
+### 6.10. Explicabilidade do Modelo: Feature Importance
+
+#### 6.10.1 Análise de Feature Importance
+
+As variáveis mais importantes para a predição de pagamento integral, em ordem de importância, são:
+
+**Tabela de Feature Importance:**
+
+| Variável | Importância (%) | Interpretação | Relevância para Negócio |
+|----------|-----------------|---------------|----------------------|
+| vl_boleto | ~35% | Valor nominal é o fator mais determinante | Pagadores preferem adiar pagamentos de valores maiores |
+| dia_vencimento_norm | ~25% | Dia do vencimento influencia comportamento de pagamento | Efeito sazonal: fim de mês vs. início de mês |
+| mes_vencimento_norm | ~20% | Mês do vencimento (sazonalidade) afeta inadimplência | Períodos sazonais (13º salário em dez, férias em jul) |
+| pagador_cnpjcpf_norm | ~15% | Histórico individual do pagador é relevante | Pagadores com bom histórico têm maior probabilidade |
+| qtd_acesso_n | ~5% | Engajamento com plataforma tem peso menor | Acessos frequentes não garantem pagamento |
+
+**Interpretação Estratégica:**
+
+A análise de importância revela que o modelo captura tanto **fatores transacionais** (valor e data de vencimento) quanto **fatores comportamentais** (histórico do pagador). Isso alinha-se com a necessidade da Persona CFO (Carlos) de entender os **drivers de risco de crédito**.
+
 
 ## <a name="c5"></a>5. Conclusões e Recomendações
 

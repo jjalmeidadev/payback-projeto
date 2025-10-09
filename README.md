@@ -269,7 +269,7 @@ deactivate
 
 No uso de ferramentas como o Google Colab, é necessário salvar uma cópia do notebook no Google Drive do usuário. Caso contrário, as alterações realizadas no arquivo não serão preservadas.
 
-## Histórico de lançamentos
+## 🗃 Histórico de lançamentos
 
 * **0.1.0 – 15/08/2025**  
   * [sprint 1] Entendimento do negócio e do usuário, com definição de personas e histórias de usuário.  

@@ -147,8 +147,6 @@ Light gradient boosting machine
 
 Shap
 
-Pycaret
-
 **Git**
 
 Para clonar o repositório.
@@ -227,7 +225,7 @@ python -m pip install --upgrade pip setuptools wheel
 <br>
 
 ```bash
-pip install numpy pandas matplotlib seaborn scikit-learn lightgbm shap pycaret jupyter
+pip install numpy pandas matplotlib seaborn scikit-learn lightgbm shap jupyter
 ```
 <br>
 

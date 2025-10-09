@@ -33,7 +33,7 @@
 A solução proposta busca mitigar o desafio representado pelo aumento da inadimplência, fator que compromete tanto o fluxo de caixa quanto a previsibilidade de receitas das empresas clientes da Finnet. Para tal, foram desenvolvidos modelos preditivos fundamentados em dados históricos de boletos, status de liquidação, prazos, bancos emissores e interações anteriores com os respectivos pagadores. A partir dessa base analítica, o sistema disponibiliza indicadores como score do pagador, tendência de pagamento e previsão de recebimentos, subsidiando decisões estratégicas em processos de cobrança e gestão financeira. Inicialmente concebida como uma Prova de Conceito (POC) integrada à plataforma Luna por meio de script em Python, a solução apresenta potencial para integração nativa, o que possibilitará maior nível de automação e a disponibilização de visualizações em tempo real. Dessa forma, almeja-se minimizar riscos de inadimplência, otimizar a eficiência operacional e elevar a assertividade do planejamento financeiro, reforçando, simultaneamente, o posicionamento da Finnet como referência em soluções financeiras inteligentes e orientadas por dados.
 <br>
 
-<b>Link para vídeo demonstrativo:</b> <a href="https://inteli.edu.br">Coloque seu link aqui</a>
+<a href="https://youtu.be/MiouV7HDKFo">Link para vídeo demonstrativo</a>
 
 ## 📁 Estrutura de pastas
 

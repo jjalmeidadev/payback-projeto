@@ -33,28 +33,68 @@
 A solução proposta busca mitigar o desafio representado pelo aumento da inadimplência, fator que compromete tanto o fluxo de caixa quanto a previsibilidade de receitas das empresas clientes da Finnet. Para tal, foram desenvolvidos modelos preditivos fundamentados em dados históricos de boletos, status de liquidação, prazos, bancos emissores e interações anteriores com os respectivos pagadores. A partir dessa base analítica, o sistema disponibiliza indicadores como score do pagador, tendência de pagamento e previsão de recebimentos, subsidiando decisões estratégicas em processos de cobrança e gestão financeira. Inicialmente concebida como uma Prova de Conceito (POC) integrada à plataforma Luna por meio de script em Python, a solução apresenta potencial para integração nativa, o que possibilitará maior nível de automação e a disponibilização de visualizações em tempo real. Dessa forma, almeja-se minimizar riscos de inadimplência, otimizar a eficiência operacional e elevar a assertividade do planejamento financeiro, reforçando, simultaneamente, o posicionamento da Finnet como referência em soluções financeiras inteligentes e orientadas por dados.
 <br>
 
-<b>Link para vídeo demonstrativo:</b> <a href="https://inteli.edu.br">Coloque seu link aqui</a>
+<a href="https://youtu.be/MiouV7HDKFo">Link para vídeo demonstrativo</a>
 
 ## 📁 Estrutura de pastas
 
-<br>
-├── assets/
-├── documents/
-        ├── extras/
-        ├── matematica/
-├── notebooks/
+```
+├── assets\
+│   ├── acessos_escalonado.png
+│   ├── acessosxboletos.png
+│   ├── CanvaValue.png
+│   ├── grafico-cidades.png
+│   ├── grafico-mes.png
+│   ├── hipotese-status-valor.png
+│   ├── hipoteses-acessos.png
+│   ├── hipoteses-dia-inclusao.png
+│   ├── hipoteses-dia-valor.png
+│   ├── hipoteses-meses.png
+│   ├── histograma_juros.png
+│   ├── histograma_multa.png
+│   ├── histograma_qtd_de_acessos.png
+│   ├── histograma_vl_boleto.png
+│   ├── histograma_vl_pagto.png
+│   ├── inteli.png
+│   ├── Jornada - Carlos Almeida.png
+│   ├── Jornada - Roberto Silveira.png
+│   ├── juros_escalonado.png
+│   ├── Matriz_de_risco.png
+│   ├── matrizConfusao.png
+│   ├── metricas_pClasse.png
+│   ├── metricas.png
+│   ├── multa_escalonada.png
+│   ├── Oportunidades.png
+│   ├── persona TI.png
+│   ├── persona_finnet.png
+│   ├── Persona_Jurídica.png
+│   ├── personaFI.png
+│   ├── SWOT.png
+│   ├── valor_boleto_escalonado.png
+│   ├── valor_pago_escalonado.png
+│   └── vencimentoinclusao.png
+│
+├── grupo_registro_07_2024_06_2025_GF.csv
+├── grupo_registro_07_2024_06_2025_GL.csv
+├── grupo_registro_07_2024_06_2025_GM.csv
+├── grupo_registro_07_2024_06_2025_GP.csv
+├── grupo_registro_07_2024_06_2025_GT.csv
+├── grupo_registro_07_2024_06_2025_GV.csv
+├── grupo_registro_07_2024_06_2025_GW.csv
+│
+├── documents\
+│   ├── extras\
+│   ├── matematica\
+│   │   └── dados_e_contas.ipynb
+│   └── documentacao.md
+│
+├── notebooks\
+│   └── exploracao_dados_preprocessamento_hipoteses_the_seven.ipynb
+│
 ├── .gitattributes
 ├── .gitignore
-├── CanvaValue.png
-├── README.md
-├── Arquivo A.csv
-├── Arquivo B.csv
-├── Arquivo C.csv
-├── Arquivo D.csv
-├── Arquivo E.csv
-├── Arquivo F.csv
-└── Arquivo G.csv
-<br>
+└── README.md
+```
+
 ### Descrição das pastas por escrito:
 <br>
 README.md: arquivo principal de documentação do repositório, serve como guia inicial explicando os objetivos, organização e instruções de uso do projeto.
@@ -74,7 +114,7 @@ CanvaValue.png: imagem armazenada na raiz do projeto, provavelmente um recurso g
 Arquivos.csv: arquivos que contêm os dados de treinamento e teste do modelo preditivo desenvolvido no projeto.
 <br>
 
-## 💻 Execução dos projetos
+## 💻 Execução do projeto
 
 🚀 Requisitos
 
@@ -105,6 +145,8 @@ Seaborn
 
 Light gradient boosting machine
 
+Shap
+
 **Git**
 
 Para clonar o repositório.
@@ -122,10 +164,31 @@ Permissões para leitura/escrita de diretórios.
 
 ```bash
 git clone https://github.com/Inteli-College/2025-2A-T18-IN03-G04.git
+```
+
+```bash
 cd 2025-2A-T18-IN03-G04
 ```
 <br>
-2. Criar e ativar um ambiente virtual
+
+2. Verificar a versão do Python
+<br>
+
+```bash
+python --version
+```
+<br>
+
+Se o resultado for diferente de 3.11, siga o próximo passo para instalar uma versão compatível
+
+3. Instalar versão compatível do Python
+
+<br>
+Baixe o Python 3.11 [clicando aqui](https://www.python.org/downloads/release/python-3119/)
+
+<br>
+<br>
+4. Criar e ativar um ambiente virtual
 
 <br>
 No Linux/macOS:
@@ -133,23 +196,62 @@ No Linux/macOS:
 
 ```bash
 python3 -m venv venv
+```
+```bash
 source venv/bin/activate
 ```
 <br>
+
 No Windows:
 <br>
 
 ```bash
 python -m venv venv
+```
+```bash
 .\venv\Scripts\activate
 ```
 <br>
 
-3. Instalar Denpendências:
+5. Atualizar ferramentas de instalação
 <br>
 
 ```bash
-pip install pandas numpy scikit-learn seaborn matplotlib lightgbm
+python -m pip install --upgrade pip setuptools wheel
+```
+<br>
+
+6. Instalar dependências do projeto
+<br>
+
+```bash
+pip install numpy pandas matplotlib seaborn scikit-learn lightgbm shap jupyter
+```
+<br>
+
+7. Abrir e executar o notebook
+<br>
+
+```bash
+jupyter notebook
+```
+<br>
+7. Navegue até o diretório do projeto e abra o arquivo:
+
+Exploração_de_Dados,_Pré_processamento_e_Levantamento_de_Hipóteses_The_Seven.ipynb
+
+<br>
+8. Executar as células
+
+Execute as células na ordem em que aparecem (Menu → Run → Run All ou Shift + Enter em cada célula).
+
+<br>
+9. Encerrar o ambiente virtual
+
+<br>
+
+```bash
+deactivate
 ```
 <br>
 
@@ -159,17 +261,21 @@ No uso de ferramentas como o Google Colab, é necessário salvar uma cópia do n
 
 ## 🗃 Histórico de lançamentos
 
-* 0.1.3 - 16/08/2024
-    * [sprint 1] Documentação de entendimento do negócio
-* 0.2.7 - 30/08/2024
-    * [sprint 2] Análise exploratória e levantamento de hipóteses
-* 0.3.1 - 13/09/2024
-    * [sprint 3] Preparação de dados e modelo preditivo preliminar
-* 0.6.0 - 27/09/2024
-    * [sprint 4] Comparação de modelos preditivos
-* 1.0.0 - 11/10/2024
-    * [sprint 5] Lançamento da primeira versão do modelo preditivo com documentação.
+* **0.1.0 – 15/08/2025**  
+  * [sprint 1] Entendimento do negócio e do usuário, com definição de personas e histórias de usuário.  
+
+* **0.2.0 – 29/08/2025**  
+  * [sprint 2] Mapeamento da jornada do usuário e tratamento de dados.  
+
+* **0.3.0 – 12/09/2025**  
+  * [sprint 3] Desenvolvimento do modelo preditivo inicial.  
+
+* **0.4.0 – 26/09/2025**  
+  * [sprint 4] Comparação e aprimoramento dos modelos e implementação de testes.  
+
+* **0.5.0 – 09/10/2025**  
+  * [sprint 5] Lançamento da versão final do sistema.
 
 ## 📋 Licença/License
 
-<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.dev/Intelihub/Template_M3">MODELO GIT INTELI</a> by Inteli is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.</p>
+<a href="https://github.com/Inteli-College/2025-2A-T18-IN03-G04">PayBack</a> © 2025 by <a href="https://github.com/Inteli-College/2025-2A-T18-IN03-G04">INTELI, Christian de Carvalho Lawrence, Isaac Souza Santos, Jaime Andrade de Almeida, João Pedro Gonçalves Corrêa Araujo, Mike Buchsenspaner, Vinícius Rangel Marques, Yan de Oliveira Ribeiro</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="max-width: 1em;max-height:1em;margin-left: .2em;">

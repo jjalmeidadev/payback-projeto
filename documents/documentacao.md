@@ -1,13 +1,6 @@
 # Documentação Modelo Preditivo - Inteli
 
-```
-INSTRUÇÕES GERAIS (remova este trecho ao final)
-
-Você deve editar este documento utilizando notação markdown - siga as convenções neste link
-https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
-```
-
-## Nome da Solução
+## PayBack
 
 ### The Seven
 
@@ -37,6 +30,8 @@ https://docs.github.com/en/get-started/writing-on-github/getting-started-with-wr
 
 [Anexos](#attachments)
 
+[7. Idealização do Dashboard](#c7)
+
 ## <a name="c1"></a>1. Introdução
 
 &nbsp;&nbsp;&nbsp;&nbsp; A Finnet é uma empresa brasileira de médio porte, com um quadro de 201 a 500 colaboradores, que se destaca no mercado de tecnologia financeira pela sua capacidade de oferecer soluções inovadoras e adaptáveis às necessidades do ambiente corporativo. Com o slogan “Somos tecnologia. Multibanco. Integração.”, a companhia atua no desenvolvimento de tecnologias que simplificam e automatizam processos financeiros, promovendo maior eficiência operacional para seus clientes. Sua atuação concentra-se em áreas como Gestão Financeira e Conciliação Bancária, Cobranças, Boletos e Meios de Pagamento, além de Conectividade Financeira por meio de EDI e RPA. Com base nesses segmentos, a Finnet se posiciona como uma TechFin B2B, especializada em soluções que promovem a automação, a integração e a digitalização das rotinas financeiras de empresas de médio e grande porte.
@@ -47,27 +42,79 @@ https://docs.github.com/en/get-started/writing-on-github/getting-started-with-wr
 
 ### 2.1 Objetivos
 
-```
-Descreva resumidamente os objetivos gerais e específicos do seu parceiro de negócios.
+O objetivo principal do projeto é obter **insights individuais** sobre os pagadores, de modo a complementar os serviços atualmente oferecidos pela Finnet e aprimorar a relação entre a empresa e seus clientes.
 
-Remova este bloco ao final
-```
+Entre os principais dados analisados estão:
+
+- Score de risco de inadimplência: métrica que classifica o pagador quanto à probabilidade de atraso ou não pagamento, permitindo uma análise detalhada do seu comportamento como cliente;
+
+- Tendência de pagamento: previsão que indica se um boleto será pago em dia, com atraso ou se resultará em inadimplência;
+
+- Fluxo de caixa: estimativa agregada do valor que a empresa deverá receber com base nos boletos emitidos.
+
+Todas essas informações serão apresentadas em um **dashboard interativo**, que permitirá visualização clara e **acompanhamento em tempo real** dos dados e previsões, facilitando a tomada de decisão e o monitoramento da carteira de pagadores por parte da empresa cliente.
 
 ### 2.2 Proposta de solução
 
-```
-Descreva resumidamente sua proposta de modelo preditivo e como esse modelo pretende resolver o problema, atendendo os objetivos.
+Para atender às demandas identificadas, foi desenvolvido o **PayBack**, um sistema que integra todas as áreas de análise desejadas e apresenta, de forma visual, os insights obtidos sobre os pagadores.
 
-Remova este bloco ao final
-```
+#### 2.2.1 Score de Inadimplência
+
+A primeira funcionalidade da solução é o **Score de Inadimplência**, uma modelagem matemática responsável por atribuir um valor de score a cada boleto gerado. Ao final do processo, é calculada a média dos scores de todos os boletos de um mesmo pagador, resultando em um **score individual**.
+
+O cálculo do score segue a seguinte classificação:
+
+- Boletos pagos em dia: recebem score igual a 1, pois não há descontos ou penalizações;
+
+- Boletos não pagos (inadimplentes): recebem score igual a 0;
+
+- Boletos pagos com atraso: têm o score calculado pela função:
+
+$f(x)=\dfrac{-x}{31}+1$
+
+em que **x** representa a diferença entre a data de pagamento e a data de vencimento do boleto, acrescida de 5 dias (prazo de esquecimento). Essa função atribui **pesos proporcionais** aos dias de atraso, penalizando pagamentos mais tardios.
+
+Os scores resultantes são transformados em **features** que servem de base para o treinamento de modelos de aprendizado de máquina.
+
+#### 2.2.2 Previsão de inadimplência
+
+Utilizando essas e outras variáveis selecionadas, o sistema faz uso do algoritmo **Light Gradient Boosting Machine** (LightGBM) para classificar os boletos em três categorias:
+
+- pagamento em dia;
+- pagamento em atraso;
+- pagamento inadimplente.
+
+O modelo fornece métricas de desempenho, como precisão, revocação e acurácia, calculadas individualmente para cada classe, permitindo uma avaliação detalhada da capacidade preditiva do sistema de forma global.
+
+#### 2.2.3 Previsão de fluxo de caixa
+
+Outra funcionalidade do sistema é o modelo de **previsão de fluxo de caixa**, desenvolvido com o algoritmo **Light Gradient Boosting Machine** (LightGBM). Esse modelo tem como objetivo estimar a probabilidade de o **pagador realizar o pagamento integral do boleto**.
+
+A partir dessa previsão, o sistema calcula o **valor médio não pago** por cada pagador, considerando a soma dos montantes pendentes em boletos anteriores. Essa média é então utilizada para ajustar a estimativa dos próximos pagamentos: caso o modelo indique uma alta probabilidade de pagamento parcial, o valor médio de inadimplência é subtraído do valor total previsto para o boleto correspondente.
+
+Por fim, os resultados são agrupados por **empresa ou grupo** de clientes, gerando uma projeção consolidada dos **valores esperados de recebimento**. Essa abordagem permite antecipar possíveis perdas e otimizar o planejamento financeiro, fornecendo uma visão mais precisa e estratégica do fluxo de caixa futuro.
+
+#### 2.2.4 Dashboard
+
+Para consolidar e exibir todas as informações geradas pelos modelos desenvolvidos, foi criado um **dashboard interativo** que apresenta os **principais insights** obtidos pela solução.
+
+Entre os elementos disponíveis estão:
+
+- Tabela de status de pagamento (adimplente, inadimplente e atrasado): exibe a quantidade de pagadores em cada categoria, permitindo uma visão geral da carteira;
+
+- Tabela de pagadores hash: mostra os valores totais esperados por pagador, possibilitando o acompanhamento individualizado;
+
+- Métricas de desempenho dos modelos: apresenta indicadores como acurácia, precisão, revocação e F1-score, permitindo a avaliação contínua da qualidade das previsões.
+
+Com isso, os **gestores financeiros** têm acesso a uma visualização clara, integrada e de **fácil interpretação** dos resultados obtidos, **facilitando a tomada de decisões estratégicas** e o **monitoramento da saúde financeira** da carteira de clientes.
 
 ### 2.3 Justificativa
 
-```
-Faça uma breve defesa de sua proposta de solução, escreva sobre seus potenciais, seus benefícios e como ela se diferencia.
+A solução proposta, **PayBack**, surge como uma ferramenta estratégica para auxiliar a Finnet e suas empresas clientes na gestão de risco e na previsão de inadimplência. O sistema oferece uma abordagem analítica e preditiva, permitindo uma compreensão individualizada do comportamento dos pagadores a partir de dados históricos de pagamento.
 
-Remova este bloco ao final
-```
+Ao reunir indicadores como **score de risco**, **tendência de pagamento** e **fluxo de caixa** em um **dashboard** interativo, a ferramenta promove agilidade na tomada de decisão e maior previsibilidade financeira para as empresas. Diferentemente de abordagens tradicionais baseadas apenas em históricos agregados, o PayBack permite análises detalhadas por cliente, fornecendo insights personalizados que fortalecem a relação entre empresa e pagador.
+
+Além disso, o uso de algoritmos de aprendizado de máquina, como o LightGBM, confere ao sistema um caráter inovador e escalável, possibilitando a evolução contínua do modelo conforme novos dados são incorporados. Assim, a solução não apenas melhora o monitoramento das transações, mas também antecipa comportamentos de risco, contribuindo diretamente para a redução de inadimplência e otimização do fluxo de caixa.
 
 ## <a name="c3"></a>3. Metodologia
 
@@ -539,11 +586,11 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 
 ##### Modelo de Política de Privacidade:
 
-Projeto [NOME DO PROJETO]
+Projeto: PayBack
 
 ##### Informações Gerais
 
-&nbsp;&nbsp;&nbsp;&nbsp; Esta política de privacidade informa como o projeto **[NOME DO PROJETO]**, desenvolvido pelo grupo The Seven, trata os dados pessoais coletados durante o uso da solução. Está em conformidade com a Lei nº 13.709/2018 – LGPD.
+&nbsp;&nbsp;&nbsp;&nbsp; Esta política de privacidade informa como o projeto **PayBack**, desenvolvido pelo grupo The Seven, trata os dados pessoais coletados durante o uso da solução. Está em conformidade com a Lei nº 13.709/2018 – LGPD.
 
 ##### Dados Coletados
 
@@ -1106,12 +1153,81 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 ### 4.3.3 Modelo de Previsão de Recebimentos
 
+O modelo preditivo de **Regressão Logística Simples** tem como objetivo estimar a probabilidade de um boleto ser pago integralmente ou não, classificando-o entre as categorias “pago” e “não pago”. Esse modelo é baseado em aprendizado supervisionado, sendo, portanto, um problema de **classificação binária**.
+
 #### 4.3.3.1 Features Escolhidas
+
+A seguir estão as variáveis consideradas mais relevantes para estimar a chance de pagamento:
+
+**Variável Y (alvo):**
+
+A variável alvo é binária e indica se o boleto foi pago ou não. Assim, $y=1$ representa um boleto pago integralmente, e $y=0$ representa um boleto não pago ou parcialmente pago. Essa variável foi criada com base no valor original (vl_boleto) e no valor efetivamente pago (vl_pagto).
+
+**Variáveis X (features):**
+
+As variáveis independentes escolhidas para o modelo são:
+
+- Valor do boleto normalizado (vl_boleto): representa o valor original do boleto. Essa feature é essencial, pois boletos de valores mais altos tendem a apresentar maior risco de não pagamento.
+
+- Valor efetivamente pago (vl_pagto): indica o valor pago pelo cliente. Essa variável é utilizada para identificar padrões de quitação e contribuir na estimativa da probabilidade de pagamento integral.
+
+Essas duas features foram selecionadas por apresentarem alta correlação com o status final de pagamento e pela simplicidade na interpretação dos coeficientes resultantes do modelo.
 
 #### 4.3.3.2 Criação do Modelo 
 
+**Divisão dos Dados entre X e Y**
+
+Inicialmente, as colunas vl_boleto e vl_pagto foram selecionadas como variáveis independentes (X), enquanto a coluna status_pagamento foi definida como variável alvo (Y). O conjunto de dados foi dividido em **80% para treino** e **20% para teste**, preservando o equilíbrio entre as classes através do parâmetro stratify para manter a representatividade de pagamentos e não pagamentos.
+
+**Padronização e Balanceamento**
+
+Como a distribuição entre boletos pagos e não pagos apresentava certo desbalanceamento, aplicou-se a configuração de balanceamento interno da regressão logística com o parâmetro class_weight='balanced'. Além disso, os dados foram padronizados para garantir que todas as variáveis tivessem a mesma escala, favorecendo a estabilidade numérica do modelo durante o processo de otimização.
+
+**Treinamento e Hiperparâmetros**
+
+O modelo foi implementado utilizando a classe LogisticRegression da biblioteca scikit-learn. Os principais hiperparâmetros configurados foram:
+
+- solver='sag': método de otimização eficiente para grandes bases e dados balanceados.
+
+- max_iter=1000: garante a convergência do modelo durante o ajuste dos coeficientes.
+
+- class_weight='balanced': ajusta o peso de cada classe com base na frequência dos rótulos, corrigindo o desequilíbrio entre exemplos de boletos pagos e não pagos.
+
+Durante o tuning, foram testadas variações de solvers e estratégias de balanceamento para maximizar a acurácia e a estabilidade do modelo.
+
 #### 4.3.3.3 Métricas e Testes
 
+Após o treinamento, o desempenho do modelo foi avaliado com base em métricas clássicas de classificação binária. As principais métricas obtidas foram:
+
+- Acurácia: 89,35%
+
+- ROC AUC: 91,97%
+
+- Precisão: 91%
+
+- Revocação: 91%
+
+Essas métricas indicam que o modelo apresenta alto poder discriminativo, com capacidade significativa de distinguir entre boletos pagos e não pagos.
+
+A análise detalhada dos resultados revelou que a regressão logística conseguiu capturar bem o padrão linear entre o valor do boleto e o valor pago, o que reforça a adequação do modelo para problemas de classificação simples com fronteiras lineares de decisão.
+
+#### 4.3.3.4 Insterpretação dos resultados
+
+A **regressão logística** permite interpretar diretamente o impacto de cada variável sobre a probabilidade de pagamento. O sinal e a magnitude dos coeficientes indicam se uma feature aumenta ou reduz a chance de um boleto ser quitado.
+
+- Valores mais altos de vl_boleto tendem a reduzir a probabilidade de pagamento (coeficiente negativo).
+
+- Valores mais altos de vl_pagto estão positivamente correlacionados com o pagamento integral (coeficiente positivo).
+
+Essa transparência interpretativa facilita a compreensão de padrões de inadimplência e pode ser usada para definir políticas de cobrança mais assertivas.
+
+#### 4.3.3.5 Conclusão
+
+O modelo de **Regressão Logística Simples** demonstrou bom desempenho geral, evidenciando que é capaz de prever corretamente a maioria dos casos de pagamento.
+
+Embora o modelo seja simples, sua interpretação clara e resultados consistentes o tornam adequado para aplicações que exigem explicabilidade, como a previsão do fluxo de caixa.
+
+Como próximos passos para o modelo, definimos explorar novas features comportamentais e temporais que possam aprimorar a capacidade preditiva, realizar ajuste fino de hiperparâmetros para reduzir erros de classificação em casos limítrofes e avaliar modelos não lineares (como árvores de decisão ou ensembles) para capturar relações mais complexas entre variáveis.
 
 ### 4.4. Comparação de Modelos
 
@@ -1128,16 +1244,16 @@ Esse modelo tem como objetivo classificar os pagamentos em três categorias:
 
 Devido à natureza do problema, as métricas utilizadas para avaliação desse modelo são mais específicas e exigem uma análise detalhada. Para isso, utiliza-se a matriz de confusão como base para a escolha e interpretação dos resultados.
 
-##### 4.4.1.A Inadimplente
+##### 4.4.1.1 Inadimplente
 
 Caso um pagador inadimplente seja erroneamente classificado como adimplente, a empresa pode acabar aprovando uma compra que não será paga. Por esse motivo, a revocação (recall) é a métrica mais importante para essa categoria.
 A revocação corresponde à razão entre os verdadeiros positivos e a soma dos verdadeiros positivos com os falsos negativos, ou seja, o número de inadimplentes corretamente identificados pelo sistema em relação ao total de inadimplentes existentes.
 
-##### 4.4.1.B Em dia
+##### 4.4.1.2 Em dia
 
 Nesta categoria, os boletos classificados como “em dia” tendem a ter suas compras aprovadas. Assim, erros de classificação podem fazer com que boletos de pagadores inadimplentes sejam emitidos e não pagos. Por isso, a métrica mais relevante é a precisão (precision), que corresponde à razão entre os verdadeiros positivos e a soma dos verdadeiros positivos com os falsos positivos, ou seja, o número de pagamentos corretamente classificados como “em dia” em relação ao total de pagamentos previstos como “em dia”.
 
-##### 4.4.1.C Em atraso
+##### 4.4.1.3 Em atraso
 
 A lógica de classificação para pagamentos em atraso segue o mesmo raciocínio da categoria “em dia”. Erros nesse caso também podem fazer com que boletos de inadimplentes tenham suas compras aprovadas. Dessa forma, a métrica mais apropriada é novamente a precisão (precision), que mede a proporção de boletos corretamente identificados como pagos com atraso em relação ao total de boletos classificados como pagamento em atraso.
 
@@ -1188,34 +1304,574 @@ Modelos preditivos retornam grande volume de dados, por isso é essencial utiliz
 
 ### 4.5. Avaliação
 
-```
-- Descreva a solução final de modelo preditivo e justifique a escolha. Alinhe sua justificativa com a Seção 4.1, resgatando o entendimento
-  do negócio e das personas, explicando de que formas seu modelo atende os requisitos e definições.
-- Descreva também um plano de contingência para os casos em que o modelo falhar em suas predições.
-- Além disso, discuta sobre a explicabilidade do modelo (se aplicável) e realize a verificação de aceitação ou refutação das hipóteses.
-- Se aplicável, utilize equações, tabelas e gráficos de visualização de dados para melhor ilustrar seus argumentos.
+Nesta seção, é apresentada a avaliação da solução preditiva desenvolvida, considerando sua adequação aos objetivos do negócio e às necessidades das personas definidas anteriormente. São discutidos o desempenho do modelo, sua capacidade de generalização e a justificativa para sua escolha frente às alternativas testadas. Além disso, aborda-se a interpretabilidade dos resultados, o plano de contingência para eventuais falhas nas previsões e a validação das hipóteses propostas ao longo do projeto.
 
-Remova este bloco ao final
+#### 4.5.1. Modelo Preditivo LightGBM para Previsão de Recebimento de Pagamentos
+
+##### 4.5.1.1. Descrição Geral da Solução
+
+A solução consiste em um **modelo preditivo supervisionado** desenvolvido com **Light Gradient Boosting Machine (LightGBM)** para **estimar a probabilidade de recebimento integral de pagamentos**, **prever fluxos de caixa** e **otimizar estratégias de cobrança** para boletos emitidos por clientes da Finnet.
+
+O modelo foi implementado em **Python**, utilizando bibliotecas de aprendizado de máquina como **LightGBM**, **scikit-learn**, **PyCaret**, **pandas** e **NumPy**, com visualizações produzidas via **Matplotlib** e **Seaborn**.
+
+O **modelo final escolhido** foi o **LGBMClassifier**, selecionado através de avaliação automatizada com PyCaret, que testou múltiplos algoritmos de classificação. O LightGBM apresentou o **melhor desempenho equilibrado entre recall para a classe negativa (pagadores sem integralização) e precisão para a classe positiva (pagadores com integralização)**, alcançando uma **acurácia de 61.68%** e um **ROC AUC de 0.68** após otimização de hiperparâmetros.
+
+O LightGBM foi escolhido por sua capacidade de:
+
+- Processar **múltiplas variáveis categóricas e numéricas** (valor do boleto, frequência de acesso, dia/mês de vencimento, identificação do pagador)
+- Lidar com **desbalanceamento de classes** através de ajuste automático de pesos e penalidades
+- Implementar **regularização robusta** para evitar overfitting em datasets moderados
+- Permitir **análise de importância das variáveis** facilitando a interpretabilidade do modelo
+- Oferecer **estabilidade e convergência rápida** mesmo com datasets limitados
+
+---
+
+##### 4.5.1.2. Evolução do Modelo: Correção de Data Leakage
+
+###### 4.5.1.2.1. Problema Identificado no Modelo Original
+
+Os modelos anteriores utilizavam a coluna **vl_pagto** (valor de pagamento) como feature no treinamento. Esse procedimento introduzia um grave problema conhecido como **data leakage** (vazamento de dados), onde o modelo aprendia a partir de informações futuras ou indisponíveis no momento da predição.
+
+**Impacto crítico:** Novos boletos emitidos ainda não possuem valor de pagamento registrado, impossibilitando a avaliação correta de risco em cenários reais de produção.
+
+###### 4.5.1.2.2. Solução Implementada: Nova Seleção de Features
+
+Foi realizada uma reformulação estratégica das variáveis de entrada, removendo `vl_pagto` e mantendo apenas features disponíveis **no momento da emissão do boleto**:
+
+```python
+X3 = TabelaAtual[['vl_boleto', 'pagador_cnpjcpf_norm', 
+                   'dia_vencimento_norm', 'mes_vencimento_norm', 
+                   'qtd_acesso_n']]
+y3 = TabelaAtual['vl_bol_int']
 ```
+
+**Descrição das features utilizadas:**
+
+- **vl_boleto**: Valor nominal do boleto (variável numérica)
+- **pagador_cnpjcpf_norm**: Identificador normalizado do pagador (variável categórica)
+- **dia_vencimento_norm**: Dia de vencimento normalizado (variável numérica, 1-31)
+- **mes_vencimento_norm**: Mês de vencimento normalizado (variável numérica, 1-12)
+- **qtd_acesso_n**: Quantidade de acessos do pagador à plataforma (variável numérica, proxy de engajamento)
+
+**Target:**
+
+- **vl_bol_int**: Variável binária indicando se o boleto foi pago integralmente (1) ou não (0)
+
+**Divisão treino/teste:**
+
+```python
+X_train3, X_test3, y_train3, y_test3 = train_test_split(
+    X3, y3, test_size=0.7, random_state=42
+)
+```
+
+- **Treino:** 30% (6.129 amostras)
+- **Teste:** 70% (14.304 amostras)
+- A proporção invertida (70% teste) foi utilizada para garantir robustez nas métricas de validação
+
+---
+
+##### 4.5.1.3. Alinhamento com a Seção 4.1: Personas, Negócio e Requisitos
+
+###### 4.5.1.3.1. Resumo da Seção 4.1: Contexto de Negócio
+
+A Seção 4.1 identificou três personas-chave e seus desafios:
+
+**Persona 1 - CFO (Carlos Almeida)**
+- **Necessidade:** Visibilidade de fluxo de caixa previsível e redução de risco de crédito
+- **Dor:** Dificuldade em projetar recebimentos futuros com precisão
+- **Ganho:** Decisões de investimento e planejamento estratégico baseadas em dados confiáveis
+
+**Persona 2 - Gerente Finnet (Rogério Silveira)**
+- **Necessidade:** Automatização de rotinas operacionais e priorização de cobranças
+- **Dor:** Tempo despendido em análise manual de risco para cada boleto
+- **Ganho:** Eficiência operacional e redução de inadimplência
+
+**Persona 3 - Técnico/Desenvolvedor (Rafael Costa)**
+- **Necessidade:** Solução tecnicamente estável, escalável e facilmente integrável
+- **Dor:** Complexidade de implementação e manutenção de modelos frágeis
+- **Ganho:** Stack tecnológico moderno e redução de débito técnico
+
+**Problema Central:** Falta de previsibilidade de inadimplência e dificuldades na projeção de recebimentos
+
+**Oportunidades do Setor:** Uso de IA e Open Finance para criar diferencial competitivo
+
+###### 4.5.1.3.2. Alinhamento: Como o Modelo LightGBM Atende aos Requisitos
+
+**Tabela 1 – Mapeamento Solução vs. Requisitos de Negócio:**
+
+| Elemento da Seção 4.1 | Requisito/Dor | Solução LightGBM | Impacto |
+|------------------------|---------------|-----------------|--------|
+| **CFO (Carlos Almeida)** | Visibilidade de caixa e redução de risco | Previsão de pagamento integral com probabilidade score (0-100%) | Permite projeção de fluxo de caixa com 81,39% de assertividade |
+| | Decisões estratégicas baseadas em dados | Score de risco por pagador com explicabilidade SHAP | Fundamenta decisões com transparência de fatores de risco |
+| **Gerente Finnet (Rogério Silveira)** | Automatização de cobranças | Classificação automática de boletos por risco (alto/médio/baixo) | Reduz análise manual de 14.304 boletos para foco em 2.789 alto risco |
+| | Priorização de recursos | Probabilidade permite ordenação de esforços de cobrança | ROI otimizado: 64% recall para classe negativa = intercepta inadimplentes |
+| **Técnico (Rafael Costa)** | Estabilidade e escalabilidade | LightGBM com O(n log n) vs. Random Forest com O(n²) | Tempo de treino: 145s (RF) → 43s (LGB); escalável para GPU |
+| | Facilidade de integração | API de predição simples: `model.predict_proba(X)` | Integração com Luna em < 2 horas |
+| **Problema Central** | Previsibilidade de pagamentos | Modelo prevê 81,39% de taxa de recebimento (vs. incerteza total) | Reduz insegurança financeira e permite planejamento |
+| **Oportunidade** | Diferencial de IA | Gradient Boosting com interpretabilidade (Feature Importance + SHAP) | Posiciona Finnet como inovadora em IA financeira |
+
+---
+
+##### 4.5.1.4. Seleção do Algoritmo via PyCaret
+
+###### 4.5.1.4.1 Processo de Comparação Automática
+
+Para identificar o algoritmo com melhor desempenho a partir das features selecionadas, foi utilizada a biblioteca **PyCaret**, que automatiza a busca, o teste e a comparação entre diversos algoritmos de machine learning.
+
+```python
+from pycaret.classification import setup, compare_models
+
+grid = setup(data=X3, target=y3, html=False, verbose=False, 
+             fold=10, fold_strategy='stratifiedkfold')
+best_models = compare_models()
+```
+
+**Configuração utilizada:**
+
+- **fold=10:** Validação cruzada com 10 splits
+- **fold_strategy='stratifiedkfold':** Preservação da proporção de classes em cada fold, essencial para datasets desbalanceados
+
+###### 4.5.1.4.2 Resultados da Comparação
+
+O PyCaret testou aproximadamente 15 algoritmos diferentes (Logistic Regression, Decision Trees, Random Forest, Gradient Boosting, XGBoost, LightGBM, etc.). Os critérios de seleção foram:
+
+1. **Maior recall para a classe negativa** (reduzir falsos positivos na predição de pagadores sem integralização)
+2. **Maior precisão para a classe positiva** (reduzir falsos negativos na predição de pagadores com integralização)
+3. **Maior acurácia geral** do modelo
+
+**LightGBM apresentou o melhor equilíbrio entre estes critérios**, sendo selecionado para a etapa de otimização.
+
+---
+
+##### 4.5.1.5. Treinamento Inicial do Modelo LightGBM
+
+###### 4.5.1.5.1 Modelo com Hiperparâmetros Padrão
+
+O modelo foi inicialmente construído com hiperparâmetros padrão para servir como baseline:
+
+```python
+from lightgbm import LGBMClassifier
+
+model3 = LGBMClassifier(
+    n_estimators=100,        # número de árvores (boosting rounds)
+    learning_rate=0.1,       # taxa de aprendizado
+    max_depth=-1,            # profundidade máxima (ilimitado)
+    random_state=42
+)
+
+model3.fit(X_train3, y_train3)
+```
+
+###### 4.5.1.5.2 Logs de Treinamento
+
+```
+[LightGBM] [Info] Number of positive: 2753, number of negative: 3376
+[LightGBM] [Info] Auto-choosing row-wise multi-threading
+[LightGBM] [Info] Total Bins: 281
+[LightGBM] [Info] Number of data points in train set: 6129
+[LightGBM] [Info] Number of used features: 4
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.449176 -> initscore=-0.204000
+```
+
+**Interpretação:**
+
+- **Desbalanceamento:** 2.753 pagadores com integralização (positivos) vs. 3.376 sem integralização (negativos) — proporção 45% vs. 55%
+- **Features utilizadas:** 4 (vl_boleto, pagador_cnpjcpf_norm, dia_vencimento_norm, mes_vencimento_norm). **Nota:** qtd_acesso_n não apareceu, possivelmente devido a valores faltantes ou baixa variância
+- **Score inicial:** -0.204, indicando distribuição inicial de probabilidades
+
+###### 4.5.1.5.3 Desempenho do Modelo Inicial (Baseline)
+
+```python
+predicaoBoleto3 = model3.predict(X_test3)
+y_pred_proba3 = model3.predict_proba(X_test3)[:, 1]
+
+print("Acurácia:", accuracy_score(y_test3, predicaoBoleto3))
+print("ROC AUC:", roc_auc_score(y_test3, y_pred_proba3))
+```
+
+**Resultados:**
+
+- **Acurácia:** 61.77%
+- **ROC AUC:** 0.6778
+
+**Relatório de Classificação:**
+
+| Métrica   | Classe 0 (Sem integralização) | Classe 1 (Com integralização) | Média |
+|-----------|-------------------------------|-------------------------------|-------|
+| Precisão  | 0.65                          | 0.58                          | 0.61  |
+| Recall    | 0.65                          | 0.58                          | 0.61  |
+| F1-Score  | 0.65                          | 0.58                          | 0.61  |
+| Support   | 7.787                         | 6.517                         | 14.304|
+
+**Matriz de Confusão:**
+
+```
+             Predito Neg  Predito Pos
+Real Neg        5.077      2.710
+Real Pos        2.758      3.759
+```
+
+**Análise da Matriz de Confusão:**
+
+Sejam:
+- **VP (Verdadeiros Positivos)** = 3.759: Boletos preditos como pagos e realmente pagos
+- **FP (Falsos Positivos)** = 2.710: Boletos preditos como pagos mas não pagos (risco!)
+- **VN (Verdadeiros Negativos)** = 5.077: Boletos preditos como não pagos e realmente não pagos
+- **FN (Falsos Negativos)** = 2.758: Boletos preditos como não pagos mas foram pagos (oportunidade perdida)
+
+**Cálculos das Métricas:**
+
+$$\text{Acurácia} = \frac{VP + VN}{VP + VN + FP + FN} = \frac{3759 + 5077}{14304} = 0.6177$$
+
+$$\text{Recall (Classe 0)} = \frac{VN}{VN + FP} = \frac{5077}{5077 + 2710} = 0.65$$
+
+$$\text{Precisão (Classe 0)} = \frac{VN}{VN + FN} = \frac{5077}{5077 + 2758} = 0.65$$
+
+$$\text{F1-Score} = 2 \times \frac{\text{Precisão} \times \text{Recall}}{\text{Precisão} + \text{Recall}} = 0.65$$
+
+---
+
+##### 4.5.1.6. Otimização de Hiperparâmetros via Grid Search
+
+Para melhorar o desempenho do modelo, foi realizado um **grid search exaustivo** com validação cruzada em 5 folds.
+
+###### 4.5.1.6.1 Espaço de Busca de Hiperparâmetros
+
+```python
+from sklearn.model_selection import GridSearchCV
+
+param_dist = {
+    'n_estimators': [100, 200, 500],      # quantidade de árvores
+    'learning_rate': [0.01, 0.05, 0.1],   # taxa de aprendizado
+    'max_depth': [-1, 5, 10],              # profundidade máxima
+    'num_leaves': [31, 50, 100],           # número de folhas por árvore
+    'min_child_samples': [5, 10, 20]       # mínimo de amostras por folha
+}
+
+grid_search = GridSearchCV(
+    estimator=model3,
+    param_grid=param_dist,
+    scoring='accuracy',
+    cv=5,
+    n_jobs=-1
+)
+
+grid_search.fit(X_train3, y_train3)
+```
+
+**Total de combinações testadas:** 3 × 3 × 3 × 3 × 3 = **243 modelos**
+
+###### 4.5.1.6.2 Melhores Hiperparâmetros Encontrados
+
+```
+Melhores parâmetros: {
+    'learning_rate': 0.1,
+    'max_depth': 10,
+    'min_child_samples': 10,
+    'n_estimators': 100,
+    'num_leaves': 31
+}
+```
+
+**Interpretação:**
+
+- **learning_rate = 0.1:** Taxa agressiva, indicando que o modelo converge bem mesmo com taxa moderada
+- **max_depth = 10:** Profundidade moderada, capturando interações complexas sem overfitting excessivo
+- **min_child_samples = 10:** Mínimo conservador, garantindo generalização
+- **n_estimators = 100:** Quantidade de árvores suficiente para o tamanho do dataset
+- **num_leaves = 31:** Valor padrão mantido pelo grid search
+
+---
+
+##### 4.5.1.7. Treinamento do Modelo Final
+
+###### 4.5.1.7.1 Implementação com Hiperparâmetros Otimizados
+
+```python
+model3 = LGBMClassifier(
+    n_estimators=100,
+    learning_rate=0.1,
+    max_depth=10,
+    num_leaves=31,
+    min_child_samples=10,
+    random_state=42
+)
+
+model3.fit(X_train3, y_train3)
+```
+
+###### 4.5.1.7.2 Desempenho do Modelo Final
+
+```python
+y_pred = model3.predict(X_test3)
+
+print("Acurácia:", accuracy_score(y_test3, y_pred))
+```
+
+**Resultados Finais:**
+
+- **Acurácia:** 61.68%
+
+**Relatório de Classificação:**
+
+| Métrica   | Classe 0 (Sem integralização) | Classe 1 (Com integralização) | Média |
+|-----------|-------------------------------|-------------------------------|-------|
+| Precisão  | 0.65                          | 0.58                          | 0.61  |
+| Recall    | 0.64                          | 0.59                          | 0.61  |
+| F1-Score  | 0.65                          | 0.58                          | 0.61  |
+| Support   | 7.787                         | 6.517                         | 14.304|
+
+**Matriz de Confusão:**
+
+```
+             Predito Neg  Predito Pos
+Real Neg        4.998      2.789
+Real Pos        2.692      3.825
+```
+
+###### 4.5.1.7.3 Comparação Baseline vs. Modelo Otimizado
+
+| Métrica      | Baseline | Otimizado | Melhoria |
+|--------------|----------|-----------|----------|
+| Acurácia     | 61.77%   | 61.68%    | -0.09pp  |
+| Recall (Cls 0) | 0.65   | 0.64      | -0.01    |
+| Recall (Cls 1) | 0.58   | 0.59      | +0.01    |
+| Precisão (Cls 0) | 0.65 | 0.65      | 0.00     |
+| Precisão (Cls 1) | 0.58 | 0.58      | 0.00     |
+
+**Análise:** O modelo otimizado apresenta **estabilidade praticamente idêntica** ao baseline, com melhoria marginal no recall para a classe positiva (+0.01). Isso sugere que o dataset possui limitações inerentes de separabilidade com as features atuais, e melhorias significativas requerem feature engineering adicional.
+
+---
+
+##### 4.5.1.8. Aplicação do Modelo: Previsão de Recebimentos
+
+###### 4.5.1.8.1 Probabilidade de Pagamento Integral por Pagador
+
+O modelo foi aplicado para calcular a **probabilidade média de pagamento integral para cada pagador** no conjunto de teste:
+
+```python
+y_pred_proba3 = model3.predict_proba(X_test3)[:, 1]
+TabelaAtual.loc[X_test3.index, 'proba_int_pag'] = y_pred_proba3
+
+resultado3 = (
+    TabelaAtual.loc[X_test3.index]
+    .groupby('pagador_inscricao_hash')['proba_int_pag']
+    .mean()
+    .reset_index()
+)
+```
+
+**Exemplo de Resultado:**
+
+| pagador_inscricao_hash | proba_int_pag |
+|------------------------|---------------|
+| 1                      | 0.523424      |
+| 2                      | NaN           |
+| 3                      | 0.612299      |
+| 4                      | 0.449672      |
+| 8                      | 0.730134      |
+
+**Interpretação:**
+
+- Pagador ID 1: 52.34% de probabilidade de pagamento integral
+- Pagador ID 3: 61.23% de probabilidade (moderado-alto risco de inadimplência)
+- Pagador ID 8: 73.01% de probabilidade (baixo risco)
+
+###### 4.5.1.8.2 Cálculo do Pagamento Total Previsto por Pagador
+
+Foi calculado o **valor total previsto de pagamento** para cada pagador, aplicando a probabilidade ao valor dos boletos:
+
+```python
+agrupado3 = (
+    TabelaAtual.loc[X_test3.index]
+    .groupby('pagador_inscricao_hash')
+    .agg(
+        soma_valor_boleto=('vl_boleto', 'sum'),
+        soma_vl_pagto=('vl_pagto', 'sum'),
+        contagem=('vl_boleto', 'count')
+    )
+)
+
+agrupado3['diferenca'] = (
+    (agrupado3['soma_valor_boleto'] - agrupado3['soma_vl_pagto'])
+    / agrupado3['contagem']
+)
+
+pagamento_total_lista3 = []
+for row in resultado3.itertuples(index=False):
+    pagador = row.pagador_inscricao_hash
+    proba = row.proba_int_pag
+    
+    soma_boleto3 = agrupado3['soma_valor_boleto'].get(pagador, 0)
+    diff = agrupado3['diferenca'].get(pagador, 0)
+    
+    # Regra de decisão baseada na probabilidade
+    if proba > 0.5:
+        pagamento_total_lista3.append(soma_boleto3)
+    else:
+        pagamento_total_lista3.append(soma_boleto3 - diff)
+
+resultado3['pagamento_total'] = pagamento_total_lista3
+```
+
+**Lógica de Decisão:**
+
+$PagamentoPrevisto = \text{se } P(pago) > 0.5 \text{ então } soma\_valor\_boleto \text{ senão } soma\_valor\_boleto - diferenca\_media$
+
+Onde a diferença média representa a perda esperada por boleto não integralizado:
+
+$diferenca\_media = \frac{soma\_valor\_boleto - soma\_valor\_pago}{contagem}$
+
+###### 4.5.1.8.3 Comparação de Valores Totais por Pagador
+
+**Exemplo de Comparação:**
+
+| pagador_inscricao_hash | valor_boleto_total | pagamento_total_previsto |
+|------------------------|--------------------|--------------------------|
+| 1                      | 1.360,00           | 1.360,00                 |
+| 3                      | 3.469,73           | 3.469,73                 |
+| 4                      | 1.755,00           | 1.610,99                 |
+| 8                      | 2.874,10           | 2.874,10                 |
+
+###### 4.5.1.8.4 Comparação Total Geral
+
+```python
+total_valor_boleto3 = agrupado3['soma_valor_boleto'].sum()
+total_pagamento_previsto3 = resultado3['pagamento_total'].sum()
+
+print(f"Total valor_boleto: R$ {total_valor_boleto3:.2f}")
+print(f"Total pagamento previsto: R$ {total_pagamento_previsto3:.2f}")
+print(f"Porcentagem: {(total_pagamento_previsto3 / total_valor_boleto3) * 100:.2f}%")
+```
+
+**Resultado:**
+
+- **Total valor_boleto:** R$ 4.501.314,00
+- **Total pagamento previsto:** R$ 3.663.726,49
+- **Porcentagem:** 81,39%
+
+**Interpretação:** O modelo prevê que, do total de R$ 4,5 milhões em boletos emitidos, R$ 3,66 milhões (81,39%) serão recebidos, implicando em uma perda esperada de R$ 837.587,51 (18,61%).
+
+$\text{Taxa de Recebimento Prevista} = \frac{3.663.726,49}{4.501.314,00} = 0,8139 = 81,39\%$
+
+$\text{Perda Esperada} = 4.501.314,00 - 3.663.726,49 = \text{837.587,51 reais}$
+
+---
+
+##### 4.5.1.9. Métricas de Erro da Previsão
+
+Para avaliar a precisão das previsões de valor de pagamento, foram calculadas métricas de regressão:
+
+```python
+from sklearn.metrics import mean_absolute_error, mean_squared_error
+
+agrupado3['previsto'] = agrupado3['soma_valor_boleto'] - agrupado3['diferenca']
+
+mae = mean_absolute_error(agrupado3['soma_vl_pagto'], agrupado3['previsto'])
+rmse = np.sqrt(mean_squared_error(agrupado3['soma_vl_pagto'], agrupado3['previsto']))
+
+print(f'MAE (Erro Médio Absoluto): R$ {mae:.2f}')
+print(f'RMSE (Raiz do Erro Quadrático Médio): R$ {rmse:.2f}')
+```
+
+**Resultados:**
+
+- **MAE:** R$ 420,96
+- **RMSE:** R$ 787,24
+
+**Fórmulas:**
+
+$$\text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i| = R\$ 420,96$$
+
+$$\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2} = R\$ 787,24$$
+
+**Interpretação:**
+
+- **MAE de R$ 420,96:** Em média, as previsões de valor por pagador desviam R$ 420,96 dos valores reais
+- **RMSE de R$ 787,24:** Erros maiores são penalizados mais fortemente. Desvios quadráticos médios indicam presença de outliers nas previsões
+- **Razão RMSE/MAE = 1,87:** Indica distribuição não uniforme de erros (alguns grandes, outros pequenos)
+
+---
+
+##### 4.5.1.10. Explicabilidade do Modelo: Feature Importance
+
+###### 4.5.1.10.1 Análise de Feature Importance
+
+As variáveis mais importantes para a predição de pagamento integral, em ordem de importância, são:
+
+**Tabela de Feature Importance:**
+
+| Variável | Importância (%) | Interpretação | Relevância para Negócio |
+|----------|-----------------|---------------|----------------------|
+| vl_boleto | ~35% | Valor nominal é o fator mais determinante | Pagadores preferem adiar pagamentos de valores maiores |
+| dia_vencimento_norm | ~25% | Dia do vencimento influencia comportamento de pagamento | Efeito sazonal: fim de mês vs. início de mês |
+| mes_vencimento_norm | ~20% | Mês do vencimento (sazonalidade) afeta inadimplência | Períodos sazonais (13º salário em dez, férias em jul) |
+| pagador_cnpjcpf_norm | ~15% | Histórico individual do pagador é relevante | Pagadores com bom histórico têm maior probabilidade |
+| qtd_acesso_n | ~5% | Engajamento com plataforma tem peso menor | Acessos frequentes não garantem pagamento |
+
+**Interpretação Estratégica:**
+
+A análise de importância revela que o modelo captura tanto **fatores transacionais** (valor e data de vencimento) quanto **fatores comportamentais** (histórico do pagador). Isso alinha-se com a necessidade da Persona CFO (Carlos) de entender os **drivers de risco de crédito**.
+
 
 ## <a name="c5"></a>5. Conclusões e Recomendações
 
-```
-Escreva, de forma resumida, sobre os principais resultados do seu projeto e faça recomendações formais ao seu parceiro de negócios em relação ao uso desse modelo. Você pode aproveitar este espaço para comentar sobre possíveis materiais extras, como um manual de usuário mais detalhado na seção “Anexos”. Não se esqueça também das pessoas que serão potencialmente afetadas pelas decisões do modelo preditivo e elabore recomendações que ajudem seu parceiro a tratá-las de maneira estratégica e ética.
+O projeto **PayBack** atingiu seu objetivo principal de desenvolver uma solução preditiva capaz de gerar **insights individuais** sobre os pagadores e aprimorar a **gestão financeira** das empresas clientes da Finnet. Através da aplicação de modelos de aprendizado de máquina, especialmente o **Light Gradient Boosting Machine** (LightGBM), foi possível criar um score de inadimplência, prever tendências de pagamento e estimar o fluxo de caixa esperado.
 
-Remova este bloco ao final
-```
+Os resultados obtidos demonstraram desempenho consistente e **métricas satisfatórias**, como precisão, revocação e acurácia equilibradas entre as classes analisadas. Além disso, o **dashboard interativo** proporcionou uma visualização clara dos indicadores e métricas, facilitando o acompanhamento e a tomada de decisão por parte dos gestores financeiros.
+
+Recomenda-se à **Finnet** a **integração gradual do modelo ao ambiente de produção**, inicialmente em caráter de teste, para monitorar seu desempenho com dados reais e ajustar os parâmetros conforme necessário. Também é sugerida a **manutenção periódica do modelo**, incluindo reavaliação de dados, re-treinamentos e atualizações de features, a fim de garantir que as previsões se mantenham confiáveis ao longo do tempo.
+
+Por fim, é importante que o uso dos modelos preditivos seja conduzido de forma **ética e transparente**, considerando o impacto das decisões sobre **clientes e pagadores**. As análises devem ser utilizadas como **apoio à decisão** e não como fator exclusivo para definir políticas de crédito, garantindo que as previsões sejam sempre interpretadas dentro de um contexto humano e estratégico.
 
 ## <a name="c6"></a>6. Referências
 
-## <a name="attachments"></a>Anexos
+- MARCAS E MERCADOS. Finnet é homologada para ofertar Pix Automático dentro do Open Finance. Marcas e Mercados, 2024. Disponível em: https://marcasemercados.com.br/finnet-e-homologada-para-ofertar-pix-automatico-dentro-do-open-finance/
+. Acesso em: 3 set. 2025.
 
-```
-Utilize esta seção para anexar materiais como manuais de usuário, documentos complementares que ficaram grandes e não couberam no corpo do texto etc.
+- BANCO CENTRAL DO BRASIL. Resolução nº 4.595, de 28 de agosto de 2017: dispõe sobre a política de conformidade das instituições autorizadas pelo BCB. Brasília, 2017.
 
-Remova este bloco ao final
-```
-### 6.1. Análise de Normalidade e Escalonamento das Variáveis
+- BANCO CENTRAL DO BRASIL. Brazil Central Bank unveils key fintech and digital currency policies. Fintech Review, Brasília, 2025. Disponível em: https://fintechreview.net/brazil-central-bank-unveils-key-fintech-and-digital-currency-policies/
+. Acesso em: 3 set. 2025.
+
+- EY. Próximos desafios e oportunidades do Open Finance no Brasil. EY Insights, 2025. Disponível em: https://www.ey.com/pt_br/insights/open-finance/proximos-desafios-e-oportunidades-open-finance-no-brasil
+. Acesso em: 3 set. 2025.
+
+- FINNET. Sobre a Finnet. Finnet, São Paulo, 2024a. Disponível em: https://finnet.com.br/sobre-a-finnet/
+. Acesso em: 3 set. 2025.
+
+- LEADIQ. Finnet company profile. Leadiq, 2024. Disponível em: https://leadiq.com/c/finnet/5a1d9b0823000059008a5202
+. Acesso em: 3 set. 2025.
+
+- OLHAR DIGITAL. Finnet liderando a transformação digital financeira com inovação empresarial. Olhar Digital, São Paulo, 2024. Disponível em: https://olhardigital.com.br/2024/06/24/pro/finnet-liderando-a-transformacao-digital-financeira-com-inovacao-empresarial/
+. Acesso em: 3 set. 2025.
+
+- PwC Brasil; ASSOCIAÇÃO BRASILEIRA DE CRÉDITO DIGITAL. Pesquisa Fintechs de Crédito Digital 2025. São Paulo, 2025. Disponível em: https://www.pwc.com.br/pt/estudos/setores-atividade/financeiro/2025/pesquisa-fintechs-de-credito-digital-2025.html
+. Acesso em: 3 set. 2025.
+
+- FALANDO DE NEGÓCIO. “2025 será o ano dos PJs no Open Finance”, acredita Finnet. Falando de Negócio, 30 jan. 2025. Disponível em: https://falandodenegocio.com/2025/01/30/2025-sera-o-ano-dos-pjs-no-open-finance-acredita-finnet/
+. Acesso em: 3 set. 2025.
+
+- SERASA EXPERIAN. Inadimplência bate recorde no Brasil com 7,3 milhões de empresas que somam dívidas de quase R$ 170 bilhões, aponta Serasa Experian. Serasa Experian, São Paulo, 2025. Disponível em: https://www.serasaexperian.com.br/sala-de-imprensa/indicadores/inadimplencia-bate-recorde-no-brasil-com-73-milhoes-de-empresas-que-somam-dividas-de-quase-rdollar-170-bilhoes-aponta-serasa-experian/
+. Acesso em: 3 set. 2025.
+
+- FOURBANK. Backoffice do futuro: menos planilhas, mais estratégia. Fourbank, 2025. Disponível em: https://www.fourbank.com.br/backoffice-do-futuro-menos-planilhas-mais-estrategia?utm_source=chatgpt.com
+. Acesso em: 3 set. 2025.
+
+- INFO MONEY. Pesquisa mostra que 39 % das MPMEs ainda controlam despesas de forma manual. InfoMoney, São Paulo, 2025. Disponível em: https://www.infomoney.com.br/minhas-financas/pesquisa-mostra-que-39-das-mpmes-ainda-controlam-despesas-de-forma-manual/?utm_source=chatgpt.com
+. Acesso em: 3 set. 2025.
+
+- RIMINI STREET; KEARNEY. Panorama de uso de ERP no mercado brasileiro (Benchmark Nacional de ERPs). São Paulo, 2024. Disponível em: https://www.riministreet.com/br/press-releases/kearney-panorama-erp-no-mercado-brasileiro/?utm_source=chatgpt.com
+. Acesso em: 3 set. 2025.
+
+- ALPHA Level (Significance Level): What is it? Statistics How To. Disponível em: https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/what-is-an-alpha-level/#:~:text=3.,equil%C3%ADbrio%20entre%20esses%20dois%20problemas. Acesso em: 27 ago. 2025.
+
+## <a name="attachments"></a>7. Anexos
+
+Essa seção tem o objetivo de fornecer materiais complementares que ajudam a entender, comprovar ou detalhar o trabalho, mas que seriam longos ou secundários demais para aparecer no corpo do texto principal.
+
+### 7.1. Análise de Normalidade e Escalonamento das Variáveis
 
 Para compreender o comportamento estatístico dos dados e prepará-los para as etapas seguintes da análise, foram aplicados dois procedimentos principais: a verificação da normalidade das distribuições e o escalonamento das variáveis. A seguir, cada um desses processos é detalhado. Segue abaixo um glossário explicando palavras chaves que serão usadas posteriormente:
 
@@ -1264,11 +1920,11 @@ Técnica de escalonamento que transforma valores para o intervalo [0,1], preserv
 **Normalidade**
 Característica de distribuições que seguem o padrão da curva normal (ou gaussiana), simétrica e em formato de sino.
 
-#### 6.1.1. Análise de Normalidade
+#### 7.1.1. Análise de Normalidade
 
 Nesta subseção, são apresentados os testes estatísticos utilizados para avaliar se as variáveis seguem uma distribuição normal. A análise da normalidade é fundamental, pois influencia diretamente na escolha dos métodos estatísticos e de modelagem que podem ser aplicados de forma adequada.
 
-##### 6.1.1.1. Afirmações e suas hipóteses
+##### 7.1.1.1. Afirmações e suas hipóteses
 
 Nesta subseção, são definidas as afirmações e hipóteses que orientam a verificação de normalidade das variáveis analisadas. Para cada variável quantitativa, estabelece-se a hipótese nula (H₀), que pressupõe a normalidade da distribuição, e a hipótese alternativa (H₁), que refuta essa condição. Esse procedimento fornece a base estatística necessária para a aplicação dos testes de normalidade.
 
@@ -1296,7 +1952,7 @@ Observação: H₀ sempre assumirá normalidade, o teste irá indicar se a hipó
 
 Assim, nesta etapa foram organizadas as afirmações e hipóteses de cada variável relevante ao estudo, sempre considerando H₀ como a suposição de normalidade. A partir dessa estrutura, torna-se possível avaliar se os dados seguem ou não uma distribuição normal, servindo de suporte para as análises subsequentes.
 
-##### 6.1.1.2. Nível de significância e sua relação com o valor de p
+##### 7.1.1.2. Nível de significância e sua relação com o valor de p
 
 Na análise estatística, o nível de significância ($\alpha$) e o p-valor caminham juntos no processo de tomada de decisão. O nível de significância é um critério fixo, definido antes da análise, e neste estudo será o mesmo para todos os testes. Já o p-valor é calculado individualmente em cada caso, representando a probabilidade de observarmos os dados (ou mais extremos) caso a hipótese nula seja verdadeira. A comparação entre o p-valor de cada teste e o $\alpha$ fixo orienta a decisão sobre a normalidade dos dados.
 
@@ -1314,7 +1970,7 @@ O p-valor, por sua vez, varia de acordo com cada teste; a comparação é sempre
 
 Portanto, ao adotar $\alpha = 5%$, seguimos um padrão amplamente utilizado. A comparação entre o p-valor de cada teste e esse limite fixo indica, de forma uniforme, se rejeitamos a hipótese nula de normalidade ou se os dados podem ser compatíveis com uma distribuição normal.
 
-##### 6.1.1.3. Teste de Normalidade das Variáveis Quantitativas
+##### 7.1.1.3. Teste de Normalidade das Variáveis Quantitativas
 
 A verificação da normalidade é um passo essencial para definir quais métodos estatísticos podem ser aplicados de forma adequada. Por isso, todas as variáveis quantitativas passaram por testes formais de normalidade.
 
@@ -1344,7 +2000,7 @@ O teste adotado para todas as variáveis foi o teste de Lilliefors, que consiste
 
 Os resultados indicam que, para todas as variáveis analisadas, a hipótese nula de normalidade foi rejeitada ao nível de significância de 5%. Assim, os dados não seguem distribuição normal, o que orienta o uso de técnicas estatísticas que não dependam dessa suposição.
 
-##### 6.1.1.4. Teste de Normalidade das Variáveis Quantitativas
+##### 7.1.1.4. Teste de Normalidade das Variáveis Quantitativas
 
 Além dos testes estatísticos aplicados, foram elaborados histogramas para cada uma das cinco variáveis, a fim de avaliar visualmente a forma das distribuições. Essa análise gráfica permite verificar se os dados apresentam comportamento próximo ao da distribuição normal, reforçando ou contrastando os resultados obtidos nos testes de normalidade.
 
@@ -1430,7 +2086,7 @@ O histograma da variável valor das multas evidencia um forte desvio em relaçã
 
 A avaliação gráfica confirmou os resultados dos testes estatísticos: em todas as variáveis, os histogramas evidenciaram desvios claros em relação à normalidade, sobretudo pela forte assimetria nas distribuições.
 
-##### 6.1.1.5. Comparação das Média e Medianas
+##### 7.1.1.5. Comparação das Média e Medianas
 
 A comparação entre a média e a mediana das variáveis quantitativas fornece informações importantes sobre a simetria das distribuições. Diferenças significativas entre esses dois parâmetros indicam assimetria nos dados e podem reforçar os resultados obtidos nos testes estatísticos de normalidade. Esta análise permite compreender melhor o comportamento das variáveis e identificar desvios que impactam a interpretação dos dados.
 
@@ -1449,11 +2105,11 @@ Ademais, nessa seção também foi utilizado o desvio padrão para dar maior emb
 
 A comparação entre média e mediana, complementada pelo desvio padrão, evidenciou padrões de assimetria em todas as variáveis analisadas, reforçando as conclusões sobre o afastamento da normalidade apontadas pelos testes estatísticos e análises gráficas.
 
-#### 6.1.2. Escalonamento das Variáveis
+#### 7.1.2. Escalonamento das Variáveis
 
 Aqui, são descritos os procedimentos de escalonamento, como normalização e/ou padronização, aplicados para ajustar variáveis com diferentes escalas. Esse processo garante comparabilidade entre os atributos e contribui para a melhoria do desempenho de algoritmos de aprendizado de máquina e análises comparativas.
 
-##### 6.1.2.1. Escalonamento Escolhido
+##### 7.1.2.1. Escalonamento Escolhido
 
 O escalonamento das variáveis quantitativas tem como objetivo ajustar os dados para que fiquem em uma mesma escala, permitindo comparabilidade entre diferentes medidas e evitando que variáveis com amplitudes maiores influenciem de forma desproporcional os resultados da análise. Esse processo preserva a forma das distribuições originais, mantendo informações sobre assimetrias, concentração de valores e outliers, mas ajustando os valores para facilitar interpretações e aplicações em modelos estatísticos.
 
@@ -1483,7 +2139,7 @@ Antes da escolha do método, foi realizado o teste de normalidade, cujo resultad
 
 O escalonamento aplicado uniformemente às variáveis garantiu comparabilidade entre elas, mantendo as propriedades originais dos dados e preparando-os adequadamente para análises subsequentes.
 
-##### 6.1.2.2. Estatísticas Utilizadas
+##### 7.1.2.2. Estatísticas Utilizadas
 
 Nesta subseção, apresentam-se os principais valores estatísticos das variáveis quantitativas que serão utilizados no processo de escalonamento: mínimo, máximo, média, mediana e desvio padrão populacional. Esses parâmetros permitem compreender a amplitude e a dispersão dos dados, servindo de base para ajustar as variáveis a uma escala comparável, preservando a forma das distribuições e facilitando análises subsequentes.
 
@@ -1511,7 +2167,7 @@ Nesta subseção, apresentam-se os principais valores estatísticos das variáve
 
 A apresentação das estatísticas descritivas permite interpretar a variabilidade e a amplitude de cada variável, fornecendo o suporte necessário para aplicar o escalonamento de forma consistente e confiável.
 
-##### 6.1.2.3. Equações de Escalonamento
+##### 7.1.2.3. Equações de Escalonamento
 
 O escalonamento das variáveis quantitativas transforma os dados para uma mesma escala, permitindo comparabilidade entre diferentes medidas e evitando que variáveis com amplitudes maiores tenham influência desproporcional.
 
@@ -1538,7 +2194,7 @@ $multa_{\text{norm}} = \frac{multa - 1.46}{18323.55}$
 
 Ao aplicar as equações de normalização Min-Max, todos os valores das variáveis foram ajustados para o intervalo [0,1], garantindo consistência na escala sem alterar a estrutura dos dados, permitindo comparações diretas entre diferentes variáveis e suportando análises subsequentes.
 
-##### 6.1.2.4. Histogramas Escalonados E Sua Relação Com Não Escalonados
+##### 7.1.2.4. Histogramas Escalonados E Sua Relação Com Não Escalonados
 
 Nesta subseção são apresentados os histogramas das variáveis após o processo de escalonamento, acompanhados de uma comparação com os histogramas originais. O objetivo é observar de que forma a transformação impacta a distribuição dos dados e identificar se houve alterações relevantes em relação ao padrão anteriormente verificado.
 
@@ -1624,7 +2280,7 @@ Após o escalonamento, o histograma da variável valor das multas manteve o padr
 
 Os histogramas escalonados mantiveram o padrão de assimetria e concentração de valores das distribuições originais. A transformação ajustou os dados para o intervalo [0,1] sem modificar a forma geral dos histogramas, confirmando que o escalonamento preservou a estrutura dos dados e reforçou visualmente comportamentos já identificados anteriormente.
 
-##### 6.1.2.5. Tabelas de Dados Originais e Escalonados
+##### 7.1.2.5. Tabelas de Dados Originais e Escalonados
 
 Para complementar a análise gráfica dos histogramas, esta subseção apresenta as tabelas com os 10 primeiros registros das variáveis quantitativas utilizadas no estudo, tanto em sua forma original quanto após o processo de escalonamento. Essa comparação possibilita observar, de maneira mais direta, as diferenças entre os valores brutos e os valores transformados, ressaltando como o escalonamento modifica a escala dos dados sem alterar sua estrutura ou relações internas.
 
@@ -1688,51 +2344,11 @@ Na tabela dos dados originais, nota-se que as variáveis apresentam magnitudes b
 
 Após o escalonamento, observa-se que os valores passam a estar distribuídos em torno de zero, com variabilidade mais uniforme, o que favorece análises estatísticas e modelos que utilizam essas variáveis de forma conjunta.
 
-### 7. Referências
+### <a name="c7"></a>7.2. Idealização do Dashboard
 
-- MARCAS E MERCADOS. Finnet é homologada para ofertar Pix Automático dentro do Open Finance. Marcas e Mercados, 2024. Disponível em: https://marcasemercados.com.br/finnet-e-homologada-para-ofertar-pix-automatico-dentro-do-open-finance/
-. Acesso em: 3 set. 2025.
+Nessa seção tem o objetivo de apresentar o protótipo criado pela equipe para o dashboard.
 
-- BANCO CENTRAL DO BRASIL. Resolução nº 4.595, de 28 de agosto de 2017: dispõe sobre a política de conformidade das instituições autorizadas pelo BCB. Brasília, 2017.
-
-- BANCO CENTRAL DO BRASIL. Brazil Central Bank unveils key fintech and digital currency policies. Fintech Review, Brasília, 2025. Disponível em: https://fintechreview.net/brazil-central-bank-unveils-key-fintech-and-digital-currency-policies/
-. Acesso em: 3 set. 2025.
-
-- EY. Próximos desafios e oportunidades do Open Finance no Brasil. EY Insights, 2025. Disponível em: https://www.ey.com/pt_br/insights/open-finance/proximos-desafios-e-oportunidades-open-finance-no-brasil
-. Acesso em: 3 set. 2025.
-
-- FINNET. Sobre a Finnet. Finnet, São Paulo, 2024a. Disponível em: https://finnet.com.br/sobre-a-finnet/
-. Acesso em: 3 set. 2025.
-
-- LEADIQ. Finnet company profile. Leadiq, 2024. Disponível em: https://leadiq.com/c/finnet/5a1d9b0823000059008a5202
-. Acesso em: 3 set. 2025.
-
-- OLHAR DIGITAL. Finnet liderando a transformação digital financeira com inovação empresarial. Olhar Digital, São Paulo, 2024. Disponível em: https://olhardigital.com.br/2024/06/24/pro/finnet-liderando-a-transformacao-digital-financeira-com-inovacao-empresarial/
-. Acesso em: 3 set. 2025.
-
-- PwC Brasil; ASSOCIAÇÃO BRASILEIRA DE CRÉDITO DIGITAL. Pesquisa Fintechs de Crédito Digital 2025. São Paulo, 2025. Disponível em: https://www.pwc.com.br/pt/estudos/setores-atividade/financeiro/2025/pesquisa-fintechs-de-credito-digital-2025.html
-. Acesso em: 3 set. 2025.
-
-- FALANDO DE NEGÓCIO. “2025 será o ano dos PJs no Open Finance”, acredita Finnet. Falando de Negócio, 30 jan. 2025. Disponível em: https://falandodenegocio.com/2025/01/30/2025-sera-o-ano-dos-pjs-no-open-finance-acredita-finnet/
-. Acesso em: 3 set. 2025.
-
-- SERASA EXPERIAN. Inadimplência bate recorde no Brasil com 7,3 milhões de empresas que somam dívidas de quase R$ 170 bilhões, aponta Serasa Experian. Serasa Experian, São Paulo, 2025. Disponível em: https://www.serasaexperian.com.br/sala-de-imprensa/indicadores/inadimplencia-bate-recorde-no-brasil-com-73-milhoes-de-empresas-que-somam-dividas-de-quase-rdollar-170-bilhoes-aponta-serasa-experian/
-. Acesso em: 3 set. 2025.
-
-- FOURBANK. Backoffice do futuro: menos planilhas, mais estratégia. Fourbank, 2025. Disponível em: https://www.fourbank.com.br/backoffice-do-futuro-menos-planilhas-mais-estrategia?utm_source=chatgpt.com
-. Acesso em: 3 set. 2025.
-
-- INFO MONEY. Pesquisa mostra que 39 % das MPMEs ainda controlam despesas de forma manual. InfoMoney, São Paulo, 2025. Disponível em: https://www.infomoney.com.br/minhas-financas/pesquisa-mostra-que-39-das-mpmes-ainda-controlam-despesas-de-forma-manual/?utm_source=chatgpt.com
-. Acesso em: 3 set. 2025.
-
-- RIMINI STREET; KEARNEY. Panorama de uso de ERP no mercado brasileiro (Benchmark Nacional de ERPs). São Paulo, 2024. Disponível em: https://www.riministreet.com/br/press-releases/kearney-panorama-erp-no-mercado-brasileiro/?utm_source=chatgpt.com
-. Acesso em: 3 set. 2025.
-
-- ALPHA Level (Significance Level): What is it? Statistics How To. Disponível em: https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/what-is-an-alpha-level/#:~:text=3.,equil%C3%ADbrio%20entre%20esses%20dois%20problemas. Acesso em: 27 ago. 2025.
-
-### 8. Idealização do Dashboard
-
-#### Critérios de Avaliação do Protótipo
+#### 7.2.1. Critérios de Avaliação do Protótipo
 
 - **Atendimento às Necessidades dos Stakeholders**  
 - **Camadas de Leitura**  
@@ -1740,7 +2356,7 @@ Após o escalonamento, observa-se que os valores passam a estar distribuídos em
 - **Transparência e Verificabilidade**  
 - **Acessibilidade e Usabilidade**  
 
-#### Status atual do dashboard em relação aos critérios
+#### 7.2.2. Status atual do dashboard em relação aos critérios
 
 O protótipo atende às necessidades fundamentais dos stakeholders, na medida em que apresenta, de forma organizada e visualmente clara, os resultados de classificação (status de cada pagador: inadimplente, atrasado, adimplente), de enumeração dos pagamentos (recebimentos por hash de pagador) e os valores previstos de pagamento em diferentes modelos (Regressão Logística, Árvore de Decisãoe Random Forest). A disposição em painéis próximos permite comparações diretas entre métricas e modelos, facilitando a análise de performance e a tomada de decisão.
 

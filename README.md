@@ -145,6 +145,26 @@ Seaborn
 
 Light gradient boosting machine
 
+Streamlit
+
+Pyngrok
+
+Subprocess
+
+json
+
+Inspect
+
+Xgboost
+
+Catboost
+
+Shap
+
+Pycaret
+
+Statsmodels
+
 **Git**
 
 Para clonar o repositório.
@@ -162,7 +182,9 @@ Permissões para leitura/escrita de diretórios.
 
 ```bash
 git clone https://github.com/Inteli-College/2025-2A-T18-IN03-G04.git
-cd 2025-2A-T18-IN03-G04
+```
+```bash
+source venv/bin/activate
 ```
 <br>
 2. Criar e ativar um ambiente virtual
@@ -173,29 +195,81 @@ No Linux/macOS:
 
 ```bash
 python3 -m venv venv
+```
+```bash
 source venv/bin/activate
 ```
 <br>
+
 No Windows:
 <br>
 
 ```bash
 python -m venv venv
+```
+```bash
 .\venv\Scripts\activate
 ```
 <br>
 
-3. Instalar Denpendências:
+3. Atualizar o pip e instalar pacotes essenciais
 <br>
 
 ```bash
-pip install streamlit pyngrok numpy pandas matplotlib seaborn plotly scikit-learn imbalanced-learn lightgbm xgboost catboost statsmodels scipy shap pycaret
+python -m pip install --upgrade pip setuptools wheel
+```
+<br>
+
+4. Instalar dependências do notebook
+<br>
+
+```bash
+pip install numpy==2.1.3 pandas==2.2.3 matplotlib==3.9.2 seaborn==0.13.2 plotly==5.24.1
+pip install scikit-learn==1.5.2 imbalanced-learn==0.12.3 statsmodels==0.14.4 scipy==1.14.1
+pip install xgboost==2.1.2 lightgbm==4.5.0 catboost==1.2.7 shap==0.46.0 pycaret==3.3.2
+pip install streamlit==1.39.0 pyngrok==7.2.1
+```
+<br>
+
+5. Instalar o Jupyter Notebook
+<br>
+
+```bash
+pip install notebook jupyterlab
+```
+<br>
+
+6. Abrir e executar o notebook
+<br>
+
+```bash
+jupyter notebook
+```
+<br>
+7. Navegue até o diretório do projeto e abra o arquivo:
+
+Exploração_de_Dados,_Pré_processamento_e_Levantamento_de_Hipóteses_The_Seven.ipynb
+
+<br>
+8. Executar as células
+
+Execute as células na ordem em que aparecem (Menu → Run → Run All ou Shift + Enter em cada célula).
+
+<br>
+9. Encerrar o ambiente virtual
+
+<br>
+
+```bash
+deactivate
 ```
 <br>
 
 **Colab**
 
 No uso de ferramentas como o Google Colab, é necessário salvar uma cópia do notebook no Google Drive do usuário. Caso contrário, as alterações realizadas no arquivo não serão preservadas.
+
+## Histórico de versões
 
 * **0.1.0 – 15/08/2025**  
   * [sprint 1] Entendimento do negócio e do usuário, com definição de personas e histórias de usuário.  

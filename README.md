@@ -37,24 +37,64 @@ A solução proposta busca mitigar o desafio representado pelo aumento da inadim
 
 ## 📁 Estrutura de pastas
 
-<br>
-├── assets/
-├── documents/
-        ├── extras/
-        ├── matematica/
-├── notebooks/
+```
+├── assets\
+│   ├── acessos_escalonado.png
+│   ├── acessosxboletos.png
+│   ├── CanvaValue.png
+│   ├── grafico-cidades.png
+│   ├── grafico-mes.png
+│   ├── hipotese-status-valor.png
+│   ├── hipoteses-acessos.png
+│   ├── hipoteses-dia-inclusao.png
+│   ├── hipoteses-dia-valor.png
+│   ├── hipoteses-meses.png
+│   ├── histograma_juros.png
+│   ├── histograma_multa.png
+│   ├── histograma_qtd_de_acessos.png
+│   ├── histograma_vl_boleto.png
+│   ├── histograma_vl_pagto.png
+│   ├── inteli.png
+│   ├── Jornada - Carlos Almeida.png
+│   ├── Jornada - Roberto Silveira.png
+│   ├── juros_escalonado.png
+│   ├── Matriz_de_risco.png
+│   ├── matrizConfusao.png
+│   ├── metricas_pClasse.png
+│   ├── metricas.png
+│   ├── multa_escalonada.png
+│   ├── Oportunidades.png
+│   ├── persona TI.png
+│   ├── persona_finnet.png
+│   ├── Persona_Jurídica.png
+│   ├── personaFI.png
+│   ├── SWOT.png
+│   ├── valor_boleto_escalonado.png
+│   ├── valor_pago_escalonado.png
+│   └── vencimentoinclusao.png
+│
+├── grupo_registro_07_2024_06_2025_GF.csv
+├── grupo_registro_07_2024_06_2025_GL.csv
+├── grupo_registro_07_2024_06_2025_GM.csv
+├── grupo_registro_07_2024_06_2025_GP.csv
+├── grupo_registro_07_2024_06_2025_GT.csv
+├── grupo_registro_07_2024_06_2025_GV.csv
+├── grupo_registro_07_2024_06_2025_GW.csv
+│
+├── documents\
+│   ├── extras\
+│   ├── matematica\
+│   │   └── dados_e_contas.ipynb
+│   └── documentacao.md
+│
+├── notebooks\
+│   └── exploracao_dados_preprocessamento_hipoteses_the_seven.ipynb
+│
 ├── .gitattributes
 ├── .gitignore
-├── CanvaValue.png
-├── README.md
-├── Arquivo A.csv
-├── Arquivo B.csv
-├── Arquivo C.csv
-├── Arquivo D.csv
-├── Arquivo E.csv
-├── Arquivo F.csv
-└── Arquivo G.csv
-<br>
+└── README.md
+```
+
 ### Descrição das pastas por escrito:
 <br>
 README.md: arquivo principal de documentação do repositório, serve como guia inicial explicando os objetivos, organização e instruções de uso do projeto.
@@ -74,7 +114,7 @@ CanvaValue.png: imagem armazenada na raiz do projeto, provavelmente um recurso g
 Arquivos.csv: arquivos que contêm os dados de treinamento e teste do modelo preditivo desenvolvido no projeto.
 <br>
 
-## 💻 Execução dos projetos
+## 💻 Execução do projeto
 
 🚀 Requisitos
 
@@ -105,6 +145,26 @@ Seaborn
 
 Light gradient boosting machine
 
+Streamlit
+
+Pyngrok
+
+Subprocess
+
+json
+
+Inspect
+
+Xgboost
+
+Catboost
+
+Shap
+
+Pycaret
+
+Statsmodels
+
 **Git**
 
 Para clonar o repositório.
@@ -122,6 +182,8 @@ Permissões para leitura/escrita de diretórios.
 
 ```bash
 git clone https://github.com/Inteli-College/2025-2A-T18-IN03-G04.git
+```
+```bash
 cd 2025-2A-T18-IN03-G04
 ```
 <br>
@@ -133,23 +195,73 @@ No Linux/macOS:
 
 ```bash
 python3 -m venv venv
+```
+```bash
 source venv/bin/activate
 ```
 <br>
+
 No Windows:
 <br>
 
 ```bash
 python -m venv venv
+```
+```bash
 .\venv\Scripts\activate
 ```
 <br>
 
-3. Instalar Denpendências:
+3. Atualizar o pip e instalar pacotes essenciais
 <br>
 
 ```bash
-pip install pandas numpy scikit-learn seaborn matplotlib lightgbm
+python -m pip install --upgrade pip setuptools wheel
+```
+<br>
+
+4. Instalar dependências do notebook
+<br>
+
+```bash
+pip install numpy==2.1.3 pandas==2.2.3 matplotlib==3.9.2 seaborn==0.13.2 plotly==5.24.1
+pip install scikit-learn==1.5.2 imbalanced-learn==0.12.3 statsmodels==0.14.4 scipy==1.14.1
+pip install xgboost==2.1.2 lightgbm==4.5.0 catboost==1.2.7 shap==0.46.0 pycaret==3.3.2
+pip install streamlit==1.39.0 pyngrok==7.2.1
+```
+<br>
+
+5. Instalar o Jupyter Notebook
+<br>
+
+```bash
+pip install notebook jupyterlab
+```
+<br>
+
+6. Abrir e executar o notebook
+<br>
+
+```bash
+jupyter notebook
+```
+<br>
+7. Navegue até o diretório do projeto e abra o arquivo:
+
+Exploração_de_Dados,_Pré_processamento_e_Levantamento_de_Hipóteses_The_Seven.ipynb
+
+<br>
+8. Executar as células
+
+Execute as células na ordem em que aparecem (Menu → Run → Run All ou Shift + Enter em cada célula).
+
+<br>
+9. Encerrar o ambiente virtual
+
+<br>
+
+```bash
+deactivate
 ```
 <br>
 
@@ -159,17 +271,21 @@ No uso de ferramentas como o Google Colab, é necessário salvar uma cópia do n
 
 ## 🗃 Histórico de lançamentos
 
-* 0.1.3 - 16/08/2024
-    * [sprint 1] Documentação de entendimento do negócio
-* 0.2.7 - 30/08/2024
-    * [sprint 2] Análise exploratória e levantamento de hipóteses
-* 0.3.1 - 13/09/2024
-    * [sprint 3] Preparação de dados e modelo preditivo preliminar
-* 0.6.0 - 27/09/2024
-    * [sprint 4] Comparação de modelos preditivos
-* 1.0.0 - 11/10/2024
-    * [sprint 5] Lançamento da primeira versão do modelo preditivo com documentação.
+* **0.1.0 – 15/08/2025**  
+  * [sprint 1] Entendimento do negócio e do usuário, com definição de personas e histórias de usuário.  
+
+* **0.2.0 – 29/08/2025**  
+  * [sprint 2] Mapeamento da jornada do usuário e tratamento de dados.  
+
+* **0.3.0 – 12/09/2025**  
+  * [sprint 3] Desenvolvimento do modelo preditivo inicial.  
+
+* **0.4.0 – 26/09/2025**  
+  * [sprint 4] Comparação e aprimoramento dos modelos e implementação de testes.  
+
+* **0.5.0 – 09/10/2025**  
+  * [sprint 5] Lançamento da versão final do sistema.
 
 ## 📋 Licença/License
 
-<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.dev/Intelihub/Template_M3">MODELO GIT INTELI</a> by Inteli is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.</p>
+<a href="https://github.com/Inteli-College/2025-2A-T18-IN03-G04">PayBack</a> © 2025 by <a href="https://github.com/Inteli-College/2025-2A-T18-IN03-G04">INTELI, Christian de Carvalho Lawrence, Isaac Souza Santos, Jaime Andrade de Almeida, João Pedro Gonçalves Corrêa Araujo, Mike Buchsenspaner, Vinícius Rangel Marques, Yan de Oliveira Ribeiro</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="max-width: 1em;max-height:1em;margin-left: .2em;">

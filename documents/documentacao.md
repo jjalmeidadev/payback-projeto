@@ -1,13 +1,6 @@
 # Documentação Modelo Preditivo - Inteli
 
-```
-INSTRUÇÕES GERAIS (remova este trecho ao final)
-
-Você deve editar este documento utilizando notação markdown - siga as convenções neste link
-https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
-```
-
-## Nome da Solução
+## PayBack
 
 ### The Seven
 
@@ -36,6 +29,8 @@ https://docs.github.com/en/get-started/writing-on-github/getting-started-with-wr
 [6. Referências](#c6)
 
 [Anexos](#attachments)
+
+[7. Idealização do Dashboard](#c7)
 
 ## <a name="c1"></a>1. Introdução
 
@@ -591,11 +586,11 @@ Uma das oportunidades identificadas como Alta probabilidade / Alto impacto foi a
 
 ##### Modelo de Política de Privacidade:
 
-Projeto [NOME DO PROJETO]
+Projeto: PayBack
 
 ##### Informações Gerais
 
-&nbsp;&nbsp;&nbsp;&nbsp; Esta política de privacidade informa como o projeto **[NOME DO PROJETO]**, desenvolvido pelo grupo The Seven, trata os dados pessoais coletados durante o uso da solução. Está em conformidade com a Lei nº 13.709/2018 – LGPD.
+&nbsp;&nbsp;&nbsp;&nbsp; Esta política de privacidade informa como o projeto **PayBack**, desenvolvido pelo grupo The Seven, trata os dados pessoais coletados durante o uso da solução. Está em conformidade com a Lei nº 13.709/2018 – LGPD.
 
 ##### Dados Coletados
 
@@ -1158,12 +1153,81 @@ Foram gerados diversos gráficos para explorar as relações entre as variáveis
 
 ### 4.3.3 Modelo de Previsão de Recebimentos
 
+O modelo preditivo de **Regressão Logística Simples** tem como objetivo estimar a probabilidade de um boleto ser pago integralmente ou não, classificando-o entre as categorias “pago” e “não pago”. Esse modelo é baseado em aprendizado supervisionado, sendo, portanto, um problema de **classificação binária**.
+
 #### 4.3.3.1 Features Escolhidas
+
+A seguir estão as variáveis consideradas mais relevantes para estimar a chance de pagamento:
+
+**Variável Y (alvo):**
+
+A variável alvo é binária e indica se o boleto foi pago ou não. Assim, $y=1$ representa um boleto pago integralmente, e $y=0$ representa um boleto não pago ou parcialmente pago. Essa variável foi criada com base no valor original (vl_boleto) e no valor efetivamente pago (vl_pagto).
+
+**Variáveis X (features):**
+
+As variáveis independentes escolhidas para o modelo são:
+
+- Valor do boleto normalizado (vl_boleto): representa o valor original do boleto. Essa feature é essencial, pois boletos de valores mais altos tendem a apresentar maior risco de não pagamento.
+
+- Valor efetivamente pago (vl_pagto): indica o valor pago pelo cliente. Essa variável é utilizada para identificar padrões de quitação e contribuir na estimativa da probabilidade de pagamento integral.
+
+Essas duas features foram selecionadas por apresentarem alta correlação com o status final de pagamento e pela simplicidade na interpretação dos coeficientes resultantes do modelo.
 
 #### 4.3.3.2 Criação do Modelo 
 
+**Divisão dos Dados entre X e Y**
+
+Inicialmente, as colunas vl_boleto e vl_pagto foram selecionadas como variáveis independentes (X), enquanto a coluna status_pagamento foi definida como variável alvo (Y). O conjunto de dados foi dividido em **80% para treino** e **20% para teste**, preservando o equilíbrio entre as classes através do parâmetro stratify para manter a representatividade de pagamentos e não pagamentos.
+
+**Padronização e Balanceamento**
+
+Como a distribuição entre boletos pagos e não pagos apresentava certo desbalanceamento, aplicou-se a configuração de balanceamento interno da regressão logística com o parâmetro class_weight='balanced'. Além disso, os dados foram padronizados para garantir que todas as variáveis tivessem a mesma escala, favorecendo a estabilidade numérica do modelo durante o processo de otimização.
+
+**Treinamento e Hiperparâmetros**
+
+O modelo foi implementado utilizando a classe LogisticRegression da biblioteca scikit-learn. Os principais hiperparâmetros configurados foram:
+
+- solver='sag': método de otimização eficiente para grandes bases e dados balanceados.
+
+- max_iter=1000: garante a convergência do modelo durante o ajuste dos coeficientes.
+
+- class_weight='balanced': ajusta o peso de cada classe com base na frequência dos rótulos, corrigindo o desequilíbrio entre exemplos de boletos pagos e não pagos.
+
+Durante o tuning, foram testadas variações de solvers e estratégias de balanceamento para maximizar a acurácia e a estabilidade do modelo.
+
 #### 4.3.3.3 Métricas e Testes
 
+Após o treinamento, o desempenho do modelo foi avaliado com base em métricas clássicas de classificação binária. As principais métricas obtidas foram:
+
+- Acurácia: 89,35%
+
+- ROC AUC: 91,97%
+
+- Precisão: 91%
+
+- Revocação: 91%
+
+Essas métricas indicam que o modelo apresenta alto poder discriminativo, com capacidade significativa de distinguir entre boletos pagos e não pagos.
+
+A análise detalhada dos resultados revelou que a regressão logística conseguiu capturar bem o padrão linear entre o valor do boleto e o valor pago, o que reforça a adequação do modelo para problemas de classificação simples com fronteiras lineares de decisão.
+
+#### 4.3.3.4 Insterpretação dos resultados
+
+A **regressão logística** permite interpretar diretamente o impacto de cada variável sobre a probabilidade de pagamento. O sinal e a magnitude dos coeficientes indicam se uma feature aumenta ou reduz a chance de um boleto ser quitado.
+
+- Valores mais altos de vl_boleto tendem a reduzir a probabilidade de pagamento (coeficiente negativo).
+
+- Valores mais altos de vl_pagto estão positivamente correlacionados com o pagamento integral (coeficiente positivo).
+
+Essa transparência interpretativa facilita a compreensão de padrões de inadimplência e pode ser usada para definir políticas de cobrança mais assertivas.
+
+#### 4.3.3.5 Conclusão
+
+O modelo de **Regressão Logística Simples** demonstrou bom desempenho geral, evidenciando que é capaz de prever corretamente a maioria dos casos de pagamento.
+
+Embora o modelo seja simples, sua interpretação clara e resultados consistentes o tornam adequado para aplicações que exigem explicabilidade, como a previsão do fluxo de caixa.
+
+Como próximos passos para o modelo, definimos explorar novas features comportamentais e temporais que possam aprimorar a capacidade preditiva, realizar ajuste fino de hiperparâmetros para reduzir erros de classificação em casos limítrofes e avaliar modelos não lineares (como árvores de decisão ou ensembles) para capturar relações mais complexas entre variáveis.
 
 ### 4.4. Comparação de Modelos
 
@@ -1180,16 +1244,16 @@ Esse modelo tem como objetivo classificar os pagamentos em três categorias:
 
 Devido à natureza do problema, as métricas utilizadas para avaliação desse modelo são mais específicas e exigem uma análise detalhada. Para isso, utiliza-se a matriz de confusão como base para a escolha e interpretação dos resultados.
 
-##### 4.4.1.A Inadimplente
+##### 4.4.1.1 Inadimplente
 
 Caso um pagador inadimplente seja erroneamente classificado como adimplente, a empresa pode acabar aprovando uma compra que não será paga. Por esse motivo, a revocação (recall) é a métrica mais importante para essa categoria.
 A revocação corresponde à razão entre os verdadeiros positivos e a soma dos verdadeiros positivos com os falsos negativos, ou seja, o número de inadimplentes corretamente identificados pelo sistema em relação ao total de inadimplentes existentes.
 
-##### 4.4.1.B Em dia
+##### 4.4.1.2 Em dia
 
 Nesta categoria, os boletos classificados como “em dia” tendem a ter suas compras aprovadas. Assim, erros de classificação podem fazer com que boletos de pagadores inadimplentes sejam emitidos e não pagos. Por isso, a métrica mais relevante é a precisão (precision), que corresponde à razão entre os verdadeiros positivos e a soma dos verdadeiros positivos com os falsos positivos, ou seja, o número de pagamentos corretamente classificados como “em dia” em relação ao total de pagamentos previstos como “em dia”.
 
-##### 4.4.1.C Em atraso
+##### 4.4.1.3 Em atraso
 
 A lógica de classificação para pagamentos em atraso segue o mesmo raciocínio da categoria “em dia”. Erros nesse caso também podem fazer com que boletos de inadimplentes tenham suas compras aprovadas. Dessa forma, a métrica mais apropriada é novamente a precisão (precision), que mede a proporção de boletos corretamente identificados como pagos com atraso em relação ao total de boletos classificados como pagamento em atraso.
 
@@ -1763,14 +1827,51 @@ Por fim, é importante que o uso dos modelos preditivos seja conduzido de forma 
 
 ## <a name="c6"></a>6. Referências
 
-## <a name="attachments"></a>Anexos
+- MARCAS E MERCADOS. Finnet é homologada para ofertar Pix Automático dentro do Open Finance. Marcas e Mercados, 2024. Disponível em: https://marcasemercados.com.br/finnet-e-homologada-para-ofertar-pix-automatico-dentro-do-open-finance/
+. Acesso em: 3 set. 2025.
 
-```
-Utilize esta seção para anexar materiais como manuais de usuário, documentos complementares que ficaram grandes e não couberam no corpo do texto etc.
+- BANCO CENTRAL DO BRASIL. Resolução nº 4.595, de 28 de agosto de 2017: dispõe sobre a política de conformidade das instituições autorizadas pelo BCB. Brasília, 2017.
 
-Remova este bloco ao final
-```
-### 6.1. Análise de Normalidade e Escalonamento das Variáveis
+- BANCO CENTRAL DO BRASIL. Brazil Central Bank unveils key fintech and digital currency policies. Fintech Review, Brasília, 2025. Disponível em: https://fintechreview.net/brazil-central-bank-unveils-key-fintech-and-digital-currency-policies/
+. Acesso em: 3 set. 2025.
+
+- EY. Próximos desafios e oportunidades do Open Finance no Brasil. EY Insights, 2025. Disponível em: https://www.ey.com/pt_br/insights/open-finance/proximos-desafios-e-oportunidades-open-finance-no-brasil
+. Acesso em: 3 set. 2025.
+
+- FINNET. Sobre a Finnet. Finnet, São Paulo, 2024a. Disponível em: https://finnet.com.br/sobre-a-finnet/
+. Acesso em: 3 set. 2025.
+
+- LEADIQ. Finnet company profile. Leadiq, 2024. Disponível em: https://leadiq.com/c/finnet/5a1d9b0823000059008a5202
+. Acesso em: 3 set. 2025.
+
+- OLHAR DIGITAL. Finnet liderando a transformação digital financeira com inovação empresarial. Olhar Digital, São Paulo, 2024. Disponível em: https://olhardigital.com.br/2024/06/24/pro/finnet-liderando-a-transformacao-digital-financeira-com-inovacao-empresarial/
+. Acesso em: 3 set. 2025.
+
+- PwC Brasil; ASSOCIAÇÃO BRASILEIRA DE CRÉDITO DIGITAL. Pesquisa Fintechs de Crédito Digital 2025. São Paulo, 2025. Disponível em: https://www.pwc.com.br/pt/estudos/setores-atividade/financeiro/2025/pesquisa-fintechs-de-credito-digital-2025.html
+. Acesso em: 3 set. 2025.
+
+- FALANDO DE NEGÓCIO. “2025 será o ano dos PJs no Open Finance”, acredita Finnet. Falando de Negócio, 30 jan. 2025. Disponível em: https://falandodenegocio.com/2025/01/30/2025-sera-o-ano-dos-pjs-no-open-finance-acredita-finnet/
+. Acesso em: 3 set. 2025.
+
+- SERASA EXPERIAN. Inadimplência bate recorde no Brasil com 7,3 milhões de empresas que somam dívidas de quase R$ 170 bilhões, aponta Serasa Experian. Serasa Experian, São Paulo, 2025. Disponível em: https://www.serasaexperian.com.br/sala-de-imprensa/indicadores/inadimplencia-bate-recorde-no-brasil-com-73-milhoes-de-empresas-que-somam-dividas-de-quase-rdollar-170-bilhoes-aponta-serasa-experian/
+. Acesso em: 3 set. 2025.
+
+- FOURBANK. Backoffice do futuro: menos planilhas, mais estratégia. Fourbank, 2025. Disponível em: https://www.fourbank.com.br/backoffice-do-futuro-menos-planilhas-mais-estrategia?utm_source=chatgpt.com
+. Acesso em: 3 set. 2025.
+
+- INFO MONEY. Pesquisa mostra que 39 % das MPMEs ainda controlam despesas de forma manual. InfoMoney, São Paulo, 2025. Disponível em: https://www.infomoney.com.br/minhas-financas/pesquisa-mostra-que-39-das-mpmes-ainda-controlam-despesas-de-forma-manual/?utm_source=chatgpt.com
+. Acesso em: 3 set. 2025.
+
+- RIMINI STREET; KEARNEY. Panorama de uso de ERP no mercado brasileiro (Benchmark Nacional de ERPs). São Paulo, 2024. Disponível em: https://www.riministreet.com/br/press-releases/kearney-panorama-erp-no-mercado-brasileiro/?utm_source=chatgpt.com
+. Acesso em: 3 set. 2025.
+
+- ALPHA Level (Significance Level): What is it? Statistics How To. Disponível em: https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/what-is-an-alpha-level/#:~:text=3.,equil%C3%ADbrio%20entre%20esses%20dois%20problemas. Acesso em: 27 ago. 2025.
+
+## <a name="attachments"></a>7. Anexos
+
+Essa seção tem o objetivo de fornecer materiais complementares que ajudam a entender, comprovar ou detalhar o trabalho, mas que seriam longos ou secundários demais para aparecer no corpo do texto principal.
+
+### 7.1. Análise de Normalidade e Escalonamento das Variáveis
 
 Para compreender o comportamento estatístico dos dados e prepará-los para as etapas seguintes da análise, foram aplicados dois procedimentos principais: a verificação da normalidade das distribuições e o escalonamento das variáveis. A seguir, cada um desses processos é detalhado. Segue abaixo um glossário explicando palavras chaves que serão usadas posteriormente:
 
@@ -1819,11 +1920,11 @@ Técnica de escalonamento que transforma valores para o intervalo [0,1], preserv
 **Normalidade**
 Característica de distribuições que seguem o padrão da curva normal (ou gaussiana), simétrica e em formato de sino.
 
-#### 6.1.1. Análise de Normalidade
+#### 7.1.1. Análise de Normalidade
 
 Nesta subseção, são apresentados os testes estatísticos utilizados para avaliar se as variáveis seguem uma distribuição normal. A análise da normalidade é fundamental, pois influencia diretamente na escolha dos métodos estatísticos e de modelagem que podem ser aplicados de forma adequada.
 
-##### 6.1.1.1. Afirmações e suas hipóteses
+##### 7.1.1.1. Afirmações e suas hipóteses
 
 Nesta subseção, são definidas as afirmações e hipóteses que orientam a verificação de normalidade das variáveis analisadas. Para cada variável quantitativa, estabelece-se a hipótese nula (H₀), que pressupõe a normalidade da distribuição, e a hipótese alternativa (H₁), que refuta essa condição. Esse procedimento fornece a base estatística necessária para a aplicação dos testes de normalidade.
 
@@ -1851,7 +1952,7 @@ Observação: H₀ sempre assumirá normalidade, o teste irá indicar se a hipó
 
 Assim, nesta etapa foram organizadas as afirmações e hipóteses de cada variável relevante ao estudo, sempre considerando H₀ como a suposição de normalidade. A partir dessa estrutura, torna-se possível avaliar se os dados seguem ou não uma distribuição normal, servindo de suporte para as análises subsequentes.
 
-##### 6.1.1.2. Nível de significância e sua relação com o valor de p
+##### 7.1.1.2. Nível de significância e sua relação com o valor de p
 
 Na análise estatística, o nível de significância ($\alpha$) e o p-valor caminham juntos no processo de tomada de decisão. O nível de significância é um critério fixo, definido antes da análise, e neste estudo será o mesmo para todos os testes. Já o p-valor é calculado individualmente em cada caso, representando a probabilidade de observarmos os dados (ou mais extremos) caso a hipótese nula seja verdadeira. A comparação entre o p-valor de cada teste e o $\alpha$ fixo orienta a decisão sobre a normalidade dos dados.
 
@@ -1869,7 +1970,7 @@ O p-valor, por sua vez, varia de acordo com cada teste; a comparação é sempre
 
 Portanto, ao adotar $\alpha = 5%$, seguimos um padrão amplamente utilizado. A comparação entre o p-valor de cada teste e esse limite fixo indica, de forma uniforme, se rejeitamos a hipótese nula de normalidade ou se os dados podem ser compatíveis com uma distribuição normal.
 
-##### 6.1.1.3. Teste de Normalidade das Variáveis Quantitativas
+##### 7.1.1.3. Teste de Normalidade das Variáveis Quantitativas
 
 A verificação da normalidade é um passo essencial para definir quais métodos estatísticos podem ser aplicados de forma adequada. Por isso, todas as variáveis quantitativas passaram por testes formais de normalidade.
 
@@ -1899,7 +2000,7 @@ O teste adotado para todas as variáveis foi o teste de Lilliefors, que consiste
 
 Os resultados indicam que, para todas as variáveis analisadas, a hipótese nula de normalidade foi rejeitada ao nível de significância de 5%. Assim, os dados não seguem distribuição normal, o que orienta o uso de técnicas estatísticas que não dependam dessa suposição.
 
-##### 6.1.1.4. Teste de Normalidade das Variáveis Quantitativas
+##### 7.1.1.4. Teste de Normalidade das Variáveis Quantitativas
 
 Além dos testes estatísticos aplicados, foram elaborados histogramas para cada uma das cinco variáveis, a fim de avaliar visualmente a forma das distribuições. Essa análise gráfica permite verificar se os dados apresentam comportamento próximo ao da distribuição normal, reforçando ou contrastando os resultados obtidos nos testes de normalidade.
 
@@ -1985,7 +2086,7 @@ O histograma da variável valor das multas evidencia um forte desvio em relaçã
 
 A avaliação gráfica confirmou os resultados dos testes estatísticos: em todas as variáveis, os histogramas evidenciaram desvios claros em relação à normalidade, sobretudo pela forte assimetria nas distribuições.
 
-##### 6.1.1.5. Comparação das Média e Medianas
+##### 7.1.1.5. Comparação das Média e Medianas
 
 A comparação entre a média e a mediana das variáveis quantitativas fornece informações importantes sobre a simetria das distribuições. Diferenças significativas entre esses dois parâmetros indicam assimetria nos dados e podem reforçar os resultados obtidos nos testes estatísticos de normalidade. Esta análise permite compreender melhor o comportamento das variáveis e identificar desvios que impactam a interpretação dos dados.
 
@@ -2004,11 +2105,11 @@ Ademais, nessa seção também foi utilizado o desvio padrão para dar maior emb
 
 A comparação entre média e mediana, complementada pelo desvio padrão, evidenciou padrões de assimetria em todas as variáveis analisadas, reforçando as conclusões sobre o afastamento da normalidade apontadas pelos testes estatísticos e análises gráficas.
 
-#### 6.1.2. Escalonamento das Variáveis
+#### 7.1.2. Escalonamento das Variáveis
 
 Aqui, são descritos os procedimentos de escalonamento, como normalização e/ou padronização, aplicados para ajustar variáveis com diferentes escalas. Esse processo garante comparabilidade entre os atributos e contribui para a melhoria do desempenho de algoritmos de aprendizado de máquina e análises comparativas.
 
-##### 6.1.2.1. Escalonamento Escolhido
+##### 7.1.2.1. Escalonamento Escolhido
 
 O escalonamento das variáveis quantitativas tem como objetivo ajustar os dados para que fiquem em uma mesma escala, permitindo comparabilidade entre diferentes medidas e evitando que variáveis com amplitudes maiores influenciem de forma desproporcional os resultados da análise. Esse processo preserva a forma das distribuições originais, mantendo informações sobre assimetrias, concentração de valores e outliers, mas ajustando os valores para facilitar interpretações e aplicações em modelos estatísticos.
 
@@ -2038,7 +2139,7 @@ Antes da escolha do método, foi realizado o teste de normalidade, cujo resultad
 
 O escalonamento aplicado uniformemente às variáveis garantiu comparabilidade entre elas, mantendo as propriedades originais dos dados e preparando-os adequadamente para análises subsequentes.
 
-##### 6.1.2.2. Estatísticas Utilizadas
+##### 7.1.2.2. Estatísticas Utilizadas
 
 Nesta subseção, apresentam-se os principais valores estatísticos das variáveis quantitativas que serão utilizados no processo de escalonamento: mínimo, máximo, média, mediana e desvio padrão populacional. Esses parâmetros permitem compreender a amplitude e a dispersão dos dados, servindo de base para ajustar as variáveis a uma escala comparável, preservando a forma das distribuições e facilitando análises subsequentes.
 
@@ -2066,7 +2167,7 @@ Nesta subseção, apresentam-se os principais valores estatísticos das variáve
 
 A apresentação das estatísticas descritivas permite interpretar a variabilidade e a amplitude de cada variável, fornecendo o suporte necessário para aplicar o escalonamento de forma consistente e confiável.
 
-##### 6.1.2.3. Equações de Escalonamento
+##### 7.1.2.3. Equações de Escalonamento
 
 O escalonamento das variáveis quantitativas transforma os dados para uma mesma escala, permitindo comparabilidade entre diferentes medidas e evitando que variáveis com amplitudes maiores tenham influência desproporcional.
 
@@ -2093,7 +2194,7 @@ $multa_{\text{norm}} = \frac{multa - 1.46}{18323.55}$
 
 Ao aplicar as equações de normalização Min-Max, todos os valores das variáveis foram ajustados para o intervalo [0,1], garantindo consistência na escala sem alterar a estrutura dos dados, permitindo comparações diretas entre diferentes variáveis e suportando análises subsequentes.
 
-##### 6.1.2.4. Histogramas Escalonados E Sua Relação Com Não Escalonados
+##### 7.1.2.4. Histogramas Escalonados E Sua Relação Com Não Escalonados
 
 Nesta subseção são apresentados os histogramas das variáveis após o processo de escalonamento, acompanhados de uma comparação com os histogramas originais. O objetivo é observar de que forma a transformação impacta a distribuição dos dados e identificar se houve alterações relevantes em relação ao padrão anteriormente verificado.
 
@@ -2179,7 +2280,7 @@ Após o escalonamento, o histograma da variável valor das multas manteve o padr
 
 Os histogramas escalonados mantiveram o padrão de assimetria e concentração de valores das distribuições originais. A transformação ajustou os dados para o intervalo [0,1] sem modificar a forma geral dos histogramas, confirmando que o escalonamento preservou a estrutura dos dados e reforçou visualmente comportamentos já identificados anteriormente.
 
-##### 6.1.2.5. Tabelas de Dados Originais e Escalonados
+##### 7.1.2.5. Tabelas de Dados Originais e Escalonados
 
 Para complementar a análise gráfica dos histogramas, esta subseção apresenta as tabelas com os 10 primeiros registros das variáveis quantitativas utilizadas no estudo, tanto em sua forma original quanto após o processo de escalonamento. Essa comparação possibilita observar, de maneira mais direta, as diferenças entre os valores brutos e os valores transformados, ressaltando como o escalonamento modifica a escala dos dados sem alterar sua estrutura ou relações internas.
 
@@ -2243,44 +2344,30 @@ Na tabela dos dados originais, nota-se que as variáveis apresentam magnitudes b
 
 Após o escalonamento, observa-se que os valores passam a estar distribuídos em torno de zero, com variabilidade mais uniforme, o que favorece análises estatísticas e modelos que utilizam essas variáveis de forma conjunta.
 
-### 7. Referências
+### <a name="c7"></a>7.2. Idealização do Dashboard
 
-- MARCAS E MERCADOS. Finnet é homologada para ofertar Pix Automático dentro do Open Finance. Marcas e Mercados, 2024. Disponível em: https://marcasemercados.com.br/finnet-e-homologada-para-ofertar-pix-automatico-dentro-do-open-finance/
-. Acesso em: 3 set. 2025.
+Nessa seção tem o objetivo de apresentar o protótipo criado pela equipe para o dashboard.
 
-- BANCO CENTRAL DO BRASIL. Resolução nº 4.595, de 28 de agosto de 2017: dispõe sobre a política de conformidade das instituições autorizadas pelo BCB. Brasília, 2017.
+#### 7.2.1. Critérios de Avaliação do Protótipo
 
-- BANCO CENTRAL DO BRASIL. Brazil Central Bank unveils key fintech and digital currency policies. Fintech Review, Brasília, 2025. Disponível em: https://fintechreview.net/brazil-central-bank-unveils-key-fintech-and-digital-currency-policies/
-. Acesso em: 3 set. 2025.
+- **Atendimento às Necessidades dos Stakeholders**  
+- **Camadas de Leitura**  
+- **Autoexplicatividade**  
+- **Transparência e Verificabilidade**  
+- **Acessibilidade e Usabilidade**  
 
-- EY. Próximos desafios e oportunidades do Open Finance no Brasil. EY Insights, 2025. Disponível em: https://www.ey.com/pt_br/insights/open-finance/proximos-desafios-e-oportunidades-open-finance-no-brasil
-. Acesso em: 3 set. 2025.
+#### 7.2.2. Status atual do dashboard em relação aos critérios
 
-- FINNET. Sobre a Finnet. Finnet, São Paulo, 2024a. Disponível em: https://finnet.com.br/sobre-a-finnet/
-. Acesso em: 3 set. 2025.
+O protótipo atende às necessidades fundamentais dos stakeholders, na medida em que apresenta, de forma organizada e visualmente clara, os resultados de classificação (status de cada pagador: inadimplente, atrasado, adimplente), de enumeração dos pagamentos (recebimentos por hash de pagador) e os valores previstos de pagamento em diferentes modelos (Regressão Logística, Árvore de Decisãoe Random Forest). A disposição em painéis próximos permite comparações diretas entre métricas e modelos, facilitando a análise de performance e a tomada de decisão.
 
-- LEADIQ. Finnet company profile. Leadiq, 2024. Disponível em: https://leadiq.com/c/finnet/5a1d9b0823000059008a5202
-. Acesso em: 3 set. 2025.
+Quanto às camadas de leitura, o dashboard entrega uma camada inicial de leitura rápida, por meio das métricas em destaque (Acurácia, Precisão, Recall, F1, MAE, RMSE), e uma camada intermediária mais detalhada com tabelas e gráficos de distribuição. Esse encadeamento permite que o stakeholder escolha o nível de detalhe desejado sem perder a visão geral.
 
-- OLHAR DIGITAL. Finnet liderando a transformação digital financeira com inovação empresarial. Olhar Digital, São Paulo, 2024. Disponível em: https://olhardigital.com.br/2024/06/24/pro/finnet-liderando-a-transformacao-digital-financeira-com-inovacao-empresarial/
-. Acesso em: 3 set. 2025.
+No quesito autoexplicatividade, cada seção contém título e legenda de gráficos claros, sendo possível compreender o conteúdo sem consultar documentação externa. 
 
-- PwC Brasil; ASSOCIAÇÃO BRASILEIRA DE CRÉDITO DIGITAL. Pesquisa Fintechs de Crédito Digital 2025. São Paulo, 2025. Disponível em: https://www.pwc.com.br/pt/estudos/setores-atividade/financeiro/2025/pesquisa-fintechs-de-credito-digital-2025.html
-. Acesso em: 3 set. 2025.
+Transparência e verificabilidade também estão presentes: os resultados apresentados são métricas clássicas e reproduzíveis de modelos preditivos, permitindo que outros analistas validem o desempenho se aplicarem os mesmos dados e modelos descritos. Além disso, a inclusão de múltiplos modelos dá ao stakeholder contexto para comparar resultados, no caso da solução da previsão de recebimentos.
 
-- FALANDO DE NEGÓCIO. “2025 será o ano dos PJs no Open Finance”, acredita Finnet. Falando de Negócio, 30 jan. 2025. Disponível em: https://falandodenegocio.com/2025/01/30/2025-sera-o-ano-dos-pjs-no-open-finance-acredita-finnet/
-. Acesso em: 3 set. 2025.
+Por fim, há atenção à acessibilidade, com uso de cores de bom contraste no tema escuro, tipografia legível, com gráficos podendo ser expandidos conforme necessidade. Poderiam ser adicionados mais recursos de acessibilidade, como descrição textual alternativa para gráficos ou opção de ajuste de tamanho de fonte para atender a WCAG de forma ainda mais robusta.
 
-- SERASA EXPERIAN. Inadimplência bate recorde no Brasil com 7,3 milhões de empresas que somam dívidas de quase R$ 170 bilhões, aponta Serasa Experian. Serasa Experian, São Paulo, 2025. Disponível em: https://www.serasaexperian.com.br/sala-de-imprensa/indicadores/inadimplencia-bate-recorde-no-brasil-com-73-milhoes-de-empresas-que-somam-dividas-de-quase-rdollar-170-bilhoes-aponta-serasa-experian/
-. Acesso em: 3 set. 2025.
+**Visual atualizado está disponível no seguinte link de figma:**
+https://www.figma.com/design/VaZoVXZszgxRyxCCdEW1BY/Ponderada-UX-Sem-8---Dashboard---Grupo-4-T18?node-id=0-1&t=8YMuHFIN3nXZGhup-1
 
-- FOURBANK. Backoffice do futuro: menos planilhas, mais estratégia. Fourbank, 2025. Disponível em: https://www.fourbank.com.br/backoffice-do-futuro-menos-planilhas-mais-estrategia?utm_source=chatgpt.com
-. Acesso em: 3 set. 2025.
-
-- INFO MONEY. Pesquisa mostra que 39 % das MPMEs ainda controlam despesas de forma manual. InfoMoney, São Paulo, 2025. Disponível em: https://www.infomoney.com.br/minhas-financas/pesquisa-mostra-que-39-das-mpmes-ainda-controlam-despesas-de-forma-manual/?utm_source=chatgpt.com
-. Acesso em: 3 set. 2025.
-
-- RIMINI STREET; KEARNEY. Panorama de uso de ERP no mercado brasileiro (Benchmark Nacional de ERPs). São Paulo, 2024. Disponível em: https://www.riministreet.com/br/press-releases/kearney-panorama-erp-no-mercado-brasileiro/?utm_source=chatgpt.com
-. Acesso em: 3 set. 2025.
-
-- ALPHA Level (Significance Level): What is it? Statistics How To. Disponível em: https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/what-is-an-alpha-level/#:~:text=3.,equil%C3%ADbrio%20entre%20esses%20dois%20problemas. Acesso em: 27 ago. 2025.

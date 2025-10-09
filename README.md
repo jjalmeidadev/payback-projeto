@@ -145,25 +145,9 @@ Seaborn
 
 Light gradient boosting machine
 
-Streamlit
-
-Pyngrok
-
-Subprocess
-
-json
-
-Inspect
-
-Xgboost
-
-Catboost
-
 Shap
 
 Pycaret
-
-Statsmodels
 
 **Git**
 
@@ -243,7 +227,7 @@ python -m pip install --upgrade pip setuptools wheel
 <br>
 
 ```bash
-pip install streamlit pyngrok numpy pandas matplotlib seaborn plotly scikit-learn==1.4.2 imbalanced-learn lightgbm xgboost catboost statsmodels scipy shap pycaret jupyter
+pip install numpy pandas matplotlib seaborn scikit-learn lightgbm shap pycaret jupyter
 ```
 <br>
 

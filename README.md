@@ -187,7 +187,23 @@ git clone https://github.com/Inteli-College/2025-2A-T18-IN03-G04.git
 cd 2025-2A-T18-IN03-G04
 ```
 <br>
-2. Criar e ativar um ambiente virtual
+
+2. Verificar a versão do Python
+<br>
+```bash
+python --version
+```
+<br>
+
+Se o resultado for diferente de 3.11, siga o próximo passo para instalar uma versão compatível
+<br>
+
+3. Instalar versão compatível do Python
+<br>
+Baixe o Python 3.11 [clicando aqui](https://www.python.org/downloads/release/python-3119/)
+<br>
+
+4. Criar e ativar um ambiente virtual
 
 <br>
 No Linux/macOS:
@@ -212,7 +228,7 @@ python -m venv venv
 ```
 <br>
 
-3. Atualizar o pip e instalar pacotes essenciais
+5. Atualizar ferramentas de instalação
 <br>
 
 ```bash
@@ -220,26 +236,15 @@ python -m pip install --upgrade pip setuptools wheel
 ```
 <br>
 
-4. Instalar dependências do notebook
+6. Instalar dependências do projeto
 <br>
 
 ```bash
-pip install numpy==2.1.3 pandas==2.2.3 matplotlib==3.9.2 seaborn==0.13.2 plotly==5.24.1
-pip install scikit-learn==1.5.2 imbalanced-learn==0.12.3 statsmodels==0.14.4 scipy==1.14.1
-pip install xgboost==2.1.2 lightgbm==4.5.0 catboost==1.2.7 shap==0.46.0 pycaret==3.3.2
-pip install streamlit==1.39.0 pyngrok==7.2.1
+pip install streamlit pyngrok numpy pandas matplotlib seaborn plotly scikit-learn==1.4.2 imbalanced-learn lightgbm xgboost catboost statsmodels scipy shap pycaret jupyter
 ```
 <br>
 
-5. Instalar o Jupyter Notebook
-<br>
-
-```bash
-pip install notebook jupyterlab
-```
-<br>
-
-6. Abrir e executar o notebook
+7. Abrir e executar o notebook
 <br>
 
 ```bash

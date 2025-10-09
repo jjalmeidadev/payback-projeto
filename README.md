@@ -183,6 +183,7 @@ Permissões para leitura/escrita de diretórios.
 ```bash
 git clone https://github.com/Inteli-College/2025-2A-T18-IN03-G04.git
 ```
+
 ```bash
 cd 2025-2A-T18-IN03-G04
 ```
@@ -190,19 +191,21 @@ cd 2025-2A-T18-IN03-G04
 
 2. Verificar a versão do Python
 <br>
+
 ```bash
 python --version
 ```
 <br>
 
 Se o resultado for diferente de 3.11, siga o próximo passo para instalar uma versão compatível
-<br>
 
 3. Instalar versão compatível do Python
+
 <br>
 Baixe o Python 3.11 [clicando aqui](https://www.python.org/downloads/release/python-3119/)
-<br>
 
+<br>
+<br>
 4. Criar e ativar um ambiente virtual
 
 <br>

@@ -184,7 +184,7 @@ Permissões para leitura/escrita de diretórios.
 git clone https://github.com/Inteli-College/2025-2A-T18-IN03-G04.git
 ```
 ```bash
-source venv/bin/activate
+cd 2025-2A-T18-IN03-G04
 ```
 <br>
 2. Criar e ativar um ambiente virtual
